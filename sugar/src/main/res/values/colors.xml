@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EF5350</color>
+    <color name="colorPrimaryDark">#F44336</color>
+    <color name="colorAccent">#EF9A9A</color>
+
+
+    <color name="colorFontGray">#FF727171</color>
+    <color name="colorLine">#FFE6E6E6</color>
+    <color name="white">#ffffff</color>
+    <color name="font_white">#ffffff</color>
+    <color name="transparent">@android:color/transparent</color>
+
+    <!-- 主副标题相关 -->
+    <color name="color_zero_level">#000000</color>
+    <color name="color_first_level">#333333</color>
+    <color name="color_second_level">#555555</color>
+    <color name="color_third_level">#999999</color>
+    <color name="color_fourth_level">#AAAAAA</color>
+    <color name="color_list_gray_background">#F3F3F3</color>
+
+    <color name="color_blue_foreground">#4394FF</color>
+    <color name="color_blue_background">#F1F7FF</color>
+    <color name="color_red_foreground">#FE5E3D</color>
+    <color name="color_red_background">#FFF6F4</color>
+    <color name="color_717171">#717171</color>
+
+
+    <!-- 补色 -->
+    <color name="color_second_level_supplement">#C8C8C8</color>
+    <color name="color_lowest_supplement">#333333</color>
+
+    <color name="color_007aff">#007aff</color>
+    <color name="font_black">#212121</color>
+    <color name="colorFontHint">#bbbbbb</color>
+
+    <color name="split_line_color">#F3F3F3</color>
+
+    <color name="color_app_red">#ff0018</color>
+    <color name="color_cccccc">#cccccc</color>
+    <color name="color_FFEBEB">#FFEBEB</color>
+    <color name="color_FFAF00">#FFAF00</color>
+
+    <color name="color_868691">#868691</color>
+    <color name="color_F40117">#F40117</color>
+    <color name="color_EEEEEE">#EEEEEE</color>
+    <color name="color_F74B31">#F74B31</color>
+    <color name="color_118EEA">#118EEA</color>
+    <color name="color_f3f3f3">#f3f3f3</color>
+    <color name="color_515151">#515151</color>
+
+
+
+
+</resources>

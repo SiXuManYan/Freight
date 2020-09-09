@@ -2,6 +2,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.jakewharton.butterknife'
+
+
+
 android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
@@ -31,6 +36,24 @@ android {
     }
 }
 
+androidExtensions {
+    // 替代 findViewById
+    experimental = true
+}
+
+
 dependencies {
+    api fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':sugar')
+
+    // butterknife 引入可以忽略，但是kapt 需要再次引用
+    kapt 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    // Dagger 2 支持 model使用时，使用R2 替代R
+//    implementation "com.google.dagger:dagger:2.19"
+//    implementation "com.google.dagger:dagger-android:2.19"
+//    implementation "com.google.dagger:dagger-android-support:2.19"
+    kapt "com.google.dagger:dagger-compiler:2.19"
+    kapt "com.google.dagger:dagger-android-processor:2.19"
+    kapt 'androidx.room:room-compiler:2.2.5'
 }
