@@ -7,7 +7,7 @@ import com.ftacloud.freightuser.frames.network.UrlUtil
 import com.ftacloud.freightuser.storage.CloudDataBase
 import com.ftacloud.freightuser.ui.app.CloudAccountApplication
 import com.google.gson.Gson
-import com.sugar.library.net.GsonConvertFactory
+import com.sugar.library.frames.network.GsonConvertFactory
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import dagger.Module

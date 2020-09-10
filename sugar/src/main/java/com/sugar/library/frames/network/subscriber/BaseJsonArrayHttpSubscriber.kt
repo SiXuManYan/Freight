@@ -3,7 +3,7 @@ package com.sugar.library.frames.network.subscriber
 import com.sugar.library.frames.network.response.BaseView
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
-import com.sugar.library.net.Response
+import com.sugar.library.frames.network.Response
 import java.lang.reflect.ParameterizedType
 import java.util.*
 

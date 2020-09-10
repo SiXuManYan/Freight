@@ -10,8 +10,8 @@ import com.ftacloud.freightuser.frames.network.ApiService
 import com.ftacloud.freightuser.storage.CloudDataBase
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
-import com.sugar.library.view.refresh.CommonSmartAnimRefreshHeaderView
-import com.sugar.library.view.refresh.CommonSmartRefreshFooter
+import com.sugar.library.ui.view.refresh.CommonSmartAnimRefreshHeaderView
+import com.sugar.library.ui.view.refresh.CommonSmartRefreshFooter
 import dagger.android.AndroidInjector
 import dagger.android.HasActivityInjector
 import dagger.android.support.DaggerApplication
@@ -28,7 +28,9 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
 
     init {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
-            CommonSmartAnimRefreshHeaderView(context)
+            CommonSmartAnimRefreshHeaderView(
+                context
+            )
         }
         SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout ->
             CommonSmartRefreshFooter(context)

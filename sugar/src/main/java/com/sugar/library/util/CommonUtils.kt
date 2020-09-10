@@ -80,6 +80,10 @@ object CommonUtils {
         return keyHashMap.remove(key)
     }
 
+    fun isLogin():Boolean{
+        return CommonUtils.getShareDefault().getBoolean(Constants.SP_LOGIN)
+    }
+
 
     /**
      * 获取默认的SharePreference

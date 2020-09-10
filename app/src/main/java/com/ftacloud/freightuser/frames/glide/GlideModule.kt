@@ -14,7 +14,7 @@ import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.bumptech.glide.request.transition.Transition
-import com.sugar.library.extend.ProgressResponseBody
+import com.sugar.library.frames.extend.ProgressResponseBody
 import com.sugar.library.util.CommonUtils
 import okhttp3.OkHttpClient
 import java.io.InputStream
@@ -65,7 +65,13 @@ object ProgressManager {
                 val request = chain.request()
                 val response = chain.proceed(request)
                 response.newBuilder()
-                    .body(ProgressResponseBody(request.url().toString(), LISTENER, response.body()))
+                    .body(
+                        ProgressResponseBody(
+                            request.url().toString(),
+                            LISTENER,
+                            response.body()
+                        )
+                    )
                     .build()
             }.build()
         }

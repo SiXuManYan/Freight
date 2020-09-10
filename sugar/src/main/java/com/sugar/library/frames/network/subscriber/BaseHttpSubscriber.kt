@@ -1,10 +1,10 @@
 package com.sugar.library.frames.network.subscriber
 
-import com.sugar.library.net.ApiException
+import com.sugar.library.frames.network.ApiException
 import com.sugar.library.frames.network.response.BaseTaskView
 import com.sugar.library.frames.network.response.BaseView
 import com.google.gson.Gson
-import com.sugar.library.net.Response
+import com.sugar.library.frames.network.Response
 import io.reactivex.subscribers.ResourceSubscriber
 import retrofit2.HttpException
 import java.io.IOException

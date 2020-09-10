@@ -3,4 +3,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="no_more_footer">我是有底线的</string>
+
+    <string name="hint_data_no_found">暂无数据</string>
+
 </resources>
