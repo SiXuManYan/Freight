@@ -1,8 +1,9 @@
 package com.ftacloud.freightuser.ui.app
 
-import com.ftacloud.freightuser.base.common.BaseView
+import com.sugar.library.frames.network.response.BaseView
 
-interface CloudAccountView : BaseView {
+interface CloudAccountView :
+    BaseView {
 
 
 

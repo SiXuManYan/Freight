@@ -6,7 +6,6 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.jakewharton.butterknife'
 
 
-
 android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
@@ -18,7 +17,20 @@ android {
         versionCode 1
         versionName "1.0"
 
+        multiDexEnabled true
+        flavorDimensions "versionCode" // 多维度打包
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        // Android Studio pluing 3.0.+ 以上 ，如果项目中用到注解，必须显示的声明注释处理器
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 数据库导出
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
     }
 
     buildTypes {
@@ -34,6 +46,21 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+
+    productFlavors {
+        dev {
+            buildConfigField "String", "SERVER_HOST", USER_SERVER_HOST_TEST
+            buildConfigField "String", "H5_BASE_URL", USER_H5_TEST
+        }
+
+        formal {
+            buildConfigField "String", "SERVER_HOST", USER_SERVER_HOST_RELEASE
+            buildConfigField "String", "H5_BASE_URL", USER_H5_RELEASE
+        }
+
+    }
+
 }
 
 androidExtensions {
@@ -50,9 +77,6 @@ dependencies {
     kapt 'com.jakewharton:butterknife-compiler:10.2.0'
 
     // Dagger 2 支持 model使用时，使用R2 替代R
-//    implementation "com.google.dagger:dagger:2.19"
-//    implementation "com.google.dagger:dagger-android:2.19"
-//    implementation "com.google.dagger:dagger-android-support:2.19"
     kapt "com.google.dagger:dagger-compiler:2.19"
     kapt "com.google.dagger:dagger-android-processor:2.19"
     kapt 'androidx.room:room-compiler:2.2.5'

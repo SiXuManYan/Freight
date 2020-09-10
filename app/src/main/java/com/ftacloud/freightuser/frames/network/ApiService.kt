@@ -1,4 +1,4 @@
-package com.ftacloud.freightuser.network
+package com.ftacloud.freightuser.frames.network
 
 
 /**

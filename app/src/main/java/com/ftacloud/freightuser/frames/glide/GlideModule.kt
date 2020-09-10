@@ -1,4 +1,4 @@
-package com.ftacloud.freightuser.app
+package com.ftacloud.freightuser.frames.glide
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -14,6 +14,7 @@ import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.bumptech.glide.request.transition.Transition
+import com.sugar.library.extend.ProgressResponseBody
 import com.sugar.library.util.CommonUtils
 import okhttp3.OkHttpClient
 import java.io.InputStream
@@ -27,7 +28,9 @@ class GlideModule : AppGlideModule() {
 
     override fun applyOptions(context: Context, builder: GlideBuilder) {
         val diskCacheSizeBytes = 1024 * 1024 * 500L // 500 MB
-        builder.setDiskCache(DiskLruCacheFactory(CommonUtils.getOwnCacheDirectory(context, YH_PIC_GLIDE_CACHE), diskCacheSizeBytes))
+        builder.setDiskCache(
+            DiskLruCacheFactory(CommonUtils.getOwnCacheDirectory(context, YH_PIC_GLIDE_CACHE), diskCacheSizeBytes)
+        )
     }
 
     override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
@@ -41,29 +44,30 @@ object ProgressManager {
     private val listenersMap = Collections.synchronizedMap(HashMap<String, OnProgressListener>())
     private var okHttpClient: OkHttpClient? = null
 
-    private val LISTENER = ProgressResponseBody.InternalProgressListener { url, bytesRead, totalBytes ->
-        val onProgressListener = getProgressListener(url)
-        if (onProgressListener != null) {
-            val percentage = (bytesRead * 1f / totalBytes * 100f).toInt()
-            val isComplete = percentage >= 100
-            onProgressListener.onProgress(isComplete, percentage, bytesRead, totalBytes)
-            if (isComplete) {
-                removeListener(url)
+    private val LISTENER =
+        ProgressResponseBody.InternalProgressListener { url, bytesRead, totalBytes ->
+
+            val onProgressListener =
+                getProgressListener(url)
+            if (onProgressListener != null) {
+                val percentage = (bytesRead * 1f / totalBytes * 100f).toInt()
+                val isComplete = percentage >= 100
+                onProgressListener.onProgress(isComplete, percentage, bytesRead, totalBytes)
+                if (isComplete) {
+                    removeListener(url)
+                }
             }
         }
-    }
 
     fun getOkHttpClient(): OkHttpClient {
         if (okHttpClient == null) {
-            okHttpClient = OkHttpClient.Builder()
-                    .addNetworkInterceptor { chain ->
-                        val request = chain.request()
-                        val response = chain.proceed(request)
-                        response.newBuilder()
-                                .body(ProgressResponseBody(request.url().toString(), LISTENER, response.body()))
-                                .build()
-                    }
+            okHttpClient = OkHttpClient.Builder().addNetworkInterceptor { chain ->
+                val request = chain.request()
+                val response = chain.proceed(request)
+                response.newBuilder()
+                    .body(ProgressResponseBody(request.url().toString(), LISTENER, response.body()))
                     .build()
+            }.build()
         }
         return okHttpClient!!
     }
@@ -94,7 +98,11 @@ interface OnProgressListener {
     fun onProgress(isComplete: Boolean, percentage: Int, bytesRead: Long, totalBytes: Long)
 }
 
-class ProgressImageViewTarget(imageView: ImageView, private val url: String, callback: OnProgressListener) : DrawableImageViewTarget(imageView) {
+class ProgressImageViewTarget(
+    imageView: ImageView,
+    private val url: String,
+    callback: OnProgressListener
+) : DrawableImageViewTarget(imageView) {
 
     init {
         ProgressManager.addListener(url, callback)
@@ -102,6 +110,7 @@ class ProgressImageViewTarget(imageView: ImageView, private val url: String, cal
 
     override fun onLoadFailed(errorDrawable: Drawable?) {
         val onProgressListener = ProgressManager.getProgressListener(url)
+
         if (onProgressListener != null) {
             onProgressListener.onProgress(true, 100, 0, 0)
             ProgressManager.removeListener(url)
@@ -111,6 +120,7 @@ class ProgressImageViewTarget(imageView: ImageView, private val url: String, cal
 
     override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
         val onProgressListener = ProgressManager.getProgressListener(url)
+
         if (onProgressListener != null) {
             onProgressListener.onProgress(true, 100, 0, 0)
             ProgressManager.removeListener(url)

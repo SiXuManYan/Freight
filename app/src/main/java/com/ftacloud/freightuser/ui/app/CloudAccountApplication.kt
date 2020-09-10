@@ -5,8 +5,8 @@ import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import androidx.multidex.MultiDex
-import com.ftacloud.freightuser.app.DaggerAppComponent
-import com.ftacloud.freightuser.network.ApiService
+import com.ftacloud.freightuser.frames.dagger.comment.DaggerAppComponent
+import com.ftacloud.freightuser.frames.network.ApiService
 import com.ftacloud.freightuser.storage.CloudDataBase
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -79,7 +79,7 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
     }
 
     override fun onActivityStarted(activity: Activity?) {
-        TODO("Not yet implemented")
+
     }
 
     override fun showError(code: Int, message: String) {

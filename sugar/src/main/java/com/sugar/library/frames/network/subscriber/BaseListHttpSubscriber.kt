@@ -1,7 +1,7 @@
-package com.ftacloud.freightuser.base.net
+package com.sugar.library.frames.network.subscriber
 
 
-import com.ftacloud.freightuser.base.common.BaseView
+import com.sugar.library.frames.network.response.BaseView
 import com.google.gson.JsonObject
 import com.sugar.library.net.Response
 import java.lang.reflect.ParameterizedType

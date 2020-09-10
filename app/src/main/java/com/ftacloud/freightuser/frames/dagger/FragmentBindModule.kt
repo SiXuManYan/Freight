@@ -1,4 +1,4 @@
-package com.ftacloud.freightuser.app
+package com.ftacloud.freightuser.frames.dagger
 
 
 import dagger.Module

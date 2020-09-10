@@ -2,7 +2,7 @@ package com.ftacloud.freightuser.ui.app
 
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
-import com.ftacloud.freightuser.network.ApiService
+import com.ftacloud.freightuser.frames.network.ApiService
 
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
@@ -28,7 +28,6 @@ class CloudAccountPresenter(val view: CloudAccountView) {
 
     fun addSubscribe(subscription: Disposable) {
         if (compositeDisposable == null) {
-//            RetrofitUrlManager.getInstance().putDomain(ApiService.NEW_SERVICE, UrlUtil.SERVER_HOST_V3)
             compositeDisposable = CompositeDisposable()
         }
         compositeDisposable?.add(subscription)

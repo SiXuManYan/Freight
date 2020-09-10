@@ -1,15 +1,16 @@
-package com.ftacloud.freightuser.base.common
+package com.ftacloud.freightuser.frames.network.response
 
 import android.content.Context
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import com.blankj.utilcode.util.LogUtils
-import com.ftacloud.freightuser.base.net.BaseHttpSubscriber
-import com.ftacloud.freightuser.network.ApiService
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
+import com.ftacloud.freightuser.frames.network.ApiService
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.JsonObject
+import com.sugar.library.frames.network.response.BaseView
 import com.sugar.library.net.Response
 import com.trello.rxlifecycle2.android.lifecycle.kotlin.bindUntilEvent
 import io.reactivex.Flowable

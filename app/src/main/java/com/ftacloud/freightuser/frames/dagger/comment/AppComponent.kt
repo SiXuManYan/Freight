@@ -1,5 +1,7 @@
-package com.ftacloud.freightuser.app
+package com.ftacloud.freightuser.frames.dagger.comment
 
+import com.ftacloud.freightuser.frames.dagger.ActivityBindModule
+import com.ftacloud.freightuser.frames.dagger.AppModule
 import com.ftacloud.freightuser.ui.app.CloudAccountApplication
 import dagger.BindsInstance
 import dagger.Component
@@ -8,10 +10,11 @@ import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 /**
-* App Dagger2注解组件
-*/
+ * App Dagger2注解组件
+ */
 @Singleton
-@Component(modules = [AppModule::class, AndroidSupportInjectionModule::class, ActivityBindModule::class])
+@Component(modules = [AndroidSupportInjectionModule::class,
+    AppModule::class, ActivityBindModule::class])
 interface AppComponent : AndroidInjector<CloudAccountApplication> {
 
     @Component.Builder

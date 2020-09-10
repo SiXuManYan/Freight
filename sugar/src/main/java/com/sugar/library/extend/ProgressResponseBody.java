@@ -1,4 +1,4 @@
-package com.ftacloud.freightuser.app;
+package com.sugar.library.extend;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -25,7 +25,7 @@ public class ProgressResponseBody extends ResponseBody {
     private ResponseBody responseBody;
     private BufferedSource bufferedSource;
 
-    ProgressResponseBody(String url, ProgressResponseBody.InternalProgressListener internalProgressListener, ResponseBody responseBody) {
+   public ProgressResponseBody(String url, ProgressResponseBody.InternalProgressListener internalProgressListener, ResponseBody responseBody) {
         this.url = url;
         this.internalProgressListener = internalProgressListener;
         this.responseBody = responseBody;
@@ -68,7 +68,7 @@ public class ProgressResponseBody extends ResponseBody {
         };
     }
 
-    interface InternalProgressListener {
+    public interface InternalProgressListener {
         void onProgress(String url, long bytesRead, long totalBytes);
     }
 }

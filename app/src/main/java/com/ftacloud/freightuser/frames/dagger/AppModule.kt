@@ -1,9 +1,9 @@
-package com.ftacloud.freightuser.app
+package com.ftacloud.freightuser.frames.dagger
 
 import android.content.Context
 import com.ftacloud.freightuser.BuildConfig
-import com.ftacloud.freightuser.network.ApiService
-import com.ftacloud.freightuser.network.UrlUtil
+import com.ftacloud.freightuser.frames.network.ApiService
+import com.ftacloud.freightuser.frames.network.UrlUtil
 import com.ftacloud.freightuser.storage.CloudDataBase
 import com.ftacloud.freightuser.ui.app.CloudAccountApplication
 import com.google.gson.Gson

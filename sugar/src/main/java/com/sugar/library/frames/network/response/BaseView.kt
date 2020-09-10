@@ -1,4 +1,4 @@
-package com.ftacloud.freightuser.base.common
+package com.sugar.library.frames.network.response
 
 /**
  * 视图基类

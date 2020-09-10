@@ -1,8 +1,8 @@
-package com.ftacloud.freightuser.base.net
+package com.sugar.library.frames.network.subscriber
 
 import com.sugar.library.net.ApiException
-import com.ftacloud.freightuser.base.common.BaseTaskView
-import com.ftacloud.freightuser.base.common.BaseView
+import com.sugar.library.frames.network.response.BaseTaskView
+import com.sugar.library.frames.network.response.BaseView
 import com.google.gson.Gson
 import com.sugar.library.net.Response
 import io.reactivex.subscribers.ResourceSubscriber

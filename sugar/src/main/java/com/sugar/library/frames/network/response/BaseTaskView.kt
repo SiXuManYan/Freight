@@ -1,4 +1,4 @@
-package com.ftacloud.freightuser.base.common
+package com.sugar.library.frames.network.response
 
 interface BaseTaskView : BaseView {
     fun showLoading()
