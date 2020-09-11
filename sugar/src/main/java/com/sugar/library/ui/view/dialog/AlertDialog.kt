@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import butterknife.BindView
 import com.sugar.library.R
+import com.sugar.library.R2
 
 /**
  * 对话框
@@ -19,13 +20,13 @@ class AlertDialog private constructor(context: Context): BaseDialog(context, R.s
         const val SPECIAL = 1
     }
 
-    @BindView(R.id.tv_title)
+    @BindView(R2.id.tv_title)
     lateinit var titleText: TextView
-    @BindView(R.id.tv_message)
+    @BindView(R2.id.tv_message)
     lateinit var messageText: TextView
-    @BindView(R.id.tv_positive)
+    @BindView(R2.id.tv_positive)
     lateinit var positiveText: TextView
-    @BindView(R.id.tv_negative)
+    @BindView(R2.id.tv_negative)
     lateinit var negativeText: TextView
 
     override fun getContentId() = R.layout.dialog_alert_colod

@@ -73,7 +73,7 @@ abstract class BaseRefreshListActivity<T, P : BasePresenter> : BaseMVPActivity<P
 
     override fun getLayoutId() = R.layout.activity_refresh_list2
 
-    open fun emptyMessage(): String = getString(R.string.hint_data_no_found)
+    open fun emptyMessage(): String = getString(R.string.library_hint_data_no_found)
     open fun emptyImage() = R.drawable.img_data_no_found
 
 

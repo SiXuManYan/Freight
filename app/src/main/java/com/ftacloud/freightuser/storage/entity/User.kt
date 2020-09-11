@@ -32,7 +32,7 @@ class User {
 
         fun isLogon(): Boolean {
             val isLogin = CommonUtils.getShareDefault().getBoolean(Constants.SP_LOGIN)
-            if (isLogin && get().id == null) {
+            if (isLogin && get().id == 0L) {
                 clearAll()
                 return false
             }

@@ -4,9 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.fatcloud.account.R
-import com.fatcloud.account.view.error.AccidentView
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
+import com.sugar.library.R
+import com.sugar.library.ui.view.error.AccidentView
 
 /**
  * Created by Wangsw on 2019/9/9 16:47.

@@ -71,7 +71,7 @@ public class CommonSmartAnimRefreshHeaderView extends FrameLayout implements Ref
 
     @Override
     public int onFinish(@NonNull RefreshLayout refreshLayout, boolean success) {
-        refresh_tv.setText("加载完毕");
+        refresh_tv.setText(R.string.library_load_complete);
         return 500;
     }
 
@@ -79,14 +79,14 @@ public class CommonSmartAnimRefreshHeaderView extends FrameLayout implements Ref
     public void onStateChanged(@NonNull RefreshLayout refreshLayout, @NonNull RefreshState oldState, @NonNull RefreshState newState) {
         switch (newState) {
             case PullDownToRefresh:
-                refresh_tv.setText("下拉刷新");
+                refresh_tv.setText(R.string.library_load_pull_down_to_refresh);
                 break;
             case Refreshing:
-                refresh_tv.setText("加载中...");
+                refresh_tv.setText(R.string.library_loading);
                 common_progress.startAnimator();
                 break;
             case ReleaseToRefresh:
-                refresh_tv.setText("松开刷新");
+                refresh_tv.setText(R.string.library_release_to_refresh);
                 break;
             case RefreshFinish:
                 common_progress.stopAnimator();

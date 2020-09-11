@@ -27,12 +27,10 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
 
 
     init {
-        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
-            CommonSmartAnimRefreshHeaderView(
-                context
-            )
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ ->
+            CommonSmartAnimRefreshHeaderView(context)
         }
-        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout ->
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, _ ->
             CommonSmartRefreshFooter(context)
         }
 
@@ -51,8 +49,7 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
     }
 
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
-        DaggerAppComponent.builder().application(this).build()
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> = DaggerAppComponent.builder().application(this).build()
 
 
 
@@ -68,7 +65,7 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
 
     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) = Unit
     override fun onActivityStopped(activity: Activity?) {
-        TODO("Not yet implemented")
+
     }
 
 

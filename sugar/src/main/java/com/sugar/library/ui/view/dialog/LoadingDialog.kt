@@ -5,12 +5,13 @@ import android.view.Gravity
 import android.view.KeyEvent
 import butterknife.BindView
 import com.sugar.library.R
+import com.sugar.library.R2
 import com.sugar.library.ui.view.refresh.CommonProgressBar
 
 
 class LoadingDialog private constructor(context: Context) : BaseDialog(context, R.style.sugar_library_dialog) {
 
-    @BindView(R.id.progress_cpb)
+    @BindView(R2.id.progress_cpb)
     lateinit var animView: CommonProgressBar
 
     init {
