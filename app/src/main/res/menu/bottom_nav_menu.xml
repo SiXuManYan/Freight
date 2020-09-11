@@ -17,9 +17,11 @@
         android:title="订单" />
 
 
+<!--
     <item
         android:id="@+id/navigation_my"
         android:icon="@android:drawable/ic_menu_mapmode"
         android:title="我的" />
+-->
 
 </menu>

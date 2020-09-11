@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import butterknife.BindView
 import com.blankj.utilcode.util.SizeUtils
 import com.ftacloud.freightuser.R
+import com.ftacloud.freightuser.R2
 import com.ftacloud.freightuser.frames.components.fragment.BaseFragment
 
 import com.jude.easyrecyclerview.EasyRecyclerView
@@ -31,13 +32,13 @@ import com.sugar.library.ui.view.refresh.footer.EmptyRetryFooter
 abstract class BaseRefreshListFragment<T, P : BasePresenter> : BaseFragment<P>(), BaseNoJsonListView2<T>, OnRefreshLoadMoreListener {
 
 
-    @BindView(R.id.parent_container)
+    @BindView(R2.id.parent_container)
     lateinit var parent_container: ViewGroup
 
-    @BindView(R.id.swipe)
+    @BindView(R2.id.swipe)
     lateinit var swipeLayout: SmartRefreshLayout
 
-    @BindView(R.id.recycler)
+    @BindView(R2.id.recycler)
     lateinit var easyRecyclerView: EasyRecyclerView
     lateinit var recyclerView: androidx.recyclerview.widget.RecyclerView
 

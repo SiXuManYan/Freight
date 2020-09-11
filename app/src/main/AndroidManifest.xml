@@ -1,23 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.ftacloud.freightuser">
 
     <application
         android:name=".ui.app.CloudAccountApplication"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+
+
+
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:targetApi="n">
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.ftacloud.freightuser.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity
-            android:name=".ui.MainActivity"
-            android:label="@string/app_name">
+            android:name=".ui.splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LaunchTheme">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!-- 网页内打开 -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="splash_h5"
+                    android:scheme="freight_user" />
+
+
+            </intent-filter>
+
+
         </activity>
+
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:launchMode="singleTask" />
+
+
     </application>
 
 </manifest>

@@ -80,7 +80,7 @@ object CommonUtils {
         return keyHashMap.remove(key)
     }
 
-    fun isLogin():Boolean{
+    fun isLogin(): Boolean {
         return CommonUtils.getShareDefault().getBoolean(Constants.SP_LOGIN)
     }
 
@@ -110,12 +110,6 @@ object CommonUtils {
             location.getString(Constants.SP_LATITUDE, "0"),
             location.getString(Constants.SP_ADDRESS)
         )
-    }
-
-    fun getAutoPlayVideoSetting() = getShareDefault().getBoolean(Constants.SP_AUTO_PLAY_VIDEO)
-
-    fun setAutoPlayVideoSetting(auto: Boolean) {
-        getShareDefault().put(Constants.SP_AUTO_PLAY_VIDEO, auto)
     }
 
 

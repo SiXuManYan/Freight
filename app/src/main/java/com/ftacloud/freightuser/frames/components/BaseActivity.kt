@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.blankj.utilcode.util.BarUtils
+import com.ftacloud.freightuser.ui.webs.WebCommonActivity
 import com.sugar.library.R
 import com.sugar.library.ui.view.dialog.LoadingDialog
 import com.sugar.library.util.Constants
@@ -48,14 +49,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        ScreenAdaptationUtil.setDensityByHeight(this, application)
         setContentView(getLayoutId())
 
         context = this
         unBinder = ButterKnife.bind(this)
 
         //状态栏设置为沉浸式
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             BarUtils.setStatusBarColor(this, Color.WHITE, true)
             BarUtils.setStatusBarLightMode(this, true)
 
@@ -64,7 +64,7 @@ abstract class BaseActivity : AppCompatActivity() {
         } else {
             BarUtils.setStatusBarColor(this, Color.parseColor("#F6FFFFFF"), true)
         }
-        BarUtils.addMarginTopEqualStatusBarHeight(findViewById(android.R.id.content))
+        BarUtils.addMarginTopEqualStatusBarHeight(findViewById(android.R.id.content))*/
 
         if (findViewById<View>(R.id.iv_back) != null) {
             findViewById<View>(R.id.iv_back).setOnClickListener { onBackPressed() }
@@ -206,6 +206,18 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     */
+
+
+    protected fun startWebActivity(bundle: Bundle) {
+        startActivity(Intent(applicationContext, WebCommonActivity::class.java).putExtras(bundle))
+    }
+
+    protected fun startWebActivity(title: String, url: String) {
+        val bundle = Bundle()
+        bundle.putString(Constants.WEB_TITLE, title)
+        bundle.putString(Constants.WEB_URL, url)
+        startWebActivity(bundle)
+    }
 
 
     protected fun onOnceClick(view: View): Boolean {

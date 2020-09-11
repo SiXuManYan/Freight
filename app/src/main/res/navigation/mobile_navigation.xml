@@ -22,12 +22,4 @@
         android:name="com.ftacloud.freightuser.ui.notifications.NotificationsFragment"
         android:label="@string/library_title_notifications"
         tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/navigation_my"
-        android:name="com.ftacloud.freightuser.ui.notifications.NotificationsFragment"
-        android:label="@string/library_title_notifications"
-        tools:layout="@layout/fragment_notifications" />
-
-
-
 </navigation>
