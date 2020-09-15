@@ -119,4 +119,6 @@ dependencies {
     // recycler
     api 'com.jude:easyrecyclerview:4.4.3'
 
+    // 多功能Tab
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2'
 }

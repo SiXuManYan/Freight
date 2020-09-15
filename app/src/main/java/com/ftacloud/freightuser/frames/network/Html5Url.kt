@@ -24,7 +24,12 @@ object Html5Url {
     /**
      * 闪屏页服务协议
      */
-    val splash_service_agreement = "https://privacy.qq.com/yszc-m.htm"
+    val SPLASH_SERVICE_AGREEMENT = "https://privacy.qq.com/yszc-m.htm"
+
+    /**
+     * 用户协议
+     */
+    val USER_AGREEMENT = "https://privacy.qq.com/yszc-m.htm"
 
 
 }

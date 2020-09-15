@@ -8,18 +8,26 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.ftacloud.freightuser.ui.home.HomeFragment"
-        android:label="@string/library_title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.ftacloud.freightuser.ui.dashboard.DashboardFragment"
-        android:label="@string/library_title_dashboard"
+        android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.ftacloud.freightuser.ui.notifications.NotificationsFragment"
-        android:label="@string/library_title_notifications"
+        android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+
+    <fragment
+        android:id="@+id/navigation_my"
+        android:name="com.ftacloud.freightuser.ui.my.MyFragment"
+        android:label="@string/title_my"
+        tools:layout="@layout/fragment_notifications" />
+
+
 </navigation>

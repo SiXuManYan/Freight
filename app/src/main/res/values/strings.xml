@@ -1,18 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation"
-    >
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
     <string name="app_name">货运用户端</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications" >Notifications</string>
-
-
-
-
-
-
-
-
+    <string name="title_notifications">Notifications</string>
+    <string name="title_my">我的</string>
 
 
     <string name="use_agreement_content_0">欢迎使用自贸区云账户，请充分阅读并理解</string>
@@ -30,5 +22,22 @@
     <string name="splash_service_agreement">服务协议</string>
     <string name="splash_privacy_policy">隐私政策</string>
 
+
+
+    <string name="register_protocol">我已阅读并接受《自贸区云账户服务协议》</string>
+    <string name="register_protocol_title">我已阅读并接受</string>
+    <string name="register_protocol_value">《自贸区云账户服务协议》</string>
+    <string name="register_protocol_value2">《隐私政策》</string>
+    <string name="register_protocol_product_detail_value">服务协议</string>
+    <string name="register">注册</string>
+    <string name="login">登录</string>
+    <string name="captcha_target_format">验证码已经发送到您的手机 \n%1$s</string>
+    <string name="count_down_format" formatted="false">%1$d秒</string>
+    <string name="count_down_market_format" formatted="false">%1$d秒&#160;后自动跳转至操作页面</string>
+    <string name="get_again">重新获取</string>
+
+
+    <string name="wechat_auth_user_cancel">微信授权已取消</string>
+    <string name="wechat_auth_fail">微信授权失败！</string>
 
 </resources>

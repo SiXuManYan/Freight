@@ -2,5 +2,8 @@
 <resources>
 
 
+    <color name="color_78909C">#90A4AE</color>
+
+    <color name="color_text_hint">#CBCBCB</color>
 
 </resources>

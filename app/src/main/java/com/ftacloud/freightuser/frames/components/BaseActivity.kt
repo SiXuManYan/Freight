@@ -55,7 +55,7 @@ abstract class BaseActivity : AppCompatActivity() {
         unBinder = ButterKnife.bind(this)
 
         //状态栏设置为沉浸式
-/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             BarUtils.setStatusBarColor(this, Color.WHITE, true)
             BarUtils.setStatusBarLightMode(this, true)
 
@@ -64,7 +64,7 @@ abstract class BaseActivity : AppCompatActivity() {
         } else {
             BarUtils.setStatusBarColor(this, Color.parseColor("#F6FFFFFF"), true)
         }
-        BarUtils.addMarginTopEqualStatusBarHeight(findViewById(android.R.id.content))*/
+        BarUtils.addMarginTopEqualStatusBarHeight(findViewById(android.R.id.content))
 
         if (findViewById<View>(R.id.iv_back) != null) {
             findViewById<View>(R.id.iv_back).setOnClickListener { onBackPressed() }

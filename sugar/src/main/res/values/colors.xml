@@ -6,6 +6,7 @@
 
 
     <color name="colorFontGray">#FF727171</color>
+
     <color name="colorLine">#FFE6E6E6</color>
     <color name="white">#ffffff</color>
     <color name="font_white">#ffffff</color>
@@ -36,7 +37,7 @@
 
     <color name="split_line_color">#F3F3F3</color>
 
-    <color name="color_app_red">#ff0018</color>
+    <color name="color_app_red">#FF1E1E</color>
     <color name="color_cccccc">#cccccc</color>
     <color name="color_FFEBEB">#FFEBEB</color>
     <color name="color_FFAF00">#FFAF00</color>
