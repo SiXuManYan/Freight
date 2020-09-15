@@ -1,0 +1,23 @@
+<resources>
+
+
+    <string name="app_name">Student</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_my_course">我的课程</string>
+    <string name="menu_class_schedule">课程表</string>
+    <string name="menu_task">课后任务</string>
+    <string name="menu_my_evaluation">我的测评</string>
+    <string name="menu_my_order">我的订单</string>
+    <string name="menu_setting">设置</string>
+
+
+
+
+
+</resources>
