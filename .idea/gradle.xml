@@ -11,9 +11,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/aads" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/driver" />
-            <option value="$PROJECT_DIR$/student" />
+            <option value="$PROJECT_DIR$/education-sssssssssss" />
+            <option value="$PROJECT_DIR$/education-student" />
+            <option value="$PROJECT_DIR$/myapplication" />
             <option value="$PROJECT_DIR$/sugar" />
           </set>
         </option>

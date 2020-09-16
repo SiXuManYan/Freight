@@ -109,10 +109,10 @@ dependencies {
     api fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':sugar')
 
-    // butterknife 引入可以忽略，但是kapt 需要再次引用
+    // butterknife 已经在sugar 中引入，需要加上 kapt. model使用时，使用R2 替代R
     kapt 'com.jakewharton:butterknife-compiler:10.2.0'
 
-    // Dagger 2 支持 model使用时，使用R2 替代R
+    // Dagger 2 支持
     kapt "com.google.dagger:dagger-compiler:2.19"
     kapt "com.google.dagger:dagger-android-processor:2.19"
     kapt 'androidx.room:room-compiler:2.2.5'
