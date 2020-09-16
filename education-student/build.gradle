@@ -44,8 +44,7 @@ dependencies {
     // 公用网络请求
     implementation project(':sugar')
 
-    // 百家云SDK(带UI)  ，需要更改代码时，改成project 依赖https://dev.baijiayun.com/wiki/detail/93
-    implementation 'com.baijiayun.live:group-class-ui:1.1.1'
+
 
     // butterknife 已经在sugar 中引入，需要加上 kapt. model使用时，使用R2 替代R
     kapt 'com.jakewharton:butterknife-compiler:10.2.0'
@@ -55,4 +54,10 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:2.19"
     kapt 'androidx.room:room-compiler:2.2.5'
 
+    // 百家云SDK(带UI)  ，需要更改代码时，改成project 依赖https://dev.baijiayun.com/wiki/detail/93
+    implementation 'com.baijiayun.live:group-class-ui:1.1.1'
+
+    // 百家云SDK自1.1.2版本开始，引入了kotlin实现的第三方依赖库。需要额外配置kotlin版本。
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko-commons:0.10.8"
 }

@@ -32,9 +32,16 @@ class MainActivity : AppCompatActivity() {
         // 将每个菜单ID作为一组ID传递，因为每个菜单都应视为顶级目标.
         appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_course, R.id.nav_class_schedule, R.id.nav_task), drawerLayout)
         navView.setupWithNavController(navController)
+
+
+
     }
 
-
+    /**
+     * 完成
+     * 百家云 小班课UISDK、纯源码SDK编译和调试，
+     * 小班课SDK项目集成
+     */
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
