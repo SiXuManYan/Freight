@@ -3,13 +3,14 @@ package com.ftacloud.freightuser.ui.account.captcha
 import android.content.Intent
 import android.view.View
 import butterknife.OnClick
-import com.fatcloud.account.R
-import com.fatcloud.account.base.ui.BaseMVPActivity
-import com.fatcloud.account.common.CommonUtils
-import com.fatcloud.account.common.Constants
 import com.fatcloud.account.entity.wechat.WechatAuthInfo
+import com.ftacloud.freightuser.R
+import com.ftacloud.freightuser.frames.components.BaseMVPActivity
 import com.ftacloud.freightuser.ui.account.password.PasswordSetActivity
-import com.fatcloud.account.view.extend.VerificationCodeView
+import com.sugar.library.ui.view.VerificationCodeView
+import com.sugar.library.util.CommonUtils
+
+import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_login_captcha.*
 

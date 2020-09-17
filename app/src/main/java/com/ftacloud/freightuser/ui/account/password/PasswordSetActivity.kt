@@ -12,10 +12,11 @@ import androidx.appcompat.widget.AppCompatEditText
 import butterknife.OnClick
 import com.blankj.utilcode.util.RegexUtils
 import com.blankj.utilcode.util.VibrateUtils
-import com.fatcloud.account.R
-import com.fatcloud.account.base.ui.BaseMVPActivity
-import com.fatcloud.account.common.CommonUtils
-import com.fatcloud.account.common.Constants
+import com.ftacloud.freightuser.R
+import com.ftacloud.freightuser.R2
+import com.ftacloud.freightuser.frames.components.BaseMVPActivity
+import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
 import kotlinx.android.synthetic.main.activity_login_password_set.*
 
 /**
@@ -157,9 +158,9 @@ class PasswordSetActivity : BaseMVPActivity<PasswordSetPresenter>(), PasswordSet
 
 
     @OnClick(
-        R.id.password_rule_iv,
+        R2.id.password_rule_iv,
         R.id.password_confirm_rule_iv,
-        R.id.next_tv
+        R2.id.next_tv
     )
     fun onClick(view: View) {
 

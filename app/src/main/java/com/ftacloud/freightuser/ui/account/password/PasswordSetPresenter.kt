@@ -1,20 +1,21 @@
 package com.ftacloud.freightuser.ui.account.password
 
+import android.content.Context
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.alibaba.sdk.android.ams.common.util.Md5Util
-import com.fatcloud.account.backstage.DataServiceFaker
-import com.fatcloud.account.base.common.BasePresenter
-import com.fatcloud.account.base.net.BaseHttpSubscriber
-import com.fatcloud.account.common.AndroidUtil
-import com.fatcloud.account.common.CommonUtils
-import com.fatcloud.account.common.Constants
-import com.fatcloud.account.data.CloudDataBase
-import com.fatcloud.account.entity.users.User
-import com.fatcloud.account.event.Event
-import com.fatcloud.account.event.RxBus
-import com.ftacloud.freightuser.ui.account.password.PasswordSetView
+import com.ftacloud.freightuser.frames.backstage.DataServiceFaker
+import com.ftacloud.freightuser.frames.network.ApiService
+import com.ftacloud.freightuser.storage.CloudDataBase
+import com.ftacloud.freightuser.storage.entity.User
+
 import com.google.gson.JsonElement
+import com.sugar.library.event.Event
+import com.sugar.library.event.RxBus
+import com.sugar.library.frames.network.response.BasePresenter
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
+import com.sugar.library.util.AndroidUtil
+import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
 import javax.inject.Inject
 
 /**
@@ -24,6 +25,10 @@ import javax.inject.Inject
  */
 class PasswordSetPresenter @Inject constructor(private var passwordSetView: PasswordSetView) : BasePresenter(passwordSetView) {
 
+
+    protected lateinit var apiService: ApiService @Inject set
+
+    protected lateinit var appContext: Context @Inject set
 
     lateinit var database: CloudDataBase @Inject set
 
@@ -44,7 +49,7 @@ class PasswordSetPresenter @Inject constructor(private var passwordSetView: Pass
      */
     fun register(lifecycleOwner: LifecycleOwner, passWord: String, account: String, captcha: String) {
 
-
+/*
         requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
             apiService.register(
                 account,
@@ -66,7 +71,7 @@ class PasswordSetPresenter @Inject constructor(private var passwordSetView: Pass
                     }
 
                 }
-            })
+            })*/
     }
 
 
@@ -91,8 +96,8 @@ class PasswordSetPresenter @Inject constructor(private var passwordSetView: Pass
     /**
      * 重设密码
      */
-    fun resetPassword(lifecycleOwner: LifecycleOwner, passWord: String, account: String,    captcha: String) {
-        requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
+    fun resetPassword(lifecycleOwner: LifecycleOwner, passWord: String, account: String, captcha: String) {
+       /* requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
             apiService.resetPassword(
                 account,
                 AndroidUtil.md5(passWord),
@@ -104,7 +109,7 @@ class PasswordSetPresenter @Inject constructor(private var passwordSetView: Pass
                     passwordSetView.passwordResetSuccess()
 
                 }
-            })
+            })*/
     }
 
 

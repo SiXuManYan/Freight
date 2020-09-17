@@ -1,6 +1,7 @@
 package com.ftacloud.freightuser.ui.account.password
 
-import com.fatcloud.account.base.common.BaseTaskView
+import com.sugar.library.frames.network.response.BaseTaskView
+
 
 /**
  * Created by Wangsw on 2020/6/2 0002 15:54.
