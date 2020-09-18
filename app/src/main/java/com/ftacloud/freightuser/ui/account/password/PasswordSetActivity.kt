@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_login_password_set.*
  * </br>
  * 注册设置密码 和 登录后重置密码
  */
-class PasswordSetActivity : BaseMVPActivity<PasswordSetPresenter>(), PasswordSetView {
+class PasswordSetActivity : BaseMVPActivity<PasswordSetPresenterLibrary>(), PasswordSetViewLibrary {
 
     /**
      * 页面类型

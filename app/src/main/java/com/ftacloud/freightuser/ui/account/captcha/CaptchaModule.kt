@@ -12,7 +12,7 @@ import dagger.Provides
 class CaptchaModule {
 
     @Provides
-    fun viewProvider(captchaActivity: CaptchaActivity): CaptchaView {
+    fun viewProvider(captchaActivity: CaptchaActivity): CaptchaViewLibrary {
         return captchaActivity
     }
 

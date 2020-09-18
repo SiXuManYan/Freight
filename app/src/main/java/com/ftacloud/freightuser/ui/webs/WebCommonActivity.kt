@@ -8,7 +8,7 @@ import com.ftacloud.freightuser.frames.components.BaseMVPWebActivity
  * 通用网页
  *
  */
-class WebCommonActivity : BaseMVPWebActivity<WebCommonPresenter>(), WebCommonView {
+class WebCommonActivity : BaseMVPWebActivity<WebCommonPresenterLibrary>(), WebCommonView {
 
 
 

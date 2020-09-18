@@ -23,8 +23,6 @@ import com.ftacloud.freightuser.R
 import com.ftacloud.freightuser.frames.components.BaseMVPActivity
 import com.ftacloud.freightuser.frames.network.Html5Url
 import com.ftacloud.freightuser.ui.account.login.wechat.WechatLoginRegisterActivity
-import com.ftacloud.freightuser.ui.webs.WebCommonActivity
-import com.sugar.library.util.AndroidUtil
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
@@ -35,7 +33,7 @@ import kotlinx.android.synthetic.main.activity_login.*
  * </br>
  *  登录 和 注册
  */
-class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
+class LoginActivity : BaseMVPActivity<LoginPresenterLibrary>(), LoginViewLibrary {
 
 
     /**

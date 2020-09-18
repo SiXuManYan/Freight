@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_login_captcha.*
  *  验证码校验
  *  注册验证身份 + 忘记密码进行密码重置，验证身份
  */
-class CaptchaActivity : BaseMVPActivity<CaptchaPresenter>(), CaptchaView {
+class CaptchaActivity : BaseMVPActivity<CaptchaPresenterLibrary>(), CaptchaViewLibrary {
 
     companion object {
 

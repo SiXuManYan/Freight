@@ -2,9 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.jakewharton.butterknife'
+
+static def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
 
 android {
     compileSdkVersion 29
@@ -17,18 +20,25 @@ android {
         versionCode 1
         versionName "1.0"
 
+        // 使用高斯模糊
         renderscriptTargetApi 21
         renderscriptSupportModeEnabled true
 
+        multiDexEnabled true
+        flavorDimensions "versionCode" // 多维度打包
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Android Studio pluing 3.0.+ 以上 ，如果项目中用到注解，必须显示的声明注释处理器
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 数据库导出
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -36,14 +46,71 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+
+    productFlavors {
+        dev {
+            buildConfigField "String", "SERVER_HOST", '"https://www.baidu.com"'
+            buildConfigField "String", "H5_BASE_URL", '"https://www.baidu.com"'
+        }
+
+        formal {
+            buildConfigField "String", "SERVER_HOST", '"https://www.baidu.com"'
+            buildConfigField "String", "H5_BASE_URL",'"https://www.baidu.com"'
+        }
+
+    }
+    signingConfigs {
+        debug { storeFile file("../keystore/debug.keystore") }
+        release {
+            storeFile file('../keystore/educationStudent.jks')
+            storePassword 'cloud.33'
+            keyAlias 'educationStudent'
+            keyPassword 'cloud.33'
+        }
+
+    }
+
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        release {
+            debuggable true
+            minifyEnabled false // 是否运行混淆
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    // 忽略lit提示
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'MissingTranslation'
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "Student_v${defaultConfig.versionCode}_(${defaultConfig.versionName})_${releaseTime()}.apk"
+        }
+    }
+
 }
 
+androidExtensions {
+    // 替代 findViewById
+    experimental = true
+}
+
+
+
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-
-    // 公用网络请求
+    api fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':sugar')
-
 
 
     // butterknife 已经在sugar 中引入，需要加上 kapt. model使用时，使用R2 替代R

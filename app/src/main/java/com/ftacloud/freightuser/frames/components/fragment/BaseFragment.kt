@@ -10,8 +10,8 @@ import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.freightuser.storage.entity.User
-import com.sugar.library.frames.network.response.BasePresenter
-import com.sugar.library.frames.network.response.BaseView
+import com.sugar.library.frames.network.response.LibraryBasePresenter
+import com.sugar.library.frames.network.response.LibraryBaseView
 import com.sugar.library.ui.view.dialog.AlertDialog
 import com.sugar.library.ui.view.dialog.LoadingDialog
 import com.sugar.library.util.CommonUtils
@@ -19,14 +19,13 @@ import com.sugar.library.util.Constants
 
 
 import dagger.android.support.DaggerFragment
-import io.reactivex.functions.Consumer
 import javax.inject.Inject
 
 /**
  * MVP的Fragment的基类
  *
  */
-abstract class BaseFragment<P : BasePresenter> : DaggerFragment(), BaseView {
+abstract class BaseFragment<P : LibraryBasePresenter> : DaggerFragment(), LibraryBaseView {
 
     private var unbinder: Unbinder? = null
     var isViewCreated = false

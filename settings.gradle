@@ -1,9 +1,5 @@
-include ':education-student'
-include ':education-sssssssssss'
-include ':aads'
-include ':myapplication'
-include ':education-student'
 include ':sugar'
 include ':driver'
 include ':app'
+include ':education-student'
 rootProject.name = "Freight"

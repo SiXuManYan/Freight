@@ -8,7 +8,7 @@ import com.ftacloud.freightuser.frames.components.BaseMVPActivity
  * </br>
  *
  */
-class ShipDetailActivity :BaseMVPActivity<ShipDetailPresenter>(),ShipDetailView {
+class ShipDetailActivity : BaseMVPActivity<ShipDetailPresenterLibrary>(),ShipDetailView {
 
     override fun getLayoutId()= R.layout.act_ship_detail
 

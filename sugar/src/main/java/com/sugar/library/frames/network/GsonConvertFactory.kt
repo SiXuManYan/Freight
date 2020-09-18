@@ -80,7 +80,7 @@ class GsonConvertFactory private constructor(private var gson: Gson) : Converter
                 response.code?.let {
                     code = it
                 }
-                throw ApiException(
+                throw LibraryApiException(
                     code,
                     response.msg,
                     response.data as LinkedTreeMap<String, String>?

@@ -1,7 +1,6 @@
 package com.ftacloud.freightuser.frames.dagger
 
 import android.content.Context
-import com.ftacloud.freightuser.BuildConfig
 import com.ftacloud.freightuser.frames.network.ApiService
 import com.ftacloud.freightuser.frames.network.UrlUtil
 import com.ftacloud.freightuser.storage.CloudDataBase
@@ -77,7 +76,7 @@ class AppModule {
             e.printStackTrace()
         }
 
-        if (BuildConfig.DEBUG) {
+//        if (BuildConfig.DEBUG) {
 
      /*       // 日志拦截器
             val loggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
@@ -94,7 +93,7 @@ class AppModule {
 
             builder.addInterceptor(loggingInterceptor)
             builder.addInterceptor(bodyInterceptor)*/
-        }
+//        }
 
 
         builder.protocols(Collections.singletonList(Protocol.HTTP_1_1))

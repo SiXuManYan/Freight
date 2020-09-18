@@ -12,7 +12,7 @@ import dagger.Provides
 class PasswordSetModule {
 
     @Provides
-    fun viewProvider(activity: PasswordSetActivity): PasswordSetView {
+    fun viewProvider(activity: PasswordSetActivity): PasswordSetViewLibrary {
         return activity
     }
 

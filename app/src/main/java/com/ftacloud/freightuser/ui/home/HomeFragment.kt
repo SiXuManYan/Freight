@@ -4,7 +4,7 @@ import android.view.View
 import com.ftacloud.freightuser.R
 import com.ftacloud.freightuser.frames.components.fragment.BaseFragment
 
-class HomeFragment : BaseFragment<HomePresenter>(),HomeView {
+class HomeFragment : BaseFragment<HomePresenterLibrary>(),HomeView {
 
 
     override fun getLayoutId() = R.layout.fragment_home
@@ -14,7 +14,7 @@ class HomeFragment : BaseFragment<HomePresenter>(),HomeView {
     }
 
     override fun loadOnVisible() {
-        TODO("Not yet implemented")
+
     }
 
 

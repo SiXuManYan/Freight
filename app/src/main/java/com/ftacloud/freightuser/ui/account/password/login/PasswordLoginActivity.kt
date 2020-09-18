@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.activity_login_password.*
  * </br>
  *  密码登录
  */
-class PasswordLoginActivity : BaseMVPActivity<PasswordLoginPresenter>(), PasswordLoginView {
+class PasswordLoginActivity : BaseMVPActivity<PasswordLoginPresenterLibrary>(), PasswordLoginViewLibrary {
 
 
     /**

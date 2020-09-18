@@ -12,7 +12,7 @@ import com.google.gson.JsonParser
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener
 import com.scwang.smart.refresh.layout.listener.ScrollBoundaryDecider
-import com.sugar.library.frames.network.response.BasePresenter
+import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.ui.view.web.JsWebView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
@@ -25,7 +25,7 @@ import java.lang.reflect.Method
  * </br>
  * web 页
  */
-abstract class BaseMVPWebActivity<P : BasePresenter> : BaseMVPActivity<P>(), OnRefreshListener {
+abstract class BaseMVPWebActivity<P : LibraryBasePresenter> : BaseMVPActivity<P>(), OnRefreshListener {
 
 
     protected val jsonParser by lazy { JsonParser() }

@@ -1,31 +1,41 @@
 package com.ftacloud.student
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import android.widget.ImageView
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.navigation.NavigationView
+import butterknife.BindView
+import butterknife.OnClick
+import com.blankj.utilcode.util.ToastUtils
+import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.sugar.library.util.CommonUtils
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseMVPActivity<MainPresenterLibrary>(), MainView {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    @BindView(R2.id.show_iv)
+    lateinit var show_iv: ImageView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun getLayoutId() = R.layout.activity_main
 
-        setContentView(R.layout.activity_main)
-
+    override fun initViews() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
 
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
 
-//        navController.navigate()// 导航至下一个fragment
+    }
 
-
+    @OnClick(
+        R2.id.show_iv
+    )
+    fun onClick(view: View) {
+        if (CommonUtils.isDoubleClick(view)) {
+            return
+        }
+        when (view.id) {
+            R.id.show_iv -> {
+                ToastUtils.showShort("头像")
+            }
+            else -> {
+            }
+        }
     }
 
 

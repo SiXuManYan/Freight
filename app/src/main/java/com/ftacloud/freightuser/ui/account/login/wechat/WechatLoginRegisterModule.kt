@@ -12,7 +12,7 @@ import dagger.Provides
 class WechatLoginRegisterModule {
 
     @Provides
-    fun viewProvider(loginActivity: WechatLoginRegisterActivity): WechatLoginRegisterView {
+    fun viewProvider(loginActivity: WechatLoginRegisterActivity): WechatLoginRegisterViewLibrary {
         return loginActivity
     }
 

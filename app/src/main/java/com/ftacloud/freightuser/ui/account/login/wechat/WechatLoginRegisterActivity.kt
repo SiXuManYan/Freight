@@ -1,6 +1,5 @@
 package com.ftacloud.freightuser.ui.account.login.wechat
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextPaint
@@ -18,7 +17,6 @@ import com.fatcloud.account.entity.wechat.WechatAuthInfo
 import com.ftacloud.freightuser.R
 import com.ftacloud.freightuser.frames.components.BaseMVPActivity
 import com.ftacloud.freightuser.ui.account.captcha.CaptchaActivity
-import com.ftacloud.freightuser.ui.webs.WebCommonActivity
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
@@ -29,7 +27,7 @@ import kotlinx.android.synthetic.main.activity_login_wechat.*
  * </br>
  * 微信登录和注册
  */
-class WechatLoginRegisterActivity : BaseMVPActivity<WechatLoginRegisterPresenter>(), WechatLoginRegisterView {
+class WechatLoginRegisterActivity : BaseMVPActivity<WechatLoginRegisterPresenterLibrary>(), WechatLoginRegisterViewLibrary {
 
     var wechatAuthInfo: WechatAuthInfo? = null
 
