@@ -22,6 +22,7 @@ class MainActivity : BaseMVPActivity<MainPresenterLibrary>(), MainView {
 
     }
 
+    // acquaintance
     @OnClick(
         R2.id.show_iv
     )

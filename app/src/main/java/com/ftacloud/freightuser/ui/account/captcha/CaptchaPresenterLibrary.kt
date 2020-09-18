@@ -1,27 +1,22 @@
 package com.ftacloud.freightuser.ui.account.captcha
 
-import android.content.Context
 import android.os.Looper
 import android.widget.TextView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-
 import com.blankj.utilcode.util.StringUtils
-
 import com.fatcloud.account.entity.wechat.WechatAuthInfo
 import com.fatcloud.account.entity.wechat.WechatUserInfo
 import com.ftacloud.freightuser.R
 import com.ftacloud.freightuser.frames.backstage.DataServiceFaker
-import com.ftacloud.freightuser.frames.network.ApiService
 import com.ftacloud.freightuser.frames.network.ApiService.Companion.WECHAT_OFFICIAL_API
-import com.ftacloud.freightuser.storage.CloudDataBase
+import com.ftacloud.freightuser.frames.network.response.BasePresenter
 import com.ftacloud.freightuser.storage.entity.User
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
-import com.sugar.library.frames.network.response.LibraryBasePresenter
-import com.sugar.library.frames.network.subscriber.LibraryBaseHttpSubscriber
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.Flowable
@@ -34,17 +29,15 @@ import javax.inject.Inject
  * </br>
  *
  */
-class CaptchaPresenterLibrary @Inject constructor(private var captchaView: CaptchaViewLibrary) : LibraryBasePresenter(captchaView) {
+class CaptchaPresenterLibrary @Inject constructor(private var captchaView: CaptchaView) : BasePresenter(captchaView) {
 
-    lateinit var database: CloudDataBase @Inject set
-    protected lateinit var apiService: ApiService @Inject set
-    protected lateinit var appContext: Context @Inject set
+
     /**
      * 发送验证码
      */
     fun sendCaptcha(life: LifecycleOwner, targetAccount: String, actionTv: TextView) {
         requestApi(life, Lifecycle.Event.ON_DESTROY,
-            apiService.sendCaptchaToTarget(targetAccount), object : LibraryBaseHttpSubscriber<JsonElement>(captchaView) {
+            apiService.sendCaptchaToTarget(targetAccount), object : BaseHttpSubscriber<JsonElement>(captchaView) {
                 override fun onSuccess(data: JsonElement?) {
                     captchaView.captchaSendResult()
                     actionTv.isEnabled = false
@@ -87,7 +80,7 @@ class CaptchaPresenterLibrary @Inject constructor(private var captchaView: Captc
      */
     fun checkCaptcha(life: LifecycleOwner, account: String, captcha: String) {
         requestApi(life, Lifecycle.Event.ON_DESTROY,
-            apiService.checkCaptcha(account, captcha), object : LibraryBaseHttpSubscriber<JsonElement>(captchaView) {
+            apiService.checkCaptcha(account, captcha), object : BaseHttpSubscriber<JsonElement>(captchaView) {
                 override fun onSuccess(data: JsonElement?) {
                     captchaView.captchaVerified(captcha, account)
                 }
@@ -137,7 +130,7 @@ class CaptchaPresenterLibrary @Inject constructor(private var captchaView: Captc
                 CommonUtils.getShareDefault().getString(Constants.SP_PUSH_DEVICE_ID)
             ),
 
-            object : LibraryBaseHttpSubscriber<User>(captchaView) {
+            object : BaseHttpSubscriber<User>(captchaView) {
 
                 override fun onSuccess(data: User?) {
 

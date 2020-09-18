@@ -21,10 +21,7 @@ import android.text.SpannableStringBuilder
 import android.text.TextUtils
 import android.text.style.AbsoluteSizeSpan
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.CycleInterpolator
-import android.view.animation.Interpolator
-import android.view.animation.TranslateAnimation
+import android.view.animation.*
 import android.widget.TextView
 import androidx.core.app.NotificationManagerCompat
 import com.blankj.utilcode.constant.TimeConstants
@@ -885,6 +882,15 @@ object CommonUtils {
 
         }
         return false
+    }
+
+
+    private fun translationAnimation(view: View) {
+        val anim = ObjectAnimator.ofFloat(view, "translationX", -200f, 0f, ScreenUtils.getScreenWidth().toFloat(), 0f)
+        anim.interpolator = LinearInterpolator()
+        anim.repeatCount = -1
+        anim.duration = 20000
+        anim.start()
     }
 
 }

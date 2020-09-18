@@ -29,7 +29,7 @@
                 android:layout_marginRight="16dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="@string/nav_header_desc"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@mipmap/ic_temp3" />
 
 
             <TextView
@@ -70,16 +70,16 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@mipmap/ic_temp4" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_my_course"
                 android:textColor="@color/color_first_level"
                 android:textSize="@dimen/font_size_14" />
@@ -96,16 +96,16 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@mipmap/ic_temp5" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_class_schedule"
                 android:textColor="@color/color_first_level"
                 android:textSize="@dimen/font_size_14" />
@@ -122,16 +122,16 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@mipmap/ic_temp6" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_task"
                 android:textColor="@color/color_first_level"
                 android:textSize="@dimen/font_size_14" />
@@ -148,16 +148,16 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@mipmap/ic_temp7" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_my_evaluation"
                 android:textColor="@color/color_first_level"
                 android:textSize="@dimen/font_size_14" />
@@ -174,17 +174,72 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@mipmap/ic_temp8" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_my_order"
+                android:textColor="@color/color_first_level"
+                android:textSize="@dimen/font_size_14" />
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/menu_my_customer_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="32dp"
+            android:paddingTop="16dp"
+            android:paddingRight="32dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_temp9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp50"
+                android:text="@string/menu_my_customer_service"
+                android:textColor="@color/color_first_level"
+                android:textSize="@dimen/font_size_14" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/menu_my_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="32dp"
+            android:paddingTop="16dp"
+            android:paddingRight="32dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_temp10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp50"
+                android:text="@string/menu_setting"
                 android:textColor="@color/color_first_level"
                 android:textSize="@dimen/font_size_14" />
 

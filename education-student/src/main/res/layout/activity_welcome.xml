@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F79637"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/background_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="-200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_welcome_bg" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp100"
+            android:layout_marginTop="168dp"
+            android:src="@mipmap/ic_temp"
+            app:layout_constraintBottom_toTopOf="@+id/login_register_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.383" />
+
+        <TextView
+            android:id="@+id/login_register_tv"
+            android:layout_width="@dimen/dp270"
+            android:layout_height="@dimen/dp45"
+            android:layout_marginBottom="216dp"
+            android:background="@drawable/shape_bg_12_white"
+            android:gravity="center"
+            android:text="登录/注册"
+            android:onClick="loginOrRegister"
+            android:textColor="@color/color_f9a74d"
+            android:textSize="@dimen/sp15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/wechat_login_tv"
+            android:layout_width="@dimen/dp270"
+            android:layout_height="@dimen/dp45"
+            android:background="@drawable/shape_bg_12_white_stock"
+            android:gravity="center"
+            android:text="微信登陆"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sp15"
+            android:onClick="wechatLogin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_register_tv"
+            app:layout_constraintVertical_bias="0.081" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

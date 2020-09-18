@@ -33,7 +33,7 @@ import kotlinx.android.synthetic.main.activity_login.*
  * </br>
  *  登录 和 注册
  */
-class LoginActivity : BaseMVPActivity<LoginPresenterLibrary>(), LoginViewLibrary {
+class LoginActivity : BaseMVPActivity<LoginPresenterLibrary>(), LoginView {
 
 
     /**

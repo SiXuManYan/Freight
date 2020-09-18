@@ -6,7 +6,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.ftacloud.freightuser.frames.network.ApiService
 import com.google.gson.JsonObject
 import com.sugar.library.frames.network.response.LibraryBasePresenter
-import com.sugar.library.frames.network.subscriber.LibraryBaseHttpSubscriber
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import javax.inject.Inject
 
 /**
@@ -14,7 +14,7 @@ import javax.inject.Inject
  * </br>
  *
  */
-class WechatLoginRegisterPresenterLibrary @Inject constructor(private var wechatLoginRegisterView: WechatLoginRegisterViewLibrary) :
+class WechatLoginRegisterPresenterLibrary @Inject constructor(private var wechatLoginRegisterView: WechatLoginRegisterView) :
     LibraryBasePresenter(wechatLoginRegisterView) {
 
 
@@ -28,7 +28,7 @@ class WechatLoginRegisterPresenterLibrary @Inject constructor(private var wechat
     fun checkAccountIsExisted(lifecycleOwner: LifecycleOwner, account: String) {
 
         requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
-            apiService.checkAccountIsExisted(account), object : LibraryBaseHttpSubscriber<JsonObject>(wechatLoginRegisterView) {
+            apiService.checkAccountIsExisted(account), object : BaseHttpSubscriber<JsonObject>(wechatLoginRegisterView) {
                 override fun onSuccess(data: JsonObject?) {
 
                     data?.let {

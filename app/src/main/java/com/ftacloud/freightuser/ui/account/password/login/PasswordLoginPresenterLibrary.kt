@@ -11,7 +11,7 @@ import com.ftacloud.freightuser.storage.entity.User
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.network.response.LibraryBasePresenter
-import com.sugar.library.frames.network.subscriber.LibraryBaseHttpSubscriber
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.sugar.library.util.AndroidUtil
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
@@ -22,7 +22,7 @@ import javax.inject.Inject
  * </br>
  *
  */
-class PasswordLoginPresenterLibrary @Inject constructor(private var view: PasswordLoginViewLibrary) : LibraryBasePresenter(view) {
+class PasswordLoginPresenterLibrary @Inject constructor(private var view: PasswordLoginView) : LibraryBasePresenter(view) {
 
     protected lateinit var apiService: ApiService @Inject set
     lateinit var database: CloudDataBase @Inject set
@@ -32,7 +32,7 @@ class PasswordLoginPresenterLibrary @Inject constructor(private var view: Passwo
         val deviceId = CommonUtils.getShareDefault().getString(Constants.SP_PUSH_DEVICE_ID)
 
         requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
-            apiService.passwordLogin(currentAccount, AndroidUtil.md5(password), deviceId), object : LibraryBaseHttpSubscriber<User>(view) {
+            apiService.passwordLogin(currentAccount, AndroidUtil.md5(password), deviceId), object : BaseHttpSubscriber<User>(view) {
                 override fun onSuccess(data: User?) {
 
                     data?.let {

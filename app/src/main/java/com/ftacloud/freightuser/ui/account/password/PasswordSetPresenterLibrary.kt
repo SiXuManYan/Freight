@@ -19,7 +19,7 @@ import javax.inject.Inject
  * </br>
  *
  */
-class PasswordSetPresenterLibrary @Inject constructor(private var passwordSetView: PasswordSetViewLibrary) : LibraryBasePresenter(passwordSetView) {
+class PasswordSetPresenterLibrary @Inject constructor(private var passwordSetView: PasswordSetView) : LibraryBasePresenter(passwordSetView) {
 
 
     protected lateinit var apiService: ApiService @Inject set

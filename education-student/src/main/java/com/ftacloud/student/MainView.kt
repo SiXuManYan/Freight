@@ -1,9 +1,9 @@
 package com.ftacloud.student
 
-import com.sugar.library.frames.network.response.LibraryBaseView
+import com.sugar.library.frames.network.response.BaseView
 
 
-interface MainView : LibraryBaseView {
+interface MainView : BaseView {
 
 
 }

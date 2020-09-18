@@ -4,7 +4,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import com.blankj.utilcode.util.ToastUtils
 import com.sugar.library.frames.network.response.LibraryBasePresenter
-import com.sugar.library.frames.network.response.LibraryBaseView
+import com.sugar.library.frames.network.response.BaseView
 import com.sugar.library.ui.view.dialog.AlertDialog
 import com.sugar.library.util.Constants
 import dagger.android.AndroidInjection
@@ -17,7 +17,7 @@ import javax.inject.Inject
 /**
  * MVP框架Activity基类
  */
-abstract class BaseMVPActivity<P : LibraryBasePresenter> : BaseActivity(), LibraryBaseView, HasSupportFragmentInjector {
+abstract class BaseMVPActivity<P : LibraryBasePresenter> : BaseActivity(), BaseView, HasSupportFragmentInjector {
 
     @Inject
     lateinit var fragmentInjector: DispatchingAndroidInjector<androidx.fragment.app.Fragment>

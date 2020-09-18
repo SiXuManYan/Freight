@@ -13,7 +13,7 @@ import com.google.gson.JsonObject
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.network.response.LibraryBasePresenter
-import com.sugar.library.frames.network.subscriber.LibraryBaseHttpSubscriber
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import javax.inject.Inject
@@ -23,7 +23,7 @@ import javax.inject.Inject
  * </br>
  *
  */
-class LoginPresenterLibrary @Inject constructor(private var loginView: LoginViewLibrary) : LibraryBasePresenter(loginView) {
+class LoginPresenterLibrary @Inject constructor(private var loginView: LoginView) : LibraryBasePresenter(loginView) {
 
 
     protected lateinit var apiService: ApiService @Inject set
@@ -41,7 +41,7 @@ class LoginPresenterLibrary @Inject constructor(private var loginView: LoginView
     fun checkAccountIsExisted(lifecycleOwner: LifecycleOwner, account: String) {
 
         requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
-            apiService.checkAccountIsExisted(account), object : LibraryBaseHttpSubscriber<JsonObject>(loginView) {
+            apiService.checkAccountIsExisted(account), object : BaseHttpSubscriber<JsonObject>(loginView) {
                 override fun onSuccess(data: JsonObject?) {
                     data?.let {
                         if (it.has("existed")) {
@@ -69,7 +69,7 @@ class LoginPresenterLibrary @Inject constructor(private var loginView: LoginView
             Lifecycle.Event.ON_DESTROY,
             apiService.getWechatAccessToken(code = authCode),
 
-            object : LibraryBaseHttpSubscriber<JsonObject>(loginView) {
+            object : BaseHttpSubscriber<JsonObject>(loginView) {
 
                 override fun onSuccess(data: JsonObject?) {
 

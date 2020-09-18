@@ -1,9 +1,7 @@
-<resources xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation"
-    >
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
 
-    <string name="app_name" >Student</string>
+    <string name="app_name">Reading Kids</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -16,10 +14,24 @@
     <string name="menu_task">课后任务</string>
     <string name="menu_my_evaluation">我的测评</string>
     <string name="menu_my_order">我的订单</string>
+    <string name="menu_my_customer_service">我的客服</string>
     <string name="menu_setting">设置</string>
 
 
-
+    <string name="use_agreement_content_0">欢迎使用自贸区云账户，请充分阅读并理解</string>
+    <string name="use_agreement_content_1">《自贸区云账户用户服务协议》</string>
+    <string name="use_agreement_content_2">和</string>
+    <string name="use_agreement_content_3">《隐私声明》</string>
+    <string name="use_agreement_content_4">\n
+1.在仅浏览时，为保障服务所需，我们会申请系统权限收集设备信息、日志信息，用于信息推送。并申请存储权限,用于浏览过程中缓存相关文件。\n
+2.为了基于你的所在位置向你推荐内容、展示信息，我们可能会申请位置权限。\n
+3.为帮助你在APP中拨打投诉电话或其他咨询热线，我们可能会申请拨打电话权限，该权限不会收集隐私信息，且仅在你使用前述功能时使用。\n
+4.GPS、相机、相册等敏感权限均不会默认开启，只有经过明示授权才会为实现功能或服务时使用，你均可以拒绝且不影响你继续使用自贸区云账户APP。</string>
+    <string name="agree_and_continue">同意并继续</string>
+    <string name="disagree">不同意</string>
+    <string name="tips_0">温馨提示</string>
+    <string name="splash_service_agreement">服务协议</string>
+    <string name="splash_privacy_policy">隐私政策</string>
 
 
 </resources>

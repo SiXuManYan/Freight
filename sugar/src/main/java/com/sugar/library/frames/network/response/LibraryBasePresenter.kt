@@ -7,7 +7,7 @@ import com.google.gson.JsonObject
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.network.Response
-import com.sugar.library.frames.network.subscriber.LibraryBaseHttpSubscriber
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.trello.rxlifecycle2.android.lifecycle.kotlin.bindUntilEvent
 import io.reactivex.Flowable
 import io.reactivex.FlowableTransformer
@@ -22,7 +22,7 @@ import io.reactivex.subscribers.ResourceSubscriber
 /**
  * 数据提供器基类
  */
-open class LibraryBasePresenter constructor(private var viewLibrary: LibraryBaseView?) {
+open class LibraryBasePresenter constructor(private var view: BaseView?) {
 
 
     //Reactive收集
@@ -75,18 +75,18 @@ open class LibraryBasePresenter constructor(private var viewLibrary: LibraryBase
      * @param lifecycle 绑定对象
      * @param event 取消周期事件
      * @param flowable 请求Service
-     * @param subscriberLibrary 订阅处理
+     * @param subscriber 订阅处理
      */
     protected fun <T> requestApi(
         lifecycle: LifecycleOwner,
         event: Lifecycle.Event,
         flowable: Flowable<Response<T>>,
-        subscriberLibrary: LibraryBaseHttpSubscriber<T>
+        subscriber: BaseHttpSubscriber<T>
     ) {
         addSubscribe(
             flowable.bindUntilEvent(lifecycle, event)
                 .compose(flowableUICompose())
-                .subscribeWith(subscriberLibrary)
+                .subscribeWith(subscriber)
         )
     }
 
@@ -181,7 +181,7 @@ open class LibraryBasePresenter constructor(private var viewLibrary: LibraryBase
      * 释放绑定的view
      */
     open fun detachView() {
-        viewLibrary = null
+        view = null
         unSubscribe()
     }
 

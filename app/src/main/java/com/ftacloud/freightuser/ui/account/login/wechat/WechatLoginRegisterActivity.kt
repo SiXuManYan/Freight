@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.activity_login_wechat.*
  * </br>
  * 微信登录和注册
  */
-class WechatLoginRegisterActivity : BaseMVPActivity<WechatLoginRegisterPresenterLibrary>(), WechatLoginRegisterViewLibrary {
+class WechatLoginRegisterActivity : BaseMVPActivity<WechatLoginRegisterPresenterLibrary>(), WechatLoginRegisterView {
 
     var wechatAuthInfo: WechatAuthInfo? = null
 
