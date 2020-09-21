@@ -8,7 +8,7 @@ import javax.inject.Inject
  * </br>
  *
  */
-class MainPresenterLibrary @Inject constructor(private var mainView: MainView) : LibraryBasePresenter(mainView) {
+class MainPresenter @Inject constructor(private var mainView: MainView) : LibraryBasePresenter(mainView) {
 
 
 }

@@ -74,6 +74,7 @@
             android:name=".ui.account.bind.BindPhoneActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".ui.settings.SettingActivity" />
 
     </application>
 

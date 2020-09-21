@@ -21,13 +21,11 @@ class BindPhoneActivity : BaseMVPActivity<BindPhonePresenter>(), BindPhoneView {
 
     override fun getLayoutId() = R.layout.activity_bind_phone
 
-
     override fun showLoading() = showLoadingDialog()
 
     override fun hideLoading() = dismissLoadingDialog()
 
     override fun initViews() {
-
 
 
     }

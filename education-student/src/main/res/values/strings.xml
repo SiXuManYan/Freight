@@ -13,8 +13,8 @@
     <string name="menu_setting">设置</string>
 
     <!-- 闪屏页 SplashActivity-->
-    <string name="use_agreement_content_0">欢迎使用自贸区云账户，请充分阅读并理解</string>
-    <string name="use_agreement_content_1">《自贸区云账户用户服务协议》</string>
+    <string name="use_agreement_content_0">欢迎使用Reading Kids，请充分阅读并理解</string>
+    <string name="use_agreement_content_1">《Reading Kids用户服务协议》</string>
     <string name="use_agreement_content_2">和</string>
     <string name="use_agreement_content_3">《隐私声明》</string>
     <string name="use_agreement_content_4">\n
@@ -63,6 +63,13 @@
 
     <!-- 绑定手机号 -->
     <string name="bind_phone">绑定手机号</string>
+    <string name="sign_out_tv">退出登录</string>
+
+    <!-- 设置页 -->
+    <string name="privacy_statement">隐私声明</string>
+    <string name="copyright">版权保护</string>
+    <string name="contact_us">联系我们</string>
+    <string name="setting">设置</string>
 
 
 </resources>

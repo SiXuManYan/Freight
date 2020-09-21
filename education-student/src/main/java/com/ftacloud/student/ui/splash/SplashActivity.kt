@@ -1,6 +1,7 @@
 package com.ftacloud.student.ui.splash
 
 import android.text.TextPaint
+import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -55,7 +56,6 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun initUserAgreement() {
-
         val message = SpanUtils()
             .append(getString(R.string.use_agreement_content_0))
             .append(getString(R.string.use_agreement_content_1))

@@ -15,7 +15,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin">
 
         <ImageView
-            android:id="@+id/show_iv"
+            android:id="@+id/my_iv"
             android:layout_width="@dimen/dp30"
             android:layout_height="@dimen/dp30"
             android:layout_centerVertical="true"

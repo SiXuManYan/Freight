@@ -1,15 +1,17 @@
 package com.ftacloud.student
 
 import android.view.View
-import android.widget.ImageView
+import android.widget.RelativeLayout
 import androidx.drawerlayout.widget.DrawerLayout
-import butterknife.BindView
 import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.ftacloud.student.ui.settings.SettingActivity
 import com.sugar.library.util.CommonUtils
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 
-class MainActivity : BaseMVPActivity<MainPresenterLibrary>(), MainView {
+class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
 
     private var tapTime = 0L
@@ -17,8 +19,11 @@ class MainActivity : BaseMVPActivity<MainPresenterLibrary>(), MainView {
     override fun getLayoutId() = R.layout.activity_main
 
     override fun initViews() {
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
 
+        val headerView = nav_view.getHeaderView(0)
+        headerView.findViewById<RelativeLayout>(R.id.menu_my_setting) .setOnClickListener {
+            startActivity(SettingActivity::class.java)
+        }
 
     }
 
@@ -35,15 +40,15 @@ class MainActivity : BaseMVPActivity<MainPresenterLibrary>(), MainView {
 
 
     @OnClick(
-        R.id.show_iv
+        R.id.my_iv
     )
     fun onClick(view: View) {
         if (CommonUtils.isDoubleClick(view)) {
             return
         }
         when (view.id) {
-            R.id.show_iv -> {
-                ToastUtils.showShort("头像")
+            R.id.my_iv -> {
+                drawer_layout.open()
             }
             else -> {
             }

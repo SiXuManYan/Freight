@@ -74,7 +74,7 @@
 
     <style name="MyCheckBox" parent="Theme.AppCompat.DayNight">
         <item name="colorControlNormal">@color/color_list_gray_background</item>
-        <item name="colorControlActivated">@color/color_blue_foreground</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
     </style>
 
 
