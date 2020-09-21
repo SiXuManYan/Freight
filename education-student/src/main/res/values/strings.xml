@@ -2,13 +2,8 @@
 
 
     <string name="app_name">Reading Kids</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
+    <!-- 侧边栏 -->
     <string name="menu_my_course">我的课程</string>
     <string name="menu_class_schedule">课程表</string>
     <string name="menu_task">课后任务</string>
@@ -17,7 +12,7 @@
     <string name="menu_my_customer_service">我的客服</string>
     <string name="menu_setting">设置</string>
 
-
+    <!-- 闪屏页 SplashActivity-->
     <string name="use_agreement_content_0">欢迎使用自贸区云账户，请充分阅读并理解</string>
     <string name="use_agreement_content_1">《自贸区云账户用户服务协议》</string>
     <string name="use_agreement_content_2">和</string>
@@ -32,6 +27,42 @@
     <string name="tips_0">温馨提示</string>
     <string name="splash_service_agreement">服务协议</string>
     <string name="splash_privacy_policy">隐私政策</string>
+
+
+    <!-- 登录页 LoginActivity -->
+    <string name="login_register">注册</string>
+
+    <string name="login_verify_rb">快捷登录</string>
+    <string name="login_password_rb">密码登录</string>
+
+    <string name="login_verify_input">输入验证码</string>
+    <string name="login_password_input">输入密码</string>
+    <string name="login_verify_empty">验证码</string>
+    <string name="login_password_empty">密码</string>
+    <string name="login_phone_input">输入常用手机号</string>
+    <string name="login_protocol">我已同意 Readingkids 用户协议和隐私政策</string>
+    <string name="login_protocol_header">我已同意 Readingkids </string>
+    <string name="login_protocol_user_agreement">用户协议</string>
+    <string name="login_protocol_header_and">和</string>
+    <string name="login_protocol_privacy_policy">隐私政策</string>
+    <string name="login_forget_password">忘记密码</string>
+
+    <!-- 注册页  -->
+    <string name="login">登录</string>
+    <string name="password_input_again">再次输入密码</string>
+    <string name="password_input_again_hint">请再次输入密码</string>
+    <string name="password_different_hint">两次密码输入不一致，请重新输入</string>
+    <string name="welocme_login_register">登录/注册</string>
+    <string name="welcome_wechat_login">微信登陆</string>
+    <string name="get_verify_code">获取验证码</string>
+
+    <!-- 找回密码 -->
+    <string name="retrieve_password">找回密码</string>
+    <string name="phone_input">输入手机号</string>
+    <string name="submit">提交</string>
+
+    <!-- 绑定手机号 -->
+    <string name="bind_phone">绑定手机号</string>
 
 
 </resources>

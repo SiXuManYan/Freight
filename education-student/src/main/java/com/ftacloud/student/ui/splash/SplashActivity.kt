@@ -9,12 +9,10 @@ import androidx.appcompat.app.AlertDialog
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.SpanUtils
-import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseActivity
 import com.ftacloud.student.frames.network.Html5Url
 import com.ftacloud.student.ui.account.WelcomeActivity
-
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import kotlinx.android.synthetic.main.activity_splash.*
@@ -73,7 +71,7 @@ class SplashActivity : BaseActivity() {
             .append(getString(R.string.use_agreement_content_3))
             .setClickSpan(object : ClickableSpan() {
                 override fun onClick(widget: View) =
-                    startWebActivity(getString(R.string.splash_privacy_policy), Html5Url.splash_PRIVACY_STATEMENT_URL)
+                    startWebActivity(getString(R.string.splash_privacy_policy), Html5Url.SPLASH_PRIVACY_STATEMENT_URL)
 
                 override fun updateDrawState(ds: TextPaint) {
                     ds.color = ColorUtils.getColor(R.color.color_118EEA)

@@ -41,10 +41,10 @@
     <style name="TopButton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingLeft">15dp</item>
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingRight">15dp</item>
-        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingLeft">@dimen/dp15</item>
+        <item name="android:paddingTop">@dimen/dp12</item>
+        <item name="android:paddingRight">@dimen/dp15</item>
+        <item name="android:paddingBottom">@dimen/dp12</item>
     </style>
 
 
@@ -74,7 +74,7 @@
 
     <style name="MyCheckBox" parent="Theme.AppCompat.DayNight">
         <item name="colorControlNormal">@color/color_list_gray_background</item>
-        <item name="colorControlActivated">@color/color_app_red</item>
+        <item name="colorControlActivated">@color/color_blue_foreground</item>
     </style>
 
 

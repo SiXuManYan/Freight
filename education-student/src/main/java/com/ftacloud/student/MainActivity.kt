@@ -11,8 +11,8 @@ import com.sugar.library.util.CommonUtils
 
 class MainActivity : BaseMVPActivity<MainPresenterLibrary>(), MainView {
 
-    @BindView(R2.id.show_iv)
-    lateinit var show_iv: ImageView
+
+    private var tapTime = 0L
 
     override fun getLayoutId() = R.layout.activity_main
 
@@ -22,9 +22,20 @@ class MainActivity : BaseMVPActivity<MainPresenterLibrary>(), MainView {
 
     }
 
-    // acquaintance
+
+    override fun onBackPressed() {
+        if (System.currentTimeMillis() - tapTime > 2000) {
+            ToastUtils.showShort("再按一次退出")
+            tapTime = System.currentTimeMillis()
+        } else {
+            // 保留应用状态
+            moveTaskToBack(false);
+        }
+    }
+
+
     @OnClick(
-        R2.id.show_iv
+        R.id.show_iv
     )
     fun onClick(view: View) {
         if (CommonUtils.isDoubleClick(view)) {

@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.blankj.utilcode.util.BarUtils
+import com.ftacloud.student.ui.webs.WebCommonActivity
 import com.sugar.library.R
 import com.sugar.library.ui.view.dialog.LoadingDialog
 import com.sugar.library.util.Constants
@@ -208,13 +209,14 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     protected fun startWebActivity(bundle: Bundle) {
-//        startActivity(Intent(applicationContext, WebCommonActivity::class.java).putExtras(bundle))
+        startActivity(Intent(applicationContext, WebCommonActivity::class.java).putExtras(bundle))
     }
 
     protected fun startWebActivity(title: String, url: String) {
         val bundle = Bundle()
-        bundle.putString(Constants.WEB_TITLE, title)
-        bundle.putString(Constants.WEB_URL, url)
+        bundle.putString(Constants.PARAM_TITLE, title)
+        bundle.putString(Constants.PARAM_URL, url)
+        bundle.putBoolean(Constants.PARAM_WEB_REFRESH, false)
         startWebActivity(bundle)
     }
 
@@ -230,7 +232,6 @@ abstract class BaseActivity : AppCompatActivity() {
         clicked!!.add(view.id)
         return true
     }
-
 
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {

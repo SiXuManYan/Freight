@@ -9,4 +9,13 @@
 	<string name="library_load_pull_down_to_refresh">Pull down to refresh</string>
 	<string name="library_loading">Loading…</string>
 	<string name="library_release_to_refresh">Refresh release</string>
+	<string name="utils_dialog_hint">prompt</string>
+	<string name="utils_dialog_yes">determine</string>
+	<string name="utils_dialog_no">cancel</string>
+	<string name="text_empty_format">Enter% 1 $ s</string>
+	<string name="bank_number_wrong_format">% 1 $ s bank card format error, please re-enter</string>
+	<string name="phone_number_wrong_format">% 1 $ s mobile phone number format error, please re-enter</string>
+	<string name="phone_number_empty_format">Please re-enter the mobile phone number% 1 $ s</string>
+	<string name="id_card_number_wrong_format">% 1 $ s ID number formatting errors, please re-enter</string>
+	<string name="input_format">Enter% 1 $ s</string>
 </resources>

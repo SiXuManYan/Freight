@@ -28,7 +28,6 @@
                 android:layout_height="80dp"
                 android:layout_marginRight="16dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:contentDescription="@string/nav_header_desc"
                 android:src="@mipmap/ic_temp3" />
 
 

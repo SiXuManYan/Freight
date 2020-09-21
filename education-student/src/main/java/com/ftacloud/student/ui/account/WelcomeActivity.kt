@@ -1,15 +1,13 @@
 package com.ftacloud.student.ui.account
 
-import android.animation.ObjectAnimator
 import android.view.View
-import android.view.animation.LinearInterpolator
 import com.blankj.utilcode.util.BarUtils
-import com.blankj.utilcode.util.ScreenUtils
-import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.ftacloud.student.ui.account.login.LoginActivity
 import com.sugar.library.util.CommonUtils
-import kotlinx.android.synthetic.main.activity_welcome.*
+import com.sugar.library.util.Constants
+import io.reactivex.functions.Consumer
 
 /**
  * Created by Wangsw on 2020/9/18 0018 15:15.
@@ -24,16 +22,27 @@ class WelcomeActivity : BaseMVPActivity<WelcomePresenter>(), WelcomeView {
     override fun initViews() {
         CommonUtils.setStatusBarTransparent(this)
         BarUtils.setNavBarVisibility(this, false)
+        initEvent()
+    }
 
-
-
+    private fun initEvent() {
+        presenter.subsribeEvent(Consumer {
+            when (it.code) {
+                Constants.EVENT_NEED_REFRESH -> {
+                    finish()
+                }
+                else -> {
+                }
+            }
+        })
     }
 
     fun loginOrRegister(view: View) {
-        startActivity(MainActivity::class.java)
+        startActivityClearTop(LoginActivity::class.java, null)
     }
+
     fun wechatLogin(view: View) {
-        startActivity(MainActivity::class.java)
+
     }
 
 

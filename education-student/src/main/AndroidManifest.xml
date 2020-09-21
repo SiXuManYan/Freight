@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ftacloud.student">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ui.app.CloudAccountApplication"
         android:allowBackup="true"
@@ -16,6 +18,7 @@
 
         <activity
             android:name=".ui.splash.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/LaunchTheme">
 
@@ -41,13 +44,35 @@
 
         <activity
             android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask" />
 
 
         <activity
             android:name=".ui.account.WelcomeActivity"
-            android:configChanges="keyboard"
-            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".ui.account.login.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".ui.account.register.RegisterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.account.retrieve.RetrieveActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.webs.WebCommonActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.account.bind.BindPhoneActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
 
     </application>

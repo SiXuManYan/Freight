@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="library_title_home">首页</string>
     <string name="library_title_dashboard">Dashboard</string>
     <string name="library_title_notifications">Notifications</string>
@@ -11,6 +11,18 @@
     <string name="library_loading">加载中…</string>
     <string name="library_release_to_refresh">松开刷新</string>
     <string name="library_on_loading" translatable="false">正在加载…</string>
+
+    <string name="utils_dialog_hint">提示</string>
+    <string name="utils_dialog_yes">确定</string>
+    <string name="utils_dialog_no">取消</string>
+
+    <!-- 校验 -->
+    <string name="text_empty_format">请输入%1$s</string>
+    <string name="bank_number_wrong_format">%1$s银行卡号格式错误，请重新输入</string>
+    <string name="phone_number_wrong_format">%1$s手机号格式错误，请重新输入</string>
+    <string name="phone_number_empty_format">请重新输入%1$s手机号</string>
+    <string name="id_card_number_wrong_format">%1$s身份证号格式错误，请重新输入</string>
+    <string name="input_format">请输入%1$s</string>
 
 
 </resources>

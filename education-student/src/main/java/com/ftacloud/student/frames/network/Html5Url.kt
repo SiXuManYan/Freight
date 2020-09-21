@@ -13,7 +13,7 @@ object Html5Url {
     /**
      * 隐私政策
      */
-    val splash_PRIVACY_STATEMENT_URL = "https://privacy.qq.com/yszc-m.htm"
+    val SPLASH_PRIVACY_STATEMENT_URL = "https://privacy.qq.com/yszc-m.htm"
 
     /**
      * 版权声明
