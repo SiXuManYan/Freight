@@ -16,6 +16,8 @@ import com.ftacloud.student.ui.account.retrieve.RetrieveActivity
 import com.ftacloud.student.ui.account.retrieve.RetrieveModule
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.settings.SettingModule
+import com.ftacloud.student.ui.tests.TestConditionActivity
+import com.ftacloud.student.ui.tests.TestConditionModule
 import com.ftacloud.student.ui.webs.WebCommonActivity
 import com.sugar.library.frames.dagger.ActivityScore
 import dagger.Module
@@ -58,6 +60,11 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [SettingModule::class])
     abstract fun h(): SettingActivity
+
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [TestConditionModule::class])
+    abstract fun i(): TestConditionActivity
 
 
 }

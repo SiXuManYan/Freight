@@ -2,14 +2,13 @@ package com.ftacloud.student
 
 import android.view.View
 import android.widget.RelativeLayout
-import androidx.drawerlayout.widget.DrawerLayout
 import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.settings.SettingActivity
+import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.sugar.library.util.CommonUtils
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
@@ -20,10 +19,18 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
     override fun initViews() {
 
+
         val headerView = nav_view.getHeaderView(0)
         headerView.findViewById<RelativeLayout>(R.id.menu_my_setting) .setOnClickListener {
             startActivity(SettingActivity::class.java)
         }
+
+        headerView.findViewById<RelativeLayout>(R.id.menu_my_evaluation) .setOnClickListener {
+            startActivity(TestConditionActivity::class.java)
+        }
+
+
+
 
     }
 

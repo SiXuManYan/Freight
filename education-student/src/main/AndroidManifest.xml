@@ -5,6 +5,21 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--播音-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+
     <application
         android:name=".ui.app.CloudAccountApplication"
         android:allowBackup="true"
@@ -75,6 +90,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.settings.SettingActivity" />
+        <activity android:name=".ui.tests.TestConditionActivity" />
 
     </application>
 
