@@ -27,7 +27,7 @@
             android:layout_centerVertical="true"
             android:layout_gravity="right"
             android:layout_marginRight="@dimen/dp15"
-            android:background="@drawable/stock_8_gray_third_level"
+            android:background="@drawable/stock_4_gray_third_level"
             android:paddingLeft="@dimen/dp10"
             android:paddingTop="@dimen/dp5"
             android:paddingRight="@dimen/dp10"

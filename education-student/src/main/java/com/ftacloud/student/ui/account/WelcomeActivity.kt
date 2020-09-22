@@ -31,8 +31,6 @@ class WelcomeActivity : BaseMVPActivity<WelcomePresenter>(), WelcomeView {
                 Constants.EVENT_NEED_REFRESH -> {
                     finish()
                 }
-                else -> {
-                }
             }
         })
     }

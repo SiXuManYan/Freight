@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp15"
+    android:paddingTop="@dimen/dp0"
+    android:paddingEnd="@dimen/dp15"
+    android:paddingBottom="@dimen/dp10">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp140"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/color_5cbebc"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp9"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp16"
+                android:text="1对1直播体验课" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_tv"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="2"
+                android:textColor="@color/color_80ffffff"
+                android:textSize="@dimen/sp13"
+                android:text="不同年龄段的小朋友量身定制体验课" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_tv"
+                    android:layout_marginEnd="@dimen/dp4"
+                    android:ellipsize="end"
+                    android:lineSpacingMultiplier="1.2"
+                    android:maxLines="2"
+                    android:text="已预约成功"
+                    android:textColor="@color/color_80ffffff"
+                    android:textSize="@dimen/sp13" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp2"
+                    android:background="@drawable/stock_4_gray_33ffffff"
+                    android:ellipsize="end"
+                    android:lineSpacingMultiplier="1.2"
+                    android:paddingStart="@dimen/dp3"
+                    android:paddingTop="@dimen/dp2"
+                    android:paddingEnd="@dimen/dp3"
+                    android:paddingBottom="@dimen/dp2"
+                    android:singleLine="true"
+                    android:text="开课时间"
+                    android:textColor="@color/color_80ffffff"
+                    android:textSize="@dimen/sp12" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp2"
+                    android:ellipsize="end"
+                    android:lineSpacingMultiplier="1.2"
+                    android:paddingStart="@dimen/dp3"
+                    android:paddingTop="@dimen/dp2"
+                    android:paddingEnd="@dimen/dp3"
+                    android:paddingBottom="@dimen/dp2"
+                    android:singleLine="true"
+                    android:text=":"
+                    android:textColor="@color/color_80ffffff"
+                    android:textSize="@dimen/sp12" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp2"
+                    android:ellipsize="end"
+                    android:lineSpacingMultiplier="1.2"
+                    android:paddingStart="@dimen/dp3"
+                    android:paddingTop="@dimen/dp2"
+                    android:paddingEnd="@dimen/dp3"
+                    android:paddingBottom="@dimen/dp2"
+                    android:singleLine="true"
+                    android:text="10 : 11 : 11"
+                    android:textColor="@color/color_80ffffff"
+                    android:textSize="@dimen/sp12" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

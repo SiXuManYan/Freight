@@ -26,7 +26,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBindModule {
 
     @ActivityScore
-    @ContributesAndroidInjector(modules = [MainModule::class])
+    @ContributesAndroidInjector(modules = [FragmentBindModule::class, MainModule::class])
     abstract fun a(): MainActivity
 
     @ActivityScore
@@ -55,11 +55,9 @@ abstract class ActivityBindModule {
     @ContributesAndroidInjector(modules = [BindPhoneModule::class])
     abstract fun g(): BindPhoneActivity
 
-  @ActivityScore
+    @ActivityScore
     @ContributesAndroidInjector(modules = [SettingModule::class])
     abstract fun h(): SettingActivity
-
-
 
 
 }
