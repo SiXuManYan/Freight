@@ -10,4 +10,7 @@ import com.sugar.library.frames.network.response.BaseTaskView
 interface LoginView : BaseTaskView {
 
     fun loginSuccess()
+
+
+    fun captchaSendResult()
 }

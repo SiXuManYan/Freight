@@ -28,7 +28,6 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
         setMainTitle("测试详情")
 
         age.apply {
-
             add("3岁")
             add("4岁")
             add("5岁")

@@ -37,6 +37,7 @@
 
     <string name="login_verify_input">输入验证码</string>
     <string name="login_password_input">输入密码</string>
+    <string name="login_phone_empty">手机号</string>
     <string name="login_verify_empty">验证码</string>
     <string name="login_password_empty">密码</string>
     <string name="login_phone_input">输入常用手机号</string>
@@ -46,6 +47,9 @@
     <string name="login_protocol_header_and">和</string>
     <string name="login_protocol_privacy_policy">隐私政策</string>
     <string name="login_forget_password">忘记密码</string>
+    <string name="get_again">重新获取</string>
+    <string name="count_down_format" formatted="false">%1$d秒</string>
+    <string name="captcha_target_format">验证码发送成功</string>
 
     <!-- 注册页  -->
     <string name="login">登录</string>

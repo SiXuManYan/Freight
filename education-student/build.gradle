@@ -50,7 +50,7 @@ android {
 
     productFlavors {
         dev {
-            buildConfigField "String", "SERVER_HOST", '"https://www.baidu.com"'
+            buildConfigField "String", "SERVER_HOST", '"http://192.168.1.169:52001"'
             buildConfigField "String", "H5_BASE_URL", '"https://www.baidu.com"'
         }
 

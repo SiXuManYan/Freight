@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.SpanUtils
+import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseActivity
 import com.ftacloud.student.frames.network.Html5Url
@@ -85,7 +86,6 @@ class SplashActivity : BaseActivity() {
         if (ishowUserAgreement) {
             afterAnimation(true)
         } else {
-
             AlertDialog.Builder(this)
                 .setTitle(R.string.tips_0)
                 .setCancelable(false)
@@ -106,7 +106,12 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun afterAnimation(isAgree: Boolean) {
-        startActivityClearTop(WelcomeActivity::class.java, null)
+        val isLogin = CommonUtils.getShareStudent().getBoolean(Constants.SP_LOGIN)
+        if (isLogin) {
+            startActivityClearTop(MainActivity::class.java, null)
+        } else {
+            startActivityClearTop(WelcomeActivity::class.java, null)
+        }
         finish()
     }
 }

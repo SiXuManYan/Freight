@@ -14,6 +14,8 @@ import com.ftacloud.student.ui.account.register.RegisterActivity
 import com.ftacloud.student.ui.account.register.RegisterModule
 import com.ftacloud.student.ui.account.retrieve.RetrieveActivity
 import com.ftacloud.student.ui.account.retrieve.RetrieveModule
+import com.ftacloud.student.ui.course.detail.CourseDetailActivity
+import com.ftacloud.student.ui.course.detail.CourseDetailModule
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.settings.SettingModule
 import com.ftacloud.student.ui.tests.TestConditionActivity
@@ -65,6 +67,10 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [TestConditionModule::class])
     abstract fun i(): TestConditionActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [CourseDetailModule::class])
+    abstract fun j(): CourseDetailActivity
 
 
 }

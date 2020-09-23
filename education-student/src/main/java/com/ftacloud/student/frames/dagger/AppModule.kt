@@ -1,6 +1,9 @@
 package com.ftacloud.student.frames.dagger
 
 import android.content.Context
+import android.util.Log
+import com.blankj.utilcode.util.LogUtils
+import com.ftacloud.student.BuildConfig
 import com.ftacloud.student.frames.network.ApiService
 import com.ftacloud.student.frames.network.UrlUtil
 import com.ftacloud.student.storage.CloudDataBase
@@ -16,6 +19,7 @@ import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Protocol
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import java.io.File
@@ -76,9 +80,9 @@ class AppModule {
             e.printStackTrace()
         }
 
-//        if (BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
 
-     /*       // 日志拦截器
+            // 日志拦截器
             val loggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
                 LogUtils.v(it)
             }).apply {
@@ -92,8 +96,8 @@ class AppModule {
             }
 
             builder.addInterceptor(loggingInterceptor)
-            builder.addInterceptor(bodyInterceptor)*/
-//        }
+            builder.addInterceptor(bodyInterceptor)
+        }
 
 
         builder.protocols(Collections.singletonList(Protocol.HTTP_1_1))

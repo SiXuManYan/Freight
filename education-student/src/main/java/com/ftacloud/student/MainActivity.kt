@@ -5,6 +5,7 @@ import android.widget.RelativeLayout
 import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.ftacloud.student.ui.course.detail.CourseDetailActivity
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.sugar.library.util.CommonUtils
@@ -21,15 +22,16 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
 
         val headerView = nav_view.getHeaderView(0)
-        headerView.findViewById<RelativeLayout>(R.id.menu_my_setting) .setOnClickListener {
+        headerView.findViewById<RelativeLayout>(R.id.menu_my_course).setOnClickListener {
+            startActivity(CourseDetailActivity::class.java)
+        }
+        headerView.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
             startActivity(SettingActivity::class.java)
         }
 
-        headerView.findViewById<RelativeLayout>(R.id.menu_my_evaluation) .setOnClickListener {
+        headerView.findViewById<RelativeLayout>(R.id.menu_my_evaluation).setOnClickListener {
             startActivity(TestConditionActivity::class.java)
         }
-
-
 
 
     }

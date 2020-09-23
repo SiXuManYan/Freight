@@ -35,13 +35,14 @@ class WelcomeActivity : BaseMVPActivity<WelcomePresenter>(), WelcomeView {
         })
     }
 
-    fun loginOrRegister(view: View) {
-        startActivityClearTop(LoginActivity::class.java, null)
-    }
+    fun loginOrRegister(view: View) = startActivityClearTop(LoginActivity::class.java, null)
 
     fun wechatLogin(view: View) {
 
     }
+
+
+
 
 
 }

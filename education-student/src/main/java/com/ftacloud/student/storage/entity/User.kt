@@ -31,7 +31,7 @@ class User {
         fun get() = instance!!
 
         fun isLogon(): Boolean {
-            val isLogin = CommonUtils.getShareDefault().getBoolean(Constants.SP_LOGIN)
+            val isLogin = CommonUtils.getShareStudent().getBoolean(Constants.SP_LOGIN)
             if (isLogin && get().id == 0L) {
                 clearAll()
                 return false
@@ -41,7 +41,7 @@ class User {
 
         fun getToken():String{
             if (isLogon()) {
-                return CommonUtils.getShareDefault().getString(Constants.SP_TOKEN, "")
+                return CommonUtils.getShareStudent().getString(Constants.SP_TOKEN, "")
             }
             return ""
         }
@@ -52,8 +52,8 @@ class User {
 
         fun clearAll() {
             (Utils.getApp() as CloudAccountApplication).database.userDao().clear()
-            CommonUtils.getShareDefault().remove(Constants.SP_LOGIN)
-            CommonUtils.getShareDefault().remove(Constants.SP_NOVICE)
+            CommonUtils.getShareStudent().remove(Constants.SP_LOGIN)
+            CommonUtils.getShareStudent().remove(Constants.SP_NOVICE)
             instance = null
         }
     }

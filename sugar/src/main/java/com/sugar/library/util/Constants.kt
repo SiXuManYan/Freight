@@ -16,6 +16,7 @@ object Constants {
 
 
     const val PR_DEFAULT = "cloud"
+    const val PR_STUDENT = "student"// 学生端share preference
     const val PR_LOCATION = "location"
 
     const val SP_DEV_URL = "dev_url"

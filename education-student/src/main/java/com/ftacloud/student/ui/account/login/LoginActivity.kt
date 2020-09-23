@@ -1,6 +1,8 @@
 package com.ftacloud.student.ui.account.login
 
+import android.text.Editable
 import android.text.TextPaint
+import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
@@ -9,6 +11,7 @@ import butterknife.OnCheckedChanged
 import butterknife.OnClick
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.SpanUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
@@ -42,8 +45,19 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
         initEvent()
     }
 
+
+    private fun initEvent() {
+        presenter.subsribeEvent(Consumer {
+            when (it.code) {
+                Constants.EVENT_NEED_REFRESH -> finish()
+            }
+        })
+    }
+
+
     private fun initLoginMode() {
 
+        // 用户协议
         register_protocol.movementMethod = LinkMovementMethod.getInstance()
         val userAgreement = getString(R.string.login_protocol_user_agreement)
         val privacyPolicy = getString(R.string.login_protocol_privacy_policy)
@@ -55,6 +69,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 override fun onClick(widget: View) {
                     startWebActivity(userAgreement, Html5Url.USER_AGREEMENT)
                 }
+
                 override fun updateDrawState(ds: TextPaint) {
                     ds.color = ColorUtils.getColor(R.color.color_118EEA)
                     ds.isUnderlineText = false
@@ -70,22 +85,43 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 }
             })
             .create()
-    }
 
 
-    private fun initEvent() {
-        presenter.subsribeEvent(Consumer {
-            when (it.code) {
-                Constants.EVENT_NEED_REFRESH -> finish()
+        // 验证码
+        verify_code_aet.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
+
+            override fun afterTextChanged(s: Editable?) {
+                val verifyCode = s.toString().trim()
+                notifyLoginButton(verifyCode)
             }
+
         })
+
+        // 校验密码
+        password_aet.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
+
+            override fun afterTextChanged(s: Editable?) {
+                val password = s.toString().trim()
+                notifyLoginButton(password)
+            }
+
+        })
+
+
     }
 
-
-    override fun loginSuccess() {
-        startActivityClearTop(MainActivity::class.java, null)
-        RxBus.post(Event(Constants.EVENT_NEED_REFRESH))
-        finish()
+    /**
+     * 更新button 状态
+     */
+    private fun notifyLoginButton(secondValue: String) {
+        val phone = phone_aet.text.toString().trim()
+        login_tv.isEnabled = phone.isNotBlank() && secondValue.isNotBlank()
     }
 
 
@@ -106,6 +142,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 password_rb.setTextColor(ColorUtils.getColor(R.color.color_third_level))
                 login_mode_switcher.displayedChild = 0
                 span_switcher.displayedChild = 0
+                notifyLoginButton(verify_code_aet.text.toString().trim())
 
             }
             R.id.password_rb -> {
@@ -116,7 +153,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 verify_rb.setTextColor(ColorUtils.getColor(R.color.color_third_level))
                 login_mode_switcher.displayedChild = 1
                 span_switcher.displayedChild = 1
-
+                notifyLoginButton(password_aet.text.toString().trim())
             }
         }
     }
@@ -125,7 +162,8 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
     @OnClick(
         R.id.login_tv,
         R.id.register_tv,
-        R.id.forget_password
+        R.id.forget_password,
+        R.id.get_verify_tv
     )
     fun onClick(view: View) {
         ProductUtils.handleDoubleClick(view)
@@ -135,17 +173,31 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 val phoneValue = phone_aet.text.toString().trim()
                 val verifyValue = verify_code_aet.text.toString().trim()
                 val passwordValue = password_aet.text.toString().trim()
-                presenter.handleLogin(verifyChecked, phoneValue, verifyValue, passwordValue)
+                presenter.handleLogin(this, verifyChecked, phoneValue, verifyValue, passwordValue)
             }
             R.id.register_tv -> {
                 startActivity(RegisterActivity::class.java)
-
             }
             R.id.forget_password -> {
                 startActivity(RetrieveActivity::class.java)
             }
+            R.id.get_verify_tv -> {
+                val phoneValue = phone_aet.text.toString().trim()
+                presenter.getVerifyCode(this, phoneValue, get_verify_tv)
+            }
 
         }
+    }
+
+
+    override fun loginSuccess() {
+        startActivityClearTop(MainActivity::class.java, null)
+        RxBus.post(Event(Constants.EVENT_NEED_REFRESH))
+        finish()
+    }
+
+    override fun captchaSendResult() {
+        ToastUtils.showShort(R.string.captcha_target_format)
     }
 
 

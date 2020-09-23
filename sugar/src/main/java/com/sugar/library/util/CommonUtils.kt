@@ -87,6 +87,9 @@ object CommonUtils {
      */
     fun getShareDefault() = SPUtils.getInstance(Constants.PR_DEFAULT)!!
 
+
+    fun getShareStudent() = SPUtils.getInstance(Constants.PR_DEFAULT)!!
+
     /**
      * 获取定位的SharePreference
      */
