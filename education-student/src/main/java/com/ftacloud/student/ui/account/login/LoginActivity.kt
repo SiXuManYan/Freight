@@ -3,7 +3,9 @@ package com.ftacloud.student.ui.account.login
 import android.text.Editable
 import android.text.TextPaint
 import android.text.TextWatcher
+import android.text.method.HideReturnsTransformationMethod
 import android.text.method.LinkMovementMethod
+import android.text.method.PasswordTransformationMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.CompoundButton
@@ -32,6 +34,10 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
 
+    /**
+     * 是否为密文
+     */
+    private var isCipherText = true
 
     override fun getLayoutId() = R.layout.activity_login
 
@@ -125,6 +131,22 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
     }
 
 
+    private fun changeDisplayMethod() {
+
+        if (isCipherText) {
+            // 切换至明文
+            password_rule_iv.setImageResource(R.mipmap.ic_temp10)
+            password_aet.transformationMethod = HideReturnsTransformationMethod.getInstance();
+        } else {
+            // 切换至密文
+            password_rule_iv.setImageResource(R.mipmap.ic_temp9)
+            password_aet.transformationMethod = PasswordTransformationMethod.getInstance();
+        }
+        password_aet.setSelection(password_aet.text.toString().length)
+        isCipherText = !isCipherText
+    }
+
+
     @OnCheckedChanged(
         R.id.verify_rb,
         R.id.password_rb
@@ -163,7 +185,9 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
         R.id.login_tv,
         R.id.register_tv,
         R.id.forget_password,
-        R.id.get_verify_tv
+        R.id.get_verify_tv,
+        R.id.password_rule_iv
+
     )
     fun onClick(view: View) {
         ProductUtils.handleDoubleClick(view)
@@ -174,6 +198,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 val verifyValue = verify_code_aet.text.toString().trim()
                 val passwordValue = password_aet.text.toString().trim()
                 presenter.handleLogin(this, verifyChecked, phoneValue, verifyValue, passwordValue)
+                loginSuccess()
             }
             R.id.register_tv -> {
                 startActivity(RegisterActivity::class.java)
@@ -184,6 +209,9 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
             R.id.get_verify_tv -> {
                 val phoneValue = phone_aet.text.toString().trim()
                 presenter.getVerifyCode(this, phoneValue, get_verify_tv)
+            }
+            R.id.password_rule_iv -> {
+                changeDisplayMethod()
             }
 
         }

@@ -8,4 +8,10 @@ package com.ftacloud.student.frames.network.request
 class GetVerifyCode {
     var username :String =  ""
 
+    val type: String = "STUDENT"
+    val clientType: String = "PHONE"
+    val osType: String = "ANDROID"
+    val osVersion: String = android.os.Build.VERSION.RELEASE + "_" + android.os.Build.VERSION.SDK_INT
+
+
 }

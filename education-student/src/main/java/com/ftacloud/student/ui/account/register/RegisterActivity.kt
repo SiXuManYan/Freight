@@ -11,7 +11,12 @@ import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.activity_register.get_verify_tv
+import kotlinx.android.synthetic.main.activity_register.password_aet
+import kotlinx.android.synthetic.main.activity_register.phone_aet
+import kotlinx.android.synthetic.main.activity_register.verify_code_aet
 
 /**
  * Created by Wangsw on 2020/9/21 0021 9:34.
@@ -36,7 +41,7 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
 
     @OnClick(
         R.id.back_login_tv,
-        R.id.verify_code_tv,
+        R.id.get_verify_tv,
         R.id.register_tv
     )
     fun onClick(view: View) {
@@ -45,8 +50,9 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
             R.id.back_login_tv -> {
                 finish()
             }
-            R.id.verify_code_tv -> {
-                ToastUtils.showShort("获取验证码")
+            R.id.get_verify_tv -> {
+                val phoneValue = phone_aet.text.toString().trim()
+                presenter.getVerifyCode(this, phoneValue, get_verify_tv)
             }
 
             R.id.register_tv -> {
@@ -64,6 +70,10 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
         startActivityClearTop(MainActivity::class.java, null)
         RxBus.post(Event(Constants.EVENT_NEED_REFRESH))
         finish()
+    }
+
+    override fun captchaSendResult() {
+        ToastUtils.showShort(R.string.captcha_target_format)
     }
 
 }

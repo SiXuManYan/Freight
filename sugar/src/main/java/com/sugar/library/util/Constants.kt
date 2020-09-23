@@ -3,17 +3,12 @@ package com.sugar.library.util
 object Constants {
 
 
-
-
-
     const val TYPE_OWNER = "OWNER"
     const val OS = "Android"
 
 
-
     const val FROM_TYPE_ANDROID = "F1"
     const val PLATFORM_APP = "APP"
-
 
     const val PR_DEFAULT = "cloud"
     const val PR_STUDENT = "student"// 学生端share preference
