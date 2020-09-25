@@ -30,6 +30,7 @@
             android:src="@mipmap/ic_temp5" />
 
         <ImageView
+            android:id="@+id/message_iv"
             android:layout_width="@dimen/dp30"
             android:layout_height="@dimen/dp30"
             android:layout_alignParentRight="true"

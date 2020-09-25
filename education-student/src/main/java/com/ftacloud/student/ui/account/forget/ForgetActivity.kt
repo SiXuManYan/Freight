@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.account.retrieve
+package com.ftacloud.student.ui.account.forget
 
 import android.view.View
 import butterknife.OnClick
@@ -11,9 +11,9 @@ import kotlinx.android.synthetic.main.activity_register.*
 /**
  * Created by Wangsw on 2020/9/21 0021 9:37.
  * </br>
- *
+ *  忘记密码(设置密码)
  */
-class RetrieveActivity : BaseMVPActivity<RetrievePresenter>(), RetrieveView {
+class ForgetActivity : BaseMVPActivity<ForgetPresenter>(), ForgetView {
 
     override fun getLayoutId() = R.layout.activity_login_forget
 
@@ -45,7 +45,7 @@ class RetrieveActivity : BaseMVPActivity<RetrievePresenter>(), RetrieveView {
                 val verifyValue = verify_code_aet.text.toString().trim()
                 val passwordValue = password_aet.text.toString().trim()
                 val passwordAgainValue = password_again_aet.text.toString().trim()
-                presenter.retrieve(phoneValue, verifyValue, passwordValue, passwordAgainValue)
+                presenter.retrieve(this, phoneValue, verifyValue, passwordValue, passwordAgainValue)
 
             }
         }

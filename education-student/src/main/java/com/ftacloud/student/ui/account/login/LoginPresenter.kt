@@ -17,6 +17,7 @@ import com.google.gson.JsonObject
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
+import com.sugar.library.util.AndroidUtil
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
@@ -140,7 +141,7 @@ class LoginPresenter @Inject constructor(private var view: LoginView) : BasePres
 
         val apply = PasswordLogin().apply {
             username = phoneValue
-            passwd = passwordValue
+            passwd = AndroidUtil.md5(passwordValue)
         }
 
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.loginPassword(apply), object : BaseHttpSubscriber<User>(view) {

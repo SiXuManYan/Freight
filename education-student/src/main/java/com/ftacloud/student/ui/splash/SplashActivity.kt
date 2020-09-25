@@ -61,7 +61,9 @@ class SplashActivity : BaseActivity() {
             .append(getString(R.string.use_agreement_content_0))
             .append(getString(R.string.use_agreement_content_1))
             .setClickSpan(object : ClickableSpan() {
-                override fun onClick(widget: View) = startWebActivity(getString(R.string.splash_service_agreement), Html5Url.SPLASH_SERVICE_AGREEMENT)
+                override fun onClick(widget: View) {
+                    startWebActivity(getString(R.string.splash_service_agreement), Html5Url.SPLASH_SERVICE_AGREEMENT)
+                }
 
                 override fun updateDrawState(ds: TextPaint) {
                     ds.color = ColorUtils.getColor(R.color.color_118EEA)

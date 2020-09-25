@@ -49,7 +49,8 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
 
     @OnClick(
-        R.id.my_iv
+        R.id.my_iv,
+        R.id.message_iv
     )
     fun onClick(view: View) {
         if (CommonUtils.isDoubleClick(view)) {
@@ -58,6 +59,9 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         when (view.id) {
             R.id.my_iv -> {
                 drawer_layout.open()
+            }
+            R.id.message_iv -> {
+
             }
             else -> {
             }

@@ -13,7 +13,8 @@
     <string name="menu_setting">设置</string>
 
     <!-- 闪屏页 SplashActivity-->
-    <string name="use_agreement_content_0">欢迎使用Reading Kids，请充分阅读并理解</string>
+    <string name="tips_0">欢迎使用Reading Kids</string>
+    <string name="use_agreement_content_0">请充分阅读并理解</string>
     <string name="use_agreement_content_1">《Reading Kids用户服务协议》</string>
     <string name="use_agreement_content_2">和</string>
     <string name="use_agreement_content_3">《隐私声明》</string>
@@ -24,7 +25,7 @@
 4.GPS、相机、相册等敏感权限均不会默认开启，只有经过明示授权才会为实现功能或服务时使用，你均可以拒绝且不影响你继续使用自贸区云账户APP。</string>
     <string name="agree_and_continue">同意并继续</string>
     <string name="disagree">不同意</string>
-    <string name="tips_0">温馨提示</string>
+
     <string name="splash_service_agreement">服务协议</string>
     <string name="splash_privacy_policy">隐私政策</string>
 

@@ -3,6 +3,7 @@ package com.ftacloud.student.ui.account.register
 import android.widget.TextView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.blankj.utilcode.util.EncryptUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.R
@@ -13,6 +14,7 @@ import com.ftacloud.student.frames.network.response.BasePresenter
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonElement
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
+import com.sugar.library.util.AndroidUtil
 import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
 import io.reactivex.Flowable
@@ -54,7 +56,7 @@ class RegisterPresenter @Inject constructor(private var view: RegisterView) : Ba
         val apply = Register().apply {
             username = phoneValue
             vc = verifyValue
-            passwd = passwordValue
+            passwd = AndroidUtil.md5(passwordValue)
         }
 
 

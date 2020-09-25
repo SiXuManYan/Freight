@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.account.retrieve
+package com.ftacloud.student.ui.account.forget
 
 import com.sugar.library.frames.network.response.BaseTaskView
 
@@ -7,6 +7,6 @@ import com.sugar.library.frames.network.response.BaseTaskView
  * </br>
  *
  */
-interface RetrieveView : BaseTaskView {
+interface ForgetView : BaseTaskView {
     fun retrieveSuccess()
 }

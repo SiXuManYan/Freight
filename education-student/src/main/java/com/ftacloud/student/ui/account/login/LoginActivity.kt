@@ -19,9 +19,7 @@ import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.network.Html5Url
 import com.ftacloud.student.ui.account.register.RegisterActivity
-import com.ftacloud.student.ui.account.retrieve.RetrieveActivity
-import com.sugar.library.event.Event
-import com.sugar.library.event.RxBus
+import com.ftacloud.student.ui.account.forget.ForgetActivity
 import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
 import io.reactivex.functions.Consumer
@@ -203,7 +201,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 startActivity(RegisterActivity::class.java)
             }
             R.id.forget_password -> {
-                startActivity(RetrieveActivity::class.java)
+                startActivity(ForgetActivity::class.java)
             }
             R.id.get_verify_tv -> {
                 val phoneValue = phone_aet.text.toString().trim()

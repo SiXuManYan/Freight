@@ -78,7 +78,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.account.retrieve.RetrieveActivity"
+            android:name=".ui.account.forget.ForgetActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
         <activity
