@@ -7,7 +7,10 @@ import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.network.request.GetVerifyCode
+import com.ftacloud.student.frames.network.request.PasswordLogin
+import com.ftacloud.student.frames.network.request.Register
 import com.ftacloud.student.frames.network.response.BasePresenter
+import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonElement
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.sugar.library.util.Constants
@@ -24,7 +27,7 @@ import javax.inject.Inject
  */
 class RegisterPresenter @Inject constructor(private var view: RegisterView) : BasePresenter(view) {
 
-    fun register(phoneValue: String, verifyValue: String, passwordValue: String, passwordAgainValue: String) {
+    fun register(lifecycle: LifecycleOwner, phoneValue: String, verifyValue: String, passwordValue: String, passwordAgainValue: String) {
         if (!ProductUtils.isPhoneNumber(phoneValue)) {
             return
         }
@@ -42,15 +45,30 @@ class RegisterPresenter @Inject constructor(private var view: RegisterView) : Ba
             return
         }
 
-        if (passwordValue != passwordAgainValue){
+        if (passwordValue != passwordAgainValue) {
             ToastUtils.showShort(R.string.password_different_hint)
             return
         }
 
-        view.registerSuccess()
+
+        val apply = Register().apply {
+            username = phoneValue
+            vc = verifyValue
+            passwd = passwordValue
+        }
+
+
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.register(apply), object : BaseHttpSubscriber<User>(view) {
+            override fun onSuccess(data: User?) {
+                data?.let {
+                    loginSuccess(it, phoneValue)
+                    view.registerSuccess()
+                }
+            }
+        })
+
 
     }
-
 
 
     /**
@@ -106,7 +124,6 @@ class RegisterPresenter @Inject constructor(private var view: RegisterView) : Ba
                 }
                 .subscribe())
     }
-
 
 
 }

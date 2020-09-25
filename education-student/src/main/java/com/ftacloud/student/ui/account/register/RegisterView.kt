@@ -10,4 +10,5 @@ import com.sugar.library.frames.network.response.BaseTaskView
 interface RegisterView :BaseTaskView{
     fun registerSuccess()
     fun captchaSendResult()
+
 }

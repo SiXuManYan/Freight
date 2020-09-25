@@ -84,6 +84,7 @@ object CommonUtils {
 
     /**
      * 获取默认的SharePreference
+     * @d
      */
     fun getShareDefault() = SPUtils.getInstance(Constants.PR_DEFAULT)!!
 

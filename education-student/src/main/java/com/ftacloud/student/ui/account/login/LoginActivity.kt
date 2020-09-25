@@ -198,7 +198,6 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 val verifyValue = verify_code_aet.text.toString().trim()
                 val passwordValue = password_aet.text.toString().trim()
                 presenter.handleLogin(this, verifyChecked, phoneValue, verifyValue, passwordValue)
-//                loginSuccess()
             }
             R.id.register_tv -> {
                 startActivity(RegisterActivity::class.java)
@@ -220,7 +219,6 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
 
     override fun loginSuccess() {
         startActivityClearTop(MainActivity::class.java, null)
-        RxBus.post(Event(Constants.EVENT_NEED_REFRESH))
         finish()
     }
 

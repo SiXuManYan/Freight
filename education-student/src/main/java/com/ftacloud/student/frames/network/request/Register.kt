@@ -5,11 +5,12 @@ import com.ftacloud.student.frames.common.StudentConstants
 /**
  * Created by Wangsw on 2020/9/23 0023 14:41.
  * </br>
- *
+ * 注册
  */
-class FastLogin {
+class Register {
     var username: String = ""
     var vc: String = ""
+    var passwd: String = ""
 
     val type: String = StudentConstants.TYPE_STUDENT
     val clientType: String = StudentConstants.CLIENT_TYPE_PHONE
@@ -18,3 +19,4 @@ class FastLogin {
 
 
 }
+

@@ -60,7 +60,7 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
                 val verifyValue = verify_code_aet.text.toString().trim()
                 val passwordValue = password_aet.text.toString().trim()
                 val passwordAgainValue = password_again_aet.text.toString().trim()
-                presenter.register(phoneValue, verifyValue, passwordValue, passwordAgainValue)
+                presenter.register(this,phoneValue, verifyValue, passwordValue, passwordAgainValue)
 
             }
         }
@@ -68,7 +68,6 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
 
     override fun registerSuccess() {
         startActivityClearTop(MainActivity::class.java, null)
-        RxBus.post(Event(Constants.EVENT_NEED_REFRESH))
         finish()
     }
 

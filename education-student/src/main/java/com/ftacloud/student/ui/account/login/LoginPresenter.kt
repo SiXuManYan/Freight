@@ -5,13 +5,19 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import com.blankj.utilcode.util.StringUtils
 import com.ftacloud.student.R
+import com.ftacloud.student.frames.backstage.DataServiceFaker
 import com.ftacloud.student.frames.network.request.FastLogin
 import com.ftacloud.student.frames.network.request.GetVerifyCode
+import com.ftacloud.student.frames.network.request.PasswordLogin
 import com.ftacloud.student.frames.network.response.BasePresenter
+import com.ftacloud.student.storage.entity.User
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
+import com.sugar.library.event.Event
+import com.sugar.library.event.RxBus
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
+import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
 import io.reactivex.Flowable
@@ -19,7 +25,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-/**
+/*
  * Created by Wangsw on 2020/9/21 0021 9:33.
  * </br>
  *
@@ -59,16 +65,14 @@ class LoginPresenter @Inject constructor(private var view: LoginView) : BasePres
             vc = verifyValue
         }
 
-        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
-            apiService.loginFast(apply),
-            object : BaseHttpSubscriber<JsonObject>(view) {
-                override fun onSuccess(data: JsonObject?) {
-                    data?.let {
-                        view.loginSuccess()
-                    }
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.loginFast(apply), object : BaseHttpSubscriber<User>(view) {
+            override fun onSuccess(data: User?) {
+                data?.let {
+                    loginSuccess(it,phoneValue)
+                    view.loginSuccess()
                 }
             }
-        )
+        })
 
 
     }
@@ -129,13 +133,29 @@ class LoginPresenter @Inject constructor(private var view: LoginView) : BasePres
     }
 
 
-
     /**
      * 密码登录
      */
-    private fun passwordLogin(lifecycle: LifecycleOwner, phoneValue: String, verifyValue: String) {
-        view.loginSuccess()
+    private fun passwordLogin(lifecycle: LifecycleOwner, phoneValue: String, passwordValue: String) {
+
+        val apply = PasswordLogin().apply {
+            username = phoneValue
+            passwd = passwordValue
+        }
+
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.loginPassword(apply), object : BaseHttpSubscriber<User>(view) {
+            override fun onSuccess(data: User?) {
+                data?.let {
+                    loginSuccess(it,phoneValue)
+                    view.loginSuccess()
+                }
+            }
+        })
+
+
     }
+
+
 
 
 

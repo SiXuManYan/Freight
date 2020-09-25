@@ -61,19 +61,17 @@ class User {
     @PrimaryKey
     var id: Long = 0
 
-
 /*
+    {
+        "code": "200",
+        "msg": "成功",
+        "data": {
+        "username": "17640339671",
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdWJqZWN0IiwiaXNzIjoiU3VuU2hhbmdxaWFuZyIsIm5hbWUiOiIiLCJpZCI6IjEzMDkyOTYyNzA3MTU3ODUyMTYiLCJleHAiOjE2MzIwOTk1MzEsInR5cGUiOiJTVFVERU5UIiwidXNlcm5hbWUiOiIxNzY0MDMzOTY3MSJ9.t4Q21O9v-RdJv6kTVgfQHDi-4VpT_gjxfnPZ08QUjJc"
+    }
+    }*/
 
-     "data" : {
-        "token" : "ae00bd7586a34015ba628b04fa9ad158",
-        "username" : "13200010001",
-        "nickName" : "晌笆蹈悼绝",
-        "headUrl" : "ios_20200526202947196_202001205.png"
-      }
 
-*/
-
-    var token = ""
 
     /**
      * 用户名，手机号
@@ -81,18 +79,9 @@ class User {
     @ColumnInfo(name = "user_name")
     var username = ""
 
-    /**
-     * 用户昵称
-     */
-    @ColumnInfo(name = "nick_name")
-    var nickName = ""
 
-    /**
-     * 用户头像
-     */
-    @ColumnInfo(name = "head_url")
-    var headUrl = ""
-
+    @ColumnInfo(name = "token")
+    var token = ""
 
 
 

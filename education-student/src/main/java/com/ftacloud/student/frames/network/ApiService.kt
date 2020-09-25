@@ -2,6 +2,8 @@ package com.ftacloud.student.frames.network
 
 import com.ftacloud.student.frames.network.request.FastLogin
 import com.ftacloud.student.frames.network.request.GetVerifyCode
+import com.ftacloud.student.frames.network.request.PasswordLogin
+import com.ftacloud.student.frames.network.request.Register
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
@@ -49,7 +51,20 @@ interface ApiService {
      * 快速登陆
      */
     @POST("$API_ACCOUNT_URI/fastLogin")
-    fun loginFast(@Body fastLogin: FastLogin?): Flowable<Response<JsonObject>>
+    fun loginFast(@Body module: FastLogin?): Flowable<Response<User>>
+
+    /**
+     * 密码登陆
+     * 未调试
+     */
+    @POST("$API_ACCOUNT_URI/login")
+    fun loginPassword(@Body module: PasswordLogin?): Flowable<Response<User>>
+
+    /**
+     * 注册
+     */
+    @POST("$API_ACCOUNT_URI/registry")
+    fun register(@Body module: Register?): Flowable<Response<User>>
 
 
 }
