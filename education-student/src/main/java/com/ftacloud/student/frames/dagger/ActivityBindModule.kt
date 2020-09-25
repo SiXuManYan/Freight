@@ -16,6 +16,8 @@ import com.ftacloud.student.ui.account.forget.ForgetActivity
 import com.ftacloud.student.ui.account.forget.ForgetModule
 import com.ftacloud.student.ui.course.detail.CourseDetailActivity
 import com.ftacloud.student.ui.course.detail.CourseDetailModule
+import com.ftacloud.student.ui.message.MessageActivity
+import com.ftacloud.student.ui.message.MessageModule
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.settings.SettingModule
 import com.ftacloud.student.ui.tests.TestConditionActivity
@@ -71,6 +73,10 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [CourseDetailModule::class])
     abstract fun j(): CourseDetailActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [MessageModule::class])
+    abstract fun k(): MessageActivity
 
 
 }

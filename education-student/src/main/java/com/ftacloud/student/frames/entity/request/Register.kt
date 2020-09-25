@@ -1,4 +1,4 @@
-package com.ftacloud.student.frames.network.request
+package com.ftacloud.student.frames.entity.request
 
 import com.ftacloud.student.frames.common.StudentConstants
 

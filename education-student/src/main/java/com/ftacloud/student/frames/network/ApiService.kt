@@ -1,16 +1,12 @@
 package com.ftacloud.student.frames.network
 
-import com.ftacloud.student.frames.network.request.*
+import com.ftacloud.student.frames.entity.request.*
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonElement
-import com.google.gson.JsonObject
 import com.sugar.library.frames.network.Response
 import io.reactivex.Flowable
-import okhttp3.RequestBody
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 
 /**

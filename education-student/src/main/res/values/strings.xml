@@ -76,5 +76,8 @@
     <string name="contact_us">联系我们</string>
     <string name="setting">设置</string>
 
+    <!-- 我的消息 -->
+    <string name="message_title">我的消息</string>
+
 
 </resources>

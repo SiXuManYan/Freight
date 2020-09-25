@@ -1,4 +1,4 @@
-package com.ftacloud.student.frames.network.request
+package com.ftacloud.student.frames.entity.request
 
 import com.ftacloud.student.frames.common.StudentConstants
 
@@ -7,9 +7,10 @@ import com.ftacloud.student.frames.common.StudentConstants
  * </br>
  *
  */
-class FastLogin {
+class PasswordLogin {
+
     var username: String = ""
-    var vc: String = ""
+    var passwd: String = ""
 
     val type: String = StudentConstants.TYPE_STUDENT
     val clientType: String = StudentConstants.CLIENT_TYPE_PHONE

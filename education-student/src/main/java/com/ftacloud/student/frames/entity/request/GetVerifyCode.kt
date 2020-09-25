@@ -1,4 +1,4 @@
-package com.ftacloud.student.frames.network.request
+package com.ftacloud.student.frames.entity.request
 
 /**
  * Created by Wangsw on 2020/9/23 0023 14:41.

@@ -2,7 +2,7 @@ package com.ftacloud.student.ui.account.forget
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.ftacloud.student.frames.network.request.SetPassword
+import com.ftacloud.student.frames.entity.request.SetPassword
 import com.ftacloud.student.frames.network.response.BasePresenter
 import com.ftacloud.student.storage.entity.User
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber

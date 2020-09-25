@@ -3,13 +3,11 @@ package com.ftacloud.student.ui.account.register
 import android.widget.TextView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.blankj.utilcode.util.EncryptUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.R
-import com.ftacloud.student.frames.network.request.GetVerifyCode
-import com.ftacloud.student.frames.network.request.PasswordLogin
-import com.ftacloud.student.frames.network.request.Register
+import com.ftacloud.student.frames.entity.request.GetVerifyCode
+import com.ftacloud.student.frames.entity.request.Register
 import com.ftacloud.student.frames.network.response.BasePresenter
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonElement
