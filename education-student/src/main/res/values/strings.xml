@@ -79,5 +79,8 @@
     <!-- 我的消息 -->
     <string name="message_title">我的消息</string>
 
+    <!-- 课程表 -->
+    <string name="class_schedule_title">我的消息</string>
+
 
 </resources>

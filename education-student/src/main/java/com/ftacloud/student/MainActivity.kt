@@ -6,6 +6,7 @@ import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.course.detail.CourseDetailActivity
+import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.sugar.library.util.CommonUtils
@@ -61,7 +62,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                 drawer_layout.open()
             }
             R.id.message_iv -> {
-
+                startActivity(MessageActivity::class.java)
             }
             else -> {
             }

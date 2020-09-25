@@ -12,6 +12,7 @@ import com.sugar.library.util.CommonUtils
  * Created by Wangsw on 2020/9/25 0025 14:00.
  * </br>
  *  消息
+ *
  */
 class MessageActivity : BaseRefreshListActivity<Message, MessagePresenter>(), MessageView  {
 

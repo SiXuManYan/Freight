@@ -92,6 +92,7 @@
         <activity android:name=".ui.settings.SettingActivity" />
         <activity android:name=".ui.tests.TestConditionActivity" />
         <activity android:name=".ui.course.detail.CourseDetailActivity" />
+        <activity android:name=".ui.message.MessageActivity" />
 
     </application>
 
