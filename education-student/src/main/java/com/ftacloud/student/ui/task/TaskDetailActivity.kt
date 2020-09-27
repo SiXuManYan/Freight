@@ -10,7 +10,7 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
  */
 class TaskDetailActivity : BaseMVPActivity<TaskDetailPresenter>(), TaskDetailView {
 
-    override fun showLoading() = showLoadingDialog()
+    override fun showLoading() =   showLoadingDialog()
 
     override fun hideLoading() = dismissLoadingDialog()
 
