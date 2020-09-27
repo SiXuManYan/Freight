@@ -95,7 +95,8 @@
         <activity android:name=".ui.message.MessageActivity" />
         <activity android:name=".ui.course.schedule.ClassScheduleActivity" />
         <activity android:name=".ui.course.list.MyCourseActivity" />
-        <activity android:name=".ui.task.TaskDetailActivity" />
+        <activity android:name=".ui.task.detail.TaskDetailActivity" />
+        <activity android:name=".ui.task.TaskActivity" />
 
     </application>
 

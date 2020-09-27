@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.task
+package com.ftacloud.student.ui.task.detail
 
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity

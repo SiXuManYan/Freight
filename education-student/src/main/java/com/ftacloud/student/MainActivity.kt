@@ -10,6 +10,7 @@ import com.ftacloud.student.ui.course.list.MyCourseActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.settings.SettingActivity
+import com.ftacloud.student.ui.task.TaskActivity
 import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.sugar.library.util.CommonUtils
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,9 +23,14 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
     override fun getLayoutId() = R.layout.activity_main
 
     override fun initViews() {
+        initHeaderView()
 
+    }
+
+    private fun initHeaderView() {
 
         val headerView = nav_view.getHeaderView(0)
+
         headerView.findViewById<RelativeLayout>(R.id.menu_my_course).setOnClickListener {
             startActivity(MyCourseActivity::class.java)
         }
@@ -33,14 +39,25 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
             startActivity(ClassScheduleActivity::class.java)
         }
 
-
-
-        headerView.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
-            startActivity(SettingActivity::class.java)
+        headerView.findViewById<RelativeLayout>(R.id.menu_task).setOnClickListener {
+            startActivity(TaskActivity::class.java)
         }
 
         headerView.findViewById<RelativeLayout>(R.id.menu_my_evaluation).setOnClickListener {
             startActivity(TestConditionActivity::class.java)
+        }
+
+        headerView.findViewById<RelativeLayout>(R.id.menu_my_order).setOnClickListener {
+            ToastUtils.showShort("我的订单")
+
+        }
+        headerView.findViewById<RelativeLayout>(R.id.menu_my_customer_service).setOnClickListener {
+            ToastUtils.showShort("我的客服")
+
+        }
+
+        headerView.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
+            startActivity(SettingActivity::class.java)
         }
 
 

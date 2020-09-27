@@ -24,8 +24,10 @@ import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.message.MessageModule
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.settings.SettingModule
-import com.ftacloud.student.ui.task.TaskDetailActivity
-import com.ftacloud.student.ui.task.TaskDetailModule
+import com.ftacloud.student.ui.task.TaskActivity
+import com.ftacloud.student.ui.task.TaskModule
+import com.ftacloud.student.ui.task.detail.TaskDetailActivity
+import com.ftacloud.student.ui.task.detail.TaskDetailModule
 import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.ftacloud.student.ui.tests.TestConditionModule
 import com.ftacloud.student.ui.webs.WebCommonActivity
@@ -97,6 +99,10 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [TaskDetailModule::class])
     abstract fun n(): TaskDetailActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [TaskModule::class])
+    abstract fun o(): TaskActivity
 
 
 }

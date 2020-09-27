@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.task
+package com.ftacloud.student.ui.task.detail
 
 import com.sugar.library.frames.network.response.BaseTaskView
 
