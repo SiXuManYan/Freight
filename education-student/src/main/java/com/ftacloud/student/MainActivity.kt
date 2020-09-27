@@ -5,8 +5,7 @@ import android.widget.RelativeLayout
 import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.BaseMVPActivity
-import com.ftacloud.student.ui.course.detail.CourseDetailActivity
-import com.ftacloud.student.ui.course.list.MyCourseActivity
+import com.ftacloud.student.ui.course.my.MyCourseActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.settings.SettingActivity

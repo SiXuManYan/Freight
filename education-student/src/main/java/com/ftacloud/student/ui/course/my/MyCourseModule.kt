@@ -1,7 +1,5 @@
-package com.ftacloud.student.ui.course.list
+package com.ftacloud.student.ui.course.my
 
-import com.ftacloud.student.ui.course.detail.CourseDetailActivity
-import com.ftacloud.student.ui.course.detail.CourseDetailView
 import dagger.Module
 import dagger.Provides
 

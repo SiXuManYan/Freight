@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.course.list
+package com.ftacloud.student.ui.course.my
 
 import com.ftacloud.student.frames.entity.MyCourse
 import com.sugar.library.frames.network.response.list.BaseNoJsonListView2

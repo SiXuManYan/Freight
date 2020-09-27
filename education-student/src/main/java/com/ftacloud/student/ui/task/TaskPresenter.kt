@@ -1,6 +1,7 @@
 package com.ftacloud.student.ui.task
 
 import com.ftacloud.student.frames.network.response.BasePresenter
+import javax.inject.Inject
 
 
 /**
@@ -8,6 +9,6 @@ import com.ftacloud.student.frames.network.response.BasePresenter
  * </br>
  *
  */
-class TaskPresenter constructor(private var view: TaskView) : BasePresenter(view) {
+class TaskPresenter @Inject constructor(private var view: TaskView) : BasePresenter(view) {
 
 }

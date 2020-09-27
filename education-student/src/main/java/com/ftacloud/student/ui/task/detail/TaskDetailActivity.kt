@@ -17,7 +17,7 @@ class TaskDetailActivity : BaseMVPActivity<TaskDetailPresenter>(), TaskDetailVie
     override fun getLayoutId() = R.layout.activity_after_class_task
 
     override fun initViews() {
-
+        setMainTitle("课后任务详情")
 
     }
 

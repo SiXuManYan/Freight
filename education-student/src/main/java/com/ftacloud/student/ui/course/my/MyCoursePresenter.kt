@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.course.list
+package com.ftacloud.student.ui.course.my
 
 import com.ftacloud.student.frames.network.response.BasePresenter
 import javax.inject.Inject

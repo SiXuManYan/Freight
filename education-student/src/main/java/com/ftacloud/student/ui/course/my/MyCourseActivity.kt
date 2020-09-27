@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.course.list
+package com.ftacloud.student.ui.course.my
 
 import android.view.ViewGroup
 import com.ftacloud.student.R

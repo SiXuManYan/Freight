@@ -94,5 +94,12 @@
     <string name="task_download">下载</string>
     <string name="task_upload">上传</string>
 
+    <!-- 我的测评 -->
+    <string name="my_test_title">我的测评</string>
+    <string name="english_level">英语等级</string>
+
+    <!-- 评分详情 -->
+    <string name="score_title">评分详情</string>
+    <string name="interjection">太棒啦</string>
 
 </resources>

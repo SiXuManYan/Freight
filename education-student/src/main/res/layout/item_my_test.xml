@@ -15,10 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp100"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/color_7698de"
+        app:cardBackgroundColor="@color/color_ff855e"
         android:layout_marginStart="@dimen/dp15"
         android:layout_marginEnd="@dimen/dp15"
         app:cardCornerRadius="@dimen/dp12"
+        android:elevation="@dimen/dp0"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
 
@@ -39,19 +40,19 @@
                 android:textStyle="bold"
                 android:textColor="@color/font_white"
                 android:textSize="@dimen/sp16"
-                tools:text="基础测试" />
+                android:text="基础测验 / 小朋友英语升级测试" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp15"
+                android:layout_marginTop="@dimen/dp10"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
                 android:maxLines="2"
                 android:textColor="@color/color_80ffffff"
                 android:textSize="@dimen/sp13"
-                tools:text="专业分级测验，帮助验/评分中，已经评分" />
+                android:text="已评分 / 专业分级测验，帮助孩子更好的选择学习方式" />
 
 
         </LinearLayout>
@@ -60,31 +61,5 @@
     </androidx.cardview.widget.CardView>
 
 
-    <FrameLayout
-        android:id="@+id/message_unread_fl"
-        android:layout_alignParentEnd="true"
-        android:layout_width="@dimen/dp18"
-        android:layout_height="@dimen/dp18"
-        android:layout_marginEnd="@dimen/dp15"
-        android:visibility="gone"
-        tools:visibility="visible">
-
-        <ImageView
-            android:id="@+id/message_point_iv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/shape_point_red" />
-
-        <TextView
-            android:id="@+id/message_unread_number_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:maxLines="1"
-            android:textColor="@color/font_white"
-            android:textSize="@dimen/font_size_10"
-            tools:text="11" />
-
-    </FrameLayout>
 
 </RelativeLayout>

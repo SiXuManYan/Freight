@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_test.*
 /**
  * Created by Wangsw on 2020/9/22 0022 15:57.
  * </br>
- *
+ *  测试题条件
  */
 class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestConditionView {
 

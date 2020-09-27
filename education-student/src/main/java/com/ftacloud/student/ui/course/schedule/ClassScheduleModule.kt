@@ -1,7 +1,5 @@
 package com.ftacloud.student.ui.course.schedule
 
-import com.ftacloud.student.ui.home.HomeFragment
-import com.ftacloud.student.ui.home.HomeView
 import dagger.Module
 import dagger.Provides
 
@@ -14,7 +12,7 @@ import dagger.Provides
 class ClassScheduleModule {
 
     @Provides
-    fun viewProvider(act:ClassScheduleActivity): ClassScheduleView {
+    fun viewProvider(act: ClassScheduleActivity): ClassScheduleView {
         return act
     }
 

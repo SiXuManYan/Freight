@@ -16,8 +16,8 @@ import com.ftacloud.student.ui.account.forget.ForgetActivity
 import com.ftacloud.student.ui.account.forget.ForgetModule
 import com.ftacloud.student.ui.course.detail.CourseDetailActivity
 import com.ftacloud.student.ui.course.detail.CourseDetailModule
-import com.ftacloud.student.ui.course.list.MyCourseActivity
-import com.ftacloud.student.ui.course.list.MyCourseModule
+import com.ftacloud.student.ui.course.my.MyCourseActivity
+import com.ftacloud.student.ui.course.my.MyCourseModule
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleModule
 import com.ftacloud.student.ui.message.MessageActivity
@@ -30,6 +30,8 @@ import com.ftacloud.student.ui.task.detail.TaskDetailActivity
 import com.ftacloud.student.ui.task.detail.TaskDetailModule
 import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.ftacloud.student.ui.tests.TestConditionModule
+import com.ftacloud.student.ui.tests.my.MyTestActivity
+import com.ftacloud.student.ui.tests.my.MyTestModule
 import com.ftacloud.student.ui.webs.WebCommonActivity
 import com.sugar.library.frames.dagger.ActivityScore
 import dagger.Module
@@ -103,6 +105,11 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [TaskModule::class])
     abstract fun o(): TaskActivity
+
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [MyTestModule::class])
+    abstract fun p(): MyTestActivity
 
 
 }
