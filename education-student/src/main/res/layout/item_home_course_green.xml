@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp140"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/color_f9a74d"
+        app:cardBackgroundColor="@color/color_5cbebc"
         app:cardCornerRadius="@dimen/dp12"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
@@ -87,63 +87,89 @@
                 android:layout_height="@dimen/dp36"
                 android:layout_alignParentBottom="true">
 
-                <LinearLayout
+
+                <ViewSwitcher
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/dp2"
-                        android:background="@drawable/stock_4_gray_33ffffff"
-                        android:ellipsize="end"
-                        android:lineSpacingMultiplier="1.2"
-                        android:paddingStart="@dimen/dp3"
-                        android:paddingTop="@dimen/dp2"
-                        android:paddingEnd="@dimen/dp3"
-                        android:paddingBottom="@dimen/dp2"
-                        android:singleLine="true"
-                        android:text="开课时间"
-                        android:textColor="@color/color_80ffffff"
-                        android:textSize="@dimen/sp12" />
-
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/dp2"
+                        android:background="@drawable/stock_4_red_f94d4d"
                         android:ellipsize="end"
                         android:lineSpacingMultiplier="1.2"
-                        android:paddingStart="@dimen/dp3"
+                        android:paddingStart="@dimen/dp4"
                         android:paddingTop="@dimen/dp2"
-                        android:paddingEnd="@dimen/dp3"
+                        android:paddingEnd="@dimen/dp4"
                         android:paddingBottom="@dimen/dp2"
                         android:singleLine="true"
-                        android:text=":"
-                        android:textColor="@color/color_80ffffff"
+                        android:text="已开始上课"
+                        android:textColor="@color/font_white"
                         android:textSize="@dimen/sp12" />
 
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/dp2"
-                        android:ellipsize="end"
-                        android:lineSpacingMultiplier="1.2"
-                        android:paddingStart="@dimen/dp3"
-                        android:paddingTop="@dimen/dp2"
-                        android:paddingEnd="@dimen/dp3"
-                        android:paddingBottom="@dimen/dp2"
-                        android:singleLine="true"
-                        android:text="10 : 11 : 11"
-                        android:textColor="@color/color_80ffffff"
-                        android:textSize="@dimen/sp12" />
+                        android:orientation="horizontal">
 
 
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp2"
+                            android:background="@drawable/stock_4_gray_33ffffff"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.2"
+                            android:paddingStart="@dimen/dp3"
+                            android:paddingTop="@dimen/dp2"
+                            android:paddingEnd="@dimen/dp3"
+                            android:paddingBottom="@dimen/dp2"
+                            android:singleLine="true"
+                            android:text="开课时间"
+                            android:textColor="@color/color_80ffffff"
+                            android:textSize="@dimen/sp12" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp2"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.2"
+                            android:paddingStart="@dimen/dp3"
+                            android:paddingTop="@dimen/dp2"
+                            android:paddingEnd="@dimen/dp3"
+                            android:paddingBottom="@dimen/dp2"
+                            android:singleLine="true"
+                            android:text=":"
+                            android:textColor="@color/color_80ffffff"
+                            android:textSize="@dimen/sp12" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp2"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.2"
+                            android:paddingStart="@dimen/dp3"
+                            android:paddingTop="@dimen/dp2"
+                            android:paddingEnd="@dimen/dp3"
+                            android:paddingBottom="@dimen/dp2"
+                            android:singleLine="true"
+                            android:text="10 : 11 : 11"
+                            android:textColor="@color/color_80ffffff"
+                            android:textSize="@dimen/sp12" />
+
+
+                    </LinearLayout>
+
+
+
+                </ViewSwitcher>
+
 
                 <LinearLayout
                     android:id="@+id/money_ll"
@@ -156,25 +182,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/dp2"
+                        android:layout_marginEnd="@dimen/dp5"
                         android:ellipsize="end"
                         android:lineSpacingMultiplier="1.2"
                         android:singleLine="true"
-                        android:textColor="@color/font_white"
+                        android:textColor="@color/color_80ffffff"
                         android:textSize="@dimen/sp12"
-                        android:text="120课时 /" />
+                        android:text="进入教室" />
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:lineSpacingMultiplier="1.2"
-                        android:singleLine="true"
-                        android:textColor="@color/font_white"
-                        android:textSize="@dimen/sp16"
-                        android:textStyle="bold"
-                        android:text="￥1,998" />
+                    <ImageView
+                        android:layout_width="@dimen/dp12"
+                        android:src="@mipmap/ic_temp7"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="@dimen/dp12"
+                      />
 
                 </LinearLayout>
 

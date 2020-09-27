@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp65"
+    tools:background="@color/color_f9a74d"
+
+    android:layout_marginTop="@dimen/dp5"
+    >
+
+    <ImageView
+        android:id="@+id/image_iv"
+        android:layout_width="@dimen/dp65"
+        android:layout_height="@dimen/dp65"
+        android:layout_marginEnd="@dimen/dp10"
+        android:src="@mipmap/ic_temp" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/image_iv"
+        android:textColor="@color/font_white"
+        android:layout_toStartOf="@+id/teacher_name_tv"
+        android:textSize="@dimen/font_size_12"
+        tools:text="3-6岁阅读课，让孩子爱上英语" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/image_iv"
+        android:text="@string/app_name"
+        android:textColor="@color/color_80ffffff"
+        android:textSize="@dimen/font_size_11" />
+
+
+    <TextView
+        android:id="@+id/teacher_name_tv"
+        android:layout_width="@dimen/dp65"
+        android:layout_height="@dimen/dp65"
+        android:layout_alignParentBottom="true"
+        android:lineSpacingMultiplier="1.2"
+        android:layout_alignParentEnd="true"
+        android:text="@string/app_name"
+        android:gravity="center_horizontal"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/font_size_12" />
+
+
+</RelativeLayout>

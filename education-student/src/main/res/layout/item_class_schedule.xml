@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp15"
+    android:paddingTop="@dimen/dp0"
+    android:paddingEnd="@dimen/dp15"
+    android:paddingBottom="@dimen/dp10">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/color_f9a74d"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+
+
+            <TextView
+                android:id="@+id/data_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp14"
+                tools:text="周日 2020-09-27" />
+
+
+            <View
+                android:id="@+id/split_v"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/data_tv"
+                android:layout_marginTop="@dimen/dp5"
+                android:background="@color/color_80ffffff" />
+
+
+            <LinearLayout
+                android:id="@+id/class_container_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/split_v"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_class_schedule_container_child" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

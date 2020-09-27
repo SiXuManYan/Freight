@@ -1,8 +1,10 @@
 package com.ftacloud.student.ui.course.schedule
 
+import android.view.ViewGroup
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
 import com.ftacloud.student.frames.entity.ClassSchedule
+import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 
 /**
@@ -16,6 +18,21 @@ class ClassScheduleActivity : BaseRefreshListActivity<ClassSchedule, ClassSchedu
 
 
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<ClassSchedule> {
-        TODO("Not yet implemented")
+        val adapter = object : RecyclerArrayAdapter<ClassSchedule>(context) {
+
+            override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<ClassSchedule> {
+                val holder = ClassScheduleHolder(parent)
+
+                return holder
+            }
+
+        }
+
+        adapter.setOnItemClickListener {
+
+        }
+        return adapter
     }
+
+
 }

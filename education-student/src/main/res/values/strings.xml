@@ -82,5 +82,8 @@
     <!-- 课程表 -->
     <string name="class_schedule_title">我的消息</string>
 
+    <!-- 我的课程 -->
+    <string name="my_schedule_title">我的课程</string>
+
 
 </resources>

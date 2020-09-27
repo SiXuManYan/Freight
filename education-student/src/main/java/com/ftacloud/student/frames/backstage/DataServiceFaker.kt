@@ -25,17 +25,15 @@ class DataServiceFaker {
          * @see Worker
          */
         private fun startService(context: Context, action: Int, data: Data? = null) {
-            WorkManager.getInstance(Utils.getApp())
-                .enqueue(
-                    OneTimeWorkRequest.Builder(DataWork::class.java)
-                        .setInputData(
-                            Data.Builder().putInt(Constants.ACTION_DATA_WORK, action).apply {
-                                data?.let {
-                                    putAll(it)
-                                }
-                            }.build()
-                        ).build()
-                )
+            val dataBuild = Data.Builder()
+                .putInt(Constants.ACTION_DATA_WORK, action)
+                .apply {
+                    data?.let {
+                        putAll(it)
+                    }
+                }.build()
+
+            WorkManager.getInstance(Utils.getApp()).enqueue(OneTimeWorkRequest.Builder(DataWork::class.java).setInputData(dataBuild).build())
         }
     }
 }
