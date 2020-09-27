@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp65"
-    android:layout_marginTop="@dimen/dp5"
-    tools:background="@color/color_f9a74d">
+    android:layout_marginBottom="@dimen/dp5"
+    tools:background="@color/color_5cbebc">
 
     <ImageView
         android:id="@+id/image_iv"
@@ -17,35 +15,31 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@+id/teacher_name_tv"
         android:layout_toEndOf="@+id/image_iv"
         android:textColor="@color/font_white"
-        android:textSize="@dimen/font_size_12"
-        tools:text="3-6岁阅读课，让孩子爱上英语" />
+        android:textSize="@dimen/font_size_14"
+        android:textStyle="bold"
+        tools:text="READING 01" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/title_tv"
+        android:layout_marginTop="@dimen/dp5"
         android:layout_toEndOf="@+id/image_iv"
         android:text="@string/app_name"
         android:textColor="@color/color_80ffffff"
-        android:textSize="@dimen/font_size_11" />
-
-
-    <TextView
-        android:id="@+id/teacher_name_tv"
-        android:layout_width="@dimen/dp65"
-        android:layout_height="@dimen/dp65"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal"
-        android:lineSpacingMultiplier="1.2"
-        android:text="@string/app_name"
-        android:textColor="@color/font_white"
         android:textSize="@dimen/font_size_12" />
 
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/image_iv"
+        android:background="@color/color_80ffffff" />
 
 </RelativeLayout>
