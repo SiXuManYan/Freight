@@ -6,6 +6,8 @@ import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.course.detail.CourseDetailActivity
+import com.ftacloud.student.ui.course.list.MyCourseActivity
+import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.tests.TestConditionActivity
@@ -24,8 +26,15 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
         val headerView = nav_view.getHeaderView(0)
         headerView.findViewById<RelativeLayout>(R.id.menu_my_course).setOnClickListener {
-            startActivity(CourseDetailActivity::class.java)
+            startActivity(MyCourseActivity::class.java)
         }
+
+        headerView.findViewById<RelativeLayout>(R.id.menu_class_schedule).setOnClickListener {
+            startActivity(ClassScheduleActivity::class.java)
+        }
+
+
+
         headerView.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
             startActivity(SettingActivity::class.java)
         }

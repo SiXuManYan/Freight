@@ -16,7 +16,9 @@ import com.sugar.library.util.CommonUtils
 class SettingActivity : BaseMVPActivity<SettingPresenter>(), SettingView {
     override fun getLayoutId() = R.layout.activity_setting
 
-    override fun initViews() = setMainTitle(R.string.setting)
+    override fun initViews() {
+        setMainTitle(R.string.setting)
+    }
 
     @OnClick(
         R.id.privacy_statement_rl,

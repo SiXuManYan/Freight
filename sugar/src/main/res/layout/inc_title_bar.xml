@@ -34,7 +34,7 @@
             android:lines="1"
             android:textColor="@color/color_zero_level"
             android:textSize="16sp"
-            tools:text="我木兰无敌，马超贼6" />
+            tools:text="成吉思汗史诗皮肤" />
 
 
     </LinearLayout>
