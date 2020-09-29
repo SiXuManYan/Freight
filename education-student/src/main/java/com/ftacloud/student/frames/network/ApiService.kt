@@ -16,6 +16,7 @@ import retrofit2.http.POST
  * http://127.0.0.1:52001/api/account/fastLogin
  */
 interface ApiService {
+
     companion object {
 
         /**
@@ -24,7 +25,6 @@ interface ApiService {
         const val API_WECHAT_OFFICIAL = "wechat"
 
         private const val USE_CACHED = "cache:60"
-
 
         private const val API_ACCOUNT_URI = "api/account"
         private const val API_SMS_URI = "api/sms"
@@ -68,6 +68,13 @@ interface ApiService {
      */
     @POST("$API_ACCOUNT_URI/setPasswd")
     fun setPassword(@Body module: SetPassword?): Flowable<Response<User>>
+
+    /**
+     * 获取用户信息
+     *
+     */
+    @POST("$API_ACCOUNT_URI/info")
+    fun requestUserInfo(): Flowable<Response<User>>
 
 
 }

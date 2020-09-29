@@ -64,7 +64,7 @@ class LoginPresenter @Inject constructor(private var view: LoginView) : BasePres
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.loginFast(apply), object : BaseHttpSubscriber<User>(view) {
             override fun onSuccess(data: User?) {
                 data?.let {
-                    loginSuccess(it,phoneValue)
+                    loginSuccess(it, phoneValue)
                     view.loginSuccess()
                 }
             }
@@ -125,7 +125,8 @@ class LoginPresenter @Inject constructor(private var view: LoginView) : BasePres
                     countdownView.text = default
                     countdownView.isEnabled = true
                 }
-                .subscribe())
+                .subscribe()
+        )
     }
 
 
@@ -142,7 +143,7 @@ class LoginPresenter @Inject constructor(private var view: LoginView) : BasePres
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.loginPassword(apply), object : BaseHttpSubscriber<User>(view) {
             override fun onSuccess(data: User?) {
                 data?.let {
-                    loginSuccess(it,phoneValue)
+                    loginSuccess(it, phoneValue)
                     view.loginSuccess()
                 }
             }
@@ -150,9 +151,6 @@ class LoginPresenter @Inject constructor(private var view: LoginView) : BasePres
 
 
     }
-
-
-
 
 
 }

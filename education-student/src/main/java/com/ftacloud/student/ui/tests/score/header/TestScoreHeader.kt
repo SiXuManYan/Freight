@@ -13,6 +13,7 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
  *  评分详情header
  */
 class TestScoreHeader  constructor(private var context: Context) : RecyclerArrayAdapter.ItemView  {
+
     override fun onBindView(headerView: View?) {
 
     }

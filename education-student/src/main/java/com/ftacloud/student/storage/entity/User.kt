@@ -39,7 +39,7 @@ class User {
             return isLogin
         }
 
-        fun getToken():String{
+        fun getToken(): String {
             if (isLogon()) {
                 return CommonUtils.getShareStudent().getString(Constants.SP_TOKEN, "")
             }
@@ -52,25 +52,12 @@ class User {
 
         fun clearAll() {
             (Utils.getApp() as CloudAccountApplication).database.userDao().clear()
-            CommonUtils.getShareStudent().remove(Constants.SP_LOGIN)
-            CommonUtils.getShareStudent().remove(Constants.SP_NOVICE)
             instance = null
         }
     }
 
     @PrimaryKey
     var id: Long = 0
-
-/*
-    {
-        "code": "200",
-        "msg": "成功",
-        "data": {
-        "username": "17640339671",
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdWJqZWN0IiwiaXNzIjoiU3VuU2hhbmdxaWFuZyIsIm5hbWUiOiIiLCJpZCI6IjEzMDkyOTYyNzA3MTU3ODUyMTYiLCJleHAiOjE2MzIwOTk1MzEsInR5cGUiOiJTVFVERU5UIiwidXNlcm5hbWUiOiIxNzY0MDMzOTY3MSJ9.t4Q21O9v-RdJv6kTVgfQHDi-4VpT_gjxfnPZ08QUjJc"
-    }
-    }*/
-
 
 
     /**
@@ -83,6 +70,51 @@ class User {
     @ColumnInfo(name = "token")
     var token = ""
 
+
+    /**
+     * 用户中文昵称
+     */
+    @ColumnInfo(name = "name")
+    var name = ""
+
+    /**
+     * 用户英文昵称
+     */
+    @ColumnInfo(name = "enName")
+    var enName = ""
+
+    /**
+     * 学生基础
+     * S0-无基础
+     * S1-有点基础
+     * S2-小学一年级水平
+     * S3-小学二年级水平
+     * S4-小学三年级水平
+     * S5-小学四年级水平
+     * S6-小学五年级水平
+     * S7-小学六年级水平
+     */
+    @ColumnInfo(name = "stage")
+    var stage = ""
+
+    /**
+     * M-男
+     * F-女
+     */
+    @ColumnInfo(name = "sex")
+    var sex = ""
+
+    /**
+     * 头像
+     */
+    @ColumnInfo(name = "headImg")
+    var headImg = ""
+
+    /**
+     * 生日
+     */
+    @ColumnInfo(name = "birthday")
+    var birthday = ""
 
 
 }

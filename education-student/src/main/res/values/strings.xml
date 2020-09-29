@@ -100,6 +100,6 @@
 
     <!-- 评分详情 -->
     <string name="score_title">评分详情</string>
-    <string name="interjection">太棒啦</string>
+    <string name="interjection">太棒啦！小朋友的评分为</string>
 
 </resources>

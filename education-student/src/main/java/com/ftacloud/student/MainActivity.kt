@@ -23,7 +23,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
     override fun initViews() {
         initHeaderView()
-
+        presenter.loadUserInfo(this)
     }
 
     private fun initHeaderView() {

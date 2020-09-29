@@ -150,12 +150,12 @@ class AppModule {
             val requestBuilder = request.newBuilder().url(url)
 
             // 增加  header token
-            val shareDefault = CommonUtils.getShareDefault()
+            val shareDefault = CommonUtils.getShareStudent()
             val isLogin = shareDefault.getBoolean(Constants.SP_LOGIN)
             val token = shareDefault.getString(Constants.SP_TOKEN, "")
 
             if (isLogin && token.isNotEmpty()) {
-                requestBuilder.addHeader("token", token)
+                requestBuilder.addHeader("MyToken", token)
             }
             return@Interceptor chain.proceed(requestBuilder.build())
         }

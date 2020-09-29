@@ -84,7 +84,7 @@ class SplashActivity : BaseActivity() {
             .append(getString(R.string.use_agreement_content_4))
             .create()
 
-        val ishowUserAgreement = CommonUtils.getShareDefault().getBoolean(Constants.SP_IS_SHOW_USER_AGREEMENT, false)
+        val ishowUserAgreement = CommonUtils.getShareStudent().getBoolean(Constants.SP_IS_SHOW_USER_AGREEMENT, false)
         if (ishowUserAgreement) {
             afterAnimation(true)
         } else {
@@ -93,12 +93,12 @@ class SplashActivity : BaseActivity() {
                 .setCancelable(false)
                 .setMessage(message)
                 .setPositiveButton(R.string.agree_and_continue) { dialog, _ ->
-                    CommonUtils.getShareDefault().put(Constants.SP_IS_SHOW_USER_AGREEMENT, true)
+                    CommonUtils.getShareStudent().put(Constants.SP_IS_SHOW_USER_AGREEMENT, true)
                     afterAnimation(true)
                     dialog.dismiss()
                 }
                 .setNegativeButton(R.string.disagree) { dialog, _ ->
-                    CommonUtils.getShareDefault().put(Constants.SP_IS_SHOW_USER_AGREEMENT, true)
+                    CommonUtils.getShareStudent().put(Constants.SP_IS_SHOW_USER_AGREEMENT, true)
                     afterAnimation(false)
                     dialog.dismiss()
                 }
@@ -110,6 +110,7 @@ class SplashActivity : BaseActivity() {
     private fun afterAnimation(isAgree: Boolean) {
         val isLogin = CommonUtils.getShareStudent().getBoolean(Constants.SP_LOGIN)
         if (isLogin) {
+
             startActivityClearTop(MainActivity::class.java, null)
         } else {
             startActivityClearTop(WelcomeActivity::class.java, null)

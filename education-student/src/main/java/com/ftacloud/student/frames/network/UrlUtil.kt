@@ -15,11 +15,11 @@ object UrlUtil {
                 break
             }
         }
-        return CommonUtils.getShareDefault().getInt(Constants.SP_DEV_URL, index)
+        return CommonUtils.getShareStudent().getInt(Constants.SP_DEV_URL, index)
     }
 
     fun setdevUrlIndex(index: Int) {
-        CommonUtils.getShareDefault().put(Constants.SP_DEV_URL, index)
+        CommonUtils.getShareStudent().put(Constants.SP_DEV_URL, index)
     }
 
 

@@ -3,13 +3,8 @@ package com.ftacloud.student.ui.tests.score
 import android.view.ViewGroup
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
-import com.ftacloud.student.frames.entity.MyTest
 import com.ftacloud.student.frames.entity.TestScore
-import com.ftacloud.student.ui.tests.my.MyTestPresenter
-import com.ftacloud.student.ui.tests.my.MyTestView
-import com.ftacloud.student.ui.tests.my.header.MyTestHeader
-import com.ftacloud.student.ui.tests.my.holder.MyTestHolder
-import com.ftacloud.student.ui.tests.question.TestQuestionActivity
+import com.ftacloud.student.ui.tests.score.header.TestScoreHeader
 import com.ftacloud.student.ui.tests.score.holder.TestScoreHolder
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
@@ -26,7 +21,7 @@ class TestScoreActivity  : BaseRefreshListActivity<TestScore, TestScorePresenter
     override fun initViews() {
         super.initViews()
 
-        val myTestHeader = MyTestHeader(this)
+        val myTestHeader = TestScoreHeader(this)
         getAdapter()?.addHeader(myTestHeader)
     }
 

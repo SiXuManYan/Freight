@@ -57,7 +57,6 @@ class BindPhoneActivity : BaseMVPActivity<BindPhonePresenter>(), BindPhoneView {
 
     override fun loginSuccess() {
         startActivityClearTop(MainActivity::class.java, null)
-        RxBus.post(Event(Constants.EVENT_NEED_REFRESH))
         finish()
     }
 

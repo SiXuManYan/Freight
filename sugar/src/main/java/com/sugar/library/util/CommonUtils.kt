@@ -78,7 +78,7 @@ object CommonUtils {
     }
 
     fun isLogin(): Boolean {
-        return CommonUtils.getShareDefault().getBoolean(Constants.SP_LOGIN)
+        return CommonUtils.getShareStudent().getBoolean(Constants.SP_LOGIN)
     }
 
 
@@ -89,7 +89,7 @@ object CommonUtils {
     fun getShareDefault() = SPUtils.getInstance(Constants.PR_DEFAULT)!!
 
 
-    fun getShareStudent() = SPUtils.getInstance(Constants.PR_DEFAULT)!!
+    fun getShareStudent() = SPUtils.getInstance(Constants.PR_STUDENT)!!
 
     /**
      * 获取定位的SharePreference

@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp175"
+        android:layout_height="@dimen/dp130"
         android:layout_marginStart="@dimen/dp15"
         android:layout_marginTop="@dimen/dp10"
         android:layout_marginEnd="@dimen/dp15"
@@ -40,6 +40,36 @@
                 android:textColor="@color/color_first_level"
                 android:textSize="@dimen/sp16"
                 android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sp48"
+                    android:text="96"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_f94d4d"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sp14"
+                    android:text="分"
+                    android:includeFontPadding="false"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_first_level"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
 
 
 
