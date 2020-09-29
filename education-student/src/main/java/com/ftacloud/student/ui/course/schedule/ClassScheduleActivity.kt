@@ -23,6 +23,9 @@ class ClassScheduleActivity : BaseRefreshListActivity<ClassSchedule, ClassSchedu
             override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<ClassSchedule> {
                 val holder = ClassScheduleHolder(parent)
 
+                // 已开课 -> 直播
+                // 未开课 -> 未开课
+
                 return holder
             }
 

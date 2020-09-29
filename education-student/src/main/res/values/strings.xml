@@ -108,5 +108,13 @@
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     <string name="login_out_hint">是否退出登录?</string>
+    <string name="course_directory">课程目录</string>
+    <string name="course_introduction">课程简介</string>
+    <string name="teacher_introduction">老师介绍</string>
+
+
+    <!-- 课程表详情  未开课 -->
+
+
 
 </resources>

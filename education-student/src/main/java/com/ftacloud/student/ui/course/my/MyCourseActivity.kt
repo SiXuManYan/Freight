@@ -17,6 +17,7 @@ class MyCourseActivity: BaseRefreshListActivity<MyCourse, MyCoursePresenter>(), 
     override fun getMainTitle() = R.string.my_schedule_title
 
 
+
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<MyCourse> {
         val adapter = object : RecyclerArrayAdapter<MyCourse>(context) {
 
@@ -27,7 +28,6 @@ class MyCourseActivity: BaseRefreshListActivity<MyCourse, MyCoursePresenter>(), 
             }
 
         }
-
         adapter.setOnItemClickListener {
 
         }
