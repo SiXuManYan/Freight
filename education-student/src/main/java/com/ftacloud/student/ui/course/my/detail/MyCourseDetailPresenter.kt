@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.course.detail
+package com.ftacloud.student.ui.course.my.detail
 
 import com.ftacloud.student.frames.network.response.BasePresenter
 import javax.inject.Inject
@@ -8,7 +8,7 @@ import javax.inject.Inject
  * </br>
  *
  */
-class CourseDetailPresenter @Inject constructor(private var view: CourseDetailView) : BasePresenter(view) {
+class MyCourseDetailPresenter @Inject constructor(private var view: MyCourseDetailView) : BasePresenter(view) {
 
 
 

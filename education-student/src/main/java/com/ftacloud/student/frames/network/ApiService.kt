@@ -76,5 +76,12 @@ interface ApiService {
     @POST("$API_ACCOUNT_URI/info")
     fun requestUserInfo(): Flowable<Response<User>>
 
+    /**
+     * 退出登陆
+     *
+     */
+    @POST("$API_ACCOUNT_URI/logout")
+    fun logout(): Flowable<Response<JsonElement>>
+
 
 }

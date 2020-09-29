@@ -1,11 +1,15 @@
 package com.ftacloud.student.ui.settings
 
+import android.content.DialogInterface
 import android.view.View
 import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
+import com.blankj.utilcode.util.VibrateUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.network.Html5Url
+import com.ftacloud.student.ui.account.WelcomeActivity
+import com.sugar.library.ui.view.dialog.AlertDialog
 import com.sugar.library.util.CommonUtils
 
 /**
@@ -43,12 +47,29 @@ class SettingActivity : BaseMVPActivity<SettingPresenter>(), SettingView {
                 ToastUtils.showShort("联系我们")
             }
             R.id.sign_out_tv -> {
-                ToastUtils.showShort("退出登录")
+                VibrateUtils.vibrate(10)
+                AlertDialog.Builder(context)
+                    .setTitle(R.string.hint)
+                    .setMessage(getString(R.string.login_out_hint))
+                    .setPositiveButton(R.string.confirm, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, _ ->
+                        dialog.dismiss()
+                        presenter.loginOutRequest(this)
+                    })
+                    .setNegativeButton(R.string.cancel, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, _ ->
+                        dialog.dismiss()
+                    })
+                    .create()
+                    .show()
             }
 
             else -> {
             }
         }
+    }
+
+    override fun loginOutSuccess() {
+        startActivityClearTop(WelcomeActivity::class.java,null)
+        finish()
     }
 
 }

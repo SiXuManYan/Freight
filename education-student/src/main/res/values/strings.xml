@@ -102,4 +102,11 @@
     <string name="score_title">评分详情</string>
     <string name="interjection">太棒啦！小朋友的评分为</string>
 
+
+    <!-- 设置页 -->
+    <string name="hint">提示</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="login_out_hint">是否退出登录?</string>
+
 </resources>

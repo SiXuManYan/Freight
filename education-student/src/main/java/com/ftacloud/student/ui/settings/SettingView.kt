@@ -10,5 +10,10 @@ import com.sugar.library.frames.network.response.BaseView
  */
 interface SettingView : BaseView {
 
+    /**
+     * 退出登录成功
+     */
+    fun loginOutSuccess()
+
 
 }

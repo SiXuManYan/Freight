@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.course.detail
+package com.ftacloud.student.ui.course.my.detail
 
 import com.sugar.library.frames.network.response.BaseView
 
@@ -7,5 +7,5 @@ import com.sugar.library.frames.network.response.BaseView
  * </br>
  *
  */
-interface CourseDetailView : BaseView {
+interface MyCourseDetailView : BaseView {
 }

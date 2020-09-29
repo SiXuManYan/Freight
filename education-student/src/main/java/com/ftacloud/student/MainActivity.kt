@@ -12,6 +12,8 @@ import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.task.TaskActivity
 import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
@@ -22,8 +24,21 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
     override fun getLayoutId() = R.layout.activity_main
 
     override fun initViews() {
+        initEvent()
         initHeaderView()
         presenter.loadUserInfo(this)
+    }
+
+    private fun initEvent() {
+        presenter.subsribeEvent(Consumer {
+            when (it.code) {
+                Constants.EVENT_LOGOUT -> {
+                    finish()
+                }
+                else -> {
+                }
+            }
+        })
     }
 
     private fun initHeaderView() {

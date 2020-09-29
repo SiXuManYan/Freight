@@ -10,7 +10,7 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 /**
  * Created by Wangsw on 2020/9/27 0027 10:03.
  * </br>
- *  我的课程
+ *  我的课程 - > 课程详情
  */
 class MyCourseActivity: BaseRefreshListActivity<MyCourse, MyCoursePresenter>(), MyCourseView {
 

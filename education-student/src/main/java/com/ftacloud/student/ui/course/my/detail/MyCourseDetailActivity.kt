@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.course.detail
+package com.ftacloud.student.ui.course.my.detail
 
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
@@ -8,7 +8,7 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
  * </br>
  *  课程详情
  */
-class CourseDetailActivity : BaseMVPActivity<CourseDetailPresenter>(), CourseDetailView {
+class MyCourseDetailActivity : BaseMVPActivity<MyCourseDetailPresenter>(), MyCourseDetailView {
 
 
 

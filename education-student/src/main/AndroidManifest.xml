@@ -5,19 +5,20 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- 录音 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <!--播音-->
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
-
+    <!-- 读写内存卡 -->
     <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
 
     <application
@@ -91,7 +92,7 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.settings.SettingActivity" />
         <activity android:name=".ui.tests.TestConditionActivity" />
-        <activity android:name=".ui.course.detail.CourseDetailActivity" />
+        <activity android:name=".ui.course.my.detail.MyCourseDetailActivity" />
         <activity android:name=".ui.message.MessageActivity" />
         <activity android:name=".ui.course.schedule.ClassScheduleActivity" />
         <activity android:name=".ui.course.my.MyCourseActivity" />
