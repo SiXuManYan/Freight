@@ -8,18 +8,18 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
  * </br>
  *  课程表详情，未开课
  */
-class NoClassActivity :BaseMVPActivity<NoClassPresenter>(),NoClassView{
+class NoClassActivity : BaseMVPActivity<NoClassPresenter>(), NoClassView {
+
+
     override fun getLayoutId() = R.layout.activity_no_class
 
     override fun initViews() {
-        TODO("Not yet implemented")
+
     }
 
     override fun showLoading() {
-        TODO("Not yet implemented")
+        showLoadingDialog()
     }
 
-    override fun hideLoading() {
-        TODO("Not yet implemented")
-    }
+    override fun hideLoading() = dismissLoadingDialog()
 }

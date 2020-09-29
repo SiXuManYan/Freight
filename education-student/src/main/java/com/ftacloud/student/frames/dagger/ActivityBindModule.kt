@@ -20,6 +20,8 @@ import com.ftacloud.student.ui.course.my.MyCourseActivity
 import com.ftacloud.student.ui.course.my.MyCourseModule
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleModule
+import com.ftacloud.student.ui.course.schedule.detail.NoClassActivity
+import com.ftacloud.student.ui.course.schedule.detail.NoClassModule
 import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.message.MessageModule
 import com.ftacloud.student.ui.settings.SettingActivity
@@ -110,6 +112,10 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [MyTestModule::class])
     abstract fun p(): MyTestActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [NoClassModule::class])
+    abstract fun q(): NoClassActivity
 
 
 }
