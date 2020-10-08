@@ -100,6 +100,7 @@
         <activity android:name=".ui.task.TaskActivity" />
         <activity android:name=".ui.tests.my.MyTestActivity" />
         <activity android:name=".ui.course.schedule.detail.NoClassActivity" />
+        <activity android:name=".ui.user.UserActivity" />
 
     </application>
 

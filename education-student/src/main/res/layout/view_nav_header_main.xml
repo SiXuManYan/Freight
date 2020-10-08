@@ -243,7 +243,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dp50"
+                android:layout_marginStart="@dimen/dp50"
                 android:text="@string/menu_setting"
                 android:textColor="@color/color_first_level"
                 android:textSize="@dimen/font_size_15" />

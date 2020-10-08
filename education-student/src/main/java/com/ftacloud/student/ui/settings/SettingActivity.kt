@@ -18,6 +18,7 @@ import com.sugar.library.util.CommonUtils
  *
  */
 class SettingActivity : BaseMVPActivity<SettingPresenter>(), SettingView {
+
     override fun getLayoutId() = R.layout.activity_setting
 
     override fun initViews() {
@@ -29,8 +30,6 @@ class SettingActivity : BaseMVPActivity<SettingPresenter>(), SettingView {
         R.id.copyright_rl,
         R.id.contact_us_rl,
         R.id.sign_out_tv
-
-
     )
     fun onClick(view: View) {
         if (CommonUtils.isDoubleClick(view)) {

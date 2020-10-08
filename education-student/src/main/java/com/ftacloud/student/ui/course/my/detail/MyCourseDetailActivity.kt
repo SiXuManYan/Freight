@@ -17,4 +17,6 @@ class MyCourseDetailActivity : BaseMVPActivity<MyCourseDetailPresenter>(), MyCou
     override fun initViews() {
 
     }
+
+
 }
