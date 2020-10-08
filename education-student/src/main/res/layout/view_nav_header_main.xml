@@ -26,16 +26,16 @@
                 android:id="@+id/avatar_iv"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:src="@mipmap/ic_temp3" />
+                android:src="@drawable/ic_sliding_avatar" />
 
 
             <TextView
                 android:id="@+id/user_name_tv"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_toRightOf="@+id/avatar_iv"
+                android:layout_toEndOf="@+id/avatar_iv"
                 android:text="宫本武藏"
                 android:textColor="@color/color_first_level"
                 android:textSize="@dimen/font_size_18" />
@@ -70,10 +70,10 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="@dimen/dp30"
-                android:layout_height="@dimen/dp30"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_temp4" />
+                android:src="@drawable/ic_sliding_my_course" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
                 android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_my_course"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/font_size_14" />
+                android:textSize="@dimen/sp15" />
 
         </RelativeLayout>
 
@@ -97,10 +97,10 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="@dimen/dp30"
-                android:layout_height="@dimen/dp30"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_temp5" />
+                android:src="@drawable/ic_sliding_course" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -109,7 +109,7 @@
                 android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_class_schedule"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/font_size_14" />
+                android:textSize="@dimen/font_size_15" />
 
         </RelativeLayout>
 
@@ -124,10 +124,10 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="@dimen/dp30"
-                android:layout_height="@dimen/dp30"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_temp6" />
+                android:src="@drawable/ic_sliding_after_class" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
                 android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_task"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/font_size_14" />
+                android:textSize="@dimen/font_size_15" />
 
         </RelativeLayout>
 
@@ -151,10 +151,10 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="@dimen/dp30"
-                android:layout_height="@dimen/dp30"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_temp7" />
+                android:src="@drawable/ic_sliding_my_evaluation" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -163,7 +163,7 @@
                 android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_my_evaluation"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/font_size_14" />
+                android:textSize="@dimen/font_size_15" />
 
         </RelativeLayout>
 
@@ -178,10 +178,10 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="@dimen/dp30"
-                android:layout_height="@dimen/dp30"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_temp8" />
+                android:src="@drawable/ic_sliding_my_order" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -190,7 +190,7 @@
                 android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_my_order"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/font_size_14" />
+                android:textSize="@dimen/font_size_15" />
 
         </RelativeLayout>
 
@@ -206,10 +206,10 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="@dimen/dp30"
-                android:layout_height="@dimen/dp30"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_temp9" />
+                android:src="@drawable/ic_sliding_my_customer_service" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -218,7 +218,7 @@
                 android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_my_customer_service"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/font_size_14" />
+                android:textSize="@dimen/font_size_15" />
 
         </RelativeLayout>
 
@@ -234,10 +234,10 @@
             android:paddingBottom="16dp">
 
             <ImageView
-                android:layout_width="@dimen/dp30"
-                android:layout_height="@dimen/dp30"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ic_temp10" />
+                android:src="@drawable/ic_sliding_setting" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -246,7 +246,7 @@
                 android:layout_marginLeft="@dimen/dp50"
                 android:text="@string/menu_setting"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/font_size_14" />
+                android:textSize="@dimen/font_size_15" />
 
         </RelativeLayout>
 

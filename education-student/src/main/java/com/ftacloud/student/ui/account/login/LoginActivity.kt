@@ -3,9 +3,7 @@ package com.ftacloud.student.ui.account.login
 import android.text.Editable
 import android.text.TextPaint
 import android.text.TextWatcher
-import android.text.method.HideReturnsTransformationMethod
 import android.text.method.LinkMovementMethod
-import android.text.method.PasswordTransformationMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.CompoundButton
@@ -16,10 +14,11 @@ import com.blankj.utilcode.util.SpanUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
+import com.ftacloud.student.common.StudentUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.network.Html5Url
-import com.ftacloud.student.ui.account.register.RegisterActivity
 import com.ftacloud.student.ui.account.forget.ForgetActivity
+import com.ftacloud.student.ui.account.register.RegisterActivity
 import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
 import io.reactivex.functions.Consumer
@@ -133,14 +132,11 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
 
         if (isCipherText) {
             // 切换至明文
-            password_rule_iv.setImageResource(R.mipmap.ic_temp10)
-            password_aet.transformationMethod = HideReturnsTransformationMethod.getInstance();
+          StudentUtil.editOpen(password_aet,password_rule_iv)
         } else {
             // 切换至密文
-            password_rule_iv.setImageResource(R.mipmap.ic_temp9)
-            password_aet.transformationMethod = PasswordTransformationMethod.getInstance();
+            StudentUtil.editDismiss(password_aet,password_rule_iv)
         }
-        password_aet.setSelection(password_aet.text.toString().length)
         isCipherText = !isCipherText
     }
 

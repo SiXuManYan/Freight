@@ -239,7 +239,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
-            android:src="@mipmap/ic_temp2" />
+            android:src="@drawable/ic_detail_share" />
 
 
     </RelativeLayout>

@@ -79,15 +79,15 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/dp15"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp5" />
+                    android:src="@drawable/ic_login_phone" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/phone_aet"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/dp5"
-                    android:layout_toRightOf="@id/tag1_iv"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_toEndOf="@id/tag1_iv"
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="@string/login_phone_input"
@@ -122,7 +122,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/dp15"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp6" />
+                    android:src="@drawable/ic_login_verify_code" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -189,7 +189,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/dp15"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp7" />
+                    android:src="@drawable/ic_login_password" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -218,7 +218,7 @@
                     android:layout_centerVertical="true"
                     android:padding="@dimen/dp10"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp10" />
+                    android:src="@drawable/ic_login_eye_close" />
 
 
                 <View
@@ -244,7 +244,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/dp15"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp8" />
+                    android:src="@drawable/ic_login_password"/>
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -252,8 +252,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/dp5"
-                    android:layout_toLeftOf="@+id/password_again_rule_iv"
-                    android:layout_toRightOf="@id/tag4_iv"
+                    android:layout_toStartOf="@+id/password_again_rule_iv"
+                    android:layout_toEndOf="@id/tag4_iv"
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="@string/password_input_again"
@@ -269,11 +269,11 @@
                     android:id="@+id/password_again_rule_iv"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/dp10"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp10" />
+                    android:src="@drawable/ic_login_eye_close" />
 
 
                 <View

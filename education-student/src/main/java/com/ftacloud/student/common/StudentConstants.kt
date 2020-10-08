@@ -1,4 +1,4 @@
-package com.ftacloud.student.frames.common
+package com.ftacloud.student.common
 
 import android.os.Build
 import com.blankj.utilcode.util.DeviceUtils

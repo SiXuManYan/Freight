@@ -1,7 +1,6 @@
 package com.ftacloud.student.frames.entity.request
 
-import com.ftacloud.student.frames.common.StudentConstants
-
+import com.ftacloud.student.common.StudentConstants
 /**
  * Created by Wangsw on 2020/9/23 0023 14:41.
  * </br>

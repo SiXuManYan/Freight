@@ -7,6 +7,7 @@ import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
+import com.ftacloud.student.common.StudentUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.sugar.library.util.ProductUtils
 import kotlinx.android.synthetic.main.activity_login.*
@@ -44,38 +45,29 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
     }
 
 
-
     private fun changeDisplayMethod() {
 
         if (isCipherText) {
             // 切换至明文
-            password_rule_iv.setImageResource(R.mipmap.ic_temp10)
-            password_aet.transformationMethod = HideReturnsTransformationMethod.getInstance();
+            StudentUtil.editOpen(password_aet, password_rule_iv)
         } else {
             // 切换至密文
-            password_rule_iv.setImageResource(R.mipmap.ic_temp9)
-            password_aet.transformationMethod = PasswordTransformationMethod.getInstance();
+            StudentUtil.editDismiss(password_aet, password_rule_iv)
         }
-        password_aet.setSelection(password_aet.text.toString().length)
         isCipherText = !isCipherText
     }
 
     private fun changeAgainDisplayMethod() {
 
-        if (isCipherText) {
+        if (againIsCipherText) {
             // 切换至明文
-            password_again_rule_iv.setImageResource(R.mipmap.ic_temp10)
-            password_again_aet.transformationMethod = HideReturnsTransformationMethod.getInstance();
+            StudentUtil.editOpen(password_again_aet, password_again_rule_iv)
         } else {
             // 切换至密文
-            password_again_rule_iv.setImageResource(R.mipmap.ic_temp9)
-            password_again_aet.transformationMethod = PasswordTransformationMethod.getInstance();
+            StudentUtil.editDismiss(password_again_aet, password_again_rule_iv)
         }
-        password_again_aet.setSelection(password_aet.text.toString().length)
-        isCipherText = !isCipherText
+        againIsCipherText = !againIsCipherText
     }
-
-
 
 
     @OnClick(

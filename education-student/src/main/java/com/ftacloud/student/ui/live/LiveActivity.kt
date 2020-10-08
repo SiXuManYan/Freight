@@ -9,6 +9,7 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
  *
  */
 class LiveActivity :BaseMVPActivity<LivePresenter>(),LiveView {
+
     override fun getLayoutId() = R.layout.activity_live
 
     override fun initViews() {

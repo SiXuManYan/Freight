@@ -6,4 +6,5 @@ package com.ftacloud.student.ui.live
  *
  */
 class LiveModule {
+
 }

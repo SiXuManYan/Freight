@@ -8,4 +8,5 @@ import com.sugar.library.frames.network.response.BaseView
  *
  */
 interface LiveView : BaseView {
+
 }

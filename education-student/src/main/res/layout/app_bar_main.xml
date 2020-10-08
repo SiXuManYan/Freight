@@ -16,27 +16,27 @@
 
         <ImageView
             android:id="@+id/my_iv"
-            android:layout_width="@dimen/dp30"
-            android:layout_height="@dimen/dp30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
-            android:src="@mipmap/ic_temp4" />
+            android:src="@drawable/ic_home_left" />
 
         <ImageView
-            android:layout_width="@dimen/dp30"
-            android:layout_height="@dimen/dp30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:scaleType="centerInside"
-            android:src="@mipmap/ic_temp5" />
+            android:src="@drawable/ic_home_logo" />
 
         <ImageView
             android:id="@+id/message_iv"
-            android:layout_width="@dimen/dp30"
-            android:layout_height="@dimen/dp30"
-            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
-            android:src="@mipmap/ic_temp6" />
+            android:src="@drawable/ic_home_right" />
 
     </RelativeLayout>
 

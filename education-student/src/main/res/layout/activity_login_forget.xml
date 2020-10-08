@@ -64,7 +64,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/dp15"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp5" />
+                    android:src="@drawable/ic_login_phone" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -107,7 +107,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/dp15"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp6" />
+                    android:src="@drawable/ic_login_verify_code" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -174,7 +174,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/dp15"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp7" />
+                    android:src="@drawable/ic_login_password" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -203,7 +203,7 @@
                     android:layout_centerVertical="true"
                     android:padding="@dimen/dp10"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp10" />
+                    android:src="@drawable/ic_login_eye_close" />
 
 
                 <View
@@ -229,7 +229,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/dp15"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp8" />
+                    android:src="@drawable/ic_login_password" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -258,7 +258,7 @@
                     android:layout_centerVertical="true"
                     android:padding="@dimen/dp10"
                     android:scaleType="centerInside"
-                    android:src="@mipmap/ic_temp10" />
+                    android:src="@drawable/ic_login_eye_close"  />
 
 
                 <View
