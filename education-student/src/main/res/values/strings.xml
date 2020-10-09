@@ -32,7 +32,6 @@
 
     <!-- 登录页 LoginActivity -->
     <string name="login_register">注册</string>
-
     <string name="login_verify_rb">快捷登录</string>
     <string name="login_password_rb">密码登录</string>
 
@@ -108,12 +107,29 @@
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     <string name="login_out_hint">是否退出登录?</string>
+
+    <!-- 课程表详情  未开课 -->
     <string name="course_directory">课程目录</string>
     <string name="course_introduction">课程简介</string>
     <string name="teacher_introduction">老师介绍</string>
 
 
-    <!-- 课程表详情  未开课 -->
+    <!-- 个人信息页 -->
+    <string name="user_detail_avatar">头像</string>
+    <string name="user_detail_name_chinese">孩子中文名</string>
+    <string name="user_detail_name_english">孩子英文名</string>
+    <string name="user_detail_birthday">生日</string>
+    <string name="user_detail_english_basis">英语基础</string>
+    <string name="user_detail_commit">提交</string>
+    <string name="user_detail_shoot">拍摄</string>
+    <string name="user_detail_select">从相册中选择</string>
+
+    <string name="album_need_permission">无法访问系统相册，是否打开应用设置授权？</string>
+    <string name="permission_request">权限申请</string>
+    <string name="set_permission">去设置</string>
+    <string name="capture_error">拍摄失败</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
 
 
 

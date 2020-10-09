@@ -59,30 +59,38 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
 
     override fun onActivityPaused(activity: Activity) = Unit
 
-
     override fun onActivityDestroyed(activity: Activity) = Unit
 
     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) = Unit
-    override fun onActivityStopped(activity: Activity?) {
 
+    override fun onActivityStopped(activity: Activity?) = Unit
+
+    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) = Unit
+
+    override fun onActivityResumed(activity: Activity) = Unit
+
+    override fun onActivityStarted(activity: Activity?) = Unit
+
+    override fun showError(code: Int, message: String) = Unit
+
+    /*  公用网络请求   */
+
+
+    var ossCallBack: OssSignCallBack? = null
+
+    /**
+     * 签名 阿里云 private image url
+     */
+    interface OssSignCallBack {
+        fun ossUrlSignEnd(url: String)
     }
 
+    /**
+     * 获取token 签名url
+     */
+     fun getOssSecurityTokenForSignUrl(objectKey: String, ossCallBack: OssSignCallBack) {
 
-    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-
+        presenter.getOssSecurityTokenForSignUrl(this, objectKey, ossCallBack)
     }
-
-    override fun onActivityResumed(activity: Activity) {
-
-    }
-
-    override fun onActivityStarted(activity: Activity?) {
-
-    }
-
-    override fun showError(code: Int, message: String) {
-
-    }
-
 
 }

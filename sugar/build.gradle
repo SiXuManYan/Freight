@@ -19,6 +19,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        flavorDimensions "versionCode" // 多维度打包
     }
 
     buildTypes {
@@ -35,6 +37,23 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    productFlavors {
+        dev {
+
+            buildConfigField "String", "OSS_PRIVATE_BUCKET_NAME", OSS_PRIVATE_BUCKET_NAME
+            buildConfigField "String", "OSS_END_POINT", OSS_END_POINT
+        }
+
+        formal {
+
+
+            buildConfigField "String", "OSS_PRIVATE_BUCKET_NAME", OSS_PRIVATE_BUCKET_NAME
+            buildConfigField "String", "OSS_END_POINT", OSS_END_POINT
+
+        }
+
     }
 }
 
@@ -121,4 +140,11 @@ dependencies {
 
     // 多功能Tab
     api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2'
+
+    // 阿里云对象存储
+    api 'com.aliyun.dpa:oss-android-sdk:2.9.4'
+
+    // 自定义相册
+    api 'com.zhihu.android:matisse:0.5.3-beta3'
+
 }

@@ -35,77 +35,188 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/font_white"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10">
 
             <RelativeLayout
-                android:id="@+id/privacy_statement_rl"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="@string/privacy_statement"
-                    android:textColor="@color/color_first_level"
-                    android:textSize="@dimen/font_size_14" />
-
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/color_list_gray_background" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/copyright_rl"
+                android:id="@+id/avatar_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="@dimen/dp15"
-                android:paddingRight="@dimen/dp15">
+                android:background="?android:attr/selectableItemBackground">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="@string/copyright"
+                    android:text="@string/user_detail_avatar"
                     android:textColor="@color/color_first_level"
                     android:textSize="@dimen/font_size_14" />
+
+                <com.sugar.library.ui.view.CircleImageView
+                    android:id="@+id/avatar_civ"
+                    android:layout_width="@dimen/dp23"
+                    android:layout_height="@dimen/dp23"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_sliding_avatar" />
 
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/color_list_gray_background" />
+                    android:background="@color/color_cccccc" />
 
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/contact_us_rl"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
+                android:layout_height="@dimen/dp50"
+                android:background="?android:attr/selectableItemBackground">
+
+
+                <TextView
+                    android:id="@+id/tag0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/user_detail_name_chinese"
+                    android:textColor="@color/color_first_level"
+                    android:textSize="@dimen/font_size_14" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/chinese_name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_toEndOf="@id/tag0"
+                    android:background="@null"
+                    android:gravity="center_vertical|end"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="11"
+                    android:text="asdsadasd"
+                    android:textColor="@color/color_second_level"
+                    android:textColorHint="@color/color_cccccc"
+                    android:textSize="@dimen/sp14" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_cccccc" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:background="?android:attr/selectableItemBackground">
+
+
+                <TextView
+                    android:id="@+id/tag1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/user_detail_name_english"
+                    android:textColor="@color/color_first_level"
+                    android:textSize="@dimen/font_size_14" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/english_name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_toEndOf="@id/tag1"
+                    android:background="@null"
+                    android:gravity="center_vertical|end"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="11"
+                    android:text="asdsadasd"
+                    android:textColor="@color/color_second_level"
+                    android:textColorHint="@color/color_cccccc"
+                    android:textSize="@dimen/sp14" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_cccccc" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/birthday_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:background="?android:attr/selectableItemBackground">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="@string/contact_us"
+                    android:text="@string/user_detail_birthday"
                     android:textColor="@color/color_first_level"
+                    android:textSize="@dimen/font_size_14" />
+
+
+                <TextView
+                    android:id="@+id/birthday_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    tools:text="1994-10-11"
+                    android:textColor="@color/color_second_level"
+                    android:textSize="@dimen/font_size_14" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_cccccc" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/english_basis_rl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:background="?android:attr/selectableItemBackground">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/user_detail_english_basis"
+                    android:textColor="@color/color_first_level"
+                    android:textSize="@dimen/font_size_14" />
+
+
+                <TextView
+                    android:id="@+id/english_basis_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/color_second_level"
                     android:textSize="@dimen/font_size_14" />
 
 
@@ -113,11 +224,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/color_list_gray_background" />
+                    android:background="@color/color_cccccc" />
 
 
             </RelativeLayout>
-
 
         </LinearLayout>
 
@@ -134,7 +244,7 @@
         android:layout_marginEnd="15dp"
         android:background="@drawable/shape_12_yellow"
         android:gravity="center"
-        android:text="@string/sign_out_tv"
+        android:text="@string/user_detail_commit"
         android:textColor="@color/font_white"
         android:textSize="@dimen/sp16"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,6 +267,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.74822694" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

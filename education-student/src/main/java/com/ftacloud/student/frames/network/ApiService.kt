@@ -1,11 +1,13 @@
 package com.ftacloud.student.frames.network
 
+import com.ftacloud.student.frames.entity.SecurityTokenModel
 import com.ftacloud.student.frames.entity.request.*
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonElement
 import com.sugar.library.frames.network.Response
 import io.reactivex.Flowable
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 
@@ -83,5 +85,12 @@ interface ApiService {
     @POST("$API_ACCOUNT_URI/logout")
     fun logout(): Flowable<Response<JsonElement>>
 
+
+    /**
+     * 获取资源上传 oss token
+     *
+     */
+    @GET("get/alioss/stsToken")
+    fun getOssSecurityToken(): Flowable<Response<SecurityTokenModel>>
 
 }

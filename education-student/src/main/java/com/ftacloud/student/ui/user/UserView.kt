@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.user
 
+import android.net.Uri
 import com.sugar.library.frames.network.response.BaseTaskView
 
 /**
@@ -8,4 +9,5 @@ import com.sugar.library.frames.network.response.BaseTaskView
  *
  */
 interface UserView : BaseTaskView {
+    fun onShootingPermissionResult(uri: Uri?)
 }

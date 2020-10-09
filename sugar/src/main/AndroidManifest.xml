@@ -2,4 +2,8 @@
     package="com.sugar.library">
 
 
+    <application>
+        <activity android:name=".ui.matisse.AllPreviewActivity" />
+        <activity android:name=".ui.matisse.MatisseActivity" />
+    </application>
 </manifest>
