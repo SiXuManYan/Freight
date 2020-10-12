@@ -11,6 +11,8 @@ import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.task.TaskActivity
 import com.ftacloud.student.ui.tests.TestConditionActivity
+import com.ftacloud.student.ui.user.UserActivity
+import com.sugar.library.ui.view.CircleImageView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
@@ -43,34 +45,38 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
     private fun initHeaderView() {
 
-        val headerView = nav_view.getHeaderView(0)
+        val header = nav_view.getHeaderView(0)
 
-        headerView.findViewById<RelativeLayout>(R.id.menu_my_course).setOnClickListener {
+        header.findViewById<CircleImageView>(R.id.avatar_iv).setOnClickListener {
+            startActivity(UserActivity::class.java)
+        }
+        header.findViewById<RelativeLayout>(R.id.menu_my_course).setOnClickListener {
             startActivity(MyCourseActivity::class.java)
         }
 
-        headerView.findViewById<RelativeLayout>(R.id.menu_class_schedule).setOnClickListener {
+
+        header.findViewById<RelativeLayout>(R.id.menu_class_schedule).setOnClickListener {
             startActivity(ClassScheduleActivity::class.java)
         }
 
-        headerView.findViewById<RelativeLayout>(R.id.menu_task).setOnClickListener {
+        header.findViewById<RelativeLayout>(R.id.menu_task).setOnClickListener {
             startActivity(TaskActivity::class.java)
         }
 
-        headerView.findViewById<RelativeLayout>(R.id.menu_my_evaluation).setOnClickListener {
+        header.findViewById<RelativeLayout>(R.id.menu_my_evaluation).setOnClickListener {
             startActivity(TestConditionActivity::class.java)
         }
 
-        headerView.findViewById<RelativeLayout>(R.id.menu_my_order).setOnClickListener {
+        header.findViewById<RelativeLayout>(R.id.menu_my_order).setOnClickListener {
             ToastUtils.showShort("我的订单")
 
         }
-        headerView.findViewById<RelativeLayout>(R.id.menu_my_customer_service).setOnClickListener {
+        header.findViewById<RelativeLayout>(R.id.menu_my_customer_service).setOnClickListener {
             ToastUtils.showShort("我的客服")
 
         }
 
-        headerView.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
+        header.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
             startActivity(SettingActivity::class.java)
         }
 

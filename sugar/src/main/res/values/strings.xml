@@ -24,5 +24,16 @@
     <string name="id_card_number_wrong_format">%1$s身份证号格式错误，请重新输入</string>
     <string name="input_format">请输入%1$s</string>
 
+    <!-- 资源上传 -->
+
+    <!--  android/开发环境/资源类型/是否为加密文件/时间戳.jpg-->
+    <string name="upload_image_encryption_path_format">prod/android/order/encryption%1$s.jpg</string>
+    <string name="upload_image_encryption_path_dev_format">dev/android/order/encryption%1$s.jpg</string>
+
+    <!-- 上传成功后的最终URL val finalUrl = "https://$imageBucketName.$endpoint/$imageObjectKey" -->
+    <string name="final_url_format">https://%1$s.%2$s/%3$s</string>
+
+    <!-- 生日 -->
+    <string name="birthday_format">%1$d-%2$d-%3$d</string>
 
 </resources>

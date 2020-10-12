@@ -5,21 +5,18 @@ import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
-import androidx.annotation.IdRes
 import androidx.core.content.FileProvider
-import androidx.fragment.app.Fragment
-import com.blankj.utilcode.util.StringUtils
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.BuildConfig
-import com.ftacloud.student.R
 import com.ftacloud.student.common.StudentUtil
+import com.ftacloud.student.frames.entity.request.SetUserInfo
 import com.ftacloud.student.frames.network.response.BasePresenter
-import com.sugar.library.ui.matisse.Glide4Engine
-import com.sugar.library.ui.matisse.Matisse
+import com.google.gson.JsonElement
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.sugar.library.util.Common
-import com.sugar.library.util.Constants
 import com.sugar.library.util.PermissionUtils
-import com.zhihu.matisse.MimeType
 import java.io.File
 import javax.inject.Inject
 
@@ -28,13 +25,13 @@ import javax.inject.Inject
  * </br>
  *
  */
-class UserPresenter @Inject constructor(private var view: UserView): BasePresenter(view){
+class UserPresenter @Inject constructor(private var view: UserView) : BasePresenter(view) {
 
 
     /**
      * 拍摄和录制权限申请
      */
-    fun requestShootingPermissions(context: Context, file_path:String) {
+    fun requestShootingPermissions(context: Context, file_path: String) {
 
         PermissionUtils.permissionAny(
             context, PermissionUtils.OnPermissionCallBack { granted ->
@@ -56,9 +53,6 @@ class UserPresenter @Inject constructor(private var view: UserView): BasePresent
                             uri = Uri.fromFile(file)
                         }
                         view.onShootingPermissionResult(uri)
-
-
-
                     }
 
                 } else {
@@ -69,11 +63,51 @@ class UserPresenter @Inject constructor(private var view: UserView): BasePresent
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
-
     }
 
 
+    /**
+     * 获取验证码
+     */
+    fun setUserInfo(
+        lifecycle: LifecycleOwner,
+        mAvatarUrl: String,
+        mNameChinese: String,
+        mNameEnglish: String,
+        mBirthday: String,
+        mEnglishBasis: String
+    ) {
+        if (mAvatarUrl.isBlank() && mNameChinese.isBlank() && mNameEnglish.isBlank() && mBirthday.isBlank() && mEnglishBasis.isBlank()) {
+            view.setUserInfoSuccess()
+            return
+        }
 
+        val apply = SetUserInfo().apply {
+
+            headImg = mAvatarUrl
+            name = "啊啊啊"
+            enName = "james"
+            birthday = "2020-10-11"
+            stage = "S7"
+        }
+
+
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
+
+            apiService.setUserInfo(apply), object : BaseHttpSubscriber<JsonElement>(view) {
+                override fun onSuccess(data: JsonElement?) {
+                    ToastUtils.showShort("设置成功")
+//                    view.setUserInfoSuccess()
+                }
+
+                override fun onError(e: Throwable) {
+                    ToastUtils.showShort("设置失败")
+                }
+
+            }
+        )
+
+    }
 
 
 }

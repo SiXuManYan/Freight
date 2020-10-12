@@ -10,13 +10,13 @@ static def releaseTime() {
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.ftacloud.student"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
@@ -128,6 +128,10 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.anko:anko-commons:0.10.8"
 
-    // 流式布局
+    // 流式布局zhy
     implementation 'com.hyman:flowlayout-lib:1.1.2'
+
+    // 通用popup window
+    implementation 'com.github.razerdp:BasePopup:2.2.8'
+
 }

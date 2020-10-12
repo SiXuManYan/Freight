@@ -35,15 +35,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/font_white"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/dp10"
-            android:paddingRight="@dimen/dp10">
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/avatar_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10">
 
 
                 <TextView
@@ -56,8 +56,8 @@
 
                 <com.sugar.library.ui.view.CircleImageView
                     android:id="@+id/avatar_civ"
-                    android:layout_width="@dimen/dp23"
-                    android:layout_height="@dimen/dp23"
+                    android:layout_width="@dimen/dp30"
+                    android:layout_height="@dimen/dp30"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_sliding_avatar" />
@@ -73,9 +73,12 @@
             </RelativeLayout>
 
             <RelativeLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10">
 
 
                 <TextView
@@ -100,7 +103,6 @@
                     android:inputType="text"
                     android:lines="1"
                     android:maxLength="11"
-                    android:text="asdsadasd"
                     android:textColor="@color/color_second_level"
                     android:textColorHint="@color/color_cccccc"
                     android:textSize="@dimen/sp14" />
@@ -118,7 +120,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10">
 
 
                 <TextView
@@ -142,7 +146,6 @@
                     android:inputType="text"
                     android:lines="1"
                     android:maxLength="11"
-                    android:text="asdsadasd"
                     android:textColor="@color/color_second_level"
                     android:textColorHint="@color/color_cccccc"
                     android:textSize="@dimen/sp14" />
@@ -162,7 +165,9 @@
                 android:id="@+id/birthday_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10">
 
 
                 <TextView
@@ -180,9 +185,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    tools:text="1994-10-11"
                     android:textColor="@color/color_second_level"
-                    android:textSize="@dimen/font_size_14" />
+                    android:textSize="@dimen/font_size_14"
+                    tools:text="1994-10-11" />
 
                 <View
                     android:layout_width="match_parent"
@@ -198,7 +203,9 @@
                 android:id="@+id/english_basis_rl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10">
 
 
                 <TextView
@@ -236,7 +243,7 @@
 
 
     <TextView
-        android:id="@+id/sign_out_tv"
+        android:id="@+id/commit_tv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
         android:layout_alignParentBottom="true"

@@ -115,6 +115,7 @@
 
 
     <!-- 个人信息页 -->
+    <string name="user_detail_title">个人资料</string>
     <string name="user_detail_avatar">头像</string>
     <string name="user_detail_name_chinese">孩子中文名</string>
     <string name="user_detail_name_english">孩子英文名</string>

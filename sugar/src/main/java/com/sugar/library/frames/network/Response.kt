@@ -19,6 +19,11 @@ class Response<T> constructor() {
     /** 错误信息 */
     var msg: String? = ""
 
+    /**
+     * 时间
+     */
+    var sysTime: String? = ""
+
 
     /** 接口数据 */
     var data: T? = null

@@ -90,7 +90,7 @@ class AppModule {
             }
 
             val bodyInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
-                Log.w("bodyInterceptor", it)
+                Log.w("body拦截器", it)
             }).apply {
                 this.level = HttpLoggingInterceptor.Level.BODY
             }

@@ -10,4 +10,5 @@ import com.sugar.library.frames.network.response.BaseTaskView
  */
 interface UserView : BaseTaskView {
     fun onShootingPermissionResult(uri: Uri?)
+    fun setUserInfoSuccess()
 }

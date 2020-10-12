@@ -106,7 +106,7 @@ object StudentUtil {
                             this
                         }, true)
                         .countable(true)
-//                .originalEnable(false)
+                        // .originalEnable(false)
                         .maxSelectable(1)
                         .theme(R.style.Matisse_Dracula)
                         .thumbnailScale(0.87f)

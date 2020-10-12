@@ -37,7 +37,7 @@ open class LibraryBasePresenter constructor(private var view: BaseView?) {
      * @param eventType 传递类型
      * @param consumer  消费
      */
-    protected fun <T> addRxBusSubscribe(eventType: Class<T>, consumer: Consumer<T>) {
+     fun <T> addRxBusSubscribe(eventType: Class<T>, consumer: Consumer<T>) {
         if (compositeDisposable == null) {
             compositeDisposable = CompositeDisposable()
         }
@@ -127,7 +127,7 @@ open class LibraryBasePresenter constructor(private var view: BaseView?) {
      * 订阅事件
      * @param consumer 处理
      */
-    protected inline fun <reified T> subsribeEventEntity(consumer: Consumer<T>) {
+     inline fun <reified T> subsribeEventEntity(consumer: Consumer<T>) {
         addRxBusSubscribe(T::class.java, consumer)
     }
 

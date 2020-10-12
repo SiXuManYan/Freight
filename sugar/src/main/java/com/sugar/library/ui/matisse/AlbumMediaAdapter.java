@@ -29,7 +29,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fatcloud.account.R;
+import com.sugar.library.R;
 import com.zhihu.matisse.internal.entity.Album;
 import com.zhihu.matisse.internal.entity.IncapableCause;
 import com.zhihu.matisse.internal.entity.Item;

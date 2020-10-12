@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import androidx.annotation.IdRes
 import androidx.multidex.MultiDex
 import com.ftacloud.student.frames.dagger.comment.DaggerAppComponent
 import com.ftacloud.student.frames.network.ApiService
@@ -91,6 +92,26 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
      fun getOssSecurityTokenForSignUrl(objectKey: String, ossCallBack: OssSignCallBack) {
 
         presenter.getOssSecurityTokenForSignUrl(this, objectKey, ossCallBack)
+    }
+
+
+    /**
+     * 获取 token
+     * @param objectName 文件路径
+     * @param isEncryptFile 是否为加密文件
+     * @param isFaceUp 是否为证件照上传
+     * @param localFilePatch 图片所在本地路径
+     * @param fromViewId 发起请求的viewId 用于上传成功后，做后续操作
+     * @param clx 请求发起位置
+     *
+     */
+    fun getOssSecurityToken(localFilePatch: String, @IdRes fromViewId: Int, clx: Class<*>) {
+        presenter.getOssSecurityToken(
+            this,
+            localFilePatch,
+            fromViewId,
+            clx
+        )
     }
 
 }

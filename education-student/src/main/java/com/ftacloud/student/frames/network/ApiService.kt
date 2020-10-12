@@ -90,7 +90,15 @@ interface ApiService {
      * 获取资源上传 oss token
      *
      */
-    @GET("get/alioss/stsToken")
+    @POST("get/alioss/stsToken")
     fun getOssSecurityToken(): Flowable<Response<SecurityTokenModel>>
+
+    /**
+     * 设置用户信息
+     *  /api/account/
+     */
+    @POST("$API_ACCOUNT_URI/setInfo")
+    fun setUserInfo(@Body json: SetUserInfo): Flowable<Response<JsonElement>>
+
 
 }

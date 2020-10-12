@@ -27,7 +27,6 @@ import com.zhihu.matisse.internal.entity.Item;
 import com.zhihu.matisse.internal.entity.SelectionSpec;
 import com.zhihu.matisse.internal.model.AlbumCollection;
 import com.zhihu.matisse.internal.model.SelectedItemCollection;
-import com.zhihu.matisse.internal.ui.AlbumPreviewActivity;
 import com.zhihu.matisse.internal.ui.BasePreviewActivity;
 import com.zhihu.matisse.internal.ui.SelectedPreviewActivity;
 import com.zhihu.matisse.internal.utils.MediaStoreCompat;
@@ -374,10 +373,14 @@ public class MatisseActivity extends AppCompatActivity implements
 
     @Override
     public void onMediaClick(Album album, Item item, int adapterPosition) {
+
+
 //        Intent intent = new Intent(this, AlbumPreviewActivity.class);
+
+
         Intent intent = new Intent(this, AllPreviewActivity.class);
-        intent.putExtra(AlbumPreviewActivity.EXTRA_ALBUM, album);
-        intent.putExtra(AlbumPreviewActivity.EXTRA_ITEM, item);
+        intent.putExtra(AllPreviewActivity.EXTRA_ALBUM, album);
+        intent.putExtra(AllPreviewActivity.EXTRA_ITEM, item);
         intent.putExtra(BasePreviewActivity.EXTRA_DEFAULT_BUNDLE, mSelectedCollection.getDataWithBundle());
         intent.putExtra(BasePreviewActivity.EXTRA_RESULT_ORIGINAL_ENABLE, mOriginalEnable);
         intent.putExtra(Matisse.MEDIA_TYPE, mediaType);

@@ -14,11 +14,13 @@ class SecurityTokenModel {
     var AccessKeyId: String = ""
     var AccessKeySecret: String = ""
     var SecurityToken: String = ""
+    var Endpoint: String = ""
 
     /**
      * 过期时间
      */
     var ExpireTimeSeconds: String = ""
+    var _ExpireTimeSeconds: String = ""
     var StoreDir: String = ""
 
 }
