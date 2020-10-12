@@ -1,6 +1,6 @@
 package com.ftacloud.student.ui.home
 
-import com.sugar.library.frames.network.response.BaseView
+import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
 
 
 /**
@@ -8,5 +8,6 @@ import com.sugar.library.frames.network.response.BaseView
  * </br>
  *
  */
-interface HomeView :BaseView {
+interface HomeView :BaseNoJsonListView2<Any> {
+
 }

@@ -18,6 +18,7 @@ import io.reactivex.functions.Consumer
 import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subscribers.ResourceSubscriber
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 
 /**
  * 数据提供器基类
@@ -113,6 +114,7 @@ open class LibraryBasePresenter constructor(private var view: BaseView?) {
                 .subscribeWith(subscriber)
         )
     }
+
 
 
     /**

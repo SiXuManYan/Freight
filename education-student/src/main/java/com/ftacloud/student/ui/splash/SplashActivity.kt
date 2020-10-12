@@ -21,10 +21,34 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 
 /**
- * Created by Wangsw on 2020/5/25 0025 15:44.
- * </br>
+ *  Created by Wangsw on 2020/5/25 0025 15:44.
+ * ━━━━━━━━━神兽出没━━━━━━━━━
  *
+ *　　　　　　　　┏┓　　　┏┓+ +
+ *　　　　　　　┏┛┻━━━┛┻┓ + +
+ *　　　　　　　┃　　　　　　　┃ 　
+ *　　　　　　　┃　　　━　　　┃ ++ + + +
+ *　　　　　　 ████━████ ┃+
+ *　　　　　　　┃　　　　　　　┃ +
+ *　　　　　　　┃　　　┻　　　┃
+ *　　　　　　　┃　　　　　　　┃ + +
+ *　　　　　　　┗━┓　　　┏━┛
+ *　　　　　　　　　┃　　　┃　　　　　　　　　　　
+ *　　　　　　　　　┃　　　┃ + + + +
+ *　　　　　　　　　┃　　　┃　　　　Code is far away from bug with the animal protecting　　　　　　　
+ *　　　　　　　　　┃　　　┃ + 　　　　神兽保佑,代码无bug　　
+ *　　　　　　　　　┃　　　┃
+ *　　　　　　　　　┃　　　┃　　+　　　　　　　　　
+ *　　　　　　　　　┃　 　　┗━━━┓ + +
+ *　　　　　　　　　┃ 　　　　　　　┣┓
+ *　　　　　　　　　┃ 　　　　　　　┏┛
+ *　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
+ *　　　　　　　　　　┃┫┫　┃┫┫
+ *　　　　　　　　　　┗┻┛　┗┻┛+ + + +
+ *
+ * ━━━━━━━━━诸神退位━━━━━━━━━
  */
+
 class SplashActivity : BaseActivity() {
 
     override fun getLayoutId() = R.layout.activity_splash

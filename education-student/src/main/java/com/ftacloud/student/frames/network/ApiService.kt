@@ -1,9 +1,11 @@
 package com.ftacloud.student.frames.network
 
 import com.ftacloud.student.frames.entity.SecurityTokenModel
+import com.ftacloud.student.frames.entity.home.Home
 import com.ftacloud.student.frames.entity.request.*
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 import com.sugar.library.frames.network.Response
 import io.reactivex.Flowable
 import retrofit2.http.Body
@@ -28,8 +30,9 @@ interface ApiService {
 
         private const val USE_CACHED = "cache:60"
 
-        private const val API_ACCOUNT_URI = "api/account"
         private const val API_SMS_URI = "api/sms"
+        private const val API_ACCOUNT_URI = "api/account"
+        private const val API_STUDENT_URI = "api/student"
 
         const val WECHAT_OFFICIAL_API = "https://api.weixin.qq.com"
 
@@ -95,10 +98,16 @@ interface ApiService {
 
     /**
      * 设置用户信息
-     *  /api/account/
+     *
      */
     @POST("$API_ACCOUNT_URI/setInfo")
     fun setUserInfo(@Body json: SetUserInfo): Flowable<Response<JsonElement>>
+
+    /**
+     * 获取首页信息
+     */
+    @GET("/api/student/home/")
+    fun getHomeInfo(): Flowable<Response<JsonObject>>
 
 
 }
