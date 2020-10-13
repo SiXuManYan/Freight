@@ -46,9 +46,8 @@
 
             <include layout="@layout/item_home_basic_test" />
 
-            <include layout="@layout/item_home_live" />
+            <include layout="@layout/item_home_class_experience" />
 
-            <include layout="@layout/item_home_live_countdown" />
 
             <include layout="@layout/item_home_course_yellow" />
 

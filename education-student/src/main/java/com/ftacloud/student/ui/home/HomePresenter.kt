@@ -2,17 +2,18 @@ package com.ftacloud.student.ui.home
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.ftacloud.student.frames.entity.home.Home
+import com.ftacloud.student.frames.entity.Task
+import com.ftacloud.student.frames.entity.home.NativeClassSchedule
 import com.ftacloud.student.frames.entity.home.Quizzes
 import com.ftacloud.student.frames.entity.home.Schedule
+import com.ftacloud.student.frames.entity.home.ScheduleState
 import com.ftacloud.student.frames.network.response.BasePresenter
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.sugar.library.frames.extend.genericType
-import com.sugar.library.util.Constants
 import io.reactivex.functions.Function
 import io.reactivex.subscribers.ResourceSubscriber
-import java.util.ArrayList
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -26,6 +27,7 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
 
     val quizzesOfStudentOuts = "quizzesOfStudentOuts"
     val scheduleOuts = "scheduleOuts"
+    val task = "task"
 
 
     override fun loadList(lifecycle: LifecycleOwner, page: Int) {
@@ -36,6 +38,7 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
             jsonObject = it.data!!
             return@Function resortList(jsonObject!!)
         }, object : ResourceSubscriber<ArrayList<Any>>() {
+
             override fun onComplete() = Unit
 
             override fun onError(t: Throwable?) = Unit
@@ -54,13 +57,48 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
         }
         val list = ArrayList<Any>()
 
+
         if (data.has(quizzesOfStudentOuts)) {
+            // 基础测试
             list.addAll(gson.fromJson<ArrayList<Quizzes>>(data.get(quizzesOfStudentOuts), genericType<ArrayList<Quizzes>>()))
         }
 
+
         if (data.has(scheduleOuts)) {
-            list.addAll(gson.fromJson<ArrayList<Schedule>>(data.get(scheduleOuts), genericType<ArrayList<Schedule>>()))
+            // 体验课程，订单课程
+            val scheduleOuts = gson.fromJson<ArrayList<Schedule>>(data.get(scheduleOuts), genericType<ArrayList<Schedule>>())
+            list.addAll(scheduleOuts)
+
+
+            // 课程表
+            val classSchedule = ArrayList<NativeClassSchedule>()
+            scheduleOuts.forEach {
+                if (it.state == ScheduleState.UNTEACH.name) {
+                    classSchedule.add(NativeClassSchedule().apply {
+                        id = it.id
+                        courseId = it.courseId
+                        courseName = it.courseName
+                        courseIntroduce = it.courseIntroduce
+                        productType = it.productType
+                        productTags = it.productTags
+                        productMoney = it.productMoney
+                        productMoneyOfDiscount = it.productMoneyOfDiscount
+                        state = it.state
+                        studyDatetime = it.studyDatetime
+                        countDownToStudyTimeSeconds = it.countDownToStudyTimeSeconds
+                    })
+                }
+            }
+            list.addAll(scheduleOuts)
+
         }
+
+
+        if (data.has(task)) {
+            // 课后任务
+            list.addAll(gson.fromJson<ArrayList<Task>>(data.get(task), genericType<ArrayList<Task>>()))
+        }
+
         return list
 
     }

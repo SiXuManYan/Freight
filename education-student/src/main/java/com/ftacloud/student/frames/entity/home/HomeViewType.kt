@@ -6,7 +6,7 @@ package com.ftacloud.student.frames.entity.home
  *
  */
 enum class HomeViewType {
-    Quizzes,Schedule
+    Quizzes, Schedule
 
 
 }

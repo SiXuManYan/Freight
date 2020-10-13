@@ -25,7 +25,6 @@
     <string name="input_format">请输入%1$s</string>
 
     <!-- 资源上传 -->
-
     <!--  android/开发环境/资源类型/是否为加密文件/时间戳.jpg-->
     <string name="upload_image_encryption_path_format">prod/android/order/encryption%1$s.jpg</string>
     <string name="upload_image_encryption_path_dev_format">dev/android/order/encryption%1$s.jpg</string>
@@ -35,5 +34,11 @@
 
     <!-- 生日 -->
     <string name="birthday_format">%1$d-%2$d-%3$d</string>
+
+    <!-- 金额 -->
+    <string name="money_symbol">&#165;</string>
+    <string name="money_symbol_with_blank">&#165;&#160;</string>
+    <string name="money_symbol_format">&#165;&#160;%1$s</string>
+    <string name="money_symbol_negative_format">-&#165;%1$s</string>
 
 </resources>

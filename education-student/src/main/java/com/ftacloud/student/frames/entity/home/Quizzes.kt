@@ -3,7 +3,7 @@ package com.ftacloud.student.frames.entity.home
 /**
  * Created by Wangsw on 2020/10/12 0012 19:08.
  * </br>
- *
+ * 基础测验
  */
 class Quizzes {
 

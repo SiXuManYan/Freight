@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingStart="@dimen/dp15"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="@dimen/dp0"
     android:paddingEnd="@dimen/dp15"
     android:paddingBottom="@dimen/dp10">
@@ -30,7 +31,7 @@
                 android:id="@+id/tag_iv"
                 android:layout_width="@dimen/dp42"
                 android:layout_height="@dimen/dp55"
-                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/ic_temp" />
 
@@ -39,24 +40,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp5"
-                android:layout_toRightOf="@+id/tag_iv"
+                android:layout_toEndOf="@+id/tag_iv"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/font_white"
                 android:textSize="@dimen/sp16"
-                android:text="基础测试" />
+                tools:text="基础测试" />
 
             <TextView
+                android:id="@+id/content_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title_tv"
-                android:layout_toRightOf="@+id/tag_iv"
+                android:layout_toEndOf="@+id/tag_iv"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
                 android:maxLines="2"
                 android:textColor="@color/color_80ffffff"
                 android:textSize="@dimen/sp13"
-                android:text="专业分级测验，帮助验,/评分中，已经评分" />
+                tools:text="专业分级测验，帮助验,/评分中，已经评分" />
 
 
         </RelativeLayout>
