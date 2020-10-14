@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp15"
+    android:paddingTop="@dimen/dp0"
+    android:paddingEnd="@dimen/dp15"
+    android:paddingBottom="@dimen/dp10">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_cv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp140"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/color_f9a74d"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+
+
+            <ImageView
+                android:id="@+id/image_iv"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp60"
+                android:layout_marginEnd="@dimen/dp10"
+                android:src="@mipmap/ic_temp" />
+
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/image_iv"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="3~6岁萌娃充能课程"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp16" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_tv"
+                android:layout_toEndOf="@+id/image_iv"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.sugar.library.ui.view.CircleImageView
+                    android:id="@+id/teacher_civ"
+                    android:layout_width="@dimen/dp30"
+                    android:layout_height="@dimen/dp30"
+                    android:layout_marginEnd="@dimen/dp5"
+                    android:visibility="gone"
+                    android:src="@mipmap/ic_temp" />
+
+                <TextView
+                    android:id="@+id/content_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:ellipsize="end"
+                    android:lineSpacingMultiplier="1.2"
+                    android:text="适合3-6岁萌娃，快速提高英语口语，简介课程简介课程简介"
+                    android:textColor="@color/color_80ffffff"
+                    android:textSize="@dimen/sp13" />
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/split_v"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/image_iv"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@color/color_80ffffff" />
+
+
+            <ViewSwitcher
+                android:id="@+id/state_vs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true">
+
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp25">
+
+
+                    <ViewSwitcher
+                        android:id="@+id/course_vs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true">
+
+                        <TextView
+                            android:id="@+id/status_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp2"
+                            android:background="@drawable/stock_4_red_f94d4d"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.2"
+                            android:paddingStart="@dimen/dp4"
+                            android:paddingTop="@dimen/dp2"
+                            android:paddingEnd="@dimen/dp4"
+                            android:paddingBottom="@dimen/dp2"
+                            android:singleLine="true"
+                            tools:text="已开始上课"
+                            android:textColor="@color/font_white"
+                            android:textSize="@dimen/sp12" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dp2"
+                                android:background="@drawable/stock_4_gray_33ffffff"
+                                android:ellipsize="end"
+                                android:lineSpacingMultiplier="1.2"
+                                android:paddingStart="@dimen/dp3"
+                                android:paddingTop="@dimen/dp2"
+                                android:paddingEnd="@dimen/dp3"
+                                android:paddingBottom="@dimen/dp2"
+                                android:singleLine="true"
+                                android:text="开课时间"
+                                android:textColor="@color/color_80ffffff"
+                                android:textSize="@dimen/sp12" />
+
+
+                            <com.sugar.library.ui.view.countdown.CountDownTextView
+                                android:id="@+id/countdown_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dp2"
+                                android:ellipsize="end"
+                                android:lineSpacingMultiplier="1.2"
+                                android:paddingStart="@dimen/dp3"
+                                android:paddingTop="@dimen/dp2"
+                                android:paddingEnd="@dimen/dp3"
+                                android:paddingBottom="@dimen/dp2"
+                                android:singleLine="true"
+                                android:textColor="@color/color_80ffffff"
+                                android:textSize="@dimen/sp12"
+                                tools:text="10 : 11 : 11" />
+
+
+                        </LinearLayout>
+
+
+                    </ViewSwitcher>
+
+
+                    <LinearLayout
+                        android:id="@+id/enter_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp5"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.2"
+                            android:singleLine="true"
+                            android:text="进入教室"
+                            android:textColor="@color/color_80ffffff"
+                            android:textSize="@dimen/sp12" />
+
+
+                        <ImageView
+                            android:layout_width="@dimen/dp12"
+                            android:layout_height="@dimen/dp12"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/ic_temp7" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/money_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp2"
+                        android:ellipsize="end"
+                        android:lineSpacingMultiplier="1.2"
+                        android:singleLine="true"
+                        tools:text="120课时 /"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sp12" />
+
+
+                    <TextView
+                        android:id="@+id/money_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:lineSpacingMultiplier="1.2"
+                        android:singleLine="true"
+                        android:text="￥1,998"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sp16"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+            </ViewSwitcher>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

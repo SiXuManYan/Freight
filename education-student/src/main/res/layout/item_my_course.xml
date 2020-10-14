@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <include layout="@layout/item_home_course_yellow" />
+    <include layout="@layout/item_home_course_order0" />
 
-    <include layout="@layout/item_home_course_green" />
+    <include layout="@layout/item_home_course_order1" />
 
 </LinearLayout>

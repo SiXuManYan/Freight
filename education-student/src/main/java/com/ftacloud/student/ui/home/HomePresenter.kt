@@ -86,6 +86,13 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
                         state = it.state
                         studyDatetime = it.studyDatetime
                         countDownToStudyTimeSeconds = it.countDownToStudyTimeSeconds
+
+                        courseIconImg = it.courseIconImg
+                        teacherId = it.teacherId
+                        teacherName = it.teacherName
+                        teacherHeadImg = it.teacherHeadImg
+                        liveRoomNo = it.liveRoomNo
+
                     })
                 }
             }

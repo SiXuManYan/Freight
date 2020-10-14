@@ -106,13 +106,11 @@ open class LibraryBasePresenter constructor(private var view: BaseView?) {
         mapper: Function<Response<JsonObject>, T>,
         subscriber: ResourceSubscriber<T>
     ) {
-        addSubscribe(
-            flowable.bindUntilEvent(lifecycle, event)
+        addSubscribe(flowable.bindUntilEvent(lifecycle, event)
                 .compose(flowableCompose())
                 .map(mapper)
                 .compose(flowableUICompose())
-                .subscribeWith(subscriber)
-        )
+                .subscribeWith(subscriber))
     }
 
 

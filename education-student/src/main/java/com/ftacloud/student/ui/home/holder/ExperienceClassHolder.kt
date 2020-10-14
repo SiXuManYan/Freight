@@ -45,8 +45,8 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(p
                 type_container.addView(textView)
             }
 
-            money_tv.text = StringUtils.getString(com.sugar.library.R.string.money_symbol_format, data.productMoney)
-            val oldMoney = StringUtils.getString(com.sugar.library.R.string.money_symbol_format, data.productMoneyOfDiscount)
+            money_tv.text = StringUtils.getString(com.sugar.library.R.string.money_symbol_format, data.productMoneyOfDiscount)
+            val oldMoney = StringUtils.getString(com.sugar.library.R.string.money_symbol_format, data.productMoney)
             SpanUtils.with(old_money_tv).appendLine(oldMoney).setStrikethrough().create()
 
         } else {
@@ -90,7 +90,6 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(p
             return
         }
 
-        // 订单创建时间一小时倒计时
         val millisInFuture: Long = endTime - System.currentTimeMillis()
         if (millisInFuture <= 0) {
             countdown_tv.visibility = View.GONE

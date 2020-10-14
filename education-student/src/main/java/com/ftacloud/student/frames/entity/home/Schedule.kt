@@ -42,4 +42,36 @@ open class Schedule {
      */
     var countDownToStudyTimeSeconds  = 0L
 
+
+//  ##################################
+
+
+    /**
+     * 课程图片
+     */
+     var courseIconImg: String = ""
+
+    /**
+     * 教师id
+     */
+    var teacherId: Long = 0
+
+    /**
+     * 教师名字
+     */
+    var teacherName: String = ""
+
+    /**
+     * 教师头像
+     */
+    var teacherHeadImg: String = ""
+
+    /**
+     * 课程直播房间号
+     */
+    var liveRoomNo: String = ""
+
+
+
+
 }
