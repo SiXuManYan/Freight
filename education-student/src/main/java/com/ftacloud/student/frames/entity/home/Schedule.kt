@@ -49,7 +49,7 @@ open class Schedule {
     /**
      * 课程图片
      */
-     var courseIconImg: String = ""
+    var courseIconImg: String = ""
 
     /**
      * 教师id

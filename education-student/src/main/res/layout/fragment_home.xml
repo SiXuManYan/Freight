@@ -49,7 +49,7 @@
             <include layout="@layout/item_home_class_experience" />
 
 
-            <include layout="@layout/item_home_course_order0" />
+            <include layout="@layout/item_home_course_order" />
 
             <include layout="@layout/item_home_course_order1" />
 

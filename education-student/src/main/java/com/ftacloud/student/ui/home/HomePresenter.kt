@@ -75,24 +75,7 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
             scheduleOuts.forEach {
                 if (it.state == ScheduleState.UNTEACH.name) {
                     classSchedule.add(NativeClassSchedule().apply {
-                        id = it.id
-                        courseId = it.courseId
-                        courseName = it.courseName
-                        courseIntroduce = it.courseIntroduce
-                        productType = it.productType
-                        productTags = it.productTags
-                        productMoney = it.productMoney
-                        productMoneyOfDiscount = it.productMoneyOfDiscount
-                        state = it.state
-                        studyDatetime = it.studyDatetime
-                        countDownToStudyTimeSeconds = it.countDownToStudyTimeSeconds
-
-                        courseIconImg = it.courseIconImg
-                        teacherId = it.teacherId
-                        teacherName = it.teacherName
-                        teacherHeadImg = it.teacherHeadImg
-                        liveRoomNo = it.liveRoomNo
-
+                        nativeData.add(it)
                     })
                 }
             }

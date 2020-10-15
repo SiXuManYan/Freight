@@ -126,6 +126,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/zero_tv"
                             android:layout_width="@dimen/dp40"
                             android:layout_height="@dimen/dp40"
                             android:layout_marginEnd="@dimen/dp8"
@@ -138,6 +139,7 @@
 
 
                         <TextView
+                            android:id="@+id/one_tv"
                             android:layout_width="@dimen/dp40"
                             android:layout_height="@dimen/dp40"
                             android:layout_marginEnd="@dimen/dp8"
@@ -150,6 +152,7 @@
 
 
                         <TextView
+                            android:id="@+id/two_tv"
                             android:layout_width="@dimen/dp40"
                             android:layout_height="@dimen/dp40"
                             android:layout_marginEnd="@dimen/dp8"
@@ -161,6 +164,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/three_tv"
                             android:layout_width="@dimen/dp40"
                             android:layout_height="@dimen/dp40"
                             android:layout_marginEnd="@dimen/dp8"
@@ -172,6 +176,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/four_tv"
                             android:layout_width="@dimen/dp40"
                             android:layout_height="@dimen/dp40"
                             android:layout_marginEnd="@dimen/dp8"
@@ -193,6 +198,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/five_tv"
                             android:layout_width="@dimen/dp40"
                             android:layout_height="@dimen/dp40"
                             android:layout_marginEnd="@dimen/dp8"
@@ -205,6 +211,7 @@
 
 
                         <TextView
+                            android:id="@+id/six_tv"
                             android:layout_width="@dimen/dp40"
                             android:layout_height="@dimen/dp40"
                             android:layout_marginEnd="@dimen/dp8"

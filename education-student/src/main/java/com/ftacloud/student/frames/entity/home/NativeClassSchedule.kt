@@ -5,7 +5,14 @@ package com.ftacloud.student.frames.entity.home
  * </br>
  *  课程表
  */
-class NativeClassSchedule : Schedule() {
+class NativeClassSchedule {
+
+
+    var nativeData = ArrayList<Schedule>()
+
+
+
+
 
 
 }
