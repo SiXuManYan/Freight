@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.home
 
+import android.view.View
 import android.view.ViewGroup
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.home.*
@@ -15,6 +16,11 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
  * 首页
  */
 class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
+
+    override fun initViews(parent: View) {
+        super.initViews(parent)
+        loadOnVisible()
+    }
 
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<Any> {
 

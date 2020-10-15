@@ -186,14 +186,14 @@ abstract class BaseRefreshListFragment<T, P : LibraryBasePresenter> : BaseFragme
     abstract fun getRecyclerAdapter(): RecyclerArrayAdapter<T>
 
     open fun getItemDecoration(): androidx.recyclerview.widget.RecyclerView.ItemDecoration? {
-        val itemDecoration = DividerDecoration(
-            ContextCompat.getColor(requireContext(), R.color.colorLine),
-            SizeUtils.dp2px(0.5f),
-            SizeUtils.dp2px(15f),
-            0
-        )
-        itemDecoration.setDrawHeaderFooter(false)
-        return itemDecoration
+//        val itemDecoration = DividerDecoration(
+//            ContextCompat.getColor(requireContext(), R.color.colorLine),
+//            SizeUtils.dp2px(0.5f),
+//            SizeUtils.dp2px(15f),
+//            0
+//        )
+//        itemDecoration.setDrawHeaderFooter(false)
+        return null
     }
 
 

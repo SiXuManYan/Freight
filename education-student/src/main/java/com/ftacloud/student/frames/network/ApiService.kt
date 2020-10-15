@@ -110,4 +110,8 @@ interface ApiService {
     fun getHomeInfo(): Flowable<Response<JsonObject>>
 
 
+//    @POST("/api/student/message/list")
+//    fun  getMessage():
+
+
 }
