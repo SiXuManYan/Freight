@@ -29,8 +29,8 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(p
         if (data == null) {
             return
         }
-        title_tv.text = data.courseName
-        content_tv.text = data.courseIntroduce
+        title_tv.text = data.productName
+        content_tv.text = data.productIntroduce
 
 
         if (data.state == ScheduleState.UNACTIVE.name) {

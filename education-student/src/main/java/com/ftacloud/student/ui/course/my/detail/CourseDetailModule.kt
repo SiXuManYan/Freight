@@ -9,11 +9,11 @@ import dagger.Provides
  *
  */
 @Module
-class MyCourseDetailModule {
+class CourseDetailModule {
 
 
     @Provides
-    fun viewProvider(activity: MyCourseDetailActivity): MyCourseDetailView {
+    fun viewProvider(activity: CourseDetailActivity): CourseDetailView {
         return activity
     }
 

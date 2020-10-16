@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.course.my.detail
 
+import com.ftacloud.student.frames.entity.CourseDetail
 import com.sugar.library.frames.network.response.BaseView
 
 /**
@@ -7,5 +8,6 @@ import com.sugar.library.frames.network.response.BaseView
  * </br>
  *
  */
-interface MyCourseDetailView : BaseView {
+interface CourseDetailView : BaseView {
+    fun bindData(it: CourseDetail)
 }

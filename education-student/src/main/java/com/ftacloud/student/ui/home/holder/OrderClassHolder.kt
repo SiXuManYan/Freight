@@ -33,12 +33,12 @@ class OrderClassHolder (parent: ViewGroup?) : BaseItemViewHolder<Schedule>(paren
             return
         }
         Glide.with(context).load(data.courseIconImg).into(image_iv)
-        title_tv.text = data.courseName
+        title_tv.text = data.productName
 
         if (data.state ==  ScheduleState.UNACTIVE.name) {
             // 未激活
             card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_f9a74d))
-            content_tv.text = data.courseIntroduce
+            content_tv.text = data.productIntroduce
             teacher_civ.visibility = View.GONE
             state_vs.displayedChild = 0
             money_tv.text = data.productMoney

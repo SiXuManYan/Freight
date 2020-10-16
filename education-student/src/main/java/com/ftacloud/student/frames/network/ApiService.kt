@@ -1,7 +1,7 @@
 package com.ftacloud.student.frames.network
 
+import com.ftacloud.student.frames.entity.CourseDetail
 import com.ftacloud.student.frames.entity.SecurityTokenModel
-import com.ftacloud.student.frames.entity.home.Home
 import com.ftacloud.student.frames.entity.request.*
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonElement
@@ -109,9 +109,11 @@ interface ApiService {
     @GET("/api/student/home/")
     fun getHomeInfo(): Flowable<Response<JsonObject>>
 
-
 //    @POST("/api/student/message/list")
 //    fun  getMessage():
+
+    @POST("/api/student/schedule/get")
+    fun  getCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
 
 
 }

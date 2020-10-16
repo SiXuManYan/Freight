@@ -3,7 +3,7 @@
     <string name="library_title_dashboard">Dashboard</string>
     <string name="library_title_notifications">Notifications</string>
 
-    <string name="library_no_more_footer">我是有底线的</string>
+    <string name="library_no_more_footer">已加载全部数据</string>
 
     <string name="library_hint_data_no_found">暂无数据</string>
     <string name="library_load_complete">加载完毕</string>

@@ -61,6 +61,63 @@
                 android:layout_alignParentBottom="true">
 
 
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp36">
+
+                    <LinearLayout
+                        android:id="@+id/type_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal">
+
+                        <include layout="@layout/item_home_class_experience_tag" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/money_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/money_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp2"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.2"
+                            android:singleLine="true"
+                            android:textColor="@color/font_white"
+                            android:textSize="@dimen/sp23"
+                            android:textStyle="bold"
+                            tools:text="￥0" />
+
+
+                        <TextView
+                            android:id="@+id/old_money_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.2"
+                            android:singleLine="true"
+                            android:textColor="@color/color_80ffffff"
+                            android:textSize="@dimen/sp13"
+                            tools:text="￥998" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp36"
@@ -127,60 +184,6 @@
 
 
                 </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp36">
-
-                    <LinearLayout
-                        android:id="@+id/type_container"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:orientation="horizontal">
-
-                        <include layout="@layout/item_home_class_experience_tag" />
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/money_ll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/money_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/dp2"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.2"
-                            android:singleLine="true"
-                            android:textColor="@color/font_white"
-                            android:textSize="@dimen/sp23"
-                            android:textStyle="bold"
-                            tools:text="￥0" />
-
-
-                        <TextView
-                            android:id="@+id/old_money_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.2"
-                            android:singleLine="true"
-                            android:textColor="@color/color_80ffffff"
-                            android:textSize="@dimen/sp13"
-                            tools:text="￥998" />
-
-                    </LinearLayout>
-
-
-                </RelativeLayout>
             </ViewSwitcher>
 
 

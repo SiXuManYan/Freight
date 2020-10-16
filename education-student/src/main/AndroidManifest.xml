@@ -104,7 +104,7 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.settings.SettingActivity" />
         <activity android:name=".ui.tests.TestConditionActivity" />
-        <activity android:name=".ui.course.my.detail.MyCourseDetailActivity" />
+        <activity android:name=".ui.course.my.detail.CourseDetailActivity" />
         <activity android:name=".ui.message.MessageActivity" />
         <activity android:name=".ui.course.schedule.ClassScheduleActivity" />
         <activity android:name=".ui.course.my.MyCourseActivity" />

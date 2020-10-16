@@ -8,9 +8,9 @@ package com.ftacloud.student.frames.entity.home
 open class Schedule {
 
     var id = ""
-    var courseId = ""
-    var courseName = ""
-    var courseIntroduce = ""
+    var productId = ""
+    var productName = ""
+    var productIntroduce = ""
 
 
     /**

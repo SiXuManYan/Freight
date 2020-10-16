@@ -134,4 +134,11 @@
 
 
 
+
+    <!-- 课程详情 -->
+    <string name="student_count_format">等%1$s人学习</string>
+    <string name="detail_course_price">课程售价:</string>
+    <string name="study_now">立即学习</string>
+
+
 </resources>

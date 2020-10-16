@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -81,9 +82,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="等100人学习"
                     android:textColor="@color/color_first_level"
-                    android:textSize="@dimen/sp14" />
+                    android:textSize="@dimen/sp14"
+                    tools:text="等100人学习" />
 
 
             </LinearLayout>
@@ -120,11 +121,12 @@
                     android:paddingBottom="@dimen/dp10">
 
                     <ImageView
+                        android:id="@+id/teacher_iv"
                         android:layout_width="@dimen/dp0"
                         android:layout_height="@dimen/dp137"
                         android:layout_marginEnd="@dimen/dp15"
                         android:layout_weight="1"
-                        android:src="@mipmap/ic_temp3" />
+                        tools:src="@mipmap/ic_temp3" />
 
 
                     <LinearLayout
@@ -134,24 +136,26 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/teacher_name_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/dp10"
-                            android:text="Kaylene Humphreys"
                             android:textColor="@color/color_8b391b"
-                            android:textSize="@dimen/sp20" />
+                            android:textSize="@dimen/sp20"
+                            tools:text="Kaylene Humphreys" />
 
 
                         <TextView
+                            android:id="@+id/teacher_introduction"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:lineSpacingMultiplier="1.2"
                             android:layout_marginBottom="@dimen/dp10"
-                            android:text="墨尔本大学教育硕士, 曾在墨尔本多所学校任教, 现任墨尔本小学P.L.C全职教师
-拥有先进教学理念，以及十余年小学阶段英文口语、阅读、写作一线教学经验
-讲求教学艺术，富有亲和力，带动学习兴趣，拓展学生视野，引领孩子不断提高英语应用水平"
+                            android:lineSpacingMultiplier="1.2"
                             android:textColor="@color/color_8b391b"
-                            android:textSize="@dimen/sp11" />
+                            android:textSize="@dimen/sp11"
+                            tools:text="墨尔本大学教育硕士, 曾在墨尔本多所学校任教, 现任墨尔本小学P.L.C全职教师
+拥有先进教学理念，以及十余年小学阶段英文口语、阅读、写作一线教学经验
+讲求教学艺术，富有亲和力，带动学习兴趣，拓展学生视野，引领孩子不断提高英语应用水平" />
 
 
                     </LinearLayout>
@@ -173,33 +177,7 @@
                 android:textSize="@dimen/sp18"
                 android:textStyle="bold" />
 
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginBottom="@dimen/dp10"
-                android:foreground="?attr/selectableItemBackground"
-                android:minHeight="@dimen/dp147"
-                app:cardBackgroundColor="@color/color_d474b3"
-                app:cardCornerRadius="@dimen/dp12"
-                app:cardPreventCornerOverlap="false"
-                app:cardUseCompatPadding="false">
-
-                <TextView
-                    android:padding="@dimen/dp15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dp10"
-                    android:lineSpacingMultiplier="1.2"
-                    android:text="宫本武藏首先改动的就是被动技能，因为以往宫本的输出主要靠释放技能后的120（+25%物理加成）点物理伤害和大招的定点控制。但这样的输出显然很难在后期对敌方有足够的威胁，再加上目前射手版本都会选择非常肉的前排，这导致宫本武藏很难打出致命的输出。
-而在体验服的调整中，宫本的被动输出改成了（长刀）+（刀势）的输出，也就是宫本在释放技能以后，就可以获得长刀的80%物理伤害，并且附加刀势的法术伤害。而在前期对方缺少魔抗装备的情况下，法术伤害也更加具有威胁。"
-                    android:textColor="@color/font_white"
-                    android:textSize="@dimen/sp11" />
-
-
-
-            </androidx.cardview.widget.CardView>
+            <include layout="@layout/item_course_detail_image" />
 
         </LinearLayout>
 
@@ -244,5 +222,52 @@
 
     </RelativeLayout>
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_alignParentBottom="true"
+        android:background="@color/font_white"
+        android:paddingStart="@dimen/dp15"
+        android:paddingEnd="@dimen/dp15">
+
+        <TextView
+            android:id="@+id/tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp5"
+            android:text="@string/detail_course_price"
+            android:textColor="@color/color_zero_level"
+            android:textSize="@dimen/sp13" />
+
+
+        <TextView
+            android:id="@+id/price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tag1"
+            android:textColor="@color/color_f94d4d"
+            android:textSize="@dimen/sp16"
+            tools:text="$666" />
+
+
+        <TextView
+            android:id="@+id/study_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shape_bg_4_red2"
+            android:paddingLeft="@dimen/dp20"
+            android:paddingTop="@dimen/dp5"
+            android:paddingRight="@dimen/dp20"
+            android:paddingBottom="@dimen/dp5"
+            android:text="@string/study_now"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sp14" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

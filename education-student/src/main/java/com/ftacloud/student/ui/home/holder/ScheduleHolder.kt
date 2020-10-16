@@ -75,27 +75,27 @@ class ScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<NativeClassSchedul
         }
 
         if (mon.isNotEmpty()) {
-            one_tv.text = mon[0].courseName
+            one_tv.text = mon[0].productName
         }
 
         if (tues.isNotEmpty()) {
-            two_tv.text = tues[0].courseName
+            two_tv.text = tues[0].productName
         }
 
         if (wed.isNotEmpty()) {
-            three_tv.text = wed[0].courseName
+            three_tv.text = wed[0].productName
         }
 
         if (thur.isNotEmpty()) {
-            four_tv.text = thur[0].courseName
+            four_tv.text = thur[0].productName
         }
 
         if (fri.isNotEmpty()) {
-            five_tv.text = fri[0].courseName
+            five_tv.text = fri[0].productName
         }
 
         if (sta.isNotEmpty()) {
-            six_tv.text = sta[0].courseName
+            six_tv.text = sta[0].productName
         }
 
 
