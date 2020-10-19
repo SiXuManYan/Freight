@@ -109,11 +109,21 @@ interface ApiService {
     @GET("/api/student/home/")
     fun getHomeInfo(): Flowable<Response<JsonObject>>
 
-//    @POST("/api/student/message/list")
-//    fun  getMessage():
+    /**
+     * 我的消息
+     */
+    @POST("/api/student/message/list")
+    fun getMessage(): Flowable<Response<JsonObject>>
 
+
+    /**
+     * 课程详情
+     */
     @POST("/api/student/schedule/get")
-    fun  getCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
+    fun getCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
+
+
+
 
 
 }

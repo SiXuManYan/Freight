@@ -1,5 +1,7 @@
 package com.ftacloud.student
 
+import android.content.Intent
+import android.net.Uri
 import android.view.View
 import android.widget.RelativeLayout
 import butterknife.OnClick
@@ -8,6 +10,7 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.course.my.MyCourseActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.message.MessageActivity
+import com.ftacloud.student.ui.order.list.MyVoucherActivity
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.task.TaskActivity
 import com.ftacloud.student.ui.tests.TestConditionActivity
@@ -68,12 +71,11 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         }
 
         header.findViewById<RelativeLayout>(R.id.menu_my_order).setOnClickListener {
-            ToastUtils.showShort("我的订单")
+          startActivity(MyVoucherActivity::class.java)
 
         }
         header.findViewById<RelativeLayout>(R.id.menu_my_customer_service).setOnClickListener {
-            ToastUtils.showShort("我的客服")
-
+            startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Constants.CONSUMER_HOT_LINE)))
         }
 
         header.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
