@@ -56,17 +56,11 @@ class AppModule {
             }
 
             @Throws(java.security.cert.CertificateException::class)
-            override fun checkClientTrusted(
-                x509Certificates: Array<java.security.cert.X509Certificate>,
-                s: String
-            ) {
+            override fun checkClientTrusted(x509Certificates: Array<java.security.cert.X509Certificate>, s: String) {
             }
 
             @Throws(java.security.cert.CertificateException::class)
-            override fun checkServerTrusted(
-                x509Certificates: Array<java.security.cert.X509Certificate>,
-                s: String
-            ) {
+            override fun checkServerTrusted(x509Certificates: Array<java.security.cert.X509Certificate>, s: String) {
             }
         })
 
@@ -83,11 +77,11 @@ class AppModule {
         if (BuildConfig.DEBUG) {
 
             // 日志拦截器
-            val loggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
-                LogUtils.v(it)
-            }).apply {
-                this.level = HttpLoggingInterceptor.Level.BASIC
-            }
+//            val loggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
+//                LogUtils.w("请求拦截器", it)
+//            }).apply {
+//                this.level = HttpLoggingInterceptor.Level.BASIC
+//            }
 
             val bodyInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
                 Log.w("body拦截器", it)
@@ -95,7 +89,7 @@ class AppModule {
                 this.level = HttpLoggingInterceptor.Level.BODY
             }
 
-            builder.addInterceptor(loggingInterceptor)
+//            builder.addInterceptor(loggingInterceptor)
             builder.addInterceptor(bodyInterceptor)
         }
 
@@ -156,6 +150,7 @@ class AppModule {
 
             if (isLogin && token.isNotEmpty()) {
                 requestBuilder.addHeader("MyToken", token)
+                Log.w("token 拦截器 token =", token)
             }
             return@Interceptor chain.proceed(requestBuilder.build())
         }

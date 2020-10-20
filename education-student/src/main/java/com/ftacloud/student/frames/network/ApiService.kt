@@ -110,10 +110,10 @@ interface ApiService {
     fun getHomeInfo(): Flowable<Response<JsonObject>>
 
     /**
-     * 我的消息
+     * 我的消息列表
      */
     @POST("/api/student/message/list")
-    fun getMessage(): Flowable<Response<JsonObject>>
+    fun getMessageList(@Body json: MessageRequest): Flowable<Response<JsonObject>>
 
 
     /**
@@ -121,9 +121,6 @@ interface ApiService {
      */
     @POST("/api/student/schedule/get")
     fun getCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
-
-
-
 
 
 }

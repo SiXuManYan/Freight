@@ -20,7 +20,7 @@ class MessageActivity : BaseRefreshListActivity<Message, MessagePresenter>(), Me
 
     override fun initViews() {
         super.initViews()
-        CommonUtils.hasNotificationPermission(this, false)
+//        CommonUtils.hasNotificationPermission(this, false)
     }
 
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<Message> {
