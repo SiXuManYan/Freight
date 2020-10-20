@@ -24,6 +24,8 @@ import com.ftacloud.student.ui.course.schedule.detail.NoClassActivity
 import com.ftacloud.student.ui.course.schedule.detail.NoClassModule
 import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.message.MessageModule
+import com.ftacloud.student.ui.order.detail.OrderDetailActivity
+import com.ftacloud.student.ui.order.detail.OrderDetailModule
 import com.ftacloud.student.ui.order.list.MyVoucherActivity
 import com.ftacloud.student.ui.order.list.MyVoucherModule
 import com.ftacloud.student.ui.settings.SettingActivity
@@ -128,6 +130,10 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [FragmentBindModule::class, MyVoucherModule::class])
     abstract fun s(): MyVoucherActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [OrderDetailModule::class])
+    abstract fun t(): OrderDetailActivity
 
 
 }

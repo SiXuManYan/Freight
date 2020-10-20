@@ -148,6 +148,7 @@
     <string name="paid">已支付</string>
     <string name="order_title">我的订单</string>
     <string name="order_id_format">订单ID：%1$s</string>
+    <string name="order_detail">订单详情</string>
 
 
 </resources>

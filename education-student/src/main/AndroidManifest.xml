@@ -114,6 +114,7 @@
         <activity android:name=".ui.course.schedule.detail.NoClassActivity" />
         <activity android:name=".ui.user.UserActivity" />
         <activity android:name=".ui.order.list.MyVoucherActivity" />
+        <activity android:name=".ui.order.detail.OrderDetailActivity" />
 
     </application>
 
