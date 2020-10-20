@@ -8,4 +8,9 @@ package com.ftacloud.student.frames.entity
 class Task {
 
 
+    var productId: Long = 0
+    var productName: String = ""
+    var productIconImg: String = ""
+    var studyDatetime: String = ""
+
 }

@@ -49,11 +49,6 @@ class MyVoucherListPresenter @Inject constructor(private var view: MyVoucherList
                 override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<Voucher>, lastItemId: String?) {
                     view.bindList(list, lastItemId)
                 }
-
-                override fun onError(e: Throwable) {
-                    ToastUtils.showShort("列表请求失败")
-                }
-
             }
         )
 

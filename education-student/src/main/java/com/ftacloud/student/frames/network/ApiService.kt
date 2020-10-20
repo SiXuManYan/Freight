@@ -137,11 +137,17 @@ interface ApiService {
     @POST("/api/student/order/listUnpaid")
     fun getOrderListUnpaid(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
-   /**
+    /**
      * 已支付订单
      */
     @POST("/api/student/order/listPaid")
     fun getOrderListPaid(@Body json: ListRequest): Flowable<Response<JsonArray>>
+
+    /**
+     * 课后任务
+     */
+    @POST("/api/student/task/list")
+    fun getTaskList(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
 
 }

@@ -15,7 +15,7 @@ class ListRequest {
 
 
     var lastId: String? = null
-    var size: Int = 10
+    var size: Int = 15
 
 
 }

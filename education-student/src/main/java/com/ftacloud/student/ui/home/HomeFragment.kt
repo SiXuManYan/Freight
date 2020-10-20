@@ -42,7 +42,9 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                         ScheduleHolder(parent)
                     }
                     else -> {
-                        TaskHolder(parent)
+                        TaskHolder(parent).apply {
+                            showTitle = true
+                        }
                     }
                 }
 

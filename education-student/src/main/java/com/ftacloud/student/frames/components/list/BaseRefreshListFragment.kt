@@ -57,9 +57,9 @@ abstract class BaseRefreshListFragment<T, P : LibraryBasePresenter> : BaseFragme
     var page = 0
 
     /**
-     * 请求的分页数量，默认10
+     * 请求的分页数量，默认15
      */
-    open var pageSize = 10
+    open var pageSize = 15
 
     /**
      * 用于请求下一页的最后一项 item id ,首页可不传

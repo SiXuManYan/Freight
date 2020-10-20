@@ -150,7 +150,7 @@ class AppModule {
 
             if (isLogin && token.isNotEmpty()) {
                 requestBuilder.addHeader("MyToken", token)
-                Log.w("token 拦截器 token =", token)
+                Log.w(" token 拦截器 token =", token)
             }
             return@Interceptor chain.proceed(requestBuilder.build())
         }
