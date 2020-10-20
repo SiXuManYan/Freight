@@ -59,12 +59,12 @@ abstract class BaseRefreshListFragment<T, P : LibraryBasePresenter> : BaseFragme
     /**
      * 请求的分页数量，默认10
      */
-    var pageSize = 10
+    open var pageSize = 10
 
     /**
      * 用于请求下一页的最后一项 item id ,首页可不传
      */
-    var lastItemId: String? = null
+    open var lastItemId: String? = null
 
     override fun getLayoutId() = R.layout.fragment_refresh_list2
 
@@ -185,16 +185,7 @@ abstract class BaseRefreshListFragment<T, P : LibraryBasePresenter> : BaseFragme
 
     abstract fun getRecyclerAdapter(): RecyclerArrayAdapter<T>
 
-    open fun getItemDecoration(): androidx.recyclerview.widget.RecyclerView.ItemDecoration? {
-//        val itemDecoration = DividerDecoration(
-//            ContextCompat.getColor(requireContext(), R.color.colorLine),
-//            SizeUtils.dp2px(0.5f),
-//            SizeUtils.dp2px(15f),
-//            0
-//        )
-//        itemDecoration.setDrawHeaderFooter(false)
-        return null
-    }
+    open fun getItemDecoration(): androidx.recyclerview.widget.RecyclerView.ItemDecoration? = null
 
 
     override fun onRefresh(refreshLayout: RefreshLayout) = onRefresh()

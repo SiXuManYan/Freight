@@ -1,9 +1,11 @@
 package com.ftacloud.student.frames.network
 
 import com.ftacloud.student.frames.entity.CourseDetail
+import com.ftacloud.student.frames.entity.Message
 import com.ftacloud.student.frames.entity.SecurityTokenModel
 import com.ftacloud.student.frames.entity.request.*
 import com.ftacloud.student.storage.entity.User
+import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.sugar.library.frames.network.Response
@@ -110,17 +112,36 @@ interface ApiService {
     fun getHomeInfo(): Flowable<Response<JsonObject>>
 
     /**
-     * 我的消息列表
-     */
-    @POST("/api/student/message/list")
-    fun getMessageList(@Body json: MessageRequest): Flowable<Response<JsonObject>>
-
-
-    /**
      * 课程详情
      */
     @POST("/api/student/schedule/get")
     fun getCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
+
+
+    /**
+     * 我的消息列表
+     */
+    @POST("/api/student/message/list")
+    fun getMessageList(@Body json: ListRequest): Flowable<Response<JsonArray>>
+
+
+    /**
+     * 全部订单
+     */
+    @POST("/api/student/order/list")
+    fun getOrderList(@Body json: ListRequest): Flowable<Response<JsonArray>>
+
+    /**
+     * 待支付订单
+     */
+    @POST("/api/student/order/listUnpaid")
+    fun getOrderListUnpaid(@Body json: ListRequest): Flowable<Response<JsonArray>>
+
+   /**
+     * 已支付订单
+     */
+    @POST("/api/student/order/listPaid")
+    fun getOrderListPaid(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
 
 }

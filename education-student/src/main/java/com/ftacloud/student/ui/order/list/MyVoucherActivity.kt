@@ -18,6 +18,22 @@ class MyVoucherActivity : BaseMVPActivity<MyVoucherPresenter>(), MyVoucherView {
             StringUtils.getString(R.string.paying),
             StringUtils.getString(R.string.paid)
         )
+
+        /** 全部 */
+        val TYPE_ORDER_ALL = 0
+
+        /** 未支付 */
+        val TYPE_ORDER_UNPAID = 1
+
+
+        /** 支付中 */
+        val TYPE_ORDER_PAYING = 2
+
+        /** 已支付 */
+        val TYPE_ORDER_PAID = 3
+
+
+
     }
 
 
@@ -48,7 +64,7 @@ class MyVoucherActivity : BaseMVPActivity<MyVoucherPresenter>(), MyVoucherView {
 
     internal class PagerAdapter(fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
 
-        override fun getItem(position: Int) = MyVoucherListFragment()
+        override fun getItem(position: Int) = MyVoucherListFragment.newInstance(position)
 
         override fun getCount() = TAB_TITLES.size
     }

@@ -6,7 +6,7 @@ package com.ftacloud.student.frames.entity.request
  * 消息列表请求
  *
  */
-class MessageRequest {
+class ListRequest {
 
 /*    {
         "lastId": 0,
