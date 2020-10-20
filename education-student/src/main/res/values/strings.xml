@@ -139,11 +139,15 @@
     <string name="student_count_format">等%1$s人学习</string>
     <string name="detail_course_price">课程售价:</string>
     <string name="study_now">立即学习</string>
+
+
+    <!-- 订单列表 -->
     <string name="order_all">全部</string>
     <string name="order_to_be_paid">待支付</string>
     <string name="paying">支付中</string>
     <string name="paid">已支付</string>
     <string name="order_title">我的订单</string>
+    <string name="order_id_format">订单ID：%1$s</string>
 
 
 </resources>

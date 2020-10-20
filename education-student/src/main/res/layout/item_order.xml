@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingStart="@dimen/dp15"
+    android:paddingEnd="@dimen/dp15"
+    android:paddingTop="@dimen/dp10"
     android:orientation="vertical">
 
 
@@ -13,8 +16,8 @@
         android:layout_height="@dimen/dp130"
         android:foreground="?attr/selectableItemBackground"
         app:cardBackgroundColor="@color/font_white"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="1dp"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardElevation="@dimen/dp1"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
 
@@ -88,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/image_iv"
                     android:textColor="@color/color_first_level"
+                    android:textStyle="bold"
                     android:textSize="@dimen/sp16"
                     tools:text="大大的" />
 
@@ -99,7 +103,7 @@
                     android:orientation="vertical">
 
 
-                    <TextView
+                    <com.sugar.library.ui.view.countdown.CountDownTextView
                         android:id="@+id/expired_time_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -132,6 +136,8 @@
                     android:layout_alignParentBottom="true"
                     android:text="去支付"
                     android:paddingStart="@dimen/dp6"
+                    android:visibility="gone"
+                    tools:visibility="visible"
                     android:paddingEnd="@dimen/dp6"
                     android:textColor="@color/font_white"
                     android:textSize="@dimen/sp12" />

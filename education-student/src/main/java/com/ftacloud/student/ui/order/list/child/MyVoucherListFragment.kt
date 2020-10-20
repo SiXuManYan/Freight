@@ -3,6 +3,7 @@ package com.ftacloud.student.ui.order.list.child
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Voucher
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
@@ -53,10 +54,8 @@ class MyVoucherListFragment : BaseRefreshListFragment<Voucher, MyVoucherListPres
             }
         }
         adapter.setOnItemClickListener {
-
+            ToastUtils.showShort("订单详情页")
         }
-
-
         return adapter
     }
 
