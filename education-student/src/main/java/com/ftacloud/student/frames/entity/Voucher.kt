@@ -1,5 +1,8 @@
 package com.ftacloud.student.frames.entity
 
+import androidx.room.FtsOptions.Order
+
+
 /**
  * Created by Wangsw on 2020/10/19 0019 14:06.
  * </br>
@@ -7,6 +10,13 @@ package com.ftacloud.student.frames.entity
  */
 class Voucher {
 
+    enum class OrderState {
+        WAIT_PAY,
+        UNPAID,
+        PAYING,
+        PAID,
+        EDN
+    }
 
 /*
     {
@@ -24,6 +34,30 @@ class Voucher {
     var productIconImg = ""
     var productName = ""
     var scheduleQuantity = ""
+
+    /**
+     * WAIT_PAY-待支付
+     * UNPAID-未支付
+     * PAYING-支付中
+     * PAID-已支付
+     * EDN-订单结束
+     */
     var state = ""
+
+    /**
+     * 订单数量
+     */
+    var productQuantity = 0
+
+    /**
+     * 订单倒计时
+     */
+    var countDownPaySeconds: Long = 0L
+
+    /**
+     * 创建时间
+     */
+    var createAt = ""
+
 
 }

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingStart="@dimen/dp15"
-    android:paddingEnd="@dimen/dp15"
     android:paddingTop="@dimen/dp10"
-    android:orientation="vertical">
+    android:paddingEnd="@dimen/dp15">
 
 
     <androidx.cardview.widget.CardView
@@ -91,8 +91,8 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/image_iv"
                     android:textColor="@color/color_first_level"
-                    android:textStyle="bold"
                     android:textSize="@dimen/sp16"
+                    android:textStyle="bold"
                     tools:text="大大的" />
 
                 <LinearLayout
@@ -109,7 +109,9 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/color_80282828"
                         android:textSize="@dimen/sp12"
-                        tools:text="失效时间：00:00:01" />
+                        android:visibility="gone"
+                        tools:text="失效时间：00:00:01"
+                        tools:visibility="visible" />
 
 
                     <TextView
@@ -130,17 +132,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:paddingTop="@dimen/dp2"
-                    android:paddingBottom="@dimen/dp2"
-                    android:background="@drawable/shape_8_yellow"
                     android:layout_alignParentBottom="true"
-                    android:text="去支付"
+                    android:background="@drawable/shape_8_yellow"
                     android:paddingStart="@dimen/dp6"
-                    android:visibility="gone"
-                    tools:visibility="visible"
+                    android:paddingTop="@dimen/dp2"
                     android:paddingEnd="@dimen/dp6"
+                    android:paddingBottom="@dimen/dp2"
+                    android:text="去支付"
                     android:textColor="@color/font_white"
-                    android:textSize="@dimen/sp12" />
+                    android:textSize="@dimen/sp12"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
 
             </RelativeLayout>
