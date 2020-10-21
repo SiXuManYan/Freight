@@ -22,7 +22,9 @@ import javax.inject.Inject
 class TaskPresenter @Inject constructor(private var view: TaskView) : BasePresenter(view) {
 
 
-    fun loadOrderList(lifecycle: LifecycleOwner, pageSize: Int, lastItemId: String?, categoryValue: Int?) {
+
+
+    override fun loadList(lifecycle: LifecycleOwner, page: Int, pageSize: Int, lastItemId: String?) {
         val apply = ListRequest().apply {
             lastId = lastItemId
             size = pageSize
@@ -31,7 +33,7 @@ class TaskPresenter @Inject constructor(private var view: TaskView) : BasePresen
 
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
 
-          apiService.getTaskList(apply),
+            apiService.getTaskList(apply),
 
 
             object : BaseJsonArrayHttpSubscriber<Task>(view) {
@@ -42,7 +44,6 @@ class TaskPresenter @Inject constructor(private var view: TaskView) : BasePresen
 
             }
         )
-
     }
 
 }

@@ -12,5 +12,6 @@ class Task {
     var productName: String = ""
     var productIconImg: String = ""
     var studyDatetime: String = ""
+    var taskOfCourseId: String = ""
 
 }

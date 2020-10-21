@@ -2,13 +2,10 @@ package com.ftacloud.student.ui.order.list.child
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.entity.Voucher
 import com.ftacloud.student.frames.entity.request.ListRequest
 import com.ftacloud.student.frames.network.response.BasePresenter
-import com.ftacloud.student.ui.order.list.MyVoucherActivity.Companion.TYPE_ORDER_ALL
 import com.ftacloud.student.ui.order.list.MyVoucherActivity.Companion.TYPE_ORDER_PAID
-import com.ftacloud.student.ui.order.list.MyVoucherActivity.Companion.TYPE_ORDER_PAYING
 import com.ftacloud.student.ui.order.list.MyVoucherActivity.Companion.TYPE_ORDER_UNPAID
 import com.google.gson.JsonArray
 import com.sugar.library.frames.network.subscriber.BaseJsonArrayHttpSubscriber
@@ -32,9 +29,6 @@ class MyVoucherListPresenter @Inject constructor(private var view: MyVoucherList
                 TYPE_ORDER_UNPAID -> {
                     apiService.getOrderListUnpaid(apply)
                 }
-                TYPE_ORDER_PAYING -> {
-                    apiService.getOrderList(apply)
-                }
                 TYPE_ORDER_PAID -> {
                     apiService.getOrderListPaid(apply)
                 }
@@ -42,7 +36,6 @@ class MyVoucherListPresenter @Inject constructor(private var view: MyVoucherList
                     apiService.getOrderList(apply)
                 }
             },
-
 
             object : BaseJsonArrayHttpSubscriber<Voucher>(view) {
 

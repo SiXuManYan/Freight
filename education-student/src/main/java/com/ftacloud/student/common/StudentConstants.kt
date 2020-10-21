@@ -36,5 +36,13 @@ object StudentConstants {
         "PHONE"
     }
 
+    /**
+     * 任务关联的课程id
+     */
+    val PARAM_TASK_OF_COURSE_ID = "taskOfCourseId"
+
+
+
+
 
 }

@@ -1,11 +1,15 @@
 package com.ftacloud.student.ui.task
 
+import android.os.Bundle
 import android.view.ViewGroup
 import com.ftacloud.student.R
+import com.ftacloud.student.common.StudentConstants.PARAM_TASK_OF_COURSE_ID
 import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
 import com.ftacloud.student.frames.entity.Task
+import com.ftacloud.student.ui.task.detail.TaskDetailActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
+import com.sugar.library.util.Constants
 
 /**
  * Created by Wangsw on 2020/9/27 0027 14:24.
@@ -31,6 +35,12 @@ class TaskActivity : BaseRefreshListActivity<Task, TaskPresenter>(), TaskView {
 
         adapter.setOnItemClickListener {
 
+            val taskOfCourseId = adapter.allData[it].taskOfCourseId
+
+
+            startActivity(TaskDetailActivity::class.java, Bundle().apply {
+                putString(PARAM_TASK_OF_COURSE_ID, taskOfCourseId)
+            })
         }
         return adapter
     }

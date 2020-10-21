@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.task.detail
 
+import com.ftacloud.student.frames.entity.TaskDetail
 import com.sugar.library.frames.network.response.BaseTaskView
 
 /**
@@ -8,5 +9,6 @@ import com.sugar.library.frames.network.response.BaseTaskView
  *
  */
 interface TaskDetailView :BaseTaskView{
+    abstract fun bindDetail(it: TaskDetail)
 
 }

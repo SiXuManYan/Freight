@@ -3,6 +3,7 @@ package com.ftacloud.student.frames.network
 import com.ftacloud.student.frames.entity.CourseDetail
 import com.ftacloud.student.frames.entity.Message
 import com.ftacloud.student.frames.entity.SecurityTokenModel
+import com.ftacloud.student.frames.entity.TaskDetail
 import com.ftacloud.student.frames.entity.request.*
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonArray
@@ -148,6 +149,12 @@ interface ApiService {
      */
     @POST("/api/student/task/list")
     fun getTaskList(@Body json: ListRequest): Flowable<Response<JsonArray>>
+
+    /**
+     * 获取课后任务信息
+     */
+    @POST("/api/student/task/get")
+    fun getTaskDetail(@Body json: TaskDetailRequest): Flowable<Response<TaskDetail>>
 
 
 }

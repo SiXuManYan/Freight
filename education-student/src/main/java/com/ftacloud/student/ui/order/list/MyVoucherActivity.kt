@@ -15,7 +15,6 @@ class MyVoucherActivity : BaseMVPActivity<MyVoucherPresenter>(), MyVoucherView {
         internal val TAB_TITLES = arrayListOf(
             StringUtils.getString(R.string.order_all),
             StringUtils.getString(R.string.order_to_be_paid),
-            StringUtils.getString(R.string.paying),
             StringUtils.getString(R.string.paid)
         )
 
@@ -26,11 +25,8 @@ class MyVoucherActivity : BaseMVPActivity<MyVoucherPresenter>(), MyVoucherView {
         val TYPE_ORDER_UNPAID = 1
 
 
-        /** 支付中 */
-        val TYPE_ORDER_PAYING = 2
-
         /** 已支付 */
-        val TYPE_ORDER_PAID = 3
+        val TYPE_ORDER_PAID = 2
 
 
 
