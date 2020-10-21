@@ -134,4 +134,14 @@ dependencies {
     // 通用popup window
     implementation 'com.github.razerdp:BasePopup:2.2.8'
 
+    // # 下载 #
+    // 核心
+    implementation 'com.liulishuo.okdownload:okdownload:1.0.7'
+    // 提供sqlite来存储断点
+    implementation   'com.liulishuo.okdownload:sqlite:1.0.7'
+    // 提供接口以匹配文件下载器
+    implementation 'com.liulishuo.okdownload:filedownloader:1.0.7'
+    // 提供Kotlin扩展的接口
+    implementation 'com.liulishuo.okdownload:ktx:1.0.7'
+
 }
