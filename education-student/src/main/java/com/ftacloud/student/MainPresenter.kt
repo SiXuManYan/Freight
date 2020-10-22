@@ -2,7 +2,6 @@ package com.ftacloud.student
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.network.response.BasePresenter
 import com.ftacloud.student.storage.entity.User
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
@@ -16,6 +15,7 @@ import javax.inject.Inject
  *
  */
 class MainPresenter @Inject constructor(private var view: MainView) : BasePresenter(view) {
+
 
     fun loadUserInfo(lifecycleOwner: LifecycleOwner) {
 
@@ -33,6 +33,7 @@ class MainPresenter @Inject constructor(private var view: MainView) : BasePresen
         })
 
     }
+
 
 
 }

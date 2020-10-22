@@ -71,7 +71,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         }
 
         header.findViewById<RelativeLayout>(R.id.menu_my_order).setOnClickListener {
-          startActivity(MyVoucherActivity::class.java)
+            startActivity(MyVoucherActivity::class.java)
 
         }
         header.findViewById<RelativeLayout>(R.id.menu_my_customer_service).setOnClickListener {
