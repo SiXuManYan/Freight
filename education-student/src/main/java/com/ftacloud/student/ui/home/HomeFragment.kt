@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.home.*
 import com.ftacloud.student.ui.home.holder.ExperienceClassHolder
-import com.ftacloud.student.ui.home.holder.OrderClassHolder
+import com.ftacloud.student.ui.home.holder.CommonClassHolder
 import com.ftacloud.student.ui.home.holder.ScheduleHolder
 import com.ftacloud.student.ui.home.holder.TestHolder
 import com.ftacloud.student.ui.task.TaskHolder
@@ -35,8 +35,8 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     HomeConstant.EXPERIENCE_CLASS -> {
                         ExperienceClassHolder(parent)
                     }
-                    HomeConstant.ORDER_CLASS -> {
-                        OrderClassHolder(parent)
+                    HomeConstant.COMMON_CLASS -> {
+                        CommonClassHolder(parent)
                     }
                     HomeConstant.CLASS_SCHEDULE -> {
                         ScheduleHolder(parent)
@@ -48,13 +48,13 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     }
                 }
 
-
             }
 
             override fun getViewType(position: Int): Int {
                 val item = getItem(position)
 
                 return when (item) {
+
                     is Quizzes -> {
                         // 基础测验
                         HomeConstant.TEST
@@ -65,8 +65,8 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                             // 体验课
                             HomeConstant.EXPERIENCE_CLASS
                         } else {
-                            // 订单课
-                            HomeConstant.ORDER_CLASS
+                            // 普通课
+                            HomeConstant.COMMON_CLASS
                         }
                     }
                     is NativeClassSchedule -> {
@@ -79,6 +79,11 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                 }
 
             }
+        }
+
+        adapter.setOnItemClickListener {
+
+
         }
         return adapter
     }

@@ -15,8 +15,8 @@ object HomeConstant {
     const val EXPERIENCE_CLASS = 1
 
 
-    /** 订单课 */
-    const val ORDER_CLASS = 2
+    /** 普通课程 */
+    const val COMMON_CLASS = 2
 
     /** 课程表 */
     const val CLASS_SCHEDULE = 3

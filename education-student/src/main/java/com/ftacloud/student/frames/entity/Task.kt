@@ -8,10 +8,20 @@ package com.ftacloud.student.frames.entity
 class Task {
 
 
-    var productId: Long = 0
-    var productName: String = ""
+    // 公用
     var productIconImg: String = ""
     var studyDatetime: String = ""
     var taskOfCourseId: String = ""
+
+    //  任务列表
+    var productId: Long = 0
+    var productName: String = ""
+
+
+    // 首页任务
+    var scheduleId: Long = 0
+    var courseId: Long = 0
+    var courseName = ""
+
 
 }

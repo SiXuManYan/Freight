@@ -156,5 +156,15 @@ interface ApiService {
     @POST("/api/student/task/get")
     fun getTaskDetail(@Body json: TaskDetailRequest): Flowable<Response<TaskDetail>>
 
+    /**
+     * 预约体验课
+     *
+     * 糖糖，我特别想和你说话，但是自己还是一整就卡住，你在给我点儿时间，
+     *
+     * 我先去把今天的活干完，
+     */
+    @POST("/api/student/schedule/bookingExperience")
+    fun reserveCourse(@Body json: TaskDetailRequest): Flowable<Response<JsonObject>>
+
 
 }

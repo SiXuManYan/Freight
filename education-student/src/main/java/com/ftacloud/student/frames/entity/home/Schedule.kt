@@ -40,7 +40,7 @@ open class Schedule {
     /**
      * 倒计时
      */
-    var countDownToStudyTimeSeconds  = 0L
+    var countDownToStudyTimeSeconds = 0L
 
 
 //  ##################################
@@ -72,6 +72,24 @@ open class Schedule {
     var liveRoomNo: String = ""
 
 
+    //#################
+
+
+//    private var orderId: Long? = null
+//
+//    private val productId: Long? = null
+//
+//    private val productName: String? = null
+//
+//    private val productIconImg: String? = null
+//
+//    private val productIntroduce: String? = null
+//
+//    private val productMoney: Int? = null
+//
+//    private val payingMoney: Int? = null
+//
+//    private val quantity: Int? = null
 
 
 }

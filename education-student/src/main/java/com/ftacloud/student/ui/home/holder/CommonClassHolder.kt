@@ -11,19 +11,19 @@ import com.ftacloud.student.frames.entity.home.ScheduleState
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.ui.view.countdown.CountDownTextView
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_home_course_order.*
-import kotlinx.android.synthetic.main.item_home_course_order.card_cv
-import kotlinx.android.synthetic.main.item_home_course_order.content_tv
-import kotlinx.android.synthetic.main.item_home_course_order.countdown_tv
-import kotlinx.android.synthetic.main.item_home_course_order.money_tv
-import kotlinx.android.synthetic.main.item_home_course_order.title_tv
+import kotlinx.android.synthetic.main.item_home_course_common.*
+import kotlinx.android.synthetic.main.item_home_course_common.card_cv
+import kotlinx.android.synthetic.main.item_home_course_common.content_tv
+import kotlinx.android.synthetic.main.item_home_course_common.countdown_tv
+import kotlinx.android.synthetic.main.item_home_course_common.money_tv
+import kotlinx.android.synthetic.main.item_home_course_common.title_tv
 
 /**
  * Created by Wangsw on 2020/10/13 0013 11:17.
  * </br>
- *  订单课
+ *  普通课程 (只有蓝色)
  */
-class OrderClassHolder (parent: ViewGroup?) : BaseItemViewHolder<Schedule>(parent, R.layout.item_home_course_order), LayoutContainer {
+class CommonClassHolder (parent: ViewGroup?) : BaseItemViewHolder<Schedule>(parent, R.layout.item_home_course_common), LayoutContainer {
 
     override val containerView: View? get() = itemView
 
@@ -35,16 +35,18 @@ class OrderClassHolder (parent: ViewGroup?) : BaseItemViewHolder<Schedule>(paren
         Glide.with(context).load(data.courseIconImg).into(image_iv)
         title_tv.text = data.productName
 
+
+
+
+
         if (data.state ==  ScheduleState.UNACTIVE.name) {
             // 未激活
-            card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_f9a74d))
             content_tv.text = data.productIntroduce
             teacher_civ.visibility = View.GONE
             state_vs.displayedChild = 0
             money_tv.text = data.productMoney
         }else{
             // 已购买
-            card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_5cbebc))
             content_tv.text = data.teacherName
             teacher_civ.visibility = View.VISIBLE
             Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)

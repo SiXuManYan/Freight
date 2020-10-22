@@ -24,6 +24,7 @@ class TaskHolder(parent: ViewGroup?) : BaseItemViewHolder<Task>(parent, R.layout
 
 
     override fun setData(data: Task?) {
+
         if (data == null) {
             return
         }
@@ -36,9 +37,12 @@ class TaskHolder(parent: ViewGroup?) : BaseItemViewHolder<Task>(parent, R.layout
         Glide.with(context).load(data.productIconImg).into(tag_iv)
 
 
-        title_tv.text = data.productName
+        title_tv.text = if (data.productName.isNotBlank()) {
+            data.productName
+        } else {
+            data.courseName
+        }
         content_tv.text = data.studyDatetime
-
 
 
     }
