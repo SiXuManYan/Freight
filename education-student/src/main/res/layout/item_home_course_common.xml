@@ -63,7 +63,6 @@
                     android:layout_width="@dimen/dp30"
                     android:layout_height="@dimen/dp30"
                     android:layout_marginEnd="@dimen/dp5"
-                    android:visibility="gone"
                     android:src="@mipmap/ic_temp" />
 
                 <TextView
@@ -73,7 +72,7 @@
                     android:layout_marginTop="@dimen/dp2"
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.2"
-                    android:text="适合3-6岁萌娃，快速提高英语口语，简介课程简介课程简介"
+                    tools:text="适合3-6岁萌娃，快速提高英语口语，简介课程简介课程简介"
                     android:textColor="@color/color_80ffffff"
                     android:textSize="@dimen/sp13" />
             </LinearLayout>
@@ -88,12 +87,7 @@
                 android:background="@color/color_80ffffff" />
 
 
-            <ViewSwitcher
-                android:id="@+id/state_vs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true">
+
 
 
 
@@ -101,6 +95,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_alignParentBottom="true"
                     android:layout_height="@dimen/dp25">
 
 
@@ -123,7 +118,7 @@
                             android:paddingEnd="@dimen/dp4"
                             android:paddingBottom="@dimen/dp2"
                             android:singleLine="true"
-                            tools:text="已开始上课"
+                            android:text="@string/class_not_started"
                             android:textColor="@color/font_white"
                             android:textSize="@dimen/sp12" />
 
@@ -204,41 +199,11 @@
 
                 </RelativeLayout>
 
-                <LinearLayout
-                    android:id="@+id/money_ll"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/dp2"
-                        android:ellipsize="end"
-                        android:lineSpacingMultiplier="1.2"
-                        android:singleLine="true"
-                        tools:text="120课时 /"
-                        android:textColor="@color/font_white"
-                        android:textSize="@dimen/sp12" />
 
 
-                    <TextView
-                        android:id="@+id/money_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:lineSpacingMultiplier="1.2"
-                        android:singleLine="true"
-                        android:text="￥1,998"
-                        android:textColor="@color/font_white"
-                        android:textSize="@dimen/sp16"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
 
 
-            </ViewSwitcher>
+
 
 
         </RelativeLayout>

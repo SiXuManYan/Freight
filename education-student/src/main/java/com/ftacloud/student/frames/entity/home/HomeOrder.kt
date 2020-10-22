@@ -5,7 +5,7 @@ package com.ftacloud.student.frames.entity.home
  * </br>
  * 订单
  */
-class Order {
+class HomeOrder {
 
     var orderId = ""
 

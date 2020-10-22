@@ -6,6 +6,6 @@
 
     <include layout="@layout/item_home_course_common" />
 
-    <include layout="@layout/item_home_course_order1" />
+    <include layout="@layout/item_home_order" />
 
 </LinearLayout>

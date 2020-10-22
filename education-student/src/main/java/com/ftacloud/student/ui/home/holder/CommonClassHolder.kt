@@ -3,7 +3,6 @@ package com.ftacloud.student.ui.home.holder
 import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
-import com.blankj.utilcode.util.ColorUtils
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.home.Schedule
@@ -12,18 +11,13 @@ import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.ui.view.countdown.CountDownTextView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_course_common.*
-import kotlinx.android.synthetic.main.item_home_course_common.card_cv
-import kotlinx.android.synthetic.main.item_home_course_common.content_tv
-import kotlinx.android.synthetic.main.item_home_course_common.countdown_tv
-import kotlinx.android.synthetic.main.item_home_course_common.money_tv
-import kotlinx.android.synthetic.main.item_home_course_common.title_tv
 
 /**
  * Created by Wangsw on 2020/10/13 0013 11:17.
  * </br>
  *  普通课程 (只有蓝色)
  */
-class CommonClassHolder (parent: ViewGroup?) : BaseItemViewHolder<Schedule>(parent, R.layout.item_home_course_common), LayoutContainer {
+class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(parent, R.layout.item_home_course_common), LayoutContainer {
 
     override val containerView: View? get() = itemView
 
@@ -35,45 +29,28 @@ class CommonClassHolder (parent: ViewGroup?) : BaseItemViewHolder<Schedule>(pare
         Glide.with(context).load(data.courseIconImg).into(image_iv)
         title_tv.text = data.productName
 
+        content_tv.text = data.teacherName
+        Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
 
-
-
-
-        if (data.state ==  ScheduleState.UNACTIVE.name) {
-            // 未激活
-            content_tv.text = data.productIntroduce
-            teacher_civ.visibility = View.GONE
-            state_vs.displayedChild = 0
-            money_tv.text = data.productMoney
-        }else{
-            // 已购买
-            content_tv.text = data.teacherName
-            teacher_civ.visibility = View.VISIBLE
-            Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
-
-            state_vs.displayedChild = 1
-            when (data.state) {
-                ScheduleState.UNTEACH.name -> {
-                    // 未上课，显示倒计时
-                    course_vs.displayedChild = 1
-                    initCountDown(data)
-
-                }
-                ScheduleState.TAUGHT.name->{
-                    course_vs.displayedChild = 0
-                    status_tv.text = "已结束"
-                }
-                 ScheduleState.TEACHING.name->{
-                    course_vs.displayedChild = 0
-                    status_tv.text = "上课中"
-                }
-                else -> {
-                }
+        when (data.state) {
+            ScheduleState.UNTEACH.name -> {
+                // 未上课，显示倒计时
+                course_vs.displayedChild = 1
+                initCountDown(data)
             }
-
-
-
+            ScheduleState.TAUGHT.name -> {
+                course_vs.displayedChild = 0
+                status_tv.text = context.getString(R.string.class_end)
+            }
+            ScheduleState.TEACHING.name -> {
+                course_vs.displayedChild = 0
+                status_tv.text = context.getString(R.string.class_teaching)
+            }
+            else -> {
+            }
         }
+
+
     }
 
     private fun initCountDown(data: Schedule) {
