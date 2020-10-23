@@ -3,11 +3,9 @@ package com.ftacloud.student.ui.home
 import android.view.View
 import android.view.ViewGroup
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
+import com.ftacloud.student.frames.entity.Task
 import com.ftacloud.student.frames.entity.home.*
-import com.ftacloud.student.ui.home.holder.ExperienceClassHolder
-import com.ftacloud.student.ui.home.holder.CommonClassHolder
-import com.ftacloud.student.ui.home.holder.ScheduleHolder
-import com.ftacloud.student.ui.home.holder.TestHolder
+import com.ftacloud.student.ui.home.holder.*
 import com.ftacloud.student.ui.task.TaskHolder
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
@@ -41,6 +39,9 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     HomeConstant.CLASS_SCHEDULE -> {
                         ScheduleHolder(parent)
                     }
+                    HomeConstant.HOME_ORDER -> {
+                        HomeOrderHolder(parent)
+                    }
                     else -> {
                         TaskHolder(parent).apply {
                             showTitle = true
@@ -61,7 +62,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     }
                     is Schedule -> {
 
-                        if (item.productType == ScheduleProductType.EXPERIENCE.name) {
+                        if (item.productType.contains(ScheduleProductType.EXPERIENCE.name)) {
                             // 体验课
                             HomeConstant.EXPERIENCE_CLASS
                         } else {
@@ -70,11 +71,16 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                         }
                     }
                     is NativeClassSchedule -> {
-                        HomeConstant.CLASS_SCHEDULE
+                        HomeConstant.CLASS_SCHEDULE    // 课程表
+                    }
+                    is HomeOrder -> {
+                        HomeConstant.HOME_ORDER         // 订单
+                    }
+                    is Task -> {
+                        HomeViewType.Schedule.ordinal     // 任务
                     }
                     else -> {
-                        // 任务课
-                        HomeViewType.Schedule.ordinal
+                        HomeViewType.Schedule.ordinal    // 任务
                     }
                 }
 

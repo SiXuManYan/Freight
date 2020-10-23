@@ -24,6 +24,9 @@ object HomeConstant {
     /** 任务 */
     const val TASK = 4
 
+    /** 订单 */
+    const val HOME_ORDER = 5
+
 
 
 

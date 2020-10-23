@@ -57,7 +57,6 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
             startActivity(MyCourseActivity::class.java)
         }
 
-
         header.findViewById<RelativeLayout>(R.id.menu_class_schedule).setOnClickListener {
             startActivity(ClassScheduleActivity::class.java)
         }

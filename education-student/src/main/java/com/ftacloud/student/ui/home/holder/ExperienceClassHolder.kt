@@ -33,7 +33,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(p
         content_tv.text = data.productIntroduce
 
 
-        if (data.state == ScheduleState.UNACTIVE.name) {
+        if (data.state.contains( ScheduleState.UNACTIVE.name)) {
             // 未预约体验课
             content_switcher.displayedChild = 0
             card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_f9a74d))

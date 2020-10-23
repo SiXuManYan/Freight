@@ -11,7 +11,6 @@ import com.sugar.library.frames.extend.genericType
 import io.reactivex.functions.Function
 import io.reactivex.subscribers.ResourceSubscriber
 import javax.inject.Inject
-import kotlin.collections.ArrayList
 
 /**
  * Created by Wangsw on 2020/9/21 0021 19:30.
@@ -69,6 +68,14 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
             parentList.addAll(gson.fromJson<ArrayList<Quizzes>>(data.get(quizzesOfStudentOuts), genericType<ArrayList<Quizzes>>()))
         }
 
+        // 体验课
+        val experienceClass = ArrayList<Schedule>()
+
+        // 普通课
+        val commonClass = ArrayList<Schedule>()
+
+        // 课程表
+        val classSchedule = ArrayList<NativeClassSchedule>()
 
         // 课程
         if (data.has(scheduleOuts)) {
@@ -76,31 +83,42 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
             // 源
             val scheduleOuts = gson.fromJson<ArrayList<Schedule>>(data.get(scheduleOuts), genericType<ArrayList<Schedule>>())
 
-            // 课程表
-            val classSchedule = ArrayList<NativeClassSchedule>()
-
             scheduleOuts.forEach {
 
+                if (it.productType.contains(ScheduleProductType.EXPERIENCE.name)) {
+                    experienceClass.add(it)
+                } else {
+                    commonClass.add(it)
+                }
+
                 // 课程表(所有未上课的数据)
-                if (it.state == ScheduleState.UNTEACH.name) {
+                if (it.state.contains(ScheduleState.UNTEACH.name)) {
                     classSchedule.add(NativeClassSchedule().apply {
                         nativeData.add(it)
                     })
                 }
             }
-            // 体验课 + 普通课程
-            parentList.addAll(scheduleOuts)
         }
 
+        //  体验课
+        parentList.addAll(experienceClass)
 
         // 订单
         if (data.has(waitPayOrderOuts)) {
-
+            val scheduleOuts = gson.fromJson<ArrayList<HomeOrder>>(data.get(waitPayOrderOuts), genericType<ArrayList<HomeOrder>>())
+            parentList.addAll(scheduleOuts)
         }
 
+        // 普通课
+        parentList.addAll(commonClass)
+
+        // 课程表
+        parentList.addAll(classSchedule)
+
+        // 课后任务
         if (data.has(taskOfCourseOuts)) {
-            // 课后任务
-            parentList.addAll(gson.fromJson<ArrayList<Task>>(data.get(taskOfCourseOuts), genericType<ArrayList<Task>>()))
+            val task = gson.fromJson<ArrayList<Task>>(data.get(taskOfCourseOuts), genericType<ArrayList<Task>>())
+            parentList.addAll(task)
         }
 
         return parentList
