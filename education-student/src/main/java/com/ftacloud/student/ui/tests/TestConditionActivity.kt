@@ -2,8 +2,10 @@ package com.ftacloud.student.ui.tests
 
 import android.view.View
 import android.widget.TextView
+import butterknife.OnClick
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.sugar.library.util.CommonUtils
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import kotlinx.android.synthetic.main.activity_test.*
@@ -71,6 +73,23 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
         }
 
 
+    }
+
+
+    @OnClick(
+        R.id.action_tv
+    )
+    fun onClick(view: View) {
+        if (CommonUtils.isDoubleClick(view)) {
+            return
+        }
+        when (view.id) {
+            R.id.action_tv -> {
+
+            }
+            else -> {
+            }
+        }
     }
 
 

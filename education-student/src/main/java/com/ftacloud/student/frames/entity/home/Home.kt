@@ -20,7 +20,7 @@ class Home {
     /**
      * 学生成绩测验
      */
-    var quizzesOfStudentOuts = ArrayList<Quizzes>()
+    var quizzesOfStudentOuts = ArrayList<Test>()
 
     /**
      * 课程

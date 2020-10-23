@@ -4,7 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
-import com.ftacloud.student.frames.entity.home.Quizzes
+import com.ftacloud.student.frames.entity.home.Test
 import com.sugar.library.frames.BaseItemViewHolder
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_basic_test.*
@@ -14,12 +14,12 @@ import kotlinx.android.synthetic.main.item_home_basic_test.*
  * </br>
  *  首页基础测试
  */
-class TestHolder(parent: ViewGroup?) : BaseItemViewHolder<Quizzes>(parent, R.layout.item_home_basic_test), LayoutContainer {
+class TestHolder(parent: ViewGroup?) : BaseItemViewHolder<Test>(parent, R.layout.item_home_basic_test), LayoutContainer {
 
     override val containerView: View? get() = itemView
 
 
-    override fun setData(data: Quizzes?) {
+    override fun setData(data: Test?) {
         if (data == null) {
             return
         }

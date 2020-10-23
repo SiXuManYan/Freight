@@ -65,7 +65,7 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
 
         // 基础测试
         if (data.has(quizzesOfStudentOuts)) {
-            parentList.addAll(gson.fromJson<ArrayList<Quizzes>>(data.get(quizzesOfStudentOuts), genericType<ArrayList<Quizzes>>()))
+            parentList.addAll(gson.fromJson<ArrayList<Test>>(data.get(quizzesOfStudentOuts), genericType<ArrayList<Test>>()))
         }
 
         // 体验课

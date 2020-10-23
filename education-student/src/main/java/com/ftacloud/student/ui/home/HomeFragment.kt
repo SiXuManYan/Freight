@@ -7,6 +7,8 @@ import com.ftacloud.student.frames.entity.Task
 import com.ftacloud.student.frames.entity.home.*
 import com.ftacloud.student.ui.home.holder.*
 import com.ftacloud.student.ui.task.TaskHolder
+import com.ftacloud.student.ui.tests.TestConditionActivity
+import com.ftacloud.student.ui.tests.score.TestScoreActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 
@@ -24,7 +26,6 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
 
         val adapter = object : RecyclerArrayAdapter<Any>(context) {
             override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<*> {
-
 
                 return when (viewType) {
                     HomeConstant.TEST -> {
@@ -56,7 +57,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
 
                 return when (item) {
 
-                    is Quizzes -> {
+                    is Test -> {
                         // 基础测验
                         HomeConstant.TEST
                     }
@@ -88,6 +89,33 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
         }
 
         adapter.setOnItemClickListener {
+
+            val model = adapter.allData[it]
+            when (model) {
+                is Test -> {
+                    if (model.state.contains(TestState.UNSUBMITTED.name)) {
+                        // 未提交，进入选择基础页
+                        startActivity(TestConditionActivity::class.java)
+                    }
+                    if (model.state.contains(TestState.DONE.name)) {
+                        // 已经提交
+                        startActivity(TestScoreActivity::class.java)
+                    }
+                }
+                is Schedule -> {
+
+                }
+                is NativeClassSchedule -> {
+                    // 不处理
+                }
+                is HomeOrder -> {
+
+                }
+                is Task -> {
+
+                }
+
+            }
 
 
         }

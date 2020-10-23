@@ -11,6 +11,7 @@ import com.ftacloud.student.ui.message.MessageView
 import com.ftacloud.student.ui.tests.my.header.MyTestHeader
 import com.ftacloud.student.ui.tests.my.holder.MyTestHolder
 import com.ftacloud.student.ui.tests.question.TestQuestionActivity
+import com.ftacloud.student.ui.tests.score.TestScoreActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.CommonUtils
@@ -47,7 +48,7 @@ class MyTestActivity : BaseRefreshListActivity<MyTest, MyTestPresenter>(), MyTes
         adapter.setOnItemClickListener {
 
             // 评分详情
-
+            startActivity(TestScoreActivity::class.java)
 
             // 测试题详情
             startActivity(TestQuestionActivity::class.java)

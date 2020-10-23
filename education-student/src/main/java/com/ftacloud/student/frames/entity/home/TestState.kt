@@ -5,7 +5,7 @@ package com.ftacloud.student.frames.entity.home
  * </br>
  *  基础测验类型
  */
-enum class QuizzesState {
+enum class TestState {
 
     /** 未提交 */
     UNSUBMITTED,
@@ -16,7 +16,7 @@ enum class QuizzesState {
     /** 评分中 */
     REVIEWING,
 
-    /** 已查看 */
+    /** 已评分 */
     DONE
 
 }

@@ -5,7 +5,7 @@ package com.ftacloud.student.frames.entity.home
  * </br>
  * 基础测验
  */
-class Quizzes {
+class Test {
 
     var id = ""
     var name = ""
@@ -13,10 +13,10 @@ class Quizzes {
     var iconImg = ""
 
     /**
-     * @see QuizzesState.UNSUBMITTED 未提交
-     * @see QuizzesState.REVIEWED    已提交
-     * @see QuizzesState.REVIEWING   评分中
-     * @see QuizzesState.DONE        已查看
+     * @see TestState.UNSUBMITTED 未提交
+     * @see TestState.REVIEWED    已提交
+     * @see TestState.REVIEWING   评分中
+     * @see TestState.DONE        已评分
      */
     var state = ""
 }

@@ -1,9 +1,6 @@
 package com.ftacloud.student.frames.network
 
-import com.ftacloud.student.frames.entity.CourseDetail
-import com.ftacloud.student.frames.entity.Message
-import com.ftacloud.student.frames.entity.SecurityTokenModel
-import com.ftacloud.student.frames.entity.TaskDetail
+import com.ftacloud.student.frames.entity.*
 import com.ftacloud.student.frames.entity.request.*
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonArray
@@ -158,13 +155,16 @@ interface ApiService {
 
     /**
      * 预约体验课
-     *
-     * 糖糖，我特别想和你说话，但是自己还是一整就卡住，你在给我点儿时间，
-     *
-     * 我先去把今天的活干完，
      */
     @POST("/api/student/schedule/bookingExperience")
     fun reserveCourse(@Body json: TaskDetailRequest): Flowable<Response<JsonObject>>
+
+    /**
+     *  公共接口
+     *
+     */
+    @GET("/api/student/common/")
+    fun reserveCourse(): Flowable<Response<AppCommon>>
 
 
 }

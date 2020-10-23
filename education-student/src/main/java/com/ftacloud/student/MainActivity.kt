@@ -14,6 +14,7 @@ import com.ftacloud.student.ui.order.list.MyVoucherActivity
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.task.TaskActivity
 import com.ftacloud.student.ui.tests.TestConditionActivity
+import com.ftacloud.student.ui.tests.my.MyTestActivity
 import com.ftacloud.student.ui.user.UserActivity
 import com.sugar.library.ui.view.CircleImageView
 import com.sugar.library.util.CommonUtils
@@ -66,7 +67,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         }
 
         header.findViewById<RelativeLayout>(R.id.menu_my_evaluation).setOnClickListener {
-            startActivity(TestConditionActivity::class.java)
+            startActivity(MyTestActivity::class.java)
         }
 
         header.findViewById<RelativeLayout>(R.id.menu_my_order).setOnClickListener {
