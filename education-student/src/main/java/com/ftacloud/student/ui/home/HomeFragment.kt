@@ -2,6 +2,7 @@ package com.ftacloud.student.ui.home
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.SnapHelper
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Task
 import com.ftacloud.student.frames.entity.home.*

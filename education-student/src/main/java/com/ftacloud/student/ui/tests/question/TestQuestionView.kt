@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.tests.question
 
+import com.ftacloud.student.frames.entity.question.QuestionChild
 import com.sugar.library.frames.network.response.BaseTaskView
 
 /**
@@ -8,4 +9,5 @@ import com.sugar.library.frames.network.response.BaseTaskView
  *  测试题
  */
 interface TestQuestionView : BaseTaskView {
+    abstract fun bindInfo(items: ArrayList<QuestionChild>)
 }

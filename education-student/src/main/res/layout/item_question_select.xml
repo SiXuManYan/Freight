@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp15"
+    android:paddingTop="@dimen/dp10"
+    android:paddingEnd="@dimen/dp15"
+    android:paddingBottom="@dimen/dp10">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp345"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/font_white"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="NO.1"
+                    android:textColor="@color/color_zero_level"
+                    android:textSize="@dimen/sp17"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/choose_the_right_word"
+                    android:textColor="@color/color_first_level"
+                    android:textSize="@dimen/sp15" />
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/content_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp85"
+        android:layout_marginTop="@dimen/dp20"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/font_white"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+
+        <RadioGroup
+            android:id="@+id/select_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/a"
+                android:layout_width="@dimen/dp65"
+                android:layout_height="@dimen/dp65"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/shape_12_a"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="@string/a"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp23"
+                android:textStyle="bold" />
+
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/b"
+                android:layout_width="@dimen/dp65"
+                android:layout_height="@dimen/dp65"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp10"
+                android:background="@drawable/shape_12_b"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="@string/b"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp23"
+                android:textStyle="bold" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/c"
+                android:layout_width="@dimen/dp65"
+                android:layout_height="@dimen/dp65"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp10"
+                android:background="@drawable/shape_12_c"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="@string/c"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp23"
+                android:textStyle="bold" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/d"
+                android:layout_width="@dimen/dp65"
+                android:layout_height="@dimen/dp65"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp10"
+                android:background="@drawable/shape_12_d"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="@string/d"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp23"
+                android:textStyle="bold" />
+
+
+        </RadioGroup>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

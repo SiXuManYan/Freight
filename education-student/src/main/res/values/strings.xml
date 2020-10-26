@@ -161,6 +161,16 @@
     <string name="select_english_basis">请选择孩子英语基础</string>
     <string name="select_age">请选择孩子年龄</string>
     <string name="start_assessment">开始测评</string>
+    <string name="previous_question">上一题</string>
+    <string name="next_question">下一题</string>
+    <string name="question_input">输入</string>
+    <string name="fill_question_subject">请回答问题</string>
+    <string name="choose_the_right_word">选择正确的单词</string>
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="c">C</string>
+    <string name="d">D</string>
+    <string name="record_subject">请朗读下列语句</string>
 
 
 </resources>

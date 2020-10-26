@@ -1,6 +1,8 @@
 package com.ftacloud.student.frames.network
 
 import com.ftacloud.student.frames.entity.*
+import com.ftacloud.student.frames.entity.question.Question
+import com.ftacloud.student.frames.entity.question.QuestionChild
 import com.ftacloud.student.frames.entity.request.*
 import com.ftacloud.student.storage.entity.User
 import com.google.gson.JsonArray
@@ -165,6 +167,14 @@ interface ApiService {
      */
     @GET("/api/student/common/")
     fun reserveCourse(): Flowable<Response<AppCommon>>
+
+
+    /**
+     * 获取测验题
+     */
+    @POST("/api/student/quizzes/get")
+    fun getQuestion(@Body json: GetQuestionRequest): Flowable<Response<Question>>
+
 
 
 }

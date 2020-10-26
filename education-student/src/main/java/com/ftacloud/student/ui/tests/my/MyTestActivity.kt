@@ -19,7 +19,7 @@ import com.sugar.library.util.CommonUtils
 /**
  * Created by Wangsw on 2020/9/27 0027 19:13.
  * </br>
- * 我的测评
+ * 我的测评列表
  *
  */
 class MyTestActivity : BaseRefreshListActivity<MyTest, MyTestPresenter>(), MyTestView {
