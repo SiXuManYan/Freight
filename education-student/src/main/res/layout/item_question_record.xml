@@ -72,6 +72,67 @@
     </androidx.cardview.widget.CardView>
 
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp20"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/font_white"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+
+        <LinearLayout
+            android:id="@+id/play_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp7">
+
+
+            <ViewSwitcher
+                android:id="@+id/play_switcher"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40">
+
+
+                <ImageView
+                    android:id="@+id/media_play_iv"
+                    android:layout_width="@dimen/dp40"
+                    android:layout_height="@dimen/dp40"
+                    android:background="@drawable/shape_8_bule"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_media_play" />
+
+
+                <ImageView
+                    android:id="@+id/media_stop_iv"
+                    android:layout_width="@dimen/dp40"
+                    android:layout_height="@dimen/dp40"
+                    android:background="@drawable/shape_8_bule"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_media_stop" />
+
+            </ViewSwitcher>
+
+            <app.minimize.com.seek_bar_compat.SeekBarCompat
+                android:id="@+id/seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                app:progressBackgroundColor="@color/color_5cbebc"
+                app:progressColor="@color/color_f9a74d"
+                app:thumbAlpha="1.0"
+                tools:progress="43" />
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
     <FrameLayout
         android:layout_width="@dimen/dp80"
         android:layout_height="@dimen/dp80"
@@ -83,7 +144,7 @@
             android:id="@+id/play_iv"
             android:layout_width="@dimen/dp80"
             android:layout_height="@dimen/dp80"
-            android:src="@drawable/ic_record_stop" />
+            android:src="@drawable/ic_record_play" />
 
 
         <ImageView

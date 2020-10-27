@@ -17,7 +17,6 @@ import com.sugar.library.util.CommonUtils
 open class BaseItemViewHolder<T> : BaseViewHolder<T> {
 
     var onChildViewClickListener: OnChildViewClickListener? = null
-//    var onMediaPlayListener: OnMediaPlayListener? = null
 
     constructor(parent: ViewGroup?, @LayoutRes res: Int) : super(parent, res)
 

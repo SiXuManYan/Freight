@@ -1,11 +1,14 @@
 package com.ftacloud.student.ui.tests
 
+import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import butterknife.OnClick
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.ftacloud.student.ui.tests.question.TestQuestionActivity
 import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import kotlinx.android.synthetic.main.activity_test.*
@@ -21,14 +24,27 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
 
     private var age: ArrayList<String> = ArrayList()
     private var basis: ArrayList<String> = ArrayList()
+    private var quizzesId = ""
 
 
     override fun getLayoutId() = R.layout.activity_test
 
     override fun initViews() {
 
+        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID)) {
+            finish()
+            return
+        }
+        quizzesId = intent.extras!!.getString(Constants.PARAM_ID, "")
+
         setMainTitle("测试详情")
 
+        initSelect()
+
+
+    }
+
+    private fun initSelect() {
         age.apply {
             add("3岁")
             add("4岁")
@@ -71,8 +87,6 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
                 return tv
             }
         }
-
-
     }
 
 
@@ -85,7 +99,9 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
         }
         when (view.id) {
             R.id.action_tv -> {
-
+                val bundle = Bundle()
+                bundle.putString(Constants.PARAM_ID, quizzesId)
+                startActivity(TestQuestionActivity::class.java, bundle)
             }
             else -> {
             }

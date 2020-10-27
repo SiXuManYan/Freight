@@ -9,8 +9,6 @@ class QuestionChild {
 
     var nativeAnswerSelect = ""
     var nativeAnswerFill = ""
-
-
-
+    var nativeAnswerRecordPath = ""
 
 }

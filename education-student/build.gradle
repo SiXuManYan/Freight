@@ -136,7 +136,15 @@ dependencies {
     // # 下载 #
     implementation 'com.liulishuo.filedownloader:library:1.7.7'
 
-    // 横向recycleView
+    // 横向recycleView (https://github.com/yangchong211/YCScrollPager)
     implementation 'com.yc:PagerLib:1.0.1'
 
+    // 录音(https://github.com/zhaolewei/ZlwAudioRecorder)
+    implementation 'com.github.zhaolewei:ZlwAudioRecorder:v1.07'
+
+    // 音频播放(https://github.com/Pluto-MinLu/AudioPlay)
+    implementation 'com.github.Chen-Xi-g:AudioPlay:v1.1.0'
+
+
+    implementation 'com.minimize.library:seekbar-compat:0.3.0'
 }

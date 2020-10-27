@@ -7,7 +7,12 @@ import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.Voucher
 import com.ftacloud.student.frames.entity.question.QuestionChild
+import com.ftacloud.student.frames.entity.question.QuestionChildType
 import com.ftacloud.student.ui.order.list.child.VoucherViewHolder
+import com.ftacloud.student.ui.tests.question.holder.FillHolder
+import com.ftacloud.student.ui.tests.question.holder.RecordHolder
+import com.ftacloud.student.ui.tests.question.holder.SelectHolder
+import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
 import com.yc.pagerlib.recycler.OnPagerListener
@@ -21,6 +26,9 @@ import kotlinx.android.synthetic.main.activity_test_question.*
  */
 class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuestionView {
 
+
+    private lateinit var mAdapter: RecyclerArrayAdapter<QuestionChild>
+
     override fun showLoading() = showLoadingDialog()
 
     override fun hideLoading() = dismissLoadingDialog()
@@ -28,21 +36,21 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
     override fun getLayoutId() = R.layout.activity_test_question
 
     override fun initViews() {
-
+        setMainTitle(getString(R.string.test_question_title))
+        initRecycleView()
         if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID)) {
             finish()
             return
         }
         val quizzesId = intent.extras!!.getString(Constants.PARAM_ID, "")
-        initRecycleView()
-
-
+        presenter.loadUserInfo(this, quizzesId)
     }
 
     private fun initRecycleView() {
+        this.mAdapter = getRecyclerAdapter()
         val pagerLayoutManager = PagerLayoutManager(this, OrientationHelper.HORIZONTAL)
+        content_rv.adapter = mAdapter
         content_rv.layoutManager = pagerLayoutManager
-        content_rv.adapter = getRecyclerAdapter()
 
         pagerLayoutManager.setOnViewPagerListener(object : OnPagerListener {
 
@@ -61,14 +69,45 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
 
     fun getRecyclerAdapter(): RecyclerArrayAdapter<QuestionChild> {
 
+        val select = 0
+        val fill = 1
+        val record = 2
+
         val adapter = object : RecyclerArrayAdapter<QuestionChild>(context) {
-            override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): VoucherViewHolder {
+            override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<*> {
 
-                val holder = VoucherViewHolder(parent)
+                return when (viewType) {
+                    select -> {
+                        SelectHolder(parent)
+                    }
+                    fill -> {
+                        FillHolder(parent)
+                    }
+                    else -> {
+                        RecordHolder(parent)
+                    }
+                }
 
 
-                return holder
             }
+
+            override fun getViewType(position: Int): Int {
+                val item = getItem(position)
+                val itemType = item.itemType
+
+                return when {
+                    itemType.contains(QuestionChildType.SELECT.name) -> {
+                        select
+                    }
+                    itemType.contains(QuestionChildType.FILL_IN_THE_BLANKS.name) -> {
+                        fill
+                    }
+                    else -> {
+                        record
+                    }
+                }
+            }
+
         }
 
         return adapter
@@ -76,6 +115,9 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
 
 
     override fun bindInfo(items: ArrayList<QuestionChild>) {
+        if (items.isNotEmpty()) {
+            mAdapter.addAll(items)
+        }
 
 
     }

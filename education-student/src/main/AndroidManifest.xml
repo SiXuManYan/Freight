@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- 录音时修改手机音量，声音权限 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
     <!--播音-->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -43,6 +46,8 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+
+        <service android:name="com.zlw.main.recorderlib.recorder.RecordService" />
 
         <activity
             android:name=".ui.splash.SplashActivity"
@@ -115,6 +120,7 @@
         <activity android:name=".ui.user.UserActivity" />
         <activity android:name=".ui.order.list.MyVoucherActivity" />
         <activity android:name=".ui.order.detail.OrderDetailActivity" />
+        <activity android:name=".ui.tests.question.TestQuestionActivity" />
 
     </application>
 

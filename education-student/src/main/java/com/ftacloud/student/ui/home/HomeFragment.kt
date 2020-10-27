@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.home
 
+import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.SnapHelper
@@ -12,6 +13,7 @@ import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.ftacloud.student.ui.tests.score.TestScoreActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
+import com.sugar.library.util.Constants
 
 /**
  * 首页
@@ -96,7 +98,9 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                 is Test -> {
                     if (model.state.contains(TestState.UNSUBMITTED.name)) {
                         // 未提交，进入选择基础页
-                        startActivity(TestConditionActivity::class.java)
+                        startActivity(TestConditionActivity::class.java, Bundle().apply {
+                            putString(Constants.PARAM_ID, model.quizzesId)
+                        })
                     }
                     if (model.state.contains(TestState.DONE.name)) {
                         // 已经提交

@@ -8,6 +8,7 @@ package com.ftacloud.student.frames.entity.home
 class Test {
 
     var id = ""
+    var quizzesId = ""
     var name = ""
     var introduce = ""
     var iconImg = ""
