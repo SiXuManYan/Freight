@@ -89,7 +89,7 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
     /**
      * 获取token 签名url
      */
-     fun getOssSecurityTokenForSignUrl(objectKey: String, ossCallBack: OssSignCallBack) {
+    fun getOssSecurityTokenForSignUrl(objectKey: String, ossCallBack: OssSignCallBack) {
 
         presenter.getOssSecurityTokenForSignUrl(this, objectKey, ossCallBack)
     }
@@ -106,12 +106,11 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
      *
      */
     fun getOssSecurityToken(localFilePatch: String, @IdRes fromViewId: Int, clx: Class<*>) {
-        presenter.getOssSecurityToken(
-            this,
-            localFilePatch,
-            fromViewId,
-            clx
-        )
+        presenter.getOssSecurityToken(this, localFilePatch, fromViewId, clx)
+    }
+
+    fun uploadRecord(localFilePatch: String, position: Int) {
+        presenter.getRecordToken(this, localFilePatch, position)
     }
 
 }

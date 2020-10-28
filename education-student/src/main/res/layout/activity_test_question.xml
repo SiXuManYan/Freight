@@ -1,54 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/color_list_gray_background"
     android:layout_height="match_parent"
+    android:background="@color/color_list_gray_background"
     android:orientation="vertical">
 
     <include layout="@layout/inc_title_bar" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/content_rv"
+    <ViewSwitcher
+        android:id="@+id/switcher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_ll"
-        android:layout_below="@+id/title_container_rl" />
+        android:layout_below="@+id/title_container_rl">
 
-    <LinearLayout
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp345"
+            android:layout_marginStart="@dimen/dp15"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp15"
+            android:layout_marginBottom="@dimen/dp10"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/font_white"
+            app:cardCornerRadius="@dimen/dp12"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/question_submit_success"
+                android:textColor="@color/color_first_level"
+                android:textSize="@dimen/sp17" />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/content_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </ViewSwitcher>
+
+
+    <ViewSwitcher
         android:id="@+id/bottom_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dp15"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/dp15"
-        android:paddingEnd="@dimen/dp15">
+        android:layout_marginBottom="@dimen/dp15">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dp15"
+            android:paddingEnd="@dimen/dp15">
+
+            <TextView
+                android:id="@+id/previous_tv"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp45"
+                android:layout_marginEnd="@dimen/dp5"
+                android:layout_weight="1"
+                android:background="@drawable/selector_login"
+                android:gravity="center"
+                android:text="@string/previous_question"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp16" />
+
+            <TextView
+                android:id="@+id/next_tv"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp45"
+                android:layout_weight="1"
+                android:background="@drawable/selector_login"
+                android:gravity="center"
+                android:text="@string/next_question"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp16" />
+
+
+        </LinearLayout>
+
 
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/back_home_tv"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/dp45"
-            android:layout_marginEnd="@dimen/dp5"
-            android:layout_weight="1"
+            android:layout_marginStart="@dimen/dp15"
+            android:layout_marginEnd="@dimen/dp15"
             android:background="@drawable/selector_login"
             android:gravity="center"
-            android:text="@string/previous_question"
+            android:text="@string/back_home"
             android:textColor="@color/font_white"
             android:textSize="@dimen/sp16" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp45"
-            android:layout_weight="1"
-            android:background="@drawable/selector_login"
-            android:gravity="center"
-            android:text="@string/next_question"
-            android:textColor="@color/font_white"
-            android:textSize="@dimen/sp16" />
 
-
-    </LinearLayout>
+    </ViewSwitcher>
 
 
 </RelativeLayout>

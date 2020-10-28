@@ -97,10 +97,9 @@
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/shape_12_a"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
                 android:text="@string/a"
-                android:textColor="@color/font_white"
+                android:textColor="@color/selector_select_answer_color"
                 android:textSize="@dimen/sp23"
                 android:textStyle="bold" />
 
@@ -113,10 +112,9 @@
                 android:layout_marginStart="@dimen/dp10"
                 android:background="@drawable/shape_12_b"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
                 android:text="@string/b"
-                android:textColor="@color/font_white"
+                android:textColor="@color/selector_select_answer_color"
                 android:textSize="@dimen/sp23"
                 android:textStyle="bold" />
 
@@ -128,10 +126,9 @@
                 android:layout_marginStart="@dimen/dp10"
                 android:background="@drawable/shape_12_c"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
                 android:text="@string/c"
-                android:textColor="@color/font_white"
+                android:textColor="@color/selector_select_answer_color"
                 android:textSize="@dimen/sp23"
                 android:textStyle="bold" />
 
@@ -143,10 +140,9 @@
                 android:layout_marginStart="@dimen/dp10"
                 android:background="@drawable/shape_12_d"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
                 android:text="@string/d"
-                android:textColor="@color/font_white"
+                android:textColor="@color/selector_select_answer_color"
                 android:textSize="@dimen/sp23"
                 android:textStyle="bold" />
 

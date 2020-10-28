@@ -25,17 +25,19 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
     private var age: ArrayList<String> = ArrayList()
     private var basis: ArrayList<String> = ArrayList()
     private var quizzesId = ""
+    private var quizzesOfStudentId = ""
 
 
     override fun getLayoutId() = R.layout.activity_test
 
     override fun initViews() {
 
-        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID)) {
+        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID) || !intent.extras!!.containsKey(Constants.PARAM_STUDENT_ID)) {
             finish()
             return
         }
         quizzesId = intent.extras!!.getString(Constants.PARAM_ID, "")
+        quizzesOfStudentId = intent.extras!!.getString(Constants.PARAM_STUDENT_ID, "")
 
         setMainTitle("测试详情")
 
@@ -101,6 +103,7 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
             R.id.action_tv -> {
                 val bundle = Bundle()
                 bundle.putString(Constants.PARAM_ID, quizzesId)
+                bundle.putString(Constants.PARAM_STUDENT_ID, quizzesOfStudentId)
                 startActivity(TestQuestionActivity::class.java, bundle)
             }
             else -> {

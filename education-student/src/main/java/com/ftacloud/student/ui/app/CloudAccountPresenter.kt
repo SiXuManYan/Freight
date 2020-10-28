@@ -1,11 +1,11 @@
 package com.ftacloud.student.ui.app
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.IdRes
 import com.alibaba.sdk.android.oss.*
 import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback
 import com.alibaba.sdk.android.oss.callback.OSSProgressCallback
-import com.alibaba.sdk.android.oss.common.OSSLog
 import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider
 import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider
 import com.alibaba.sdk.android.oss.model.PutObjectRequest
@@ -14,13 +14,12 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ThreadUtils
 import com.blankj.utilcode.util.Utils
-import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.SecurityTokenModel
 import com.ftacloud.student.frames.network.ApiService
 import com.sugar.library.BuildConfig
-
 import com.sugar.library.event.Event
 import com.sugar.library.event.ImageUploadEvent
+import com.sugar.library.event.RecordUploadEvent
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import io.reactivex.FlowableTransformer
@@ -101,7 +100,6 @@ class CloudAccountPresenter(val view: CloudAccountView) {
      */
     fun getOssSecurityTokenForSignUrl(context: Context, objectKey: String, ossCallBack: CloudAccountApplication.OssSignCallBack) {
 
-
         addSubscribe(
             apiService.getOssSecurityToken().compose(flowableUICompose())
                 .subscribeWith(object : BaseHttpSubscriber<SecurityTokenModel>(view) {
@@ -142,13 +140,7 @@ class CloudAccountPresenter(val view: CloudAccountView) {
      * @param objectName 文件路径
      * @param isEncryptFile 是否为加密文件
      */
-    fun getOssSecurityToken(
-        context: Context,
-        localFilePatch: String,
-        @IdRes fromViewId: Int,
-        clx: Class<*>
-    ) {
-
+    fun getOssSecurityToken(context: Context, localFilePatch: String, @IdRes fromViewId: Int, clx: Class<*>) {
 
         addSubscribe(
             apiService.getOssSecurityToken().compose(flowableUICompose())
@@ -171,13 +163,7 @@ class CloudAccountPresenter(val view: CloudAccountView) {
      * @see {@see https://github.com/aliyun/aliyun-oss-android-sdk/blob/master/README-CN.md}
      * @param isEncryptFile 是否为加密上传
      */
-    fun uploadResources(
-        context: Context,
-        stsModel: SecurityTokenModel,
-        localFilePatch: String,
-        @IdRes fromViewId: Int,
-        clx: Class<*>
-    ) {
+    fun uploadResources(context: Context, stsModel: SecurityTokenModel, localFilePatch: String, @IdRes fromViewId: Int, clx: Class<*>) {
 
         // 节点
         val endpoint = BuildConfig.OSS_END_POINT
@@ -203,7 +189,7 @@ class CloudAccountPresenter(val view: CloudAccountView) {
             maxErrorRetry = 2               // 失败后最大重试次数，默认2次
         }
 
-        OSSLog.enableLog() //这个开启会支持写入手机sd卡中的一份日志文件位置在SDCard_path\OSSLog\logs.csv
+//        OSSLog.enableLog() //这个开启会支持写入手机sd卡中的一份日志文件位置在SDCard_path\OSSLog\logs.csv
 
         //初始化OSS服务的客户端oss
         //事实上，初始化OSS的实例对象，应该具有与整个应用程序相同的生命周期，在应用程序生命周期结束时销毁
@@ -235,6 +221,76 @@ class CloudAccountPresenter(val view: CloudAccountView) {
         // 等异步上传过程完成
         task.waitUntilFinished();
 //        Toast.makeText(getActivity(), "上传成功", Toast.LENGTH_SHORT).show();
+    }
+
+
+    fun getRecordToken(context: Context, localFilePatch: String, position: Int) {
+
+        addSubscribe(
+            apiService.getOssSecurityToken().compose(flowableUICompose())
+                .subscribeWith(object : BaseHttpSubscriber<SecurityTokenModel>(view) {
+                    override fun onSuccess(data: SecurityTokenModel?) {
+                        data?.let {
+                            val runnable = Runnable {
+                                uploadRecord(context, it, localFilePatch,position)
+                            }
+                            Thread(runnable).start()
+                        }
+                    }
+                })
+        )
+
+    }
+
+
+    /**
+     * 上传图片资源至阿里云
+     * @see {@see https://github.com/aliyun/aliyun-oss-android-sdk/blob/master/README-CN.md}
+     * @param isEncryptFile 是否为加密上传
+     */
+    fun uploadRecord(context: Context, stsModel: SecurityTokenModel, localFilePatch: String, position: Int) {
+
+        // 节点
+        val endpoint = BuildConfig.OSS_END_POINT
+
+        // bucketName
+        val imageBucketName = stsModel.AccessBucketName
+
+        // 自定义文件的 objectKey 上传到仓库中哪个位置
+        val imageObjectKey = if (BuildConfig.FLAVOR == "dev") {
+            StringUtils.getString(com.sugar.library.R.string.upload_record_dev_format, System.currentTimeMillis().toString())
+        } else {
+            StringUtils.getString(com.sugar.library.R.string.upload_record_format, System.currentTimeMillis().toString())
+        }
+
+
+        val credentialProvider: OSSCredentialProvider =
+            OSSStsTokenCredentialProvider(stsModel.AccessKeyId, stsModel.AccessKeySecret, stsModel.SecurityToken)
+
+        val conf = ClientConfiguration()
+
+
+        val oss: OSS = OSSClient(context, "https://$endpoint", credentialProvider, conf)
+
+        val put = PutObjectRequest(imageBucketName, imageObjectKey, localFilePatch)
+        put.progressCallback = OSSProgressCallback<PutObjectRequest> { request, currentSize, totalSize ->
+            Log.i("录音上传进度：", "当前进度$currentSize   总进度$totalSize");
+        }
+
+        val task = oss.asyncPutObject(put, object : OSSCompletedCallback<PutObjectRequest, PutObjectResult> {
+            override fun onSuccess(request: PutObjectRequest?, result: PutObjectResult?) {
+                var finalUrl = ""
+                finalUrl = imageObjectKey
+                RxBus.post(RecordUploadEvent(finalUrl,position))
+            }
+
+            override fun onFailure(request: PutObjectRequest?, clientException: ClientException?, serviceException: ServiceException?) {
+                clientException?.printStackTrace()
+            }
+        })
+
+        // 等异步上传过程完成
+        task.waitUntilFinished();
 
     }
 

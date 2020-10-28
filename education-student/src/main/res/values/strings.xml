@@ -172,6 +172,8 @@
     <string name="d">D</string>
     <string name="record_subject">请朗读下列语句</string>
     <string name="test_question_title">测验详情</string>
+    <string name="back_home">返回首页</string>
+    <string name="question_submit_success">测评已完成，系统会在24小时内\n给出测评结果，请耐心等待</string>
 
 
 </resources>

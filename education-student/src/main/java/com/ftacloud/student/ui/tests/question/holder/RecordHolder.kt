@@ -11,6 +11,7 @@ import com.blankj.utilcode.util.Utils
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.question.QuestionChild
+import com.ftacloud.student.ui.app.CloudAccountApplication
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.minlukj.mediaplaylib.MediaPlayFunctionListener
 import com.minlukj.mediaplaylib.MediaPlayInfoListener
@@ -69,6 +70,11 @@ class RecordHolder(parent: ViewGroup?) : BaseItemViewHolder<QuestionChild>(paren
                     val ownerAdapter = getOwnerAdapter<RecyclerArrayAdapter<QuestionChild>>()
                     val item = ownerAdapter?.getItem(dataPosition)
                     item?.nativeAnswerRecordPath = absolutePath
+
+                    //  上传文件のoss
+                    val app = Utils.getApp() as CloudAccountApplication
+                    app.uploadRecord(path,layoutPosition)
+
                 }
             })
 

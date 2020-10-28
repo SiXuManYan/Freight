@@ -175,6 +175,12 @@ interface ApiService {
     @POST("/api/student/quizzes/get")
     fun getQuestion(@Body json: GetQuestionRequest): Flowable<Response<Question>>
 
+   /**
+     * 获取测验题
+     */
+    @POST("/api/student/quizzes/submit")
+    fun submitQuestion(@Body json: SubmitQuestionRequest): Flowable<Response<JsonObject>>
+
 
 
 }

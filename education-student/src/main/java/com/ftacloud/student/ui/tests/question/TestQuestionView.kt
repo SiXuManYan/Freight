@@ -10,4 +10,5 @@ import com.sugar.library.frames.network.response.BaseTaskView
  */
 interface TestQuestionView : BaseTaskView {
     abstract fun bindInfo(items: ArrayList<QuestionChild>)
+    abstract fun submitSuccess()
 }

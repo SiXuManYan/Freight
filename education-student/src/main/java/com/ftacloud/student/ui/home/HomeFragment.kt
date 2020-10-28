@@ -100,6 +100,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                         // 未提交，进入选择基础页
                         startActivity(TestConditionActivity::class.java, Bundle().apply {
                             putString(Constants.PARAM_ID, model.quizzesId)
+                            putString(Constants.PARAM_STUDENT_ID, model.quizzesOfStudentId)
                         })
                     }
                     if (model.state.contains(TestState.DONE.name)) {
