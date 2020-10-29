@@ -69,6 +69,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(
         R.id.study_tv
     )

@@ -430,6 +430,8 @@
     <dimen name="sp40">40sp</dimen>
     <dimen name="sp42">42sp</dimen>
     <dimen name="sp48">48sp</dimen>
+    <dimen name="sp49">49sp</dimen>
+    <dimen name="sp50">50sp</dimen>
 
 
     <dimen name="font_size_6">6sp</dimen>

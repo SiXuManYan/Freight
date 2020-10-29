@@ -1,48 +1,31 @@
 package com.ftacloud.student.ui.tests.score
 
-import android.view.ViewGroup
 import com.ftacloud.student.R
-import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
-import com.ftacloud.student.frames.entity.TestScore
-import com.ftacloud.student.ui.tests.score.header.TestScoreHeader
-import com.ftacloud.student.ui.tests.score.holder.TestScoreHolder
-import com.jude.easyrecyclerview.adapter.BaseViewHolder
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
+import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.sugar.library.util.Constants
 
 /**
  * Created by Wangsw on 2020/9/27 0027 20:09.
  * </br>
  *  评分详情
  */
-class TestScoreActivity  : BaseRefreshListActivity<TestScore, TestScorePresenter>(), TestScoreView {
+class TestScoreActivity : BaseMVPActivity<TestScorePresenter>(), TestScoreView {
 
-    override fun getMainTitle() = R.string.score_title
+    private var quizzesOfStudentId = ""
+
+    override fun getLayoutId() = R.layout.test_score
 
     override fun initViews() {
-        super.initViews()
 
-        val myTestHeader = TestScoreHeader(this)
-        getAdapter()?.addHeader(myTestHeader)
+        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID) || !intent.extras!!.containsKey(Constants.PARAM_STUDENT_ID)) {
+            finish()
+            return
+        }
+        quizzesOfStudentId = intent.extras!!.getString(Constants.PARAM_STUDENT_ID, "")
+        presenter.getQuestionResult(this, quizzesOfStudentId)
     }
 
-    override fun getRecyclerAdapter(): RecyclerArrayAdapter<TestScore> {
-        val adapter = object : RecyclerArrayAdapter<TestScore>(context) {
-
-            override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<TestScore> {
-
-                val holder = TestScoreHolder(parent)
-
-                return holder
-            }
-
-        }
-
-        adapter.setOnItemClickListener {
 
 
 
-
-        }
-        return adapter
-    }
 }

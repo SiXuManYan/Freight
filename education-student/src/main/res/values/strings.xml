@@ -181,6 +181,7 @@
     <string name="course_already_teach">已开课</string>
     <string name="my_course">我的课程</string>
     <string name="course_is_over">课程已结束</string>
+    <string name="level_format">评测等级：%1$s级</string>
 
 
 </resources>
