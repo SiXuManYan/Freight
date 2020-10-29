@@ -4,7 +4,6 @@ import com.blankj.utilcode.util.StringUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.course.my.child.MyCourseChildFragment
-import com.ftacloud.student.ui.order.list.OrderActivity
 import kotlinx.android.synthetic.main.activity_my_course.*
 
 /**

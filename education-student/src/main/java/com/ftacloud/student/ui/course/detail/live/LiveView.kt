@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.live
+package com.ftacloud.student.ui.course.detail.live
 
 import com.sugar.library.frames.network.response.BaseView
 

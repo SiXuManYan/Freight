@@ -180,6 +180,7 @@
     <string name="course_un_teach">未开课</string>
     <string name="course_already_teach">已开课</string>
     <string name="my_course">我的课程</string>
+    <string name="course_is_over">课程已结束</string>
 
 
 </resources>

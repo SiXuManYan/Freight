@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.live
+package com.ftacloud.student.ui.course.detail.live
 
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
@@ -8,7 +8,7 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
  * </br>
  *
  */
-class LiveActivity :BaseMVPActivity<LivePresenter>(),LiveView {
+class LiveActivity :BaseMVPActivity<LivePresenter>(), LiveView {
 
     override fun getLayoutId() = R.layout.activity_live
 

@@ -5,6 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.MyCourse
+import com.ftacloud.student.frames.entity.home.ScheduleState
+import com.ftacloud.student.ui.course.detail.live.LiveActivity
+import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
@@ -14,7 +17,7 @@ import com.sugar.library.util.Constants
  * </br>
  *  我的课程
  */
-class MyCourseChildFragment: BaseRefreshListFragment<MyCourse, MyCourseChildPresenter>(), MyCourseChildView {
+class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPresenter>(), MyCourseChildView {
 
     private var categoryValue: Int? = 0
 
@@ -40,18 +43,26 @@ class MyCourseChildFragment: BaseRefreshListFragment<MyCourse, MyCourseChildPres
     }
 
 
-
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<MyCourse> {
         val adapter = object : RecyclerArrayAdapter<MyCourse>(context) {
 
             override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<MyCourse> {
-                val holder = MyCourseChildHolder(parent)
-
-                return holder
+                return MyCourseChildHolder(parent)
             }
 
         }
         adapter.setOnItemClickListener {
+            val myCourse = adapter.allData[it]
+
+            if (myCourse.state.contains(ScheduleState.UNTEACH.name)) {
+                // 未开课,
+                startActivity(NoClassActivity::class.java)
+            } else {
+                // 已开课，直接进入直播间
+                startActivity(LiveActivity::class.java)
+            }
+
+
         }
         return adapter
     }
@@ -66,8 +77,6 @@ class MyCourseChildFragment: BaseRefreshListFragment<MyCourse, MyCourseChildPres
         super.onLoadMore()
         presenter.loadCourseList(this, pageSize, lastItemId, categoryValue)
     }
-
-
 
 
 }

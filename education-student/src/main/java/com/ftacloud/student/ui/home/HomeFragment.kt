@@ -3,10 +3,15 @@ package com.ftacloud.student.ui.home
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.SnapHelper
+import com.blankj.utilcode.util.ToastUtils
+import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Task
 import com.ftacloud.student.frames.entity.home.*
+import com.ftacloud.student.ui.course.detail.live.LiveActivity
+import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
 import com.ftacloud.student.ui.home.holder.*
 import com.ftacloud.student.ui.task.TaskHolder
 import com.ftacloud.student.ui.tests.TestConditionActivity
@@ -110,11 +115,22 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                 is Schedule -> {
                     if (model.productType.contains(ScheduleProductType.EXPERIENCE.name)) {
                         // 体验课详情
-                    }else{
-                        // 普通课(区分已上课和未上课)
+                    } else {
+                        // 普通课(区分已上课和)
 
-
-
+                        when {
+                            model.state.contains(ScheduleState.UNTEACH.name) -> {
+                                // 未上课
+                                startActivity(NoClassActivity::class.java)
+                            }
+                            model.state.contains(ScheduleState.TEACHING.name) -> {
+                                // 已经上课
+                                startActivity(LiveActivity::class.java)
+                            }
+                            model.state.contains(ScheduleState.TAUGHT.name) -> {
+                                ToastUtils.showShort(getString(R.string.course_is_over))
+                            }
+                        }
                     }
                 }
                 is NativeClassSchedule -> {
