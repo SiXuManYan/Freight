@@ -5,7 +5,7 @@ package com.ftacloud.student.frames.entity.home
  * </br>
  *  课程类型
  */
-enum class ScheduleProductType {
+enum class CourseProductType {
 
     /** 体验课 */
     EXPERIENCE,

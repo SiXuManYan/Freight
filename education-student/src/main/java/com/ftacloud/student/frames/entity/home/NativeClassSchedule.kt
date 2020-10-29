@@ -8,7 +8,7 @@ package com.ftacloud.student.frames.entity.home
 class NativeClassSchedule {
 
 
-    var nativeData = ArrayList<Schedule>()
+    var nativeData = ArrayList<Course>()
 
 
 

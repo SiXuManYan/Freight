@@ -5,7 +5,7 @@ package com.ftacloud.student.frames.entity.home
  * </br>
  *
  */
-open class Schedule {
+open class Course {
 
     var id = ""
     var productId = ""
@@ -14,9 +14,9 @@ open class Schedule {
 
 
     /**
-     * @see ScheduleProductType.EXPERIENCE  体验课
-     * @see ScheduleProductType.READING     教学课(订单课)
-     * @see ScheduleProductType.TEACHING    陪读课(订单课)
+     * @see CourseProductType.EXPERIENCE  体验课
+     * @see CourseProductType.READING     教学课(订单课)
+     * @see CourseProductType.TEACHING    陪读课(订单课)
      */
     var productType = ""
     var productTags = ArrayList<String>()
@@ -24,10 +24,10 @@ open class Schedule {
     var productMoneyOfDiscount = ""
 
     /**
-     *  @see ScheduleState.UNACTIVE         未激活
-     *  @see ScheduleState.UNTEACH          未上课
-     *  @see ScheduleState.TAUGHT           已结束
-     *  @see ScheduleState.TEACHING         上课中
+     *  @see CourseState.UNACTIVE         未激活
+     *  @see CourseState.UNTEACH          未上课
+     *  @see CourseState.TAUGHT           已结束
+     *  @see CourseState.TEACHING         上课中
      */
     var state = ""
 

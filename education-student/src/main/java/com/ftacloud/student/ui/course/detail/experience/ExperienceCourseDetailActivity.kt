@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.course.detail.experience
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -12,6 +13,7 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.CourseDetail
 import com.sugar.library.ui.view.CircleImageView
 import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
 import kotlinx.android.synthetic.main.activity_course_detail.*
 
 /**
@@ -25,7 +27,12 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
     override fun getLayoutId() = R.layout.activity_course_detail
 
     override fun initViews() {
-
+                    if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID) ) {
+                                finish()
+                                return
+                            }
+        val scheduleId = intent.extras!!.getString(Constants.PARAM_ID, "")
+        presenter.getCourseDetail(this,scheduleId)
     }
 
     override fun bindData(it: CourseDetail) {

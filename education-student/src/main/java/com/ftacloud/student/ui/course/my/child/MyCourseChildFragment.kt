@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.MyCourse
-import com.ftacloud.student.frames.entity.home.ScheduleState
+import com.ftacloud.student.frames.entity.home.CourseState
 import com.ftacloud.student.ui.course.detail.live.LiveActivity
 import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
@@ -54,7 +54,7 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
         adapter.setOnItemClickListener {
             val myCourse = adapter.allData[it]
 
-            if (myCourse.state.contains(ScheduleState.UNTEACH.name)) {
+            if (myCourse.state.contains(CourseState.UNTEACH.name)) {
                 // 未开课,
                 startActivity(NoClassActivity::class.java)
             } else {

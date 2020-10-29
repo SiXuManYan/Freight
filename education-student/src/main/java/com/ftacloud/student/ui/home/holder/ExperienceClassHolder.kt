@@ -8,8 +8,8 @@ import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.SpanUtils
 import com.blankj.utilcode.util.StringUtils
 import com.ftacloud.student.R
-import com.ftacloud.student.frames.entity.home.Schedule
-import com.ftacloud.student.frames.entity.home.ScheduleState
+import com.ftacloud.student.frames.entity.home.Course
+import com.ftacloud.student.frames.entity.home.CourseState
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.ui.view.countdown.CountDownTextView
 import kotlinx.android.extensions.LayoutContainer
@@ -21,11 +21,11 @@ import kotlinx.android.synthetic.main.item_home_class_experience.*
  *  体验课
  *  根据状态区分倒计时
  */
-class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(parent, R.layout.item_home_class_experience), LayoutContainer {
+class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent, R.layout.item_home_class_experience), LayoutContainer {
 
     override val containerView: View? get() = itemView
 
-    override fun setData(data: Schedule?) {
+    override fun setData(data: Course?) {
         if (data == null) {
             return
         }
@@ -33,7 +33,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(p
         content_tv.text = data.productIntroduce
 
 
-        if (data.state.contains( ScheduleState.UNACTIVE.name)) {
+        if (data.state.contains( CourseState.UNACTIVE.name)) {
             // 未预约体验课
             content_switcher.displayedChild = 0
             card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_f9a74d))
@@ -56,7 +56,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(p
 
             when (data.state) {
 
-                ScheduleState.UNTEACH.name -> {
+                CourseState.UNTEACH.name -> {
 
                     if (data.countDownToStudyTimeSeconds > 0) {
                         count_down_ll.visibility = View.VISIBLE
@@ -67,12 +67,12 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(p
                     }
 
                 }
-                ScheduleState.TAUGHT.name -> {
+                CourseState.TAUGHT.name -> {
                     product_state_tv.text = "已结束"
                     count_down_ll.visibility = View.GONE
                 }
 
-                ScheduleState.TEACHING.name -> {
+                CourseState.TEACHING.name -> {
                     product_state_tv.text = "上课中"
                     count_down_ll.visibility = View.GONE
                 }
@@ -84,7 +84,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(p
 
     }
 
-    private fun initCountDown(data: Schedule) {
+    private fun initCountDown(data: Course) {
         val endTime = data.countDownToStudyTimeSeconds
         if (endTime <= 0) {
             return

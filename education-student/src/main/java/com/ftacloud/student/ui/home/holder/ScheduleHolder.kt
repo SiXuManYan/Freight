@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.blankj.utilcode.util.TimeUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.home.NativeClassSchedule
-import com.ftacloud.student.frames.entity.home.Schedule
+import com.ftacloud.student.frames.entity.home.Course
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.util.TimeUtil
 import kotlinx.android.extensions.LayoutContainer
@@ -22,13 +22,13 @@ class ScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<NativeClassSchedul
     override val containerView: View? get() = itemView
 
 
-    var mon = ArrayList<Schedule>()
-    var tues = ArrayList<Schedule>()
-    var wed = ArrayList<Schedule>()
-    var thur = ArrayList<Schedule>()
-    var fri = ArrayList<Schedule>()
-    var sta = ArrayList<Schedule>()
-    var sun = ArrayList<Schedule>()
+    var mon = ArrayList<Course>()
+    var tues = ArrayList<Course>()
+    var wed = ArrayList<Course>()
+    var thur = ArrayList<Course>()
+    var fri = ArrayList<Course>()
+    var sta = ArrayList<Course>()
+    var sun = ArrayList<Course>()
 
 
     override fun setData(data: NativeClassSchedule?) {

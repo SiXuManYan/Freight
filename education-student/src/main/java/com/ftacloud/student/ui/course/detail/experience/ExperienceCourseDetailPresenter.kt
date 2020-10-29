@@ -19,8 +19,7 @@ class ExperienceCourseDetailPresenter @Inject constructor(private var view: Expe
     /**
      * 获取验证码
      */
-    fun setUserInfo(lifecycle: LifecycleOwner, id: String) {
-
+    fun getCourseDetail(lifecycle: LifecycleOwner, id: String) {
 
         val apply = CourseDetailRequest().apply {
             scheduleId = id

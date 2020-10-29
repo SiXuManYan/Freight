@@ -69,10 +69,10 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
         }
 
         // 体验课
-        val experienceClass = ArrayList<Schedule>()
+        val experienceClass = ArrayList<Course>()
 
         // 普通课
-        val commonClass = ArrayList<Schedule>()
+        val commonClass = ArrayList<Course>()
 
         // 课程表
         val classSchedule = ArrayList<NativeClassSchedule>()
@@ -81,18 +81,18 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
         if (data.has(scheduleOuts)) {
 
             // 源
-            val scheduleOuts = gson.fromJson<ArrayList<Schedule>>(data.get(scheduleOuts), genericType<ArrayList<Schedule>>())
+            val scheduleOuts = gson.fromJson<ArrayList<Course>>(data.get(scheduleOuts), genericType<ArrayList<Course>>())
 
             scheduleOuts.forEach {
 
-                if (it.productType.contains(ScheduleProductType.EXPERIENCE.name)) {
+                if (it.productType.contains(CourseProductType.EXPERIENCE.name)) {
                     experienceClass.add(it)
                 } else {
                     commonClass.add(it)
                 }
 
                 // 课程表(所有未上课的数据)
-                if (it.state.contains(ScheduleState.UNTEACH.name)) {
+                if (it.state.contains(CourseState.UNTEACH.name)) {
                     classSchedule.add(NativeClassSchedule().apply {
                         nativeData.add(it)
                     })

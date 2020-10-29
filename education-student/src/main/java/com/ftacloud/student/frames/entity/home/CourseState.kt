@@ -5,7 +5,7 @@ package com.ftacloud.student.frames.entity.home
  * </br>
  *
  */
-enum class ScheduleState {
+enum class CourseState {
 
 
     /** 未激活 */

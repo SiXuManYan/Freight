@@ -25,6 +25,6 @@ class Home {
     /**
      * 课程
      */
-    var scheduleOuts = ArrayList<Schedule>()
+    var scheduleOuts = ArrayList<Course>()
 
 }

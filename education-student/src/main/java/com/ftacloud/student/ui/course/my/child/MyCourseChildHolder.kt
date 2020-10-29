@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.MyCourse
-import com.ftacloud.student.frames.entity.home.Schedule
-import com.ftacloud.student.frames.entity.home.ScheduleState
+import com.ftacloud.student.frames.entity.home.CourseState
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.ui.view.countdown.CountDownTextView
 import kotlinx.android.extensions.LayoutContainer
@@ -34,16 +33,16 @@ class MyCourseChildHolder (parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(pa
         content_tv.text = data.teacherName
 
         when  {
-            data.state.contains(ScheduleState.UNTEACH.name) -> {
+            data.state.contains(CourseState.UNTEACH.name) -> {
                 // 未上课，显示倒计时
                 course_vs.displayedChild = 1
                 initCountDown(data)
             }
-            data.state.contains(ScheduleState.TAUGHT.name)  -> {
+            data.state.contains(CourseState.TAUGHT.name)  -> {
                 course_vs.displayedChild = 0
                 status_tv.text = context.getString(R.string.class_end)
             }
-            data.state.contains(ScheduleState.TEACHING.name) -> {
+            data.state.contains(CourseState.TEACHING.name) -> {
                 course_vs.displayedChild = 0
                 status_tv.text = context.getString(R.string.class_teaching)
             }
