@@ -4,10 +4,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class MyVoucherListModule {
+class OrderChildModule {
 
     @Provides
-    fun viewProvider(fragment: MyVoucherListFragment): MyVoucherListView {
+    fun viewProvider(fragment: OrderChildFragment): OrderChildView {
         return fragment
     }
 }

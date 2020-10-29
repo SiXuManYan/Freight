@@ -1,7 +1,5 @@
 package com.ftacloud.student.ui.order.detail
 
-import com.ftacloud.student.ui.order.list.MyVoucherActivity
-import com.ftacloud.student.ui.order.list.MyVoucherView
 import dagger.Module
 import dagger.Provides
 

@@ -1,6 +1,6 @@
 package com.ftacloud.student.ui.order.list.child
 
-import com.ftacloud.student.frames.entity.Voucher
+import com.ftacloud.student.frames.entity.Order
 import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
 
 /**
@@ -8,7 +8,7 @@ import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
  * </br>
  *  券包
  */
-interface MyVoucherListView : BaseNoJsonListView2<Voucher> {
+interface OrderChildView : BaseNoJsonListView2<Order> {
 
 
 

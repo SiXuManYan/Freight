@@ -5,22 +5,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
-import com.ftacloud.student.frames.entity.Voucher
+import com.ftacloud.student.frames.entity.Order
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
 
 /**
  * 我的代金券列表
  */
-class MyVoucherListFragment : BaseRefreshListFragment<Voucher, MyVoucherListPresenter>(), MyVoucherListView {
+class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>(), OrderChildView {
 
     companion object {
 
         /**
          * @param categoryValue tab类别，全部时传空
          */
-        fun newInstance(categoryValue: Int): MyVoucherListFragment {
-            val fragment = MyVoucherListFragment()
+        fun newInstance(categoryValue: Int): OrderChildFragment {
+            val fragment = OrderChildFragment()
             val args = Bundle()
             args.putInt(Constants.PARAM_TYPE, categoryValue)
             fragment.arguments = args
@@ -42,12 +42,12 @@ class MyVoucherListFragment : BaseRefreshListFragment<Voucher, MyVoucherListPres
     }
 
 
-    override fun getRecyclerAdapter(): RecyclerArrayAdapter<Voucher> {
+    override fun getRecyclerAdapter(): RecyclerArrayAdapter<Order> {
 
-        val adapter = object : RecyclerArrayAdapter<Voucher>(context) {
-            override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): VoucherViewHolder {
+        val adapter = object : RecyclerArrayAdapter<Order>(context) {
+            override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): OrderChildHolder {
 
-                val holder = VoucherViewHolder(parent)
+                val holder = OrderChildHolder(parent)
 
 
                 return holder

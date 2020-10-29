@@ -2,17 +2,17 @@ package com.ftacloud.student.ui.order.list.child
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.ftacloud.student.frames.entity.Voucher
+import com.ftacloud.student.frames.entity.Order
 import com.ftacloud.student.frames.entity.request.ListRequest
 import com.ftacloud.student.frames.network.response.BasePresenter
-import com.ftacloud.student.ui.order.list.MyVoucherActivity.Companion.TYPE_ORDER_PAID
-import com.ftacloud.student.ui.order.list.MyVoucherActivity.Companion.TYPE_ORDER_UNPAID
+import com.ftacloud.student.ui.order.list.OrderActivity.Companion.TYPE_ORDER_PAID
+import com.ftacloud.student.ui.order.list.OrderActivity.Companion.TYPE_ORDER_UNPAID
 import com.google.gson.JsonArray
 import com.sugar.library.frames.network.subscriber.BaseJsonArrayHttpSubscriber
 import java.util.*
 import javax.inject.Inject
 
-class MyVoucherListPresenter @Inject constructor(private var view: MyVoucherListView) : BasePresenter(view) {
+class OrderChildPresenter @Inject constructor(private var view: OrderChildView) : BasePresenter(view) {
 
 
     fun loadOrderList(lifecycle: LifecycleOwner, pageSize: Int, lastItemId: String?, categoryValue: Int?) {
@@ -37,9 +37,9 @@ class MyVoucherListPresenter @Inject constructor(private var view: MyVoucherList
                 }
             },
 
-            object : BaseJsonArrayHttpSubscriber<Voucher>(view) {
+            object : BaseJsonArrayHttpSubscriber<Order>(view) {
 
-                override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<Voucher>, lastItemId: String?) {
+                override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<Order>, lastItemId: String?) {
                     view.bindList(list, lastItemId)
                 }
             }

@@ -49,7 +49,7 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
         setMainTitle(getString(R.string.test_question_title))
         initEvent()
         initRecycleView()
-        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID)||!intent.extras!!.containsKey(Constants.PARAM_STUDENT_ID)) {
+        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID) || !intent.extras!!.containsKey(Constants.PARAM_STUDENT_ID)) {
             finish()
             return
         }
@@ -181,7 +181,7 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
                 }
             }
             R.id.back_home_tv -> {
-                startActivityClearTop(MainActivity::class.java,null)
+                startActivityClearTop(MainActivity::class.java, null)
                 finish()
             }
             else -> {

@@ -10,10 +10,9 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.course.my.MyCourseActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.message.MessageActivity
-import com.ftacloud.student.ui.order.list.MyVoucherActivity
+import com.ftacloud.student.ui.order.list.OrderActivity
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.task.TaskActivity
-import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.ftacloud.student.ui.tests.my.MyTestActivity
 import com.ftacloud.student.ui.user.UserActivity
 import com.sugar.library.ui.view.CircleImageView
@@ -71,7 +70,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         }
 
         header.findViewById<RelativeLayout>(R.id.menu_my_order).setOnClickListener {
-            startActivity(MyVoucherActivity::class.java)
+            startActivity(OrderActivity::class.java)
 
         }
         header.findViewById<RelativeLayout>(R.id.menu_my_customer_service).setOnClickListener {

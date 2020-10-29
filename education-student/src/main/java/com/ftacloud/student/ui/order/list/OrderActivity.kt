@@ -3,13 +3,13 @@ package com.ftacloud.student.ui.order.list
 import com.blankj.utilcode.util.StringUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
-import com.ftacloud.student.ui.order.list.child.MyVoucherListFragment
+import com.ftacloud.student.ui.order.list.child.OrderChildFragment
 import kotlinx.android.synthetic.main.activity_my_voucher.*
 
 /**
  * 我的订单
  */
-class MyVoucherActivity : BaseMVPActivity<MyVoucherPresenter>(), MyVoucherView {
+class OrderActivity : BaseMVPActivity<OrderPresenter>(), OrderView {
 
     companion object {
         internal val TAB_TITLES = arrayListOf(
@@ -60,7 +60,7 @@ class MyVoucherActivity : BaseMVPActivity<MyVoucherPresenter>(), MyVoucherView {
 
     internal class PagerAdapter(fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
 
-        override fun getItem(position: Int) = MyVoucherListFragment.newInstance(position)
+        override fun getItem(position: Int) = OrderChildFragment.newInstance(position)
 
         override fun getCount() = TAB_TITLES.size
     }

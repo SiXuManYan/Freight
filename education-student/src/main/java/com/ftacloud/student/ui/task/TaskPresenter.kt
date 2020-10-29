@@ -2,12 +2,9 @@ package com.ftacloud.student.ui.task
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.entity.Task
-import com.ftacloud.student.frames.entity.Voucher
 import com.ftacloud.student.frames.entity.request.ListRequest
 import com.ftacloud.student.frames.network.response.BasePresenter
-import com.ftacloud.student.ui.order.list.MyVoucherActivity
 import com.google.gson.JsonArray
 import com.sugar.library.frames.network.subscriber.BaseJsonArrayHttpSubscriber
 import java.util.ArrayList

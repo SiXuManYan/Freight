@@ -8,7 +8,7 @@ import androidx.room.FtsOptions.Order
  * </br>
  *
  */
-class Voucher {
+class Order {
 
     enum class OrderState {
         WAIT_PAY,

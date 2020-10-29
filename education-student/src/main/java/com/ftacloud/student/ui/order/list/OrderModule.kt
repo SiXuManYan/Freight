@@ -4,10 +4,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class MyVoucherModule {
+class OrderModule {
 
     @Provides
-    fun viewProvider(activity: MyVoucherActivity): MyVoucherView {
+    fun viewProvider(activity: OrderActivity): OrderView {
         return activity
     }
 }

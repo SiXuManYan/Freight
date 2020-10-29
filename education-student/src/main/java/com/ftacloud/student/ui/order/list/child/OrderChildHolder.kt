@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import com.blankj.utilcode.util.StringUtils
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
-import com.ftacloud.student.frames.entity.Voucher
+import com.ftacloud.student.frames.entity.Order
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.ui.view.countdown.CountDownTextView
 import kotlinx.android.extensions.LayoutContainer
@@ -18,12 +18,12 @@ import kotlinx.android.synthetic.main.item_order.*
  * @author dengxh
  * @date 2018/11/18
  */
-class VoucherViewHolder(parent: ViewGroup?) : BaseItemViewHolder<Voucher>(parent, R.layout.item_order), LayoutContainer {
+class OrderChildHolder(parent: ViewGroup?) : BaseItemViewHolder<Order>(parent, R.layout.item_order), LayoutContainer {
 
     override val containerView: View? get() = itemView
 
 
-    override fun setData(data: Voucher?) {
+    override fun setData(data: Order?) {
         if (data == null) {
             return
         }
@@ -34,7 +34,7 @@ class VoucherViewHolder(parent: ViewGroup?) : BaseItemViewHolder<Voucher>(parent
 
         order_status_tv.text = data.state.substring(data.state.indexOf("-") + 1)
 
-        if (data.state.contains(Voucher.OrderState.WAIT_PAY.name)) {
+        if (data.state.contains(Order.OrderState.WAIT_PAY.name)) {
             pay_tv.visibility = View.VISIBLE
             expired_time_tv.visibility = View.VISIBLE
 

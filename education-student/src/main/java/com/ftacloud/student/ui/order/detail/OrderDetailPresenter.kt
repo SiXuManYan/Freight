@@ -1,7 +1,6 @@
 package com.ftacloud.student.ui.order.detail
 
 import com.ftacloud.student.frames.network.response.BasePresenter
-import com.ftacloud.student.ui.order.list.MyVoucherView
 import javax.inject.Inject
 
 /**
