@@ -1,6 +1,7 @@
-package com.ftacloud.student.ui.course.schedule.detail
+package com.ftacloud.student.ui.course.detail.prepare
 
 import com.ftacloud.student.frames.network.response.BasePresenter
+import com.ftacloud.student.ui.course.detail.prepare.NoClassView
 import javax.inject.Inject
 
 /**

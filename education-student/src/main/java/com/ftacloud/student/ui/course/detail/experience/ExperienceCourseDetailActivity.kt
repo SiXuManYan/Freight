@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.course.my.detail
+package com.ftacloud.student.ui.course.detail.experience
 
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +17,9 @@ import kotlinx.android.synthetic.main.activity_course_detail.*
 /**
  * Created by Wangsw on 2020/9/23 0023 9:57.
  * </br>
- *  课程详情
+ *  体验课详情
  */
-class CourseDetailActivity : BaseMVPActivity<CourseDetailPresenter>(), CourseDetailView {
+class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPresenter>(), ExperienceCourseDetailView {
 
 
     override fun getLayoutId() = R.layout.activity_course_detail

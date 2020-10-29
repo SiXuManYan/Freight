@@ -1,36 +1,65 @@
 package com.ftacloud.student.ui.course.my
 
-import android.view.ViewGroup
+import com.blankj.utilcode.util.StringUtils
 import com.ftacloud.student.R
-import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
-import com.ftacloud.student.frames.entity.MyCourse
-import com.jude.easyrecyclerview.adapter.BaseViewHolder
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
+import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.ftacloud.student.ui.course.my.child.MyCourseChildFragment
+import com.ftacloud.student.ui.order.list.OrderActivity
+import kotlinx.android.synthetic.main.activity_my_course.*
 
 /**
- * Created by Wangsw on 2020/9/27 0027 10:03.
+ * Created by Wangsw on 2020/10/29 0029 13:35.
  * </br>
- *  我的课程 - > 课程详情
+ *  我的课程
  */
-class MyCourseActivity: BaseRefreshListActivity<MyCourse, MyCoursePresenter>(), MyCourseView {
+class MyCourseActivity : BaseMVPActivity<MyCoursePresenter>(), MyCourseView {
 
-    override fun getMainTitle() = R.string.my_schedule_title
 
-    override fun getRecyclerAdapter(): RecyclerArrayAdapter<MyCourse> {
-        val adapter = object : RecyclerArrayAdapter<MyCourse>(context) {
+    companion object {
+        internal val TAB_TITLES = arrayListOf(
+            StringUtils.getString(R.string.course_un_teach),
+            StringUtils.getString(R.string.course_already_teach)
+        )
 
-            override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<MyCourse> {
-                val holder = MyCourseHolder(parent)
+        /** 未开课  */
+        val COURSE_UN_TEACH = 0
 
-                return holder
-            }
-
-        }
-        adapter.setOnItemClickListener {
-
-        }
-        return adapter
+        /** 已开课 */
+        val COURSE_ALREADY_TEACH = 1
     }
 
+
+    override fun getLayoutId() = R.layout.activity_my_course
+
+
+    override fun initViews() {
+        setMainTitle(getString(R.string.my_course))
+
+        pager.adapter = PagerAdapter(supportFragmentManager)
+        tabs_type.setViewPager(pager, TAB_TITLES.toTypedArray())
+        pager.offscreenPageLimit = TAB_TITLES.size
+    }
+
+    override fun onTabSelect(position: Int) {
+        pager.currentItem = position
+    }
+
+    override fun onTabReselect(position: Int) = Unit
+
+    override fun onPageScrollStateChanged(state: Int) = Unit
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
+
+    override fun onPageSelected(position: Int) {
+        tabs_type.currentTab = position
+    }
+
+
+    internal class PagerAdapter(fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
+
+        override fun getItem(position: Int) = MyCourseChildFragment.newInstance(position)
+
+        override fun getCount() = TAB_TITLES.size
+    }
 
 }

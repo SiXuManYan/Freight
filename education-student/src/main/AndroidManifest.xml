@@ -109,18 +109,18 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.settings.SettingActivity" />
         <activity android:name=".ui.tests.TestConditionActivity" />
-        <activity android:name=".ui.course.my.detail.CourseDetailActivity" />
+        <activity android:name=".ui.course.detail.experience.ExperienceCourseDetailActivity" />
         <activity android:name=".ui.message.MessageActivity" />
         <activity android:name=".ui.course.schedule.ClassScheduleActivity" />
-        <activity android:name=".ui.course.my.MyCourseActivity" />
         <activity android:name=".ui.task.detail.TaskDetailActivity" />
         <activity android:name=".ui.task.TaskActivity" />
         <activity android:name=".ui.tests.my.MyTestActivity" />
-        <activity android:name=".ui.course.schedule.detail.NoClassActivity" />
+        <activity android:name=".ui.course.detail.prepare.NoClassActivity" />
         <activity android:name=".ui.user.UserActivity" />
         <activity android:name=".ui.order.list.OrderActivity" />
         <activity android:name=".ui.order.detail.OrderDetailActivity" />
         <activity android:name=".ui.tests.question.TestQuestionActivity" />
+        <activity android:name=".ui.course.my.MyCourseActivity" />
 
     </application>
 

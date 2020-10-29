@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.course.schedule.detail
+package com.ftacloud.student.ui.course.detail.prepare
 
 import com.sugar.library.frames.network.response.BaseTaskView
 

@@ -1,13 +1,10 @@
-package com.ftacloud.student.ui.course.my.detail
+package com.ftacloud.student.ui.course.detail.experience
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.entity.CourseDetail
 import com.ftacloud.student.frames.entity.request.CourseDetailRequest
-import com.ftacloud.student.frames.entity.request.SetUserInfo
 import com.ftacloud.student.frames.network.response.BasePresenter
-import com.google.gson.JsonElement
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import javax.inject.Inject
 
@@ -16,7 +13,7 @@ import javax.inject.Inject
  * </br>
  *
  */
-class CourseDetailPresenter @Inject constructor(private var view: CourseDetailView) : BasePresenter(view) {
+class ExperienceCourseDetailPresenter @Inject constructor(private var view: ExperienceCourseDetailView) : BasePresenter(view) {
 
 
     /**

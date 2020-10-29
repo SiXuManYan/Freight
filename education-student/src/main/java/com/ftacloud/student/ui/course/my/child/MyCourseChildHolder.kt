@@ -1,10 +1,11 @@
-package com.ftacloud.student.ui.home.holder
+package com.ftacloud.student.ui.course.my.child
 
 import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
+import com.ftacloud.student.frames.entity.MyCourse
 import com.ftacloud.student.frames.entity.home.Schedule
 import com.ftacloud.student.frames.entity.home.ScheduleState
 import com.sugar.library.frames.BaseItemViewHolder
@@ -13,27 +14,24 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_course_common.*
 
 /**
- * Created by Wangsw on 2020/10/13 0013 11:17.
+ * Created by Wangsw on 2020/9/27 0027 10:07.
  * </br>
- *  普通课程 (只有蓝色)
+ *  我的课程  --> 课程详情
  */
-class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(parent, R.layout.item_home_course_common), LayoutContainer {
+class MyCourseChildHolder (parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(parent, R.layout.item_home_course_common), LayoutContainer {
 
     override val containerView: View? get() = itemView
 
 
-    override fun setData(data: Schedule?) {
+    override fun setData(data: MyCourse?) {
         if (data == null) {
             return
         }
-        Glide.with(context).load(data.courseIconImg).into(image_iv)
-        title_tv.text = data.productName
 
-        content_tv.text = data.teacherName
+        Glide.with(context).load(data.productIconImg).into(image_iv)
         Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
-
-
-
+        title_tv.text = data.productName
+        content_tv.text = data.teacherName
 
         when  {
             data.state.contains(ScheduleState.UNTEACH.name) -> {
@@ -50,12 +48,11 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(paren
                 status_tv.text = context.getString(R.string.class_teaching)
             }
         }
-
-
     }
 
-    private fun initCountDown(data: Schedule) {
-        val endTime = data.countDownToStudyTimeSeconds
+
+    private fun initCountDown(data: MyCourse) {
+        val endTime = data.countDownStudySeconds
         if (endTime <= 0) {
             return
         }
@@ -86,6 +83,9 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Schedule>(paren
 
 
     }
+
+
+
 
 
 }

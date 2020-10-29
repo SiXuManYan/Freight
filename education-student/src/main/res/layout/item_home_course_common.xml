@@ -44,9 +44,9 @@
                 android:layout_toEndOf="@+id/image_iv"
                 android:ellipsize="end"
                 android:maxLines="1"
-                tools:text="3~6岁萌娃充能课程"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/sp16" />
+                android:textSize="@dimen/sp16"
+                tools:text="3~6岁萌娃充能课程" />
 
 
             <LinearLayout
@@ -72,9 +72,9 @@
                     android:layout_marginTop="@dimen/dp2"
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.2"
-                    tools:text="适合3-6岁萌娃，快速提高英语口语，简介课程简介课程简介"
                     android:textColor="@color/color_80ffffff"
-                    android:textSize="@dimen/sp13" />
+                    android:textSize="@dimen/sp13"
+                    tools:text="适合3-6岁萌娃，快速提高英语口语，简介课程简介课程简介" />
             </LinearLayout>
 
 
@@ -87,123 +87,111 @@
                 android:background="@color/color_80ffffff" />
 
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp25"
+                android:layout_alignParentBottom="true">
 
 
+                <ViewSwitcher
+                    android:id="@+id/course_vs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true">
 
-
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_alignParentBottom="true"
-                    android:layout_height="@dimen/dp25">
-
-
-                    <ViewSwitcher
-                        android:id="@+id/course_vs"
+                    <TextView
+                        android:id="@+id/status_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true">
+                        android:layout_marginEnd="@dimen/dp2"
+                        android:background="@drawable/stock_4_red_f94d4d"
+                        android:ellipsize="end"
+                        android:lineSpacingMultiplier="1.2"
+                        android:paddingStart="@dimen/dp4"
+                        android:paddingTop="@dimen/dp2"
+                        android:paddingEnd="@dimen/dp4"
+                        android:paddingBottom="@dimen/dp2"
+                        android:singleLine="true"
+                        android:text="@string/class_not_started"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sp12" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
 
                         <TextView
-                            android:id="@+id/status_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/dp2"
-                            android:background="@drawable/stock_4_red_f94d4d"
+                            android:background="@drawable/stock_4_gray_33ffffff"
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.2"
-                            android:paddingStart="@dimen/dp4"
+                            android:paddingStart="@dimen/dp3"
                             android:paddingTop="@dimen/dp2"
-                            android:paddingEnd="@dimen/dp4"
+                            android:paddingEnd="@dimen/dp3"
                             android:paddingBottom="@dimen/dp2"
                             android:singleLine="true"
-                            android:text="@string/class_not_started"
-                            android:textColor="@color/font_white"
-                            android:textSize="@dimen/sp12" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/dp2"
-                                android:background="@drawable/stock_4_gray_33ffffff"
-                                android:ellipsize="end"
-                                android:lineSpacingMultiplier="1.2"
-                                android:paddingStart="@dimen/dp3"
-                                android:paddingTop="@dimen/dp2"
-                                android:paddingEnd="@dimen/dp3"
-                                android:paddingBottom="@dimen/dp2"
-                                android:singleLine="true"
-                                android:text="开课时间"
-                                android:textColor="@color/color_80ffffff"
-                                android:textSize="@dimen/sp12" />
-
-
-                            <com.sugar.library.ui.view.countdown.CountDownTextView
-                                android:id="@+id/countdown_tv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/dp2"
-                                android:ellipsize="end"
-                                android:lineSpacingMultiplier="1.2"
-                                android:paddingStart="@dimen/dp3"
-                                android:paddingTop="@dimen/dp2"
-                                android:paddingEnd="@dimen/dp3"
-                                android:paddingBottom="@dimen/dp2"
-                                android:singleLine="true"
-                                android:textColor="@color/color_80ffffff"
-                                android:textSize="@dimen/sp12"
-                                tools:text="10 : 11 : 11" />
-
-
-                        </LinearLayout>
-
-
-                    </ViewSwitcher>
-
-
-                    <LinearLayout
-                        android:id="@+id/enter_ll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/dp5"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.2"
-                            android:singleLine="true"
-                            android:text="进入教室"
+                            android:text="开课时间"
                             android:textColor="@color/color_80ffffff"
                             android:textSize="@dimen/sp12" />
 
 
-                        <ImageView
-                            android:layout_width="@dimen/dp12"
-                            android:layout_height="@dimen/dp12"
-                            android:layout_gravity="center_vertical"
-                            android:src="@mipmap/ic_temp7" />
+                        <com.sugar.library.ui.view.countdown.CountDownTextView
+                            android:id="@+id/countdown_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp2"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.2"
+                            android:paddingStart="@dimen/dp3"
+                            android:paddingTop="@dimen/dp2"
+                            android:paddingEnd="@dimen/dp3"
+                            android:paddingBottom="@dimen/dp2"
+                            android:singleLine="true"
+                            android:textColor="@color/color_80ffffff"
+                            android:textSize="@dimen/sp12"
+                            tools:text="10 : 11 : 11" />
+
 
                     </LinearLayout>
 
 
-                </RelativeLayout>
+                </ViewSwitcher>
 
 
+                <LinearLayout
+                    android:id="@+id/enter_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp5"
+                        android:ellipsize="end"
+                        android:lineSpacingMultiplier="1.2"
+                        android:singleLine="true"
+                        android:text="进入教室"
+                        android:textColor="@color/color_80ffffff"
+                        android:textSize="@dimen/sp12" />
 
 
+                    <ImageView
+                        android:layout_width="@dimen/dp12"
+                        android:layout_height="@dimen/dp12"
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/ic_temp7" />
+
+                </LinearLayout>
 
 
+            </RelativeLayout>
 
 
         </RelativeLayout>

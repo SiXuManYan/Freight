@@ -4,7 +4,7 @@ import com.blankj.utilcode.util.StringUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.order.list.child.OrderChildFragment
-import kotlinx.android.synthetic.main.activity_my_voucher.*
+import kotlinx.android.synthetic.main.activity_my_order.*
 
 /**
  * 我的订单
@@ -33,7 +33,7 @@ class OrderActivity : BaseMVPActivity<OrderPresenter>(), OrderView {
     }
 
 
-    override fun getLayoutId() = R.layout.activity_my_voucher
+    override fun getLayoutId() = R.layout.activity_my_order
 
     override fun initViews() {
         setMainTitle(getString(R.string.order_title))
@@ -51,8 +51,7 @@ class OrderActivity : BaseMVPActivity<OrderPresenter>(), OrderView {
 
     override fun onPageScrollStateChanged(state: Int) = Unit
 
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-    }
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
 
     override fun onPageSelected(position: Int) {
         tabs_type.currentTab = position

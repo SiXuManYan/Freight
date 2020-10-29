@@ -4,17 +4,17 @@ import dagger.Module
 import dagger.Provides
 
 /**
- * Created by Wangsw on 2020/9/27 0027 10:03.
+ * Created by Wangsw on 2020/10/29 0029 13:35.
  * </br>
  *
  */
-
 @Module
 class MyCourseModule {
 
     @Provides
-    fun viewProvider(activity: MyCourseActivity): MyCourseView {
-        return activity
+    fun viewProvider(act: MyCourseActivity): MyCourseView {
+        return act
     }
+
 
 }

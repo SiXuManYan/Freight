@@ -1,17 +1,12 @@
 package com.ftacloud.student.ui.course.my
 
-import com.ftacloud.student.frames.entity.MyCourse
-import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
+import com.flyco.tablayout.listener.OnTabSelectListener
+import com.sugar.library.frames.network.response.BaseView
 
 /**
- * Created by Wangsw on 2020/9/27 0027 10:03.
+ * Created by Wangsw on 2020/10/29 0029 13:34.
  * </br>
  *
  */
-interface MyCourseView : BaseNoJsonListView2<MyCourse> {
-
-
-
-
-
+interface MyCourseView : BaseView, OnTabSelectListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener{
 }

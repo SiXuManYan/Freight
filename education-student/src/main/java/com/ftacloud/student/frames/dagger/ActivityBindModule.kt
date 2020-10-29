@@ -14,14 +14,16 @@ import com.ftacloud.student.ui.account.register.RegisterActivity
 import com.ftacloud.student.ui.account.register.RegisterModule
 import com.ftacloud.student.ui.account.forget.ForgetActivity
 import com.ftacloud.student.ui.account.forget.ForgetModule
-import com.ftacloud.student.ui.course.my.detail.CourseDetailActivity
-import com.ftacloud.student.ui.course.my.detail.CourseDetailModule
-import com.ftacloud.student.ui.course.my.MyCourseActivity
-import com.ftacloud.student.ui.course.my.MyCourseModule
+import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity
+import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailModule
+import com.ftacloud.student.ui.course.my.child.MyCourseChildFragment
+import com.ftacloud.student.ui.course.my.child.MyCourseChildModule
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleModule
-import com.ftacloud.student.ui.course.schedule.detail.NoClassActivity
-import com.ftacloud.student.ui.course.schedule.detail.NoClassModule
+import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
+import com.ftacloud.student.ui.course.detail.prepare.NoClassModule
+import com.ftacloud.student.ui.course.my.MyCourseActivity
+import com.ftacloud.student.ui.course.my.MyCourseModule
 import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.message.MessageModule
 import com.ftacloud.student.ui.order.detail.OrderDetailActivity
@@ -91,8 +93,8 @@ abstract class ActivityBindModule {
     abstract fun i(): TestConditionActivity
 
     @ActivityScore
-    @ContributesAndroidInjector(modules = [CourseDetailModule::class])
-    abstract fun j(): CourseDetailActivity
+    @ContributesAndroidInjector(modules = [ExperienceCourseDetailModule::class])
+    abstract fun j(): ExperienceCourseDetailActivity
 
     @ActivityScore
     @ContributesAndroidInjector(modules = [MessageModule::class])
@@ -104,7 +106,7 @@ abstract class ActivityBindModule {
     abstract fun l(): ClassScheduleActivity
 
     @ActivityScore
-    @ContributesAndroidInjector(modules = [MyCourseModule::class])
+    @ContributesAndroidInjector(modules = [FragmentBindModule::class, MyCourseModule::class])
     abstract fun m(): MyCourseActivity
 
 
@@ -140,6 +142,7 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [TestQuestionModule::class])
     abstract fun u(): TestQuestionActivity
+
 
 
 }

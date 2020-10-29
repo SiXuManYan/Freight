@@ -1,5 +1,7 @@
-package com.ftacloud.student.ui.course.schedule.detail
+package com.ftacloud.student.ui.course.detail.prepare
 
+import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
+import com.ftacloud.student.ui.course.detail.prepare.NoClassView
 import dagger.Module
 import dagger.Provides
 

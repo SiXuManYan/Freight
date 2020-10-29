@@ -65,7 +65,6 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                         HomeConstant.TEST
                     }
                     is Schedule -> {
-
                         if (item.productType.contains(ScheduleProductType.EXPERIENCE.name)) {
                             // 体验课
                             HomeConstant.EXPERIENCE_CLASS
@@ -109,7 +108,14 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     }
                 }
                 is Schedule -> {
+                    if (model.productType.contains(ScheduleProductType.EXPERIENCE.name)) {
+                        // 体验课详情
+                    }else{
+                        // 普通课(区分已上课和未上课)
 
+
+
+                    }
                 }
                 is NativeClassSchedule -> {
                     // 不处理

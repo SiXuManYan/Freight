@@ -156,6 +156,7 @@
     <string name="order_title">我的订单</string>
     <string name="order_id_format">订单ID：%1$s</string>
     <string name="order_detail">订单详情</string>
+
     <string name="task_title">课后任务</string>
     <string name="expiration_time">失效时间:</string>
     <string name="select_english_basis">请选择孩子英语基础</string>
@@ -174,6 +175,11 @@
     <string name="test_question_title">测验详情</string>
     <string name="back_home">返回首页</string>
     <string name="question_submit_success">测评已完成，系统会在24小时内\n给出测评结果，请耐心等待</string>
+
+
+    <string name="course_un_teach">未开课</string>
+    <string name="course_already_teach">已开课</string>
+    <string name="my_course">我的课程</string>
 
 
 </resources>

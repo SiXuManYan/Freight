@@ -1,10 +1,13 @@
 package com.ftacloud.student.frames.dagger
 
 
+import com.ftacloud.student.ui.course.my.child.MyCourseChildFragment
+import com.ftacloud.student.ui.course.my.child.MyCourseChildModule
 import com.ftacloud.student.ui.home.HomeFragment
 import com.ftacloud.student.ui.home.HomeModule
 import com.ftacloud.student.ui.order.list.child.OrderChildFragment
 import com.ftacloud.student.ui.order.list.child.OrderChildModule
+import com.sugar.library.frames.dagger.ActivityScore
 import com.sugar.library.frames.dagger.FragmentScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -25,6 +28,10 @@ abstract class FragmentBindModule {
     @ContributesAndroidInjector(modules = [OrderChildModule::class])
     abstract fun b(): OrderChildFragment
 
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [MyCourseChildModule::class])
+    abstract fun c(): MyCourseChildFragment
 
 }
 
