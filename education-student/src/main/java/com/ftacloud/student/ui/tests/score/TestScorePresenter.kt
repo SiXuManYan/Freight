@@ -31,7 +31,6 @@ class TestScorePresenter @Inject constructor(private var view: TestScoreView) : 
                     return
                 }
 
-
             }
         })
 

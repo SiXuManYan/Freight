@@ -1,60 +1,63 @@
 package com.ftacloud.student.ui.tests.my
 
-import android.view.ViewGroup
+import android.os.Bundle
+import android.view.View
+import butterknife.OnClick
 import com.ftacloud.student.R
-import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
-import com.ftacloud.student.frames.entity.Message
-import com.ftacloud.student.frames.entity.MyTest
-import com.ftacloud.student.ui.message.MessageHolder
-import com.ftacloud.student.ui.message.MessagePresenter
-import com.ftacloud.student.ui.message.MessageView
-import com.ftacloud.student.ui.tests.my.header.MyTestHeader
-import com.ftacloud.student.ui.tests.my.holder.MyTestHolder
+import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.ftacloud.student.storage.entity.User
 import com.ftacloud.student.ui.tests.question.TestQuestionActivity
 import com.ftacloud.student.ui.tests.score.TestScoreActivity
-import com.jude.easyrecyclerview.adapter.BaseViewHolder
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
 
 /**
  * Created by Wangsw on 2020/9/27 0027 19:13.
  * </br>
- * 我的测评列表
+ * 我的测评
  *
  */
-class MyTestActivity : BaseRefreshListActivity<MyTest, MyTestPresenter>(), MyTestView {
+class MyTestActivity : BaseMVPActivity< MyTestPresenter>(), MyTestView {
 
-    override fun getMainTitle() = R.string.my_test_title
+    override fun getLayoutId() = R.layout.activity_my_test
 
     override fun initViews() {
-        super.initViews()
 
-        val myTestHeader = MyTestHeader(this)
-        getAdapter()?.addHeader(myTestHeader)
     }
 
-    override fun getRecyclerAdapter(): RecyclerArrayAdapter<MyTest> {
-        val adapter = object : RecyclerArrayAdapter<MyTest>(context) {
 
-            override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<MyTest> {
-
-                val holder = MyTestHolder(parent)
-
-                return holder
-            }
-
-        }
-
-        adapter.setOnItemClickListener {
+/*
 
             // 评分详情
             startActivity(TestScoreActivity::class.java)
 
             // 测试题详情
             startActivity(TestQuestionActivity::class.java)
+*/
 
 
-        }
-        return adapter
-    }
+
+
+        @OnClick(
+                R.id.test_sore_cv,
+                R.id.test_cv
+            )
+            fun onClick(view: View) {
+                if (CommonUtils.isDoubleClick(view)) {
+                    return
+                }
+                when (view.id) {
+                    R.id.test_sore_cv -> {
+                        startActivity(TestScoreActivity::class.java, Bundle().apply {
+                            putString(Constants.PARAM_STUDENT_ID, User.get().id.toString())
+                        })
+                    }
+                    R.id.test_cv -> {
+                        startActivity(TestQuestionActivity::class.java)
+                    }
+                    else -> {
+                    }
+                }
+            }
+
 }

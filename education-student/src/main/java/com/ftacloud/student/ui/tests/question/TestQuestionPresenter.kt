@@ -21,13 +21,11 @@ import javax.inject.Inject
  */
 class TestQuestionPresenter @Inject constructor(private var view: TestQuestionView) : BasePresenter(view) {
 
-
     fun getQuestion(lifecycleOwner: LifecycleOwner, id: String) {
 
 
         val apply = GetQuestionRequest().apply {
             quizzesId = id
-
         }
 
         requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY, apiService.getQuestion(apply), object : BaseHttpSubscriber<Question>(view) {
