@@ -5,7 +5,9 @@ import androidx.lifecycle.LifecycleOwner
 import com.ftacloud.student.frames.entity.CourseDetail
 import com.ftacloud.student.frames.entity.request.CourseDetailRequest
 import com.ftacloud.student.frames.network.response.BasePresenter
+import com.google.gson.JsonObject
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
+import org.json.JSONObject
 import javax.inject.Inject
 
 /**
@@ -17,7 +19,7 @@ class ExperienceCourseDetailPresenter @Inject constructor(private var view: Expe
 
 
     /**
-     * 获取验证码
+     * 获取体验课详情
      */
     fun getCourseDetail(lifecycle: LifecycleOwner, id: String) {
 
@@ -36,13 +38,28 @@ class ExperienceCourseDetailPresenter @Inject constructor(private var view: Expe
 
                     }
                 }
+            })
 
-                override fun onError(e: Throwable) {
+    }
 
+
+    /**
+     * 获取体验课详情
+     */
+    fun bookingExperience(lifecycle: LifecycleOwner, id: String) {
+
+        val apply = CourseDetailRequest().apply {
+            scheduleId = id
+        }
+
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
+
+            apiService.bookingExperience(apply), object : BaseHttpSubscriber<JsonObject>(view) {
+
+                override fun onSuccess(data: JsonObject?) {
+                        view.bookingExperienceSuccess()
                 }
-
-            }
-        )
+            })
 
     }
 

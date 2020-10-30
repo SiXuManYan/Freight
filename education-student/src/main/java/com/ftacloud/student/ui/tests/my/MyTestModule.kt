@@ -1,7 +1,5 @@
 package com.ftacloud.student.ui.tests.my
 
-import com.ftacloud.student.ui.tests.TestConditionActivity
-import com.ftacloud.student.ui.tests.TestConditionView
 import dagger.Module
 import dagger.Provides
 

@@ -24,11 +24,8 @@ class OrderActivity : BaseMVPActivity<OrderPresenter>(), OrderView {
         /** 未支付 */
         val TYPE_ORDER_UNPAID = 1
 
-
         /** 已支付 */
         val TYPE_ORDER_PAID = 2
-
-
 
     }
 

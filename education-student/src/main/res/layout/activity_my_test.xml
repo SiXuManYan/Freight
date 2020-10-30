@@ -69,8 +69,7 @@
         app:cardUseCompatPadding="false">
 
 
-        <LinearLayout
-
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -78,11 +77,12 @@
 
 
             <TextView
+                android:id="@+id/title_01_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="基础测验"
+                android:text="@string/basic_test"
                 android:textColor="@color/font_white"
                 android:textSize="@dimen/sp16"
                 android:textStyle="bold" />
@@ -91,16 +91,24 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/title_01_tv"
                 android:layout_marginTop="@dimen/dp10"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
                 android:maxLines="2"
-                android:text="已评分"
+                android:text="@string/graded"
                 android:textColor="@color/color_80ffffff"
                 android:textSize="@dimen/sp14" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_right_test"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content"/>
 
-        </LinearLayout>
+
+        </RelativeLayout>
 
 
     </androidx.cardview.widget.CardView>
@@ -121,7 +129,7 @@
         app:cardUseCompatPadding="false">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -129,28 +137,38 @@
 
 
             <TextView
+                android:id="@+id/title_02_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="小朋友英语升级测试"
+                android:text="@string/english_upgrade_test_for_children"
                 android:textColor="@color/font_white"
                 android:textSize="@dimen/sp16"
                 android:textStyle="bold" />
 
             <TextView
+                android:layout_below="@+id/title_02_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
                 android:maxLines="2"
-                android:text="专业分级测验，帮助孩子更好的选择"
+                android:text="@string/desc_for_children"
                 android:textColor="@color/color_80ffffff"
                 android:textSize="@dimen/sp14" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_right_test"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content"/>
 
-        </LinearLayout>
+
+
+        </RelativeLayout>
 
 
     </androidx.cardview.widget.CardView>

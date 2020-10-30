@@ -182,6 +182,11 @@
     <string name="my_course">我的课程</string>
     <string name="course_is_over">课程已结束</string>
     <string name="level_format">评测等级：%1$s级</string>
+    <string name="graded">已评分</string>
+    <string name="basic_test">基础测验</string>
+    <string name="english_upgrade_test_for_children">小朋友英语升级测试</string>
+    <string name="desc_for_children">专业分级测验，帮助孩子更好的选择</string>
+    <string name="reservation_now">立即预约</string>
 
 
 </resources>

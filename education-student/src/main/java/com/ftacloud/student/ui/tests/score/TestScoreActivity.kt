@@ -26,6 +26,4 @@ class TestScoreActivity : BaseMVPActivity<TestScorePresenter>(), TestScoreView {
     }
 
 
-
-
 }

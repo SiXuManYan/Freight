@@ -223,51 +223,72 @@
     </RelativeLayout>
 
 
-    <RelativeLayout
+    <ViewSwitcher
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
-        android:layout_alignParentBottom="true"
-        android:background="@color/font_white"
-        android:paddingStart="@dimen/dp15"
-        android:paddingEnd="@dimen/dp15">
+        android:layout_alignParentBottom="true">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            android:background="@color/font_white"
+            android:paddingStart="@dimen/dp15"
+            android:paddingEnd="@dimen/dp15">
+
+            <TextView
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp5"
+                android:text="@string/detail_course_price"
+                android:textColor="@color/color_zero_level"
+                android:textSize="@dimen/sp13" />
+
+
+            <TextView
+                android:id="@+id/price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/tag1"
+                android:textColor="@color/color_f94d4d"
+                android:textSize="@dimen/sp16"
+                tools:text="$666" />
+
+
+            <TextView
+                android:id="@+id/buy_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/shape_bg_4_red2"
+                android:paddingLeft="@dimen/dp20"
+                android:paddingTop="@dimen/dp5"
+                android:paddingRight="@dimen/dp20"
+                android:paddingBottom="@dimen/dp5"
+                android:text="@string/study_now"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp14" />
+
+        </RelativeLayout>
 
         <TextView
-            android:id="@+id/tag1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/dp5"
-            android:text="@string/detail_course_price"
-            android:textColor="@color/color_zero_level"
-            android:textSize="@dimen/sp13" />
-
-
-        <TextView
-            android:id="@+id/price_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/tag1"
-            android:textColor="@color/color_f94d4d"
-            android:textSize="@dimen/sp16"
-            tools:text="$666" />
-
-
-        <TextView
-            android:id="@+id/study_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/shape_bg_4_red2"
-            android:paddingLeft="@dimen/dp20"
-            android:paddingTop="@dimen/dp5"
-            android:paddingRight="@dimen/dp20"
-            android:paddingBottom="@dimen/dp5"
-            android:text="@string/study_now"
+            android:id="@+id/reservation_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            android:alpha="0.99"
+            android:background="@color/student_yellow"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/reservation_now"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/sp14" />
+            android:textSize="@dimen/sp16" />
 
-    </RelativeLayout>
+    </ViewSwitcher>
+
 
 </RelativeLayout>

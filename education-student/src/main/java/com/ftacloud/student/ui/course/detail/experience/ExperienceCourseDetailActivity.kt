@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import butterknife.OnClick
 import com.blankj.utilcode.util.SizeUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
@@ -27,12 +28,12 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
     override fun getLayoutId() = R.layout.activity_course_detail
 
     override fun initViews() {
-                    if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID) ) {
-                                finish()
-                                return
-                            }
+        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID)) {
+            finish()
+            return
+        }
         val scheduleId = intent.extras!!.getString(Constants.PARAM_ID, "")
-        presenter.getCourseDetail(this,scheduleId)
+        presenter.getCourseDetail(this, scheduleId)
     }
 
     override fun bindData(it: CourseDetail) {
@@ -64,27 +65,34 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
         }
 
 
-        study_tv.text = it.nativeFakerPrice
+        buy_tv.text = it.nativeFakerPrice
 
     }
 
+    override fun bookingExperienceSuccess() {
+        ToastUtils.showShort("预约成功")
+    }
 
-    @SuppressLint("NonConstantResourceId")
+
     @OnClick(
-        R.id.study_tv
+        R.id.buy_tv,
+        R.id.reservation_tv
     )
     fun onClick(view: View) {
         if (CommonUtils.isDoubleClick(view)) {
             return
         }
         when (view.id) {
-            R.id.study_tv -> {
+            R.id.buy_tv -> {
 
             }
+            R.id.reservation_tv -> {
+                finish()
+            }
             else -> {
+
             }
         }
     }
-
 
 }

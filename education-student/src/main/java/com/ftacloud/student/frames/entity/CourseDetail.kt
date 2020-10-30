@@ -13,8 +13,6 @@ class CourseDetail {
 
 
 
-
-
     var teacherId: String = ""
 
     var teacherName: String = ""
@@ -34,7 +32,6 @@ class CourseDetail {
 
 
     var countdownEndTimeSeconds: String = ""
-
 
 
     var nativeFakerPrice: String = ""

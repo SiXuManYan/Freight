@@ -117,14 +117,19 @@ interface ApiService {
     @POST("/api/student/schedule/getExperienceInfo")
     fun getCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
 
+
+    /**
+     * 预约体验课
+     */
+    @POST("/api/student/schedule/bookingExperience")
+    fun bookingExperience(@Body json: CourseDetailRequest): Flowable<Response<JsonObject>>
+
+
     /**
      * 普通课详情
      */
     @POST("/api/student/schedule/getInfo")
     fun getCommonCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
-
-
-
 
     /**
      * 我的消息列表
@@ -202,14 +207,11 @@ interface ApiService {
     fun listTaught(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
 
-  /**
+    /**
      * 我的课程(已开课)
      */
     @POST("/api/student/quizzes/getResult")
     fun getQuestionResult(@Body json: QuestionResultRequest): Flowable<Response<JsonObject>>
-
-
-
 
 
 }

@@ -158,7 +158,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
             })
         }
         if (model.state.contains(TestState.DONE.name)) {
-            // 已经提交
+            // 已经提交,查看评分
             startActivity(TestScoreActivity::class.java,Bundle().apply {
                 putString(Constants.PARAM_STUDENT_ID, model.quizzesOfStudentId)
             })

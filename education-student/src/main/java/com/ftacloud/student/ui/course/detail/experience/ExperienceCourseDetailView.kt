@@ -10,4 +10,9 @@ import com.sugar.library.frames.network.response.BaseView
  */
 interface ExperienceCourseDetailView : BaseView {
     fun bindData(it: CourseDetail)
+
+    /**
+     * 预约成功
+     */
+    fun bookingExperienceSuccess()
 }
