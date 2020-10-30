@@ -30,6 +30,7 @@ class Order {
 */
 
     var id = ""
+    var courseIntd = ""
     var no = ""
     var productIconImg = ""
     var productName = ""

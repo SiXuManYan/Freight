@@ -224,11 +224,22 @@
 
 
     <ViewSwitcher
+        android:id="@+id/switcher_vs"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
         android:layout_alignParentBottom="true">
 
-
+        <TextView
+            android:id="@+id/reservation_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            android:alpha="0.99"
+            android:background="@color/student_yellow"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/reservation_now"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sp16" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -276,17 +287,7 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/reservation_tv"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp50"
-            android:alpha="0.99"
-            android:background="@color/student_yellow"
-            android:enabled="false"
-            android:gravity="center"
-            android:text="@string/reservation_now"
-            android:textColor="@color/font_white"
-            android:textSize="@dimen/sp16" />
+
 
     </ViewSwitcher>
 

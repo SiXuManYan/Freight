@@ -127,6 +127,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
             // 体验课详情
             startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
                 putString(Constants.PARAM_ID, model.id)
+                putInt(Constants.PARAM_TYPE,0)
             })
         } else {
             // 普通课(区分已上课和)

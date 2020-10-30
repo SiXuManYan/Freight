@@ -1,6 +1,5 @@
 package com.ftacloud.student.ui.course.detail.experience
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -28,12 +27,19 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
     override fun getLayoutId() = R.layout.activity_course_detail
 
     override fun initViews() {
-        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID)) {
+        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID) || !intent.extras!!.containsKey(Constants.PARAM_TYPE)) {
             finish()
             return
         }
         val scheduleId = intent.extras!!.getString(Constants.PARAM_ID, "")
+        val type = intent.extras!!.getInt(Constants.PARAM_TYPE)
+
         presenter.getCourseDetail(this, scheduleId)
+        if (type == 0) {
+            switcher_vs.displayedChild = 0
+        } else {
+            switcher_vs.displayedChild = 1
+        }
     }
 
     override fun bindData(it: CourseDetail) {
@@ -63,7 +69,6 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             Glide.with(this).load(it).into(courseImageView)
 
         }
-
 
         buy_tv.text = it.nativeFakerPrice
 

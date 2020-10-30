@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Order
+import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
 
@@ -37,8 +38,6 @@ class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>()
     }
 
 
-
-
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<Order> {
 
         val adapter = object : RecyclerArrayAdapter<Order>(context) {
@@ -51,7 +50,21 @@ class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>()
             }
         }
         adapter.setOnItemClickListener {
-            ToastUtils.showShort("订单详情页")
+            val order = adapter.allData[it]
+            if (order.state.contains(Order.OrderState.UNPAID.name)) {
+                // 未支付
+                startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
+                    putString(Constants.PARAM_ID, order.courseIntd)
+                    putInt(Constants.PARAM_TYPE,0)
+                })
+            }
+
+            if (order.state.contains(Order.OrderState.PAID.name)) {
+                // 已支付
+
+            }
+
+
         }
         return adapter
     }
