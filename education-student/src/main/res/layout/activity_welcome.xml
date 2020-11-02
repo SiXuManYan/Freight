@@ -41,7 +41,7 @@
             android:gravity="center"
             android:onClick="loginOrRegister"
             android:text="@string/welocme_login_register"
-            android:textColor="@color/color_f9a74d"
+            android:textColor="@color/color_ff7a18"
             android:textSize="@dimen/sp15"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

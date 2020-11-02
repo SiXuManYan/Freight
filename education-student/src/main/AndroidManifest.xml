@@ -122,6 +122,7 @@
         <activity android:name=".ui.tests.question.TestQuestionActivity" />
         <activity android:name=".ui.course.my.MyCourseActivity" />
         <activity android:name=".ui.tests.score.TestScoreActivity" />
+        <activity android:name=".ui.course.detail.experience.result.ReservationResultActivity" />
 
     </application>
 

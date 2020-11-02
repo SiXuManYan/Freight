@@ -55,7 +55,7 @@ class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>()
                 // 未支付
                 startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
                     putString(Constants.PARAM_ID, order.courseIntd)
-                    putInt(Constants.PARAM_TYPE,0)
+                    putInt(Constants.PARAM_TYPE, 0)
                 })
             }
 

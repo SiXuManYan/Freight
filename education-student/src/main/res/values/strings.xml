@@ -187,6 +187,9 @@
     <string name="english_upgrade_test_for_children">小朋友英语升级测试</string>
     <string name="desc_for_children">专业分级测验，帮助孩子更好的选择</string>
     <string name="reservation_now">立即预约</string>
+    <string name="appointment_successful">预约成功</string>
+    <string name="appointment_successful_hint">体验课预约成功，稍后会有客服联系\n您确定上课时间</string>
+    <string name="back_to_homepage">返回首页</string>
 
 
 </resources>

@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.CourseDetail
+import com.ftacloud.student.ui.course.detail.experience.result.ReservationResultActivity
 import com.sugar.library.ui.view.CircleImageView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
@@ -92,7 +93,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
 
             }
             R.id.reservation_tv -> {
-                finish()
+                startActivity(ReservationResultActivity::class.java)
             }
             else -> {
 

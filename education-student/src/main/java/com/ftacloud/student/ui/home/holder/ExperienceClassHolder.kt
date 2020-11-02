@@ -36,7 +36,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
         if (data.state.contains( CourseState.UNACTIVE.name)) {
             // 未预约体验课
             content_switcher.displayedChild = 0
-            card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_f9a74d))
+            card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_ff7a18))
 
             type_container.removeAllViews()
             data.productTags.forEach {

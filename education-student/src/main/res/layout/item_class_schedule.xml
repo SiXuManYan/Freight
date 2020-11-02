@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/color_f9a74d"
+        app:cardBackgroundColor="@color/color_ff7a18"
         app:cardCornerRadius="@dimen/dp12"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
