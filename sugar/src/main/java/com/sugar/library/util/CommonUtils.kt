@@ -889,12 +889,17 @@ object CommonUtils {
     }
 
 
-    private fun translationAnimation(view: View) {
+    fun translationAnimation(view: View) {
         val anim = ObjectAnimator.ofFloat(view, "translationX", -200f, 0f, ScreenUtils.getScreenWidth().toFloat(), 0f)
         anim.interpolator = LinearInterpolator()
         anim.repeatCount = -1
         anim.duration = 20000
         anim.start()
+    }
+
+
+    fun getFileSuffix(url: String): String {
+        return url.substring(url.lastIndexOf("."), url.length - 1)
     }
 
 }

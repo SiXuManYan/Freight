@@ -8,6 +8,7 @@ import com.ftacloud.student.common.StudentConstants.PARAM_TASK_OF_COURSE_ID
 import com.ftacloud.student.common.download.DemoUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.TaskDetail
+import com.ftacloud.student.ui.task.reserve.ReserveListActivity
 import com.liulishuo.filedownloader.BaseDownloadTask
 import com.liulishuo.filedownloader.FileDownloadListener
 import com.liulishuo.filedownloader.FileDownloader
@@ -45,12 +46,13 @@ class TaskDetailActivity : BaseMVPActivity<TaskDetailPresenter>(), TaskDetailVie
     override fun bindDetail(it: TaskDetail) {
         task_name_tv.text = it.native_name
         remaining_tv.text = getString(R.string.remaining_appointments, it.native_num)
-
+        downLoadUrl = it.exerciseUrl
     }
 
     @OnClick(
         R.id.download_tv,
-        R.id.upload_tv
+        R.id.upload_tv,
+        R.id.book
     )
     fun onClick(view: View) {
         if (CommonUtils.isDoubleClick(view)) {
@@ -58,36 +60,44 @@ class TaskDetailActivity : BaseMVPActivity<TaskDetailPresenter>(), TaskDetailVie
         }
         when (view.id) {
             R.id.download_tv -> {
-                FileDownloader.getImpl().create("https://cdn.llscdn.com/yy/files/xs8qmxn8-lls-LLS-5.8-800-20171207-111607.apk").setPath(DemoUtil.getParentFile(this).path + File.separator+"糖糖.apk")
-                    .setListener(object : FileDownloadListener() {
-                        override fun warn(task: BaseDownloadTask?) {
+                if (downLoadUrl.isNotBlank()) {
+                    FileDownloader.getImpl().create(downLoadUrl)
+                        .setPath(DemoUtil.getParentFile(this).path + File.separator + "file" + CommonUtils.getFileSuffix(downLoadUrl))
+                        .setListener(object : FileDownloadListener() {
+                            override fun warn(task: BaseDownloadTask?) {
 
-                        }
+                            }
 
-                        override fun completed(task: BaseDownloadTask?) {
-                            ToastUtils.showShort("下载完成")
-                        }
+                            override fun completed(task: BaseDownloadTask?) {
+                                ToastUtils.showShort("下载完成")
+                            }
 
-                        override fun pending(task: BaseDownloadTask?, soFarBytes: Int, totalBytes: Int) {
+                            override fun pending(task: BaseDownloadTask?, soFarBytes: Int, totalBytes: Int) {
 
-                        }
+                            }
 
-                        override fun error(task: BaseDownloadTask?, e: Throwable?) {
+                            override fun error(task: BaseDownloadTask?, e: Throwable?) {
 
-                        }
+                            }
 
-                        override fun progress(task: BaseDownloadTask?, soFarBytes: Int, totalBytes: Int) {
+                            override fun progress(task: BaseDownloadTask?, soFarBytes: Int, totalBytes: Int) {
 
-                        }
+                            }
 
-                        override fun paused(task: BaseDownloadTask?, soFarBytes: Int, totalBytes: Int) {
+                            override fun paused(task: BaseDownloadTask?, soFarBytes: Int, totalBytes: Int) {
 
-                        }
+                            }
 
-                    }).start()
+                        }).start()
+                }
+
+
             }
             R.id.upload_tv -> {
 
+            }
+            R.id.book -> {
+                startActivity(ReserveListActivity::class.java)
             }
             else -> {
             }

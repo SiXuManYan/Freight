@@ -20,7 +20,6 @@ class TaskActivity : BaseRefreshListActivity<Task, TaskPresenter>(), TaskView {
 
     override fun getMainTitle() = R.string.after_class_task_title
 
-
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<Task> {
         val adapter = object : RecyclerArrayAdapter<Task>(context) {
 

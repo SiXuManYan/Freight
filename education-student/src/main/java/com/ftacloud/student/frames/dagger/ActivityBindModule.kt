@@ -36,6 +36,8 @@ import com.ftacloud.student.ui.task.TaskActivity
 import com.ftacloud.student.ui.task.TaskModule
 import com.ftacloud.student.ui.task.detail.TaskDetailActivity
 import com.ftacloud.student.ui.task.detail.TaskDetailModule
+import com.ftacloud.student.ui.task.reserve.ReserveListActivity
+import com.ftacloud.student.ui.task.reserve.ReserveListModule
 import com.ftacloud.student.ui.tests.TestConditionActivity
 import com.ftacloud.student.ui.tests.TestConditionModule
 import com.ftacloud.student.ui.tests.my.MyTestActivity
@@ -143,6 +145,9 @@ abstract class ActivityBindModule {
     @ContributesAndroidInjector(modules = [TestQuestionModule::class])
     abstract fun u(): TestQuestionActivity
 
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [ReserveListModule::class])
+    abstract fun v(): ReserveListActivity
 
 
 }

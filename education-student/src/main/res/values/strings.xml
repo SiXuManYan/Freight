@@ -190,6 +190,8 @@
     <string name="appointment_successful">预约成功</string>
     <string name="appointment_successful_hint">体验课预约成功，稍后会有客服联系\n您确定上课时间</string>
     <string name="back_to_homepage">返回首页</string>
+    <string name="book_appointment">预约陪读</string>
+    <string name="title_buddy">buddy列表</string>
 
 
 </resources>

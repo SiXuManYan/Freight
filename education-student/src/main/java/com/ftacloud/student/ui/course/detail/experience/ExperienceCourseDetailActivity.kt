@@ -9,8 +9,10 @@ import com.blankj.utilcode.util.SizeUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
+import com.ftacloud.student.common.OssUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.CourseDetail
+import com.ftacloud.student.ui.app.CloudAccountApplication
 import com.ftacloud.student.ui.course.detail.experience.result.ReservationResultActivity
 import com.sugar.library.ui.view.CircleImageView
 import com.sugar.library.util.CommonUtils
@@ -52,7 +54,12 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             circleImageView.layoutParams = LinearLayout.LayoutParams(SizeUtils.dp2px(25f), SizeUtils.dp2px(25f)).apply {
                 marginEnd = SizeUtils.dp2px(5f)
             }
-            Glide.with(this).load(it).into(circleImageView)
+
+            OssUtil.getRealOssUrl(this,it,object :CloudAccountApplication.OssSignCallBack{
+                override fun ossUrlSignEnd(url: String) {
+                    Glide.with(this@ExperienceCourseDetailActivity).load(url).into(circleImageView)
+                }
+            })
             student_container_ll.addView(circleImageView)
         }
 
@@ -68,7 +75,6 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             val inflate = LayoutInflater.from(this).inflate(R.layout.item_course_detail_image, null)
             val courseImageView = inflate.findViewById<ImageView>(R.id.course_detail_iv)
             Glide.with(this).load(it).into(courseImageView)
-
         }
 
         buy_tv.text = it.nativeFakerPrice

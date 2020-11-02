@@ -167,6 +167,7 @@
 
 
     <TextView
+        android:id="@+id/book"
         android:layout_width="@dimen/dp165"
         android:layout_height="@dimen/dp45"
         android:layout_alignParentBottom="true"
@@ -175,7 +176,7 @@
         android:layout_marginBottom="@dimen/dp25"
         android:background="@drawable/shape_12_yellow"
         android:gravity="center"
-        android:text="预约陪读"
+        android:text="@string/book_appointment"
         android:textColor="@color/font_white"
         android:textSize="@dimen/sp15" />
 
