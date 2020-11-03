@@ -25,8 +25,6 @@ import javax.inject.Inject
  */
 class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Application.ActivityLifecycleCallbacks, CloudAccountView {
 
-
-
     init {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ ->
             CommonSmartAnimRefreshHeaderView(context)

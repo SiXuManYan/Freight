@@ -1,12 +1,10 @@
 package com.ftacloud.student.ui.order.pay.result
 
 import android.content.DialogInterface
-import android.os.Bundle
 import android.view.View
 import butterknife.OnClick
 import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
-
 import com.ftacloud.student.frames.components.BaseActivity
 import com.ftacloud.student.ui.order.list.OrderActivity
 import com.sugar.library.ui.view.dialog.AlertDialog

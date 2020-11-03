@@ -7,7 +7,7 @@
     android:minHeight="@dimen/dp60"
     android:padding="@dimen/dp10"
     android:layout_marginBottom="@dimen/dp10"
-    tools:showIn="@layout/activity_no_class">
+  >
 
     <FrameLayout
         android:id="@+id/level_fl"

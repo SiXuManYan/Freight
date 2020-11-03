@@ -1,11 +1,13 @@
 package com.ftacloud.student.frames.entity
 
+import java.io.Serializable
+
 /**
  * Created by Wangsw on 2020/11/2 0002 19:24.
  * </br>
  *
  */
-class FormalCourseDetail {
+class FormalCourseDetail :Serializable {
 
     var teacherHeadImg = ""
 
@@ -24,7 +26,7 @@ class FormalCourseDetail {
     var scheduleOuts = ArrayList<ScheduleOut>()
 
 
-    class ScheduleOut {
+    class ScheduleOut :Serializable {
         var courseName: String = ""
         var lengthOfCourse = ""
         var courseId = ""

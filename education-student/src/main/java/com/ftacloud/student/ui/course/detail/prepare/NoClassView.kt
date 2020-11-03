@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.course.detail.prepare
 
+import com.flyco.tablayout.listener.OnTabSelectListener
 import com.ftacloud.student.frames.entity.FormalCourseDetail
 import com.sugar.library.frames.network.response.BaseTaskView
 
@@ -8,6 +9,6 @@ import com.sugar.library.frames.network.response.BaseTaskView
  * </br>
  *
  */
-interface NoClassView :BaseTaskView{
+interface NoClassView : BaseTaskView, OnTabSelectListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener {
     fun bindDetail(data: FormalCourseDetail)
 }

@@ -3,6 +3,7 @@ package com.sugar.library.util
 object Constants {
 
 
+
     const val TYPE_OWNER = "OWNER"
     const val OS = "Android"
 
@@ -43,7 +44,8 @@ object Constants {
     const val PARAM_LIST = "param_list"
     const val PARAM_SAVE = "param_save"
     const val PARAM_HASH_CODE = "param_hash_code"
-
+    const val PARAM_TEXT = "param_text"
+    const val PARAM_TEACHER = "param_teacher"
 
     /** 选取附件 */
     const val REQUEST_MEDIA = 1003
@@ -158,6 +160,7 @@ object Constants {
     const val PARAM_REGISTERED_ADDRESS = "param_registered_address"
     const val PARAM_MAILING_ADDRESS = "param_mailing_address" // 邮寄地址
     const val PARAM_MAILING_DETAIL_ADDRESS = "param_mailing_detail_address" // 邮寄详细地址
+    const val PARAM_CONTENT = "param_content"
 
 
     /** RxBus Event */
