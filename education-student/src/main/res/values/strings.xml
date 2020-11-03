@@ -195,8 +195,13 @@
     <string name="to_pay">去支付</string>
     <string name="total">总计：</string>
     <string name="order_already_create_message">您的订单已生成，请前往我的订单查看</string>
-    <string name="back_home">返回首页</string>
     <string name="view_order">查看订单</string>
+
+    <string name="pay_bottom_format">去支付&#160;&#165;%1$s</string>
+    <string name="buy_success_message">课程购买成功，您可在我的订单内查看</string>
+    <string name="look">查看订单</string>
+    <string name="pay_success">支付成功</string>
+    <string name="pay_detail">支付详情</string>
 
 
 </resources>

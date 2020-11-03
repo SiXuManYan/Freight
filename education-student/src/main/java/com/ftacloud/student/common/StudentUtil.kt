@@ -12,12 +12,15 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.StringUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.R
 import com.sugar.library.ui.matisse.Glide4Engine
 import com.sugar.library.ui.matisse.Matisse
 import com.sugar.library.ui.view.dialog.AlertDialog
 import com.sugar.library.util.Constants
 import com.sugar.library.util.PermissionUtils
+import com.tencent.mm.opensdk.openapi.IWXAPI
+import com.tencent.mm.opensdk.openapi.WXAPIFactory
 import com.zhihu.matisse.MimeType
 
 /**
@@ -120,7 +123,19 @@ object StudentUtil {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
 
+    }
 
+    /**
+     * 判断 用户是否安装微信客户端
+     */
+    fun isWeixinAvilible(context: Context?): Boolean {
+        val iwxapi: IWXAPI = WXAPIFactory.createWXAPI(context, "wxd47f6921c3df9750", false)
+        return if (iwxapi.isWXAppInstalled()) {
+            true
+        } else {
+            ToastUtils.showShort("检测到手机未安装微信")
+            false
+        }
     }
 
 }

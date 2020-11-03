@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.order.prepare
+package com.ftacloud.student.ui.order.pay.prepare
 
 import com.sugar.library.frames.network.response.BaseTaskView
 

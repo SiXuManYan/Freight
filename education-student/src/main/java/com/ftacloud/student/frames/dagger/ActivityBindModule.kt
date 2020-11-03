@@ -16,8 +16,6 @@ import com.ftacloud.student.ui.account.forget.ForgetActivity
 import com.ftacloud.student.ui.account.forget.ForgetModule
 import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity
 import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailModule
-import com.ftacloud.student.ui.course.my.child.MyCourseChildFragment
-import com.ftacloud.student.ui.course.my.child.MyCourseChildModule
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleModule
 import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
@@ -30,8 +28,10 @@ import com.ftacloud.student.ui.order.detail.OrderDetailActivity
 import com.ftacloud.student.ui.order.detail.OrderDetailModule
 import com.ftacloud.student.ui.order.list.OrderActivity
 import com.ftacloud.student.ui.order.list.OrderModule
-import com.ftacloud.student.ui.order.prepare.PayPrepareActivity
-import com.ftacloud.student.ui.order.prepare.PayPrepareModule
+import com.ftacloud.student.ui.order.pay.PayActivity
+import com.ftacloud.student.ui.order.pay.PayModule
+import com.ftacloud.student.ui.order.pay.prepare.PayPrepareActivity
+import com.ftacloud.student.ui.order.pay.prepare.PayPrepareModule
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.settings.SettingModule
 import com.ftacloud.student.ui.task.TaskActivity
@@ -154,6 +154,10 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [PayPrepareModule::class])
     abstract fun w(): PayPrepareActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [PayModule::class])
+    abstract fun x(): PayActivity
 
 
 }

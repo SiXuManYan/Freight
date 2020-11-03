@@ -25,7 +25,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Interpolator;
-import android.view.animation.LinearInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -1330,18 +1329,7 @@ public class AndroidUtil {
         return money;
     }
 
-//    /**
-//     * 判断 用户是否安装微信客户端
-//     */
-//    public static boolean isWeixinAvilible(Context context) {
-//        IWXAPI iwxapi = WXAPIFactory.createWXAPI(context, BuildConfig.WECHAT_APPID, false);
-//        if (iwxapi.isWXAppInstalled()) {
-//            return true;
-//        } else {
-//            ToastUtils.showShort("检测到手机未安装微信");
-//            return false;
-//        }
-//    }
+
 //
 //    /**
 //     * 判断 用户是否安装微信客户端

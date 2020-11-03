@@ -124,7 +124,8 @@
         <activity android:name=".ui.tests.score.TestScoreActivity" />
         <activity android:name=".ui.course.detail.experience.result.ReservationResultActivity" />
         <activity android:name=".ui.task.reserve.ReserveListActivity" />
-        <activity android:name=".ui.order.prepare.PayPrepareActivity" />
+        <activity android:name="com.ftacloud.student.ui.order.pay.prepare.PayPrepareActivity" />
+        <activity android:name=".ui.order.pay.result.CloudPayResultActivity" />
 
     </application>
 

@@ -16,7 +16,7 @@ import com.ftacloud.student.frames.entity.CourseDetail
 import com.ftacloud.student.frames.entity.home.HomeOrderExtra
 import com.ftacloud.student.ui.app.CloudAccountApplication
 import com.ftacloud.student.ui.course.detail.experience.result.ReservationResultActivity
-import com.ftacloud.student.ui.order.prepare.PayPrepareActivity
+import com.ftacloud.student.ui.order.pay.prepare.PayPrepareActivity
 import com.sugar.library.ui.view.CircleImageView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants

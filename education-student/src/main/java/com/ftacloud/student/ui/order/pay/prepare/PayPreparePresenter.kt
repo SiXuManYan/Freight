@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.order.prepare
+package com.ftacloud.student.ui.order.pay.prepare
 
 import com.ftacloud.student.frames.network.response.BasePresenter
 import javax.inject.Inject

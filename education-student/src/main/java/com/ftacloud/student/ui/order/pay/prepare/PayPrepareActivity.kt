@@ -1,4 +1,4 @@
-package com.ftacloud.student.ui.order.prepare
+package com.ftacloud.student.ui.order.pay.prepare
 
 import android.content.DialogInterface
 import android.view.View
