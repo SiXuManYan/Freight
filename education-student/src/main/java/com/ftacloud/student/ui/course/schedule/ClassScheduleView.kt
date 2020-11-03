@@ -1,6 +1,7 @@
 package com.ftacloud.student.ui.course.schedule
 
 import com.ftacloud.student.frames.entity.ClassSchedule
+import com.ftacloud.student.frames.entity.MyCourse
 import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
 
 /**

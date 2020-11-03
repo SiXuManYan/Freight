@@ -214,4 +214,13 @@ interface ApiService {
     fun getQuestionResult(@Body json: QuestionResultRequest): Flowable<Response<JsonObject>>
 
 
+   /**
+     * 正式课程信息
+     */
+    @POST("/api/student/quizzes/getResult")
+    fun getFormalCourseDetail(@Body json: FormalCourseDetailRequest): Flowable<Response<FormalCourseDetail>>
+
+
+
+
 }

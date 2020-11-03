@@ -9,6 +9,7 @@ import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Task
 import com.ftacloud.student.frames.entity.home.*
 import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity
+import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity.Companion.RESERVE
 import com.ftacloud.student.ui.course.detail.live.LiveActivity
 import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
 import com.ftacloud.student.ui.home.holder.*
@@ -109,7 +110,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     // 不处理
                 }
                 is HomeOrder -> {
-
+                    orderItemClick(model)
                 }
                 is Task -> {
 
@@ -119,6 +120,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
         return adapter
     }
 
+
     /**
      *   课程点击
      */
@@ -127,7 +129,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
             // 体验课详情
             startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
                 putString(Constants.PARAM_ID, model.id)
-                putInt(Constants.PARAM_TYPE,0)
+                putInt(Constants.PARAM_TYPE, RESERVE)
             })
         } else {
             // 普通课(区分已上课和)
@@ -160,10 +162,29 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
         }
         if (model.state.contains(TestState.DONE.name)) {
             // 已经提交,查看评分
-            startActivity(TestScoreActivity::class.java,Bundle().apply {
+            startActivity(TestScoreActivity::class.java, Bundle().apply {
                 putString(Constants.PARAM_STUDENT_ID, model.quizzesOfStudentId)
             })
         }
+    }
+
+
+    private fun orderItemClick(model: HomeOrder) {
+        val apply = HomeOrderExtra().apply {
+            orderId = model.orderId
+            productId = model.productId
+            productName = model.productName
+            productIconImg = model.productIconImg
+            productIntroduce = model.productIntroduce
+            productMoney = model.productMoney
+            payingMoney = model.payingMoney
+            quantity = model.quantity
+        }
+        startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
+            putString(Constants.PARAM_ID, model.productId)
+            putInt(Constants.PARAM_TYPE, RESERVE)
+            putSerializable(Constants.PARAM_ORDER, apply)
+        })
     }
 
 

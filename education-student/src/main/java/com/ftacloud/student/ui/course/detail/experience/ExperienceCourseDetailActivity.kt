@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.course.detail.experience
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -12,8 +13,10 @@ import com.ftacloud.student.R
 import com.ftacloud.student.common.OssUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.CourseDetail
+import com.ftacloud.student.frames.entity.home.HomeOrderExtra
 import com.ftacloud.student.ui.app.CloudAccountApplication
 import com.ftacloud.student.ui.course.detail.experience.result.ReservationResultActivity
+import com.ftacloud.student.ui.order.prepare.PayPrepareActivity
 import com.sugar.library.ui.view.CircleImageView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
@@ -26,6 +29,13 @@ import kotlinx.android.synthetic.main.activity_course_detail.*
  */
 class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPresenter>(), ExperienceCourseDetailView {
 
+    companion object {
+        val RESERVE = 0
+        val PAY = 1
+    }
+
+    var homeOrderExtra: HomeOrderExtra? = null
+
 
     override fun getLayoutId() = R.layout.activity_course_detail
 
@@ -36,13 +46,17 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
         }
         val scheduleId = intent.extras!!.getString(Constants.PARAM_ID, "")
         val type = intent.extras!!.getInt(Constants.PARAM_TYPE)
-
-        presenter.getCourseDetail(this, scheduleId)
-        if (type == 0) {
+        if (!intent.extras!!.containsKey(Constants.PARAM_ORDER)) {
+            homeOrderExtra = intent.getSerializableExtra(Constants.PARAM_ORDER) as HomeOrderExtra
+        }
+        if (type == RESERVE) {
             switcher_vs.displayedChild = 0
         } else {
             switcher_vs.displayedChild = 1
         }
+
+        presenter.getCourseDetail(this, scheduleId)
+
     }
 
     override fun bindData(it: CourseDetail) {
@@ -55,7 +69,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
                 marginEnd = SizeUtils.dp2px(5f)
             }
 
-            OssUtil.getRealOssUrl(this,it,object :CloudAccountApplication.OssSignCallBack{
+            OssUtil.getRealOssUrl(this, it, object : CloudAccountApplication.OssSignCallBack {
                 override fun ossUrlSignEnd(url: String) {
                     Glide.with(this@ExperienceCourseDetailActivity).load(url).into(circleImageView)
                 }
@@ -96,7 +110,9 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
         }
         when (view.id) {
             R.id.buy_tv -> {
-
+                startActivity(PayPrepareActivity::class.java, Bundle().apply {
+                    putSerializable(Constants.PARAM_ORDER, homeOrderExtra)
+                })
             }
             R.id.reservation_tv -> {
                 startActivity(ReservationResultActivity::class.java)

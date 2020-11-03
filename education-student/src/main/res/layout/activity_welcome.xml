@@ -42,6 +42,7 @@
             android:onClick="loginOrRegister"
             android:text="@string/welocme_login_register"
             android:textColor="@color/color_ff7a18"
+
             android:textSize="@dimen/sp15"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +57,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:gravity="center"
+            android:visibility="invisible"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             android:background="@drawable/shape_bg_12_white_stock"

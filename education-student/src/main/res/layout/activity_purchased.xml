@@ -214,7 +214,7 @@
             android:id="@+id/share_iv"
             android:layout_width="@dimen/dp45"
             android:layout_height="@dimen/dp45"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:visibility="invisible"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"

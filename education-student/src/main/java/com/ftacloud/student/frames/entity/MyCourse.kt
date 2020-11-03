@@ -38,4 +38,8 @@ class MyCourse {
     var courseIntroduce = ""
 
 
+    var studyDatetime = ""
+    var lengthOfCourse = ""
+
+
 }

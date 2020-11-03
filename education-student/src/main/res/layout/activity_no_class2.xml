@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_list_gray_background">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/dp15"
+            android:paddingTop="@dimen/dp45"
+            android:paddingEnd="@dimen/dp15"
+            android:paddingBottom="@dimen/dp45">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp147"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@color/font_white"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/dp12"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="false">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_5cbebc" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/tabs_type"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:tl_indicator_color="@color/colorPrimary"
+                app:tl_indicator_width="25dp"
+                app:tl_tab_space_equal="true"
+                app:tl_indicator_corner_radius="1.5dp"
+                app:tl_textSelectColor="@color/color_282828"
+                app:tl_textUnselectColor="@color/color_666666"
+                app:tl_textsize="14sp"
+                app:tl_underline_color="@color/split_line_color"
+                app:tl_underline_height="1px" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/title_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp45"
+        android:layout_alignParentTop="true"
+        android:alpha="0.99"
+        android:background="@drawable/shape_title_bar"
+        android:paddingBottom="@dimen/dp1">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            style="@style/TopButton"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="课程详情"
+            android:textColor="@color/color_zero_level"
+            android:textSize="@dimen/font_size_14" />
+
+        <ImageView
+            android:id="@+id/share_iv"
+            android:layout_width="@dimen/dp45"
+            android:layout_height="@dimen/dp45"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_temp2" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

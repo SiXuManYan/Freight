@@ -11,8 +11,7 @@ import java.util.*
  * data json array
  * 不需要传key
  */
-abstract class BaseJsonArrayHttpSubscriber<T>(view: BaseView, showLoading: Boolean = true) :
-    BaseHttpSubscriber<JsonArray>(view, showLoading) {
+abstract class BaseJsonArrayHttpSubscriber<T>(view: BaseView, showLoading: Boolean = true) : BaseHttpSubscriber<JsonArray>(view, showLoading) {
 
     override fun onNext(response: Response<JsonArray>) {
         if (response.isApiError()) {

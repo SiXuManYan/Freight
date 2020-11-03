@@ -1,6 +1,8 @@
 package com.ftacloud.student.frames.dagger
 
 
+import com.ftacloud.student.ui.course.detail.prepare.child.directory.DirectoryFragment
+import com.ftacloud.student.ui.course.detail.prepare.child.directory.DirectoryModule
 import com.ftacloud.student.ui.course.my.child.MyCourseChildFragment
 import com.ftacloud.student.ui.course.my.child.MyCourseChildModule
 import com.ftacloud.student.ui.home.HomeFragment
@@ -32,6 +34,13 @@ abstract class FragmentBindModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [MyCourseChildModule::class])
     abstract fun c(): MyCourseChildFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [DirectoryModule::class])
+    abstract fun d(): DirectoryFragment
+
+
+
 
 }
 

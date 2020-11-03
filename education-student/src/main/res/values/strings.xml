@@ -192,6 +192,11 @@
     <string name="back_to_homepage">返回首页</string>
     <string name="book_appointment">预约陪读</string>
     <string name="title_buddy">buddy列表</string>
+    <string name="to_pay">去支付</string>
+    <string name="total">总计：</string>
+    <string name="order_already_create_message">您的订单已生成，请前往我的订单查看</string>
+    <string name="back_home">返回首页</string>
+    <string name="view_order">查看订单</string>
 
 
 </resources>

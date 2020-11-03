@@ -30,6 +30,8 @@ import com.ftacloud.student.ui.order.detail.OrderDetailActivity
 import com.ftacloud.student.ui.order.detail.OrderDetailModule
 import com.ftacloud.student.ui.order.list.OrderActivity
 import com.ftacloud.student.ui.order.list.OrderModule
+import com.ftacloud.student.ui.order.prepare.PayPrepareActivity
+import com.ftacloud.student.ui.order.prepare.PayPrepareModule
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.settings.SettingModule
 import com.ftacloud.student.ui.task.TaskActivity
@@ -126,7 +128,7 @@ abstract class ActivityBindModule {
     abstract fun p(): MyTestActivity
 
     @ActivityScore
-    @ContributesAndroidInjector(modules = [NoClassModule::class])
+    @ContributesAndroidInjector(modules = [FragmentBindModule::class, NoClassModule::class])
     abstract fun q(): NoClassActivity
 
     @ActivityScore
@@ -148,6 +150,10 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [ReserveListModule::class])
     abstract fun v(): ReserveListActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [PayPrepareModule::class])
+    abstract fun w(): PayPrepareActivity
 
 
 }

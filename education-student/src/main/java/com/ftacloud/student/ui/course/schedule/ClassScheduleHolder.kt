@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.ClassSchedule
+import com.ftacloud.student.frames.entity.MyCourse
 import com.sugar.library.frames.BaseItemViewHolder
 import kotlinx.android.extensions.LayoutContainer
 
@@ -17,6 +18,17 @@ class ClassScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<ClassSchedule
     override val containerView: View? get() = itemView
 
 
+    override fun setData(data: ClassSchedule?) {
+        if (data== null) {
+            return
+        }
+
+
+
+
+
+
+    }
 
 
 

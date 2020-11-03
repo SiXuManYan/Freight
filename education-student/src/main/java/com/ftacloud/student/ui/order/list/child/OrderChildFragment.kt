@@ -7,6 +7,8 @@ import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Order
 import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity
+import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity.Companion.PAY
+import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
 
@@ -55,15 +57,14 @@ class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>()
                 // 未支付
                 startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
                     putString(Constants.PARAM_ID, order.courseIntd)
-                    putInt(Constants.PARAM_TYPE, 0)
+                    putInt(Constants.PARAM_TYPE, PAY)
                 })
             }
 
             if (order.state.contains(Order.OrderState.PAID.name)) {
                 // 已支付
-
+                startActivity(NoClassActivity::class.java)
             }
-
 
         }
         return adapter

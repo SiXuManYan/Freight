@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 
 /**
- *  Created by Wangsw on 2020/5/25 0025 15:44.
+ *  Created by Wangsw on 2020/9/09 0025 15:44.
  * ━━━━━━━━━神兽出没━━━━━━━━━
  *
  *　　　　　　　　┏┓　　　┏┓+ +
@@ -46,7 +46,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
  *　　　　　　　　　　┃┫┫　┃┫┫
  *　　　　　　　　　　┗┻┛　┗┻┛+ + + +
  *
- * ━━━━━━━━━诸神退位━━━━━━━━━
+ * ━━━━━━━━━排位不跪━━━━━━━━━
  */
 
 class SplashActivity : BaseActivity() {

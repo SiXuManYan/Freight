@@ -27,15 +27,12 @@ class HomeOrderHolder(parent: ViewGroup?) : BaseItemViewHolder<HomeOrder>(parent
             return
         }
 
-
         Glide.with(context).load(data.productIconImg).into(image_iv)
         title_tv.text = data.productName
         content_tv.text = data.productIntroduce
 
         num_tv.text = StringUtils.getString(R.string.class_number_format, data.quantity)
         money_tv.text = StringUtils.getString(R.string.money_symbol_with_blank, data.productMoney)
-
-
     }
 
 

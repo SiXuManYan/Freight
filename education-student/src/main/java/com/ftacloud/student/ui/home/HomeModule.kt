@@ -1,7 +1,5 @@
 package com.ftacloud.student.ui.home
 
-import com.ftacloud.student.MainActivity
-import com.ftacloud.student.MainView
 import dagger.Module
 import dagger.Provides
 

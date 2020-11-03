@@ -1,5 +1,6 @@
 package com.ftacloud.student.frames.components.fragment
 
+
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -10,14 +11,12 @@ import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.storage.entity.User
-import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.frames.network.response.BaseView
+import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.ui.view.dialog.AlertDialog
 import com.sugar.library.ui.view.dialog.LoadingDialog
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
-
-
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 

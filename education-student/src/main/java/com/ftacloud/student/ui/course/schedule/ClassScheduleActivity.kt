@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
 import com.ftacloud.student.frames.entity.ClassSchedule
+import com.ftacloud.student.frames.entity.MyCourse
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 
@@ -25,7 +26,6 @@ class ClassScheduleActivity : BaseRefreshListActivity<ClassSchedule, ClassSchedu
 
                 // 已开课 -> 直播
                 // 未开课 -> 未开课
-
                 return holder
             }
 

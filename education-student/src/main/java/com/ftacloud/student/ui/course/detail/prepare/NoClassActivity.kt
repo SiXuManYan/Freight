@@ -2,6 +2,7 @@ package com.ftacloud.student.ui.course.detail.prepare
 
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.ftacloud.student.frames.entity.FormalCourseDetail
 
 /**
  * Created by Wangsw on 2020/9/29 0029 11:15.
@@ -14,13 +15,17 @@ class NoClassActivity : BaseMVPActivity<NoClassPresenter>(), NoClassView {
 
     override fun getLayoutId() = R.layout.activity_no_class
 
+    override fun showLoading() = showLoadingDialog()
+
+    override fun hideLoading() = dismissLoadingDialog()
+
     override fun initViews() {
 
     }
 
-    override fun showLoading() {
-        showLoadingDialog()
+    override fun bindDetail(data: FormalCourseDetail) {
+
     }
 
-    override fun hideLoading() = dismissLoadingDialog()
+
 }

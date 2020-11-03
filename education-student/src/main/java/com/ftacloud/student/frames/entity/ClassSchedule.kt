@@ -6,4 +6,9 @@ package com.ftacloud.student.frames.entity
  *  课程表
  */
 class ClassSchedule {
+
+    var nativeDate = ""
+
+    var nativeData = ArrayList<MyCourse>()
+
 }
