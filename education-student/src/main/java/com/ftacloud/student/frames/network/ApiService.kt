@@ -217,7 +217,7 @@ interface ApiService {
    /**
      * 正式课程信息
      */
-    @POST("/api/student/quizzes/getResult")
+    @POST("/api/student/schedule/getInfo")
     fun getFormalCourseDetail(@Body json: FormalCourseDetailRequest): Flowable<Response<FormalCourseDetail>>
 
 

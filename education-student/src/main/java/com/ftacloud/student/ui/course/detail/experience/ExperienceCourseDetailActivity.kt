@@ -46,7 +46,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
         }
         val scheduleId = intent.extras!!.getString(Constants.PARAM_ID, "")
         val type = intent.extras!!.getInt(Constants.PARAM_TYPE)
-        if (!intent.extras!!.containsKey(Constants.PARAM_ORDER)) {
+        if (intent.extras!!.containsKey(Constants.PARAM_ORDER)) {
             homeOrderExtra = intent.getSerializableExtra(Constants.PARAM_ORDER) as HomeOrderExtra
         }
         if (type == RESERVE) {
@@ -83,12 +83,16 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
         teacher_name_tv.text = it.teacherName
         teacher_introduction.text = it.teacherIntroduce
 
-
+        course__container_ll.removeAllViews()
         it.courseDetailImgs.forEach {
 
-            val inflate = LayoutInflater.from(this).inflate(R.layout.item_course_detail_image, null)
-            val courseImageView = inflate.findViewById<ImageView>(R.id.course_detail_iv)
-            Glide.with(this).load(it).into(courseImageView)
+            val iv = ImageView(this)
+            iv.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+                bottomMargin = SizeUtils.dp2px(5f)
+            }
+
+            Glide.with(this@ExperienceCourseDetailActivity).load(it).into(iv)
+            course__container_ll.addView(iv)
         }
 
         buy_tv.text = it.nativeFakerPrice

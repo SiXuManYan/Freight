@@ -38,7 +38,7 @@ open class Course {
     var studyDatetime = ""
 
     /**
-     * 倒计时
+     * 倒计时3
      */
     var countDownToStudyTimeSeconds = 0L
 

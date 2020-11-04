@@ -5,7 +5,7 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.fragment.BaseFragment
-import com.ftacloud.student.frames.entity.NativeTeacher
+import com.ftacloud.student.frames.entity.FormalCourseDetail
 import com.sugar.library.util.Constants
 import kotlinx.android.synthetic.main.fragment_teacher.*
 
@@ -19,7 +19,7 @@ class TeacherFragment : BaseFragment<TeacherPresenter>(), TeacherView {
 
     companion object {
 
-        fun newInstance(content: NativeTeacher): TeacherFragment {
+        fun newInstance(content: FormalCourseDetail): TeacherFragment {
             val fragment = TeacherFragment()
             val args = Bundle()
             args.putSerializable(Constants.PARAM_TEACHER, content)
@@ -34,13 +34,13 @@ class TeacherFragment : BaseFragment<TeacherPresenter>(), TeacherView {
     override fun loadOnVisible() = Unit
 
     override fun initViews(parent: View) {
-        val content = arguments?.getSerializable(Constants.PARAM_TEACHER ) as NativeTeacher
+        val content = arguments?.getSerializable(Constants.PARAM_TEACHER ) as FormalCourseDetail
 
         setData(content)
 
     }
 
-    private fun setData(content: NativeTeacher) {
+    private fun setData(content: FormalCourseDetail) {
         Glide.with(this).load(content.teacherHeadImg).into(avatar_civ)
         teacher_name_tv.text = content.teacherName
         content_tv.text = content.teacherIntroduce
