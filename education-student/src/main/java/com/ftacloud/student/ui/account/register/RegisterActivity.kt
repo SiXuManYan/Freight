@@ -4,11 +4,13 @@ import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import butterknife.OnClick
+import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.common.StudentUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.ProductUtils
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
@@ -38,6 +40,11 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
     override fun showLoading() = showLoadingDialog()
 
     override fun hideLoading() = dismissLoadingDialog()
+
+    override fun setPadLayout() {
+        CommonUtils.setStatusBarTransparent(this)
+        BarUtils.setNavBarVisibility(this, false)
+    }
 
     override fun initViews() {
 
