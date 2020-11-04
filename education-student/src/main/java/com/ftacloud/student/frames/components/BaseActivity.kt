@@ -17,6 +17,8 @@ import androidx.core.content.ContextCompat
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.blankj.utilcode.util.BarUtils
+import com.blankj.utilcode.util.DeviceUtils
+import com.blankj.utilcode.util.ScreenUtils
 import com.ftacloud.student.ui.webs.WebCommonActivity
 import com.sugar.library.R
 import com.sugar.library.ui.view.dialog.LoadingDialog
@@ -54,11 +56,16 @@ abstract class BaseActivity : AppCompatActivity() {
         context = this
         unBinder = ButterKnife.bind(this)
 
+        styleInit()
+
+        initViews()
+    }
+
+    private fun styleInit() {
         //状态栏设置为沉浸式
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             BarUtils.setStatusBarColor(this, Color.WHITE, true)
             BarUtils.setStatusBarLightMode(this, true)
-
             // 调整虚拟导航栏颜色
             BarUtils.setNavBarColor(this, Color.WHITE)
         } else {
@@ -70,7 +77,27 @@ abstract class BaseActivity : AppCompatActivity() {
             findViewById<View>(R.id.iv_back).setOnClickListener { onBackPressed() }
         }
 
-        initViews()
+        // 设置横竖屏
+        if (isPad()) {
+            if (!ScreenUtils.isLandscape()) {
+                ScreenUtils.setLandscape(this)
+            }
+            setPadLayout()
+        } else {
+            if (!ScreenUtils.isPortrait()) {
+                ScreenUtils.setPortrait(this)
+            }
+            setPhoneLayout()
+        }
+
+    }
+
+    open fun setPhoneLayout() {
+
+    }
+
+    open fun setPadLayout() {
+
     }
 
 
@@ -268,6 +295,14 @@ abstract class BaseActivity : AppCompatActivity() {
                     && event.y > top && event.y < bottom)
         }
         return false
+    }
+
+
+    /**
+     * 是否是平板设备
+     */
+    private fun isPad(): Boolean {
+        return DeviceUtils.isTablet()
     }
 
 

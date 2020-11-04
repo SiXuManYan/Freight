@@ -9,9 +9,7 @@ import android.view.View
 import android.widget.CompoundButton
 import butterknife.OnCheckedChanged
 import butterknife.OnClick
-import com.blankj.utilcode.util.ColorUtils
-import com.blankj.utilcode.util.SpanUtils
-import com.blankj.utilcode.util.ToastUtils
+import com.blankj.utilcode.util.*
 import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.common.StudentUtil
@@ -19,6 +17,7 @@ import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.network.Html5Url
 import com.ftacloud.student.ui.account.forget.ForgetActivity
 import com.ftacloud.student.ui.account.register.RegisterActivity
+import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
 import io.reactivex.functions.Consumer
@@ -59,7 +58,8 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
 
 
     private fun initLoginMode() {
-
+        CommonUtils.setStatusBarTransparent(this)
+        BarUtils.setNavBarVisibility(this, false)
         // 用户协议
         register_protocol.movementMethod = LinkMovementMethod.getInstance()
         val userAgreement = getString(R.string.login_protocol_user_agreement)
@@ -152,24 +152,37 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
         when (buttonView.id) {
             R.id.verify_rb -> {
                 verify_rb.isChecked = true
-                verify_rb.textSize = 23f
+
                 verify_rb.setTextColor(ColorUtils.getColor(R.color.student_yellow))
-                password_rb.textSize = 18f
                 password_rb.setTextColor(ColorUtils.getColor(R.color.color_third_level))
                 login_mode_switcher.displayedChild = 0
                 forget_password.visibility = View.GONE
                 notifyLoginButton(verify_code_aet.text.toString().trim())
+                pad_title_tv?.text = getString(R.string.login_verify_rb)
+
+
+                if (!DeviceUtils.isTablet()) {
+                    verify_rb.textSize = 23f
+                    password_rb.textSize = 18f
+                }
+
 
             }
             R.id.password_rb -> {
                 password_rb.isChecked = true
-                password_rb.textSize = 23f
                 password_rb.setTextColor(ColorUtils.getColor(R.color.student_yellow))
-                verify_rb.textSize = 18f
+
                 verify_rb.setTextColor(ColorUtils.getColor(R.color.color_third_level))
                 login_mode_switcher.displayedChild = 1
                 forget_password.visibility = View.VISIBLE
                 notifyLoginButton(password_aet.text.toString().trim())
+                pad_title_tv?.text = getString(R.string.login_password_rb)
+
+                if (!DeviceUtils.isTablet()) {
+                    password_rb.textSize = 23f
+                    verify_rb.textSize = 18f
+                }
+
             }
         }
     }
@@ -181,7 +194,6 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
         R.id.forget_password,
         R.id.get_verify_tv,
         R.id.password_rule_iv
-
     )
     fun onClick(view: View) {
         ProductUtils.handleDoubleClick(view)
@@ -223,6 +235,10 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
 
     override fun captchaSendResult() {
         ToastUtils.showShort(R.string.captcha_target_format)
+    }
+
+    override fun setPadLayout() {
+        pad_title_tv?.text = getString(R.string.login_verify_rb)
     }
 
 

@@ -154,7 +154,7 @@ interface ApiService {
     /**
      * 待支付订单
      */
-    @POST("/api/student/order/listUnpaid")
+    @POST("/api/student/order/listWaitPay")
     fun getOrderListUnpaid(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
     /**
