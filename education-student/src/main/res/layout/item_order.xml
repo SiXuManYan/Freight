@@ -95,36 +95,7 @@
                     android:textStyle="bold"
                     tools:text="大大的" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toEndOf="@+id/image_iv"
-                    android:orientation="vertical">
 
-
-                    <com.sugar.library.ui.view.countdown.CountDownTextView
-                        android:id="@+id/expired_time_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/color_80282828"
-                        android:textSize="@dimen/sp12"
-                        android:visibility="gone"
-                        tools:text="失效时间：00:00:01"
-                        tools:visibility="visible" />
-
-
-                    <TextView
-                        android:id="@+id/time_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp2"
-                        android:textColor="@color/color_80282828"
-                        android:textSize="@dimen/sp12"
-                        tools:text="2020年10月19日 15:35:28" />
-
-
-                </LinearLayout>
 
 
                 <TextView
@@ -138,7 +109,7 @@
                     android:paddingTop="@dimen/dp2"
                     android:paddingEnd="@dimen/dp6"
                     android:paddingBottom="@dimen/dp2"
-                    android:text="去支付"
+                    android:text="@string/goto_pay"
                     android:textColor="@color/font_white"
                     android:textSize="@dimen/sp12"
                     android:visibility="gone"

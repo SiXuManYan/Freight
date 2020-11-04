@@ -202,6 +202,7 @@
     <string name="look">查看订单</string>
     <string name="pay_success">支付成功</string>
     <string name="pay_detail">支付详情</string>
+    <string name="goto_pay">去支付</string>
 
 
 </resources>
