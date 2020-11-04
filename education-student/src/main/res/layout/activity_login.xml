@@ -271,16 +271,13 @@
                 android:textColor="@color/font_white"
                 android:textSize="@dimen/sp16" />
 
-            <ViewSwitcher
-                android:id="@+id/span_switcher"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/register_protocol"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
                     android:layout_marginStart="10dp"
                     android:background="@color/font_white"
                     android:checked="false"
@@ -295,6 +292,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:visibility="gone"
                     android:paddingStart="@dimen/dp15"
                     android:paddingEnd="@dimen/dp15"
                     android:text="@string/login_forget_password"
@@ -302,7 +300,6 @@
                     android:textSize="@dimen/sp12" />
 
 
-            </ViewSwitcher>
 
 
         </LinearLayout>

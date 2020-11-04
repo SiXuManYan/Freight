@@ -203,6 +203,7 @@
     <string name="pay_success">支付成功</string>
     <string name="pay_detail">支付详情</string>
     <string name="goto_pay">去支付</string>
+    <string name="please_agree_agreement">请同意用户协议</string>
 
 
 </resources>

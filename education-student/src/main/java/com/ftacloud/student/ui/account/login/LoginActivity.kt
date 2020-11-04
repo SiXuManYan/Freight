@@ -132,10 +132,10 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
 
         if (isCipherText) {
             // 切换至明文
-          StudentUtil.editOpen(password_aet,password_rule_iv)
+            StudentUtil.editOpen(password_aet, password_rule_iv)
         } else {
             // 切换至密文
-            StudentUtil.editDismiss(password_aet,password_rule_iv)
+            StudentUtil.editDismiss(password_aet, password_rule_iv)
         }
         isCipherText = !isCipherText
     }
@@ -157,7 +157,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 password_rb.textSize = 18f
                 password_rb.setTextColor(ColorUtils.getColor(R.color.color_third_level))
                 login_mode_switcher.displayedChild = 0
-                span_switcher.displayedChild = 0
+                forget_password.visibility = View.GONE
                 notifyLoginButton(verify_code_aet.text.toString().trim())
 
             }
@@ -168,7 +168,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
                 verify_rb.textSize = 18f
                 verify_rb.setTextColor(ColorUtils.getColor(R.color.color_third_level))
                 login_mode_switcher.displayedChild = 1
-                span_switcher.displayedChild = 1
+                forget_password.visibility = View.VISIBLE
                 notifyLoginButton(password_aet.text.toString().trim())
             }
         }
@@ -187,6 +187,11 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
         ProductUtils.handleDoubleClick(view)
         when (view.id) {
             R.id.login_tv -> {
+
+                if (!register_protocol.isChecked) {
+                    ToastUtils.showShort(getString(R.string.please_agree_agreement))
+                    return
+                }
                 val verifyChecked = verify_rb.isChecked
                 val phoneValue = phone_aet.text.toString().trim()
                 val verifyValue = verify_code_aet.text.toString().trim()
