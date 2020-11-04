@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@drawable/ic_welcome_bg"
     android:orientation="vertical">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -41,8 +40,8 @@
         android:layout_width="@dimen/dp60"
         android:layout_height="@dimen/dp47"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dp20"
-        android:layout_marginBottom="@dimen/dp11"
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_marginBottom="@dimen/dp7"
         android:src="@drawable/ic_welcome_logo" />
 
     <androidx.core.widget.NestedScrollView
@@ -169,7 +168,6 @@
                     android:textSize="@dimen/sp8" />
 
 
-
             </RelativeLayout>
 
 
@@ -214,7 +212,6 @@
                         android:textSize="@dimen/sp8" />
 
 
-
                     <TextView
                         android:id="@+id/get_verify_tv"
                         android:layout_width="wrap_content"
@@ -230,8 +227,6 @@
                         android:text="@string/get_verify_code"
                         android:textColor="@color/student_yellow"
                         android:textSize="@dimen/sp8" />
-
-
 
 
                 </RelativeLayout>
@@ -274,21 +269,14 @@
 
                     <ImageView
                         android:id="@+id/password_rule_iv"
-                        android:layout_width="@dimen/dp10"
-                        android:layout_height="@dimen/dp10"
+                        android:layout_width="@dimen/dp25"
+                        android:layout_height="@dimen/dp25"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:padding="@dimen/dp10"
+                        android:padding="@dimen/dp8"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_login_eye_close"
-                        android:visibility="gone" />
+                        android:src="@drawable/ic_login_eye_close" />
 
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"
-                        android:layout_alignParentBottom="true"
-                        android:background="@color/split_line_color" />
 
                 </RelativeLayout>
 

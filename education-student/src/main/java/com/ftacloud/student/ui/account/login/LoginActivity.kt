@@ -58,8 +58,9 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
 
 
     private fun initLoginMode() {
-        CommonUtils.setStatusBarTransparent(this)
-        BarUtils.setNavBarVisibility(this, false)
+
+
+
         // 用户协议
         register_protocol.movementMethod = LinkMovementMethod.getInstance()
         val userAgreement = getString(R.string.login_protocol_user_agreement)
@@ -238,7 +239,8 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
     }
 
     override fun setPadLayout() {
-        pad_title_tv?.text = getString(R.string.login_verify_rb)
+        CommonUtils.setStatusBarTransparent(this)
+        BarUtils.setNavBarVisibility(this, false)
     }
 
 

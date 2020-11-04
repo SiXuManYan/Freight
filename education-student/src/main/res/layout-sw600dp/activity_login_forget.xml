@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_welcome_bg"
     android:orientation="vertical">
 
 
@@ -12,14 +13,33 @@
 
         <ImageView
             android:id="@+id/iv_back"
-            style="@style/TopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:contentDescription="@null"
-            android:src="@drawable/ic_back" />
+            android:padding="@dimen/dp8"
+            android:src="@drawable/ic_back_white" />
 
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/retrieve_password"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sp10"
+            android:textStyle="bold" />
 
     </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp47"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_marginBottom="@dimen/dp7"
+        android:src="@drawable/ic_welcome_logo" />
 
 
     <androidx.core.widget.NestedScrollView
@@ -27,40 +47,42 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/dp200"
             android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/shape_8_white"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/dp200">
+            android:padding="@dimen/dp16">
 
 
             <TextView
-                android:id="@+id/verify_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp20"
-                android:button="@null"
-                android:checked="true"
-                android:paddingStart="@dimen/dp15"
-                android:paddingEnd="@dimen/dp15"
-                android:text="@string/retrieve_password"
+                android:text="@string/login_register"
                 android:textColor="@color/student_yellow"
-                android:textSize="@dimen/sp23" />
+                android:textSize="@dimen/sp8" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@color/split_line_color" />
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp45"
-                android:layout_marginTop="50dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="@dimen/dp15"
-                android:paddingRight="@dimen/dp15">
+                android:layout_height="@dimen/dp25"
+                android:background="@drawable/shape_8_gray_login">
 
                 <ImageView
                     android:id="@+id/tag1_iv"
-                    android:layout_width="@dimen/dp20"
-                    android:layout_height="@dimen/dp20"
+                    android:layout_width="@dimen/dp10"
+                    android:layout_height="@dimen/dp10"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/dp15"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_marginEnd="@dimen/dp5"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_login_phone" />
 
@@ -69,7 +91,6 @@
                     android:id="@+id/phone_aet"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/dp5"
                     android:layout_toRightOf="@id/tag1_iv"
                     android:background="@null"
                     android:gravity="center_vertical"
@@ -80,30 +101,25 @@
                     android:maxLength="11"
                     android:textColor="@color/color_first_level"
                     android:textColorHint="@color/color_cccccc"
-                    android:textSize="@dimen/sp14" />
+                    android:textSize="@dimen/sp8" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp1"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/split_line_color" />
 
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp45"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="@dimen/dp15"
-                android:paddingRight="@dimen/dp15">
+                android:layout_height="@dimen/dp25"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/shape_8_gray_login">
 
                 <ImageView
                     android:id="@+id/tag2_iv"
-                    android:layout_width="@dimen/dp20"
-                    android:layout_height="@dimen/dp20"
+                    android:layout_width="@dimen/dp10"
+                    android:layout_height="@dimen/dp10"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/dp15"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_marginEnd="@dimen/dp5"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_login_verify_code" />
 
@@ -112,9 +128,7 @@
                     android:id="@+id/verify_code_aet"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/dp5"
-                    android:layout_toLeftOf="@+id/action_tv"
-                    android:layout_toRightOf="@id/tag2_iv"
+                    android:layout_toEndOf="@id/tag2_iv"
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="@string/login_verify_input"
@@ -124,13 +138,13 @@
                     android:maxLength="6"
                     android:textColor="@color/color_first_level"
                     android:textColorHint="@color/color_cccccc"
-                    android:textSize="@dimen/sp14" />
+                    android:textSize="@dimen/sp8" />
 
                 <View
                     android:layout_width="@dimen/dp1"
                     android:layout_height="@dimen/dp14"
                     android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/verify_code_tv"
+                    android:layout_toStartOf="@id/verify_code_tv"
                     android:background="@color/split_line_color" />
 
                 <TextView
@@ -147,30 +161,24 @@
                     android:paddingBottom="5dp"
                     android:text="@string/get_verify_code"
                     android:textColor="@color/student_yellow"
-                    android:textSize="@dimen/font_size_13" />
+                    android:textSize="@dimen/font_size_8" />
 
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp1"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/split_line_color" />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp45"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="@dimen/dp15"
-                android:paddingRight="@dimen/dp15">
+                android:layout_height="@dimen/dp25"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/shape_8_gray_login">
 
                 <ImageView
                     android:id="@+id/tag3_iv"
-                    android:layout_width="@dimen/dp20"
-                    android:layout_height="@dimen/dp20"
+                    android:layout_width="@dimen/dp10"
+                    android:layout_height="@dimen/dp10"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/dp15"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_marginEnd="@dimen/dp5"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_login_password" />
 
@@ -179,9 +187,8 @@
                     android:id="@+id/password_aet"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/dp5"
-                    android:layout_toLeftOf="@+id/password_rule_iv"
-                    android:layout_toRightOf="@id/tag3_iv"
+                    android:layout_toStartOf="@+id/password_rule_iv"
+                    android:layout_toEndOf="@id/tag3_iv"
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="@string/login_password_input"
@@ -191,41 +198,35 @@
                     android:maxLength="18"
                     android:textColor="@color/color_first_level"
                     android:textColorHint="@color/color_cccccc"
-                    android:textSize="@dimen/sp14" />
+                    android:textSize="@dimen/sp8" />
 
                 <ImageView
                     android:id="@+id/password_rule_iv"
-                    android:layout_width="@dimen/dp50"
-                    android:layout_height="@dimen/dp50"
-                    android:layout_alignParentRight="true"
+                    android:layout_width="@dimen/dp25"
+                    android:layout_height="@dimen/dp25"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:padding="@dimen/dp10"
+                    android:padding="@dimen/dp8"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_login_eye_close" />
 
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp1"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/split_line_color" />
 
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp45"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="@dimen/dp15"
-                android:paddingRight="@dimen/dp15">
+                android:layout_height="@dimen/dp25"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/shape_8_gray_login">
 
                 <ImageView
                     android:id="@+id/tag4_iv"
-                    android:layout_width="@dimen/dp20"
-                    android:layout_height="@dimen/dp20"
+                    android:layout_width="@dimen/dp10"
+                    android:layout_height="@dimen/dp10"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/dp15"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_marginEnd="@dimen/dp5"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_login_password" />
 
@@ -234,7 +235,6 @@
                     android:id="@+id/password_again_aet"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/dp5"
                     android:layout_toLeftOf="@+id/password_again_rule_iv"
                     android:layout_toRightOf="@id/tag4_iv"
                     android:background="@null"
@@ -246,24 +246,18 @@
                     android:maxLength="18"
                     android:textColor="@color/color_first_level"
                     android:textColorHint="@color/color_cccccc"
-                    android:textSize="@dimen/sp14" />
+                    android:textSize="@dimen/sp8" />
 
                 <ImageView
                     android:id="@+id/password_again_rule_iv"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
+                    android:layout_width="@dimen/dp25"
+                    android:layout_height="@dimen/dp25"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:padding="@dimen/dp10"
+                    android:padding="@dimen/dp8"
                     android:scaleType="centerInside"
-                    android:src="@drawable/ic_login_eye_close"  />
+                    android:src="@drawable/ic_login_eye_close" />
 
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp1"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/split_line_color" />
 
             </RelativeLayout>
 
@@ -271,15 +265,13 @@
             <TextView
                 android:id="@+id/submit_tv"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp50"
-                android:layout_marginLeft="@dimen/dp15"
-                android:layout_marginTop="@dimen/dp72"
-                android:layout_marginRight="@dimen/dp15"
-                android:background="@drawable/shape_12_yellow"
+                android:layout_height="@dimen/dp25"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/selector_login"
                 android:gravity="center"
                 android:text="@string/submit"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/sp16" />
+                android:textSize="@dimen/sp8" />
 
 
         </LinearLayout>
