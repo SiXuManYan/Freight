@@ -4,6 +4,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import com.ftacloud.student.frames.entity.CourseDetail
 import com.ftacloud.student.frames.entity.request.CourseDetailRequest
+import com.ftacloud.student.frames.entity.request.OrderCourseDetailRequest
 import com.ftacloud.student.frames.network.response.BasePresenter
 import com.google.gson.JsonObject
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
@@ -21,7 +22,7 @@ class ExperienceCourseDetailPresenter @Inject constructor(private var view: Expe
     /**
      * 获取体验课详情
      */
-    fun getCourseDetail(lifecycle: LifecycleOwner, id: String) {
+    fun getDetail(lifecycle: LifecycleOwner, id: String) {
 
         val apply = CourseDetailRequest().apply {
             scheduleId = id
@@ -46,6 +47,31 @@ class ExperienceCourseDetailPresenter @Inject constructor(private var view: Expe
     /**
      * 获取体验课详情
      */
+    fun getOrderCourseDetail(lifecycle: LifecycleOwner, orderId: String,productId: String) {
+
+        val apply = OrderCourseDetailRequest().apply {
+            this.orderId = orderId
+            this.productId = productId
+        }
+
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
+
+            apiService.getOrderDetail(apply), object : BaseHttpSubscriber<CourseDetail>(view) {
+
+                override fun onSuccess(data: CourseDetail?) {
+                    data?.let {
+                        view.bindData(it)
+
+                    }
+                }
+            })
+
+    }
+
+
+    /**
+     * 预约体验课
+     */
     fun bookingExperience(lifecycle: LifecycleOwner, id: String) {
 
         val apply = CourseDetailRequest().apply {
@@ -57,7 +83,7 @@ class ExperienceCourseDetailPresenter @Inject constructor(private var view: Expe
             apiService.bookingExperience(apply), object : BaseHttpSubscriber<JsonObject>(view) {
 
                 override fun onSuccess(data: JsonObject?) {
-                        view.bookingExperienceSuccess()
+                    view.bookingExperienceSuccess()
                 }
             })
 

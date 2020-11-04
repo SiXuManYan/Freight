@@ -119,6 +119,13 @@ interface ApiService {
 
 
     /**
+     * 首页订单课详情
+     */
+    @POST("/api/student/order/getInfo")
+    fun getOrderDetail(@Body json: OrderCourseDetailRequest): Flowable<Response<CourseDetail>>
+
+
+    /**
      * 预约体验课
      */
     @POST("/api/student/schedule/bookingExperience")
@@ -214,13 +221,11 @@ interface ApiService {
     fun getQuestionResult(@Body json: QuestionResultRequest): Flowable<Response<JsonObject>>
 
 
-   /**
+    /**
      * 正式课程信息
      */
     @POST("/api/student/schedule/getInfo")
     fun getFormalCourseDetail(@Body json: FormalCourseDetailRequest): Flowable<Response<FormalCourseDetail>>
-
-
 
 
 }

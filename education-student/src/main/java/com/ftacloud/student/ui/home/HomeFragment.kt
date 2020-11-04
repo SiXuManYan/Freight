@@ -9,6 +9,7 @@ import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Task
 import com.ftacloud.student.frames.entity.home.*
 import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity
+import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity.Companion.PAY
 import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity.Companion.RESERVE
 import com.ftacloud.student.ui.course.detail.live.LiveActivity
 import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
@@ -170,6 +171,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
 
 
     private fun orderItemClick(model: HomeOrder) {
+
         val apply = HomeOrderExtra().apply {
             orderId = model.orderId
             productId = model.productId
@@ -181,8 +183,8 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
             quantity = model.quantity
         }
         startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
-            putString(Constants.PARAM_ID, model.productId)
-            putInt(Constants.PARAM_TYPE, RESERVE)
+            putString(Constants.PARAM_ID, model.orderId)
+            putInt(Constants.PARAM_TYPE, PAY)
             putSerializable(Constants.PARAM_ORDER, apply)
         })
     }

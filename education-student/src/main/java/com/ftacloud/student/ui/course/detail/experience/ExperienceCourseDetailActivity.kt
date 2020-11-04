@@ -1,7 +1,6 @@
 package com.ftacloud.student.ui.course.detail.experience
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -35,7 +34,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
     }
 
     var homeOrderExtra: HomeOrderExtra? = null
-
+    var type = 0
 
     override fun getLayoutId() = R.layout.activity_course_detail
 
@@ -45,18 +44,19 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             return
         }
         val scheduleId = intent.extras!!.getString(Constants.PARAM_ID, "")
-        val type = intent.extras!!.getInt(Constants.PARAM_TYPE)
-        if (intent.extras!!.containsKey(Constants.PARAM_ORDER)) {
-            homeOrderExtra = intent.getSerializableExtra(Constants.PARAM_ORDER) as HomeOrderExtra
-        }
+
+        type = intent.extras!!.getInt(Constants.PARAM_TYPE)
+
         if (type == RESERVE) {
             switcher_vs.displayedChild = 0
+            presenter.getDetail(this, scheduleId)
         } else {
             switcher_vs.displayedChild = 1
+            if (intent.extras!!.containsKey(Constants.PARAM_ORDER)) {
+                homeOrderExtra = intent.getSerializableExtra(Constants.PARAM_ORDER) as HomeOrderExtra
+            }
+            presenter.getOrderCourseDetail(this, homeOrderExtra!!.orderId, homeOrderExtra!!.productId)
         }
-
-        presenter.getCourseDetail(this, scheduleId)
-
     }
 
     override fun bindData(it: CourseDetail) {
@@ -87,7 +87,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
         it.courseDetailImgs.forEach {
 
             val iv = ImageView(this)
-            iv.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+            iv.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
                 bottomMargin = SizeUtils.dp2px(5f)
             }
 
