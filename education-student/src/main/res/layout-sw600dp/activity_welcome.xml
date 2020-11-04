@@ -23,7 +23,7 @@
 
         <ImageView
             android:layout_width="@dimen/dp100"
-            android:layout_height="@dimen/dp100"
+            android:layout_height="@dimen/dp86"
             android:src="@drawable/ic_welcome_logo"
             app:layout_constraintBottom_toTopOf="@+id/login_register_tv"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,15 +34,14 @@
 
         <TextView
             android:id="@+id/login_register_tv"
-            android:layout_width="@dimen/dp270"
-            android:layout_height="@dimen/dp45"
+            android:layout_width="@dimen/dp145"
+            android:layout_height="@dimen/dp28"
             android:background="@drawable/shape_bg_12_white"
             android:gravity="center"
             android:onClick="loginOrRegister"
             android:text="@string/welocme_login_register"
             android:textColor="@color/color_ff7a18"
-
-            android:textSize="@dimen/sp15"
+            android:textSize="@dimen/sp10"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.499"
@@ -53,23 +52,23 @@
 
         <LinearLayout
             android:layout_width="@dimen/dp270"
+            android:layout_height="@dimen/dp45"
+            android:background="@drawable/shape_bg_12_white_stock"
+            android:gravity="center"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center"
-            android:visibility="invisible"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/shape_bg_12_white_stock"
             app:layout_constraintTop_toBottomOf="@+id/login_register_tv"
-            app:layout_constraintVertical_bias="0.083"
-            android:layout_height="@dimen/dp45">
+            app:layout_constraintVertical_bias="0.083">
 
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:src="@drawable/ic_welcome_login_wechat"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp5"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/ic_welcome_login_wechat" />
 
             <TextView
                 android:id="@+id/wechat_login_tv"
@@ -84,7 +83,6 @@
                 />
 
         </LinearLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
