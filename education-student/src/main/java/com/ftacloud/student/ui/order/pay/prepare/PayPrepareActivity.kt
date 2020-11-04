@@ -1,16 +1,12 @@
 package com.ftacloud.student.ui.order.pay.prepare
 
-import android.content.DialogInterface
 import android.view.View
 import butterknife.OnClick
 import com.blankj.utilcode.util.StringUtils
 import com.bumptech.glide.Glide
-import com.ftacloud.student.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.home.HomeOrderExtra
-import com.ftacloud.student.ui.order.list.OrderActivity
-import com.sugar.library.ui.view.dialog.AlertDialog
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
@@ -52,7 +48,7 @@ class PayPrepareActivity : BaseMVPActivity<PayPreparePresenter>(), PayPrepareVie
     }
 
     private fun initExtra() {
-        if (intent.extras == null ) {
+        if (intent.extras == null) {
             finish()
             return
         }
@@ -92,27 +88,6 @@ class PayPrepareActivity : BaseMVPActivity<PayPreparePresenter>(), PayPrepareVie
             else -> {
             }
         }
-    }
-
-    override fun onBackPressed() {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.hint)
-            .setMessage(getString(R.string.order_already_create_message))
-            .setCancelable(false)
-            .setPositiveButton(getString(R.string.back_home), AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
-                startActivityClearTop(MainActivity::class.java, null)
-                dialog.dismiss()
-               super.onBackPressed()
-            })
-            .setNegativeButton(getString(R.string.view_order), AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
-                startActivityClearTop(OrderActivity::class.java, null)
-                dialog.dismiss()
-                super.onBackPressed()
-            })
-            .create()
-            .show()
-
-
     }
 
 
