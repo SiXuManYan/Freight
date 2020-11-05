@@ -206,6 +206,9 @@
     <string name="course">课程</string>
     <string name="course_table">课程表</string>
     <string name="course_task">课后任务</string>
+    <string name="teacher">老师</string>
+    <string name="enter_room">进入教室</string>
+    <string name="class_begin_time">开课时间</string>
 
 
 </resources>

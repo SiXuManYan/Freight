@@ -44,7 +44,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/sp16"
+                android:textSize="@dimen/sp12"
                 tools:text="基础测试" />
 
             <TextView
@@ -57,7 +57,7 @@
                 android:lineSpacingMultiplier="1.2"
                 android:maxLines="2"
                 android:textColor="@color/color_80ffffff"
-                android:textSize="@dimen/sp13"
+                android:textSize="@dimen/sp9"
                 tools:text="专业分级测验，帮助验,/评分中，已经评分" />
 
 

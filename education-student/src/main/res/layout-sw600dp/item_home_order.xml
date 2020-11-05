@@ -13,7 +13,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp140"
+        android:layout_height="@dimen/dp100"
         android:foreground="?attr/selectableItemBackground"
         app:cardBackgroundColor="@color/color_ff9242"
         app:cardCornerRadius="@dimen/dp12"
@@ -30,9 +30,9 @@
 
             <ImageView
                 android:id="@+id/image_iv"
-                android:layout_width="@dimen/dp60"
-                android:layout_height="@dimen/dp60"
-                android:layout_marginEnd="@dimen/dp10"
+                android:layout_width="@dimen/dp45"
+                android:layout_height="@dimen/dp45"
+                android:layout_marginEnd="@dimen/dp7"
                 tools:src="@mipmap/ic_temp" />
 
 
@@ -40,13 +40,13 @@
                 android:id="@+id/title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp9"
+                android:layout_marginBottom="@dimen/dp5"
                 android:layout_toEndOf="@+id/image_iv"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textStyle="bold"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/sp16"
+                android:textSize="@dimen/sp12"
                 tools:text="3~6岁萌娃充能课程" />
 
 
@@ -57,12 +57,11 @@
                 android:layout_below="@+id/title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp2"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
                 tools:text="适合3-6岁萌娃，快速提高英语口语，简介课程简介课程简介"
                 android:textColor="@color/color_80ffffff"
-                android:textSize="@dimen/sp13" />
+                android:textSize="@dimen/sp9" />
 
 
             <View
@@ -93,7 +92,7 @@
                     android:singleLine="true"
                     tools:text="@string/class_number_format"
                     android:textColor="@color/font_white"
-                    android:textSize="@dimen/sp12" />
+                    android:textSize="@dimen/sp8" />
 
 
                 <TextView
@@ -105,7 +104,7 @@
                     android:singleLine="true"
                     android:text="￥1,998"
                     android:textColor="@color/font_white"
-                    android:textSize="@dimen/sp16"
+                    android:textSize="@dimen/sp13"
                     android:textStyle="bold" />
 
             </LinearLayout>
