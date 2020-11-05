@@ -488,6 +488,6 @@ open class JsWebView @JvmOverloads constructor(context: Context?, attrs: Attribu
     }
 
     companion object {
-        const val BRIDGE_NAME = "yihuaapp"
+        const val BRIDGE_NAME = ""
     }
 }

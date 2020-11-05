@@ -139,8 +139,6 @@
     <string name="no">否</string>
 
 
-
-
     <!-- 课程详情 -->
     <string name="student_count_format">等%1$s人学习</string>
     <string name="detail_course_price">课程售价:</string>
@@ -203,6 +201,11 @@
     <string name="pay_detail">支付详情</string>
     <string name="goto_pay">去支付</string>
     <string name="please_agree_agreement">请同意用户协议</string>
+    <string name="main_back_hint">再按一次退出</string>
+    <string name="home">首页</string>
+    <string name="course">课程</string>
+    <string name="course_table">课程表</string>
+    <string name="course_task">课后任务</string>
 
 
 </resources>

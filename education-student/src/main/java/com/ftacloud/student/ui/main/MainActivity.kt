@@ -4,25 +4,38 @@ import android.content.Intent
 import android.net.Uri
 import android.view.View
 import android.widget.RelativeLayout
-import butterknife.OnClick
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.course.my.MyCourseActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity
+import com.ftacloud.student.ui.home.HomeFragment
 import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.order.list.OrderActivity
 import com.ftacloud.student.ui.settings.SettingActivity
+import com.ftacloud.student.ui.settings.child.WebFragment
 import com.ftacloud.student.ui.task.TaskActivity
 import com.ftacloud.student.ui.tests.my.MyTestActivity
 import com.ftacloud.student.ui.user.UserActivity
 import com.sugar.library.ui.view.CircleImageView
-import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
+
+
+    companion object {
+        internal val TAB_TITLES = arrayListOf(
+            StringUtils.getString(R.string.home),
+            StringUtils.getString(R.string.course),
+            StringUtils.getString(R.string.course_table),
+            StringUtils.getString(R.string.course_task)
+        )
+    }
 
 
     private var tapTime = 0L
@@ -31,9 +44,9 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
     override fun initViews() {
         initEvent()
-        initHeaderView()
         presenter.loadUserInfo(this)
     }
+
 
     private fun initEvent() {
         presenter.subsribeEvent(Consumer {
@@ -49,8 +62,10 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
     private fun initHeaderView() {
 
-        val header = nav_view.getHeaderView(0)
-
+        val header = nav_view?.getHeaderView(0)
+        if (header == null) {
+            return
+        }
         header.findViewById<CircleImageView>(R.id.avatar_iv).setOnClickListener {
             startActivity(UserActivity::class.java)
         }
@@ -88,7 +103,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
     override fun onBackPressed() {
         if (System.currentTimeMillis() - tapTime > 2000) {
-            ToastUtils.showShort("再按一次退出")
+            ToastUtils.showShort(getString(R.string.main_back_hint))
             tapTime = System.currentTimeMillis()
         } else {
             // 保留应用状态
@@ -97,24 +112,39 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
     }
 
 
-    @OnClick(
-        R.id.my_iv,
-        R.id.message_iv
-    )
-    fun onClick(view: View) {
-        if (CommonUtils.isDoubleClick(view)) {
-            return
-        }
-        when (view.id) {
-            R.id.my_iv -> {
-                drawer_layout.open()
-            }
-            R.id.message_iv -> {
-                startActivity(MessageActivity::class.java)
-            }
-            else -> {
+    override fun initPhoneLayout() {
+        initHeaderView()
+        findViewById<View>(R.id.my_iv).setOnClickListener {
+            val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+            if (drawer != null) {
+                drawer.open()
             }
         }
+        findViewById<View>(R.id.message_iv).setOnClickListener {
+            startActivity(MessageActivity::class.java)
+        }
+    }
+
+    override fun initPadLayout() {
+        pager?.adapter = PagerAdapter(supportFragmentManager)
+        pager?.offscreenPageLimit = TAB_TITLES.size
+        tabs_type?.setViewPager(pager, TAB_TITLES.toTypedArray())
+    }
+
+    internal class PagerAdapter(fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
+
+        override fun getItem(position: Int): Fragment {
+            when (position) {
+                0 -> {
+                    return HomeFragment()
+                }
+                else -> {
+                    return WebFragment.newInstance("")
+                }
+            }
+        }
+
+        override fun getCount() = TAB_TITLES.size
     }
 
 

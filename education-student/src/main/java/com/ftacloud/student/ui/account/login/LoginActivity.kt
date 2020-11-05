@@ -238,7 +238,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
         ToastUtils.showShort(R.string.captcha_target_format)
     }
 
-    override fun setPadLayout() {
+    override fun initPadLayout() {
         CommonUtils.setStatusBarTransparent(this)
         BarUtils.setNavBarVisibility(this, false)
     }

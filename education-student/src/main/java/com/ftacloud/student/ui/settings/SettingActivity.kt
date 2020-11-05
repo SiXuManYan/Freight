@@ -94,7 +94,7 @@ class SettingActivity : BaseMVPActivity<SettingPresenter>(), SettingView {
         finish()
     }
 
-    override fun setPadLayout() {
+    override fun initPadLayout() {
 
         val action = findViewById<TextView>(R.id.tv_action)
         if (action != null) {

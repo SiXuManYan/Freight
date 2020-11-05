@@ -34,7 +34,7 @@ class ForgetActivity : BaseMVPActivity<ForgetPresenter>(), ForgetView {
 
     override fun hideLoading() = dismissLoadingDialog()
 
-    override fun setPadLayout() {
+    override fun initPadLayout() {
         CommonUtils.setStatusBarTransparent(this)
         BarUtils.setNavBarVisibility(this, false)
     }

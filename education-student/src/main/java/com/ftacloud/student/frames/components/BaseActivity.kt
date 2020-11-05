@@ -19,7 +19,6 @@ import butterknife.Unbinder
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ScreenUtils
-import com.blankj.utilcode.util.SizeUtils
 import com.ftacloud.student.ui.webs.WebCommonActivity
 import com.sugar.library.R
 import com.sugar.library.ui.view.dialog.LoadingDialog
@@ -91,21 +90,21 @@ abstract class BaseActivity : AppCompatActivity() {
             }
 
 
-            setPadLayout()
+            initPadLayout()
         } else {
             if (!ScreenUtils.isPortrait()) {
                 ScreenUtils.setPortrait(this)
             }
-            setPhoneLayout()
+            initPhoneLayout()
         }
 
     }
 
-    open fun setPhoneLayout() {
+    open fun initPhoneLayout() {
 
     }
 
-    open fun setPadLayout() {
+    open fun initPadLayout() {
 
     }
 
