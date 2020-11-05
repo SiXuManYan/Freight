@@ -1,7 +1,6 @@
 package com.ftacloud.student.ui.splash
 
 import android.text.TextPaint
-import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -10,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.SpanUtils
-import com.ftacloud.student.MainActivity
+import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseActivity
 import com.ftacloud.student.frames.network.Html5Url

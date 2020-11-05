@@ -3,7 +3,7 @@ package com.ftacloud.student.ui.order.pay.result
 import android.content.DialogInterface
 import android.view.View
 import butterknife.OnClick
-import com.ftacloud.student.MainActivity
+import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseActivity
 import com.ftacloud.student.ui.order.list.OrderActivity

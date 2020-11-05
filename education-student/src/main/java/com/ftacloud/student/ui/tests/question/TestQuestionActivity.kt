@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.OnClick
-import com.ftacloud.student.MainActivity
+import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.question.QuestionChild
@@ -15,7 +15,6 @@ import com.ftacloud.student.ui.tests.question.holder.RecordHolder
 import com.ftacloud.student.ui.tests.question.holder.SelectHolder
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
-import com.sugar.library.event.ImageUploadEvent
 import com.sugar.library.event.RecordUploadEvent
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants

@@ -1,4 +1,4 @@
-package com.ftacloud.student
+package com.ftacloud.student.ui.main
 
 import android.content.Intent
 import android.net.Uri
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.RelativeLayout
 import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
+import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.course.my.MyCourseActivity
 import com.ftacloud.student.ui.course.schedule.ClassScheduleActivity

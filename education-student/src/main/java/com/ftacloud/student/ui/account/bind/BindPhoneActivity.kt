@@ -3,12 +3,9 @@ package com.ftacloud.student.ui.account.bind
 import android.view.View
 import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
-import com.ftacloud.student.MainActivity
+import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
-import com.sugar.library.event.Event
-import com.sugar.library.event.RxBus
-import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
 import kotlinx.android.synthetic.main.activity_register.*
 

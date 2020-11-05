@@ -1,4 +1,4 @@
-package com.ftacloud.student
+package com.ftacloud.student.ui.main
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner

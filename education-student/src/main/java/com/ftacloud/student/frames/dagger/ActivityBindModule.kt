@@ -2,8 +2,8 @@ package com.ftacloud.student.frames.dagger
 
 
 import com.fatcloud.account.feature.webs.WebCommonModule
-import com.ftacloud.student.MainActivity
-import com.ftacloud.student.MainModule
+import com.ftacloud.student.ui.main.MainActivity
+import com.ftacloud.student.ui.main.MainModule
 import com.ftacloud.student.ui.account.WelcomeActivity
 import com.ftacloud.student.ui.account.WelcomeModule
 import com.ftacloud.student.ui.account.bind.BindPhoneActivity

@@ -2,15 +2,23 @@ package com.ftacloud.student.ui.settings
 
 import android.content.DialogInterface
 import android.view.View
+import android.widget.RelativeLayout
+import android.widget.TextView
+import androidx.appcompat.widget.DrawableUtils
 import butterknife.OnClick
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.blankj.utilcode.util.VibrateUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.network.Html5Url
 import com.ftacloud.student.ui.account.WelcomeActivity
+import com.ftacloud.student.ui.order.list.OrderActivity
+import com.ftacloud.student.ui.order.list.child.OrderChildFragment
+import com.ftacloud.student.ui.settings.child.WebFragment
 import com.sugar.library.ui.view.dialog.AlertDialog
 import com.sugar.library.util.CommonUtils
+import kotlinx.android.synthetic.main.activity_my_order.*
 
 /**
  * Created by Wangsw on 2020/9/21 0021 17:46.
@@ -18,6 +26,17 @@ import com.sugar.library.util.CommonUtils
  *
  */
 class SettingActivity : BaseMVPActivity<SettingPresenter>(), SettingView {
+
+
+    companion object {
+        internal val TAB_TITLES = arrayListOf(
+            StringUtils.getString(R.string.privacy_statement),
+            StringUtils.getString(R.string.copyright),
+            StringUtils.getString(R.string.contact_us)
+        )
+
+
+    }
 
     override fun getLayoutId() = R.layout.activity_setting
 
@@ -46,19 +65,7 @@ class SettingActivity : BaseMVPActivity<SettingPresenter>(), SettingView {
                 ToastUtils.showShort("联系我们")
             }
             R.id.sign_out_tv -> {
-                VibrateUtils.vibrate(10)
-                AlertDialog.Builder(context)
-                    .setTitle(R.string.hint)
-                    .setMessage(getString(R.string.login_out_hint))
-                    .setPositiveButton(R.string.confirm, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, _ ->
-                        dialog.dismiss()
-                        presenter.loginOutRequest(this)
-                    })
-                    .setNegativeButton(R.string.cancel, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, _ ->
-                        dialog.dismiss()
-                    })
-                    .create()
-                    .show()
+                signOut()
             }
 
             else -> {
@@ -66,9 +73,54 @@ class SettingActivity : BaseMVPActivity<SettingPresenter>(), SettingView {
         }
     }
 
+    private fun signOut() {
+        VibrateUtils.vibrate(10)
+        AlertDialog.Builder(context)
+            .setTitle(R.string.hint)
+            .setMessage(getString(R.string.login_out_hint))
+            .setPositiveButton(R.string.confirm, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, _ ->
+                dialog.dismiss()
+                presenter.loginOutRequest(this)
+            })
+            .setNegativeButton(R.string.cancel, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, _ ->
+                dialog.dismiss()
+            })
+            .create()
+            .show()
+    }
+
     override fun loginOutSuccess() {
-        startActivityClearTop(WelcomeActivity::class.java,null)
+        startActivityClearTop(WelcomeActivity::class.java, null)
         finish()
+    }
+
+    override fun setPadLayout() {
+
+        val action = findViewById<TextView>(R.id.tv_action)
+        if (action != null) {
+
+            action.apply {
+                visibility = View.VISIBLE
+                text = getString(R.string.sign_out_tv)
+                setTextColor(R.color.font_white)
+                setOnClickListener {
+                    signOut()
+                }
+            }
+
+        }
+
+        pager.adapter = PagerAdapter(supportFragmentManager)
+        tabs_type.setViewPager(pager, TAB_TITLES.toTypedArray())
+        pager.offscreenPageLimit = TAB_TITLES.size
+    }
+
+
+    internal class PagerAdapter(fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
+
+        override fun getItem(position: Int) = WebFragment.newInstance(Html5Url.SPLASH_PRIVACY_STATEMENT_URL)
+
+        override fun getCount() = OrderActivity.TAB_TITLES.size
     }
 
 }

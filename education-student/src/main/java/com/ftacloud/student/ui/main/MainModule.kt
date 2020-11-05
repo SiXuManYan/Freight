@@ -1,4 +1,4 @@
-package com.ftacloud.student
+package com.ftacloud.student.ui.main
 
 import dagger.Module
 import dagger.Provides

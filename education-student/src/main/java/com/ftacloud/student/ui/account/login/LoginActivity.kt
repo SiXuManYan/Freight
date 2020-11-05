@@ -10,7 +10,7 @@ import android.widget.CompoundButton
 import butterknife.OnCheckedChanged
 import butterknife.OnClick
 import com.blankj.utilcode.util.*
-import com.ftacloud.student.MainActivity
+import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.common.StudentUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity

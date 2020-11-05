@@ -45,12 +45,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:background="?android:attr/selectableItemBackground"
-        android:paddingLeft="@dimen/dp15"
-        android:paddingTop="@dimen/dp12"
-        android:paddingRight="@dimen/dp15"
-        android:paddingBottom="@dimen/dp12"
+        android:background="@drawable/shape_bg_4_yellow"
+        android:paddingStart="@dimen/dp5"
+        android:paddingTop="@dimen/dp2"
+        android:layout_marginEnd="@dimen/dp15"
+        android:paddingBottom="@dimen/dp2"
+        android:paddingEnd="@dimen/dp5"
         android:textColor="@color/color_zero_level"
-        android:textSize="@dimen/sp12"
-        android:visibility="gone" />
+        android:textSize="@dimen/sp7"
+        tools:text="退出登录" />
 </RelativeLayout>

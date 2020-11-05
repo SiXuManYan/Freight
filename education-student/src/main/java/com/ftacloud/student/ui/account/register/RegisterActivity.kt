@@ -1,18 +1,15 @@
 package com.ftacloud.student.ui.account.register
 
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.view.View
 import butterknife.OnClick
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.ftacloud.student.MainActivity
+import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.common.StudentUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.ProductUtils
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.get_verify_tv
 import kotlinx.android.synthetic.main.activity_register.password_aet

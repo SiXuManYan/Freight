@@ -2,7 +2,7 @@ package com.ftacloud.student.ui.course.detail.experience.result
 
 import android.view.View
 import butterknife.OnClick
-import com.ftacloud.student.MainActivity
+import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseActivity
 import com.sugar.library.util.CommonUtils
