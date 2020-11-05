@@ -19,6 +19,7 @@ import butterknife.Unbinder
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ScreenUtils
+import com.blankj.utilcode.util.SizeUtils
 import com.ftacloud.student.ui.webs.WebCommonActivity
 import com.sugar.library.R
 import com.sugar.library.ui.view.dialog.LoadingDialog
@@ -82,6 +83,11 @@ abstract class BaseActivity : AppCompatActivity() {
             if (!ScreenUtils.isLandscape()) {
                 ScreenUtils.setLandscape(this)
             }
+
+            if (findViewById<TextView>(R.id.tv_title) != null) {
+                findViewById<TextView>(R.id.tv_title).textSize = 14f
+            }
+
             setPadLayout()
         } else {
             if (!ScreenUtils.isPortrait()) {
@@ -301,7 +307,7 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * 是否是平板设备
      */
-    private fun isPad(): Boolean {
+    open fun isPad(): Boolean {
         return DeviceUtils.isTablet()
     }
 

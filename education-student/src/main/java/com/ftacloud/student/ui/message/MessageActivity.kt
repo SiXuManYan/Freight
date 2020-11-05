@@ -20,7 +20,9 @@ class MessageActivity : BaseRefreshListActivity<Message, MessagePresenter>(), Me
 
     override fun initViews() {
         super.initViews()
-//        CommonUtils.hasNotificationPermission(this, false)
+        if (isPad()) {
+            recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(context,2)
+        }
     }
 
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<Message> {

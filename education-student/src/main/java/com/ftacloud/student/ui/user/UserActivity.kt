@@ -57,6 +57,8 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
         initEvent()
     }
 
+
+
     private fun initEvent() {
         // 图片上传成功
         presenter.subsribeEventEntity<ImageUploadEvent>(Consumer {

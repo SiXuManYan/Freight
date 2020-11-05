@@ -104,6 +104,10 @@ abstract class BaseRefreshListActivity<T, P : LibraryBasePresenter> : BaseMVPAct
         adapter = getRecyclerAdapter()
         recyclerView = easyRecyclerView.recyclerView
         easyRecyclerView.setLayoutManager(androidx.recyclerview.widget.LinearLayoutManager(context))
+
+
+
+
         easyRecyclerView.setAdapterWithProgress(adapter)
         easyRecyclerView.showRecycler()
         getItemDecoration()?.let {
