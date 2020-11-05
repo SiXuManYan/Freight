@@ -11,7 +11,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp100"
+        android:layout_height="@dimen/dp65"
         android:layout_marginStart="@dimen/dp15"
         android:layout_marginEnd="@dimen/dp15"
         android:foreground="?attr/selectableItemBackground"
@@ -36,7 +36,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/sp16"
+                android:textSize="@dimen/sp11"
                 android:textStyle="bold"
                 tools:text="基础测试" />
 
@@ -46,19 +46,19 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title_tv"
                 android:layout_marginStart="@dimen/dp10"
-                android:layout_marginTop="@dimen/dp15"
+                android:layout_marginTop="@dimen/dp5"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
                 android:maxLines="2"
                 android:textColor="@color/color_80ffffff"
-                android:textSize="@dimen/sp13"
+                android:textSize="@dimen/sp9"
                 tools:text="专业分级测验，帮助验/评分中，已经评分" />
 
 
             <FrameLayout
                 android:id="@+id/message_unread_fl"
-                android:layout_width="@dimen/dp18"
-                android:layout_height="@dimen/dp18"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"
                 android:layout_alignParentEnd="true"
                 android:visibility="gone"
                 tools:visibility="visible">
