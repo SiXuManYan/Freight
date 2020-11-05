@@ -3,6 +3,7 @@ package com.ftacloud.student.ui.home
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
@@ -28,6 +29,10 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
 
     override fun initViews(parent: View) {
         super.initViews(parent)
+
+        if (DeviceUtils.isTablet()) {
+            easyRecyclerView.setLayoutManager(androidx.recyclerview.widget.GridLayoutManager(context, 2))
+        }
         loadOnVisible()
     }
 

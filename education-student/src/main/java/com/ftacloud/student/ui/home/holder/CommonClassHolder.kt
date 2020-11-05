@@ -32,9 +32,6 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
         content_tv.text = data.teacherName
         Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
 
-
-
-
         when  {
             data.state.contains(CourseState.UNTEACH.name) -> {
                 // 未上课，显示倒计时

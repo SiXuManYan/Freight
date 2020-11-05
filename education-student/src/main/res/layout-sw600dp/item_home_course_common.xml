@@ -14,7 +14,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_cv"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp140"
+        android:layout_height="@dimen/dp100"
         android:foreground="?attr/selectableItemBackground"
         app:cardBackgroundColor="@color/color_5cbebc"
         app:cardCornerRadius="@dimen/dp12"
@@ -31,8 +31,8 @@
 
             <ImageView
                 android:id="@+id/image_iv"
-                android:layout_width="@dimen/dp60"
-                android:layout_height="@dimen/dp60"
+                android:layout_width="@dimen/dp45"
+                android:layout_height="@dimen/dp45"
                 android:layout_marginEnd="@dimen/dp10"
                 android:src="@mipmap/ic_temp" />
 
@@ -46,7 +46,7 @@
                 android:maxLines="1"
                 android:textColor="@color/font_white"
                 android:textStyle="bold"
-                android:textSize="@dimen/sp16"
+                android:textSize="@dimen/sp12"
                 tools:text="3~6岁萌娃充能课程" />
 
 
@@ -61,8 +61,8 @@
 
                 <com.sugar.library.ui.view.CircleImageView
                     android:id="@+id/teacher_civ"
-                    android:layout_width="@dimen/dp30"
-                    android:layout_height="@dimen/dp30"
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
                     android:layout_marginEnd="@dimen/dp5"
                     android:src="@mipmap/ic_temp" />
 
@@ -74,7 +74,7 @@
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.2"
                     android:textColor="@color/color_80ffffff"
-                    android:textSize="@dimen/sp13"
+                    android:textSize="@dimen/sp7"
                     tools:text="适合3-6岁萌娃，快速提高英语口语，简介课程简介课程简介" />
             </LinearLayout>
 
@@ -115,7 +115,7 @@
                         android:singleLine="true"
                         android:text="@string/class_not_started"
                         android:textColor="@color/font_white"
-                        android:textSize="@dimen/sp12" />
+                        android:textSize="@dimen/sp8" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -180,12 +180,12 @@
                         android:singleLine="true"
                         android:text="@string/enter_room"
                         android:textColor="@color/color_80ffffff"
-                        android:textSize="@dimen/sp12" />
+                        android:textSize="@dimen/sp7" />
 
 
                     <ImageView
-                        android:layout_width="@dimen/dp12"
-                        android:layout_height="@dimen/dp12"
+                        android:layout_width="@dimen/dp8"
+                        android:layout_height="@dimen/dp8"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/ic_enter_room" />
 
