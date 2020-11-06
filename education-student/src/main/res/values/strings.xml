@@ -209,6 +209,7 @@
     <string name="teacher">老师</string>
     <string name="enter_room">进入教室</string>
     <string name="class_begin_time">开课时间</string>
+    <string name="course_detail">课程详情</string>
 
 
 </resources>

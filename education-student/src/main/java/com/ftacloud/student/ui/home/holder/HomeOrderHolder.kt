@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import com.blankj.utilcode.util.StringUtils
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
+import com.ftacloud.student.common.OssUtil
 import com.ftacloud.student.frames.entity.home.HomeOrder
+import com.ftacloud.student.ui.app.CloudAccountApplication
 import com.sugar.library.frames.BaseItemViewHolder
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_order.*
@@ -27,12 +29,17 @@ class HomeOrderHolder(parent: ViewGroup?) : BaseItemViewHolder<HomeOrder>(parent
             return
         }
 
-        Glide.with(context).load(data.productIconImg).into(image_iv)
+        OssUtil.getRealOssUrl(context,data.productIconImg,object :CloudAccountApplication.OssSignCallBack{
+            override fun ossUrlSignEnd(url: String) {
+                Glide.with(context).load(url).into(image_iv)
+            }
+        })
+
         title_tv.text = data.productName
         content_tv.text = data.productIntroduce
 
         num_tv.text = StringUtils.getString(R.string.class_number_format, data.quantity)
-        money_tv.text = StringUtils.getString(R.string.money_symbol_with_blank, data.productMoney)
+        money_tv.text = StringUtils.getString(R.string.money_symbol_format_with_blank, data.payingMoney)
     }
 
 

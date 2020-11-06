@@ -29,7 +29,6 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
 
     override fun initViews(parent: View) {
         super.initViews(parent)
-
         if (DeviceUtils.isTablet()) {
             easyRecyclerView.setLayoutManager(androidx.recyclerview.widget.GridLayoutManager(context, 2))
         }

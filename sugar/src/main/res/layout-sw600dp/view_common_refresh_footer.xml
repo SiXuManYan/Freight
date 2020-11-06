@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/refresh_footer_container_rl"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp40"
+    android:layout_height="@dimen/dp30"
     android:background="@color/transparent"
     android:gravity="center"
     android:orientation="vertical">
@@ -22,7 +22,7 @@
         android:layout_toEndOf="@+id/common_progress"
         android:text="@string/library_loading"
         android:textColor="@color/colorFontHint"
-        android:textSize="@dimen/sp12" />
+        android:textSize="@dimen/sp8" />
 
 
 </RelativeLayout>

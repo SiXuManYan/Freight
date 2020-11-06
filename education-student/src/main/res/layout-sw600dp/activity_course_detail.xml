@@ -24,7 +24,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp147"
+                android:layout_height="@dimen/dp202"
                 android:layout_marginTop="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:background="@color/font_white"
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/color_first_level"
-                    android:textSize="@dimen/sp14"
+                    android:textSize="@dimen/sp8"
                     tools:text="等100人学习" />
 
 
@@ -94,9 +94,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/dp10"
-                android:text="老师介绍"
+                android:text="@string/teacher_introduction"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/sp18"
+                android:textSize="@dimen/sp12"
                 android:textStyle="bold" />
 
 
@@ -123,7 +123,7 @@
                     <ImageView
                         android:id="@+id/teacher_iv"
                         android:layout_width="@dimen/dp0"
-                        android:layout_height="@dimen/dp137"
+                        android:layout_height="@dimen/dp72"
                         android:layout_marginEnd="@dimen/dp15"
                         android:layout_weight="1"
                         tools:src="@mipmap/ic_temp3" />
@@ -141,7 +141,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/dp10"
                             android:textColor="@color/color_8b391b"
-                            android:textSize="@dimen/sp20"
+                            android:textSize="@dimen/sp13"
                             tools:text="Kaylene Humphreys" />
 
 
@@ -152,7 +152,7 @@
                             android:layout_marginBottom="@dimen/dp10"
                             android:lineSpacingMultiplier="1.2"
                             android:textColor="@color/color_8b391b"
-                            android:textSize="@dimen/sp11"
+                            android:textSize="@dimen/sp8"
                             tools:text="墨尔本大学教育硕士, 曾在墨尔本多所学校任教, 现任墨尔本小学P.L.C全职教师
 拥有先进教学理念，以及十余年小学阶段英文口语、阅读、写作一线教学经验
 讲求教学艺术，富有亲和力，带动学习兴趣，拓展学生视野，引领孩子不断提高英语应用水平" />
@@ -174,7 +174,7 @@
                 android:layout_marginBottom="@dimen/dp10"
                 android:text="课程详情"
                 android:textColor="@color/color_first_level"
-                android:textSize="@dimen/sp18"
+                android:textSize="@dimen/sp12"
                 android:textStyle="bold" />
 
 
@@ -184,7 +184,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp10"
                 android:foreground="?attr/selectableItemBackground"
-                android:minHeight="@dimen/dp147"
                 app:cardCornerRadius="@dimen/dp12"
                 app:cardPreventCornerOverlap="false"
                 app:cardUseCompatPadding="false"
@@ -228,9 +227,9 @@
             android:layout_centerInParent="true"
             android:ellipsize="end"
             android:lines="1"
-            android:text="课程详情"
+            android:text="@string/course_detail"
             android:textColor="@color/color_zero_level"
-            android:textSize="@dimen/font_size_14" />
+            android:textSize="@dimen/font_size_12" />
 
         <ImageView
             android:id="@+id/share_iv"
@@ -242,21 +241,30 @@
             android:src="@drawable/ic_detail_share"
             android:visibility="invisible" />
 
-
     </RelativeLayout>
 
 
     <ViewSwitcher
         android:id="@+id/switcher_vs"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp50"
+        android:layout_height="@dimen/dp25"
         android:layout_alignParentBottom="true">
 
-
+        <TextView
+            android:id="@+id/reservation_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp25"
+            android:alpha="0.99"
+            android:background="@color/student_yellow"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/reservation_now"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sp8" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp50"
+            android:layout_height="@dimen/dp25"
             android:background="@color/font_white"
             android:paddingStart="@dimen/dp15"
             android:paddingEnd="@dimen/dp15">
@@ -269,7 +277,7 @@
                 android:layout_marginEnd="@dimen/dp5"
                 android:text="@string/detail_course_price"
                 android:textColor="@color/color_zero_level"
-                android:textSize="@dimen/sp13" />
+                android:textSize="@dimen/sp8" />
 
 
             <TextView
@@ -279,7 +287,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/tag1"
                 android:textColor="@color/color_f94d4d"
-                android:textSize="@dimen/sp16"
+                android:textSize="@dimen/sp15"
                 tools:text="$666" />
 
 
@@ -290,26 +298,16 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/shape_bg_4_red2"
-                android:paddingLeft="@dimen/dp20"
-                android:paddingTop="@dimen/dp5"
-                android:paddingRight="@dimen/dp20"
-                android:paddingBottom="@dimen/dp5"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingTop="@dimen/dp3"
+                android:paddingRight="@dimen/dp10"
+                android:paddingBottom="@dimen/dp3"
                 android:text="@string/study_now"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/sp14" />
+                android:textSize="@dimen/sp7" />
 
         </RelativeLayout>
-        <TextView
-            android:id="@+id/reservation_tv"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp50"
-            android:alpha="0.99"
-            android:background="@color/student_yellow"
-            android:enabled="false"
-            android:gravity="center"
-            android:text="@string/reservation_now"
-            android:textColor="@color/font_white"
-            android:textSize="@dimen/sp16" />
+
 
     </ViewSwitcher>
 

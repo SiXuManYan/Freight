@@ -32,7 +32,6 @@
     <string name="upload_record_format">prod/android/record/android_%1$s.mp3</string>
 
 
-
     <!-- 上传成功后的最终URL val finalUrl = "https://$imageBucketName.$endpoint/$imageObjectKey" -->
     <string name="final_url_format">https://%1$s.%2$s/%3$s</string>
 
@@ -41,7 +40,7 @@
 
     <!-- 金额 -->
     <string name="money_symbol">&#165;</string>
-    <string name="money_symbol_with_blank">&#165;&#160;</string>
+    <string name="money_symbol_format_with_blank">&#165;&#160;%1$s</string>
     <string name="money_symbol_format">&#165;&#160;%1$s</string>
     <string name="money_symbol_negative_format">-&#165;%1$s</string>
 

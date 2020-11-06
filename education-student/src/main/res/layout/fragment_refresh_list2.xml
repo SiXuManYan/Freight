@@ -7,6 +7,7 @@
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/swipe"
+        android:background="@color/color_list_gray_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -14,7 +15,6 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/color_list_gray_background"
             app:scrollbars="none" />
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 

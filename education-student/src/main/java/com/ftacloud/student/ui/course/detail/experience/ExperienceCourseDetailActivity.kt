@@ -63,7 +63,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
 
         student_container_ll.removeAllViews()
 
-        it.unteachStudentHeadImgs.forEach {
+        it.studentHeadImgs.forEach {
             val circleImageView = CircleImageView(this)
             circleImageView.layoutParams = LinearLayout.LayoutParams(SizeUtils.dp2px(25f), SizeUtils.dp2px(25f)).apply {
                 marginEnd = SizeUtils.dp2px(5f)
@@ -77,9 +77,16 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             student_container_ll.addView(circleImageView)
         }
 
-        student_count_tv.text = getString(R.string.student_count_format, it.unteachStudentCount)
+        student_count_tv.text = getString(R.string.student_count_format, it.studentCount)
 
-        Glide.with(this).load(it.teacherHeadImg).into(teacher_iv)
+        OssUtil.getRealOssUrl(this, it.teacherHeadImg, object : CloudAccountApplication.OssSignCallBack {
+            override fun ossUrlSignEnd(url: String) {
+                Glide.with(this@ExperienceCourseDetailActivity).load(url).into(teacher_iv)
+            }
+
+        })
+
+
         teacher_name_tv.text = it.teacherName
         teacher_introduction.text = it.teacherIntroduce
 
@@ -95,7 +102,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             course__container_ll.addView(iv)
         }
 
-        buy_tv.text = it.nativeFakerPrice
+        price_tv.text = getString(R.string.money_symbol_format, it.payingMoney)
 
     }
 

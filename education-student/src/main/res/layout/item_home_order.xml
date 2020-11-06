@@ -103,7 +103,7 @@
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.2"
                     android:singleLine="true"
-                    android:text="￥1,998"
+                    tools:text="￥1,998"
                     android:textColor="@color/font_white"
                     android:textSize="@dimen/sp16"
                     android:textStyle="bold" />

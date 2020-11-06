@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/parent_rl"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="@dimen/dp40"
     android:background="@color/transparent"
     android:gravity="center"
     android:orientation="vertical">
@@ -18,11 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/common_progress"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_toEndOf="@+id/common_progress"
         android:text="@string/library_load_pull_down_to_refresh"
         android:textColor="@color/colorFontHint"
-        android:textSize="@dimen/font_size_12" />
+        android:textSize="@dimen/sp12" />
 
 
 </RelativeLayout>

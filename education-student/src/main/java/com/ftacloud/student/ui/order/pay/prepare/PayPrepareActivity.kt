@@ -63,7 +63,7 @@ class PayPrepareActivity : BaseMVPActivity<PayPreparePresenter>(), PayPrepareVie
         Glide.with(this).load(data.productIconImg).into(image_iv)
         title_tv.text = data.productName
         content_tv.text = data.productIntroduce
-        money_tv.text = StringUtils.getString(R.string.money_symbol_with_blank, data.productMoney)
+        money_tv.text = StringUtils.getString(R.string.money_symbol_format_with_blank, data.productMoney)
     }
 
 
