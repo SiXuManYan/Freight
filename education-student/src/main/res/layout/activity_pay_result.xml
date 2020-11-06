@@ -28,9 +28,6 @@
         android:textStyle="bold" />
 
 
-
-
-
     <TextView
         android:id="@+id/common_hint_tv"
         android:layout_width="wrap_content"
@@ -45,28 +42,25 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp60"
-        android:layout_height="wrap_content">
-
+        android:orientation="horizontal">
 
 
         <TextView
             android:id="@+id/common_next_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp10"
             android:background="@drawable/stock_12_yellow"
             android:gravity="center"
+            android:paddingStart="@dimen/dp40"
+            android:paddingTop="@dimen/dp10"
+            android:paddingEnd="@dimen/dp40"
+            android:paddingBottom="@dimen/dp10"
             android:text="@string/look"
             android:textColor="@color/color_ff7a18"
-            android:textSize="@dimen/sp14"
-            android:visibility="gone"
-            android:paddingTop="@dimen/dp10"
-            android:layout_marginEnd="@dimen/dp10"
-            android:paddingBottom="@dimen/dp10"
-            android:paddingStart="@dimen/dp40"
-            android:paddingEnd="@dimen/dp40"
-            tools:visibility="visible" />
+            android:textSize="@dimen/sp14" />
 
 
         <TextView
@@ -75,21 +69,16 @@
             android:layout_height="wrap_content"
             android:background="@drawable/stock_12_yellow"
             android:gravity="center"
+            android:paddingStart="@dimen/dp40"
+            android:paddingTop="@dimen/dp10"
+            android:paddingEnd="@dimen/dp40"
+            android:paddingBottom="@dimen/dp10"
             android:text="@string/back_home"
             android:textColor="@color/color_ff7a18"
-            android:textSize="@dimen/sp14"
-            android:visibility="gone"
-            android:paddingTop="@dimen/dp10"
-            android:paddingBottom="@dimen/dp10"
-            android:paddingStart="@dimen/dp40"
-            android:paddingEnd="@dimen/dp40"
-            tools:visibility="visible" />
-
+            android:textSize="@dimen/sp14" />
 
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>
