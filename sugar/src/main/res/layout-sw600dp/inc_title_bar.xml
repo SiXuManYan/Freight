@@ -33,7 +33,7 @@
             android:ellipsize="end"
             android:lines="1"
             android:textColor="@color/color_zero_level"
-            android:textSize="@dimen/sp16"
+            android:textSize="@dimen/sp11"
             tools:text="成吉思汗史诗皮肤" />
 
 
@@ -52,7 +52,7 @@
         android:paddingEnd="@dimen/dp5"
         android:paddingBottom="@dimen/dp2"
         android:textColor="@color/color_zero_level"
-        android:textSize="@dimen/sp14"
+        android:textSize="@dimen/sp7"
         android:visibility="gone"
         tools:text="退出登录" />
 </RelativeLayout>

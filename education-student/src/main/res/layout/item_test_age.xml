@@ -9,8 +9,8 @@
     android:paddingTop="@dimen/dp10"
     android:paddingEnd="@dimen/dp20"
     android:paddingBottom="@dimen/dp10"
-    android:textColor="@color/font_white"
+    android:textColor="@color/selector_color_test"
     android:textSize="@dimen/sp10"
-    android:layout_marginEnd="@dimen/dp15"
+    android:layout_marginEnd="@dimen/dp10"
     android:layout_marginBottom="@dimen/dp10"
     tools:text="3岁" />

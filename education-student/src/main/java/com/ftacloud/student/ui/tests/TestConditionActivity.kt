@@ -42,8 +42,6 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
         setMainTitle("测试详情")
 
         initSelect()
-
-
     }
 
     private fun initSelect() {
