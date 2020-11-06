@@ -1,5 +1,6 @@
 package com.ftacloud.student.ui.order.pay.prepare
 
+import android.content.Intent
 import android.view.View
 import butterknife.OnClick
 import com.blankj.utilcode.util.StringUtils
@@ -7,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.home.HomeOrderExtra
+import com.ftacloud.student.ui.order.pay.PayActivity
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
@@ -76,14 +78,7 @@ class PayPrepareActivity : BaseMVPActivity<PayPreparePresenter>(), PayPrepareVie
         }
         when (view.id) {
             R.id.pay_tv -> {
-//                startActivityForResult(
-//                    Intent(this, PayActivity::class.java)
-//                        .putExtra(Constants.PARAM_ORDER_ID, orderId)
-//                        .putExtra(Constants.PARAM_ORDER_NUMBER, orderNo)
-//                        .putExtra(Constants.PARAM_MONEY, money)
-//                        .putExtra(Constants.PARAM_MOLD, mMold)
-//                    , closePayListenerRequest
-//                )
+                startActivity(PayActivity::class.java)
             }
             else -> {
             }

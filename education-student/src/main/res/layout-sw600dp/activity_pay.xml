@@ -16,6 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingTop="50dp"
             android:paddingBottom="50dp">
@@ -23,13 +24,14 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_cv"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="8dp"
+                android:layout_width="@dimen/dp225"
+                android:layout_height="@dimen/dp85"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/font_white"
-                app:cardCornerRadius="2dp"
-                app:cardElevation="1dp"
+                app:cardCornerRadius="@dimen/dp8"
+                app:cardElevation="@dimen/dp0"
                 app:cardPreventCornerOverlap="false"
                 app:cardUseCompatPadding="true">
 
@@ -41,19 +43,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="15dp"
-                        android:text="您需要支付"
+                        android:text="@string/pay_money_hint"
                         android:textColor="@color/color_zero_level"
-                        android:textSize="@dimen/font_size_14" />
+                        android:textSize="@dimen/sp9" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:layout_toLeftOf="@+id/card_money_tv"
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:layout_toStartOf="@+id/card_money_tv"
                         android:text="@string/money_symbol"
                         android:textColor="@color/color_zero_level"
-                        android:textSize="@dimen/font_size_14" />
+                        android:textSize="@dimen/sp12" />
 
 
                     <TextView
@@ -62,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:textColor="@color/color_zero_level"
-                        android:textSize="@dimen/font_size_40"
+                        android:textSize="@dimen/sp20"
                         android:textStyle="bold"
                         tools:text="500.00" />
 
@@ -73,19 +75,19 @@
 
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/dp225"
                 android:layout_height="wrap_content"
-                android:background="@color/font_white"
+                android:background="@drawable/shape_8_white"
                 android:orientation="vertical">
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="选择支付方式"
+                    android:padding="@dimen/dp5"
+                    android:text="@string/select_pay_way"
                     android:textColor="@color/color_zero_level"
-                    android:textSize="@dimen/font_size_14"
+                    android:textSize="@dimen/sp8"
                     android:textStyle="bold" />
 
                 <View
@@ -106,8 +108,8 @@
 
                     <ImageView
                         android:id="@+id/wechat_iv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/dp18"
+                        android:layout_height="@dimen/dp18"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="15dp"
                         android:scaleType="centerInside"
@@ -121,7 +123,7 @@
                         android:layout_toRightOf="@+id/wechat_iv"
                         android:text="微信支付"
                         android:textColor="@color/color_zero_level"
-                        android:textSize="@dimen/font_size_14" />
+                        android:textSize="@dimen/sp8" />
 
 
                     <androidx.appcompat.widget.AppCompatRadioButton
@@ -154,8 +156,10 @@
 
                     <ImageView
                         android:id="@+id/alipay_iv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+
+
+                        android:layout_width="@dimen/dp18"
+                        android:layout_height="@dimen/dp18"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="15dp"
                         android:scaleType="centerInside"
@@ -169,14 +173,14 @@
                         android:layout_toRightOf="@+id/alipay_iv"
                         android:text="支付宝支付"
                         android:textColor="@color/color_zero_level"
-                        android:textSize="@dimen/font_size_14" />
+                        android:textSize="@dimen/sp8" />
 
 
                     <androidx.appcompat.widget.AppCompatRadioButton
                         android:id="@+id/alipay_rb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:checked="false"
                         android:gravity="center_vertical"
@@ -201,14 +205,13 @@
     <TextView
         android:id="@+id/pay_tv"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp40"
-        android:alpha="0.99"
+        android:layout_height="@dimen/dp36"
         android:layout_alignParentBottom="true"
+        android:alpha="0.99"
         android:background="@color/student_yellow"
         android:enabled="false"
         android:gravity="center"
         android:text="@string/to_pay"
         android:textColor="@color/font_white"
-        android:textSize="@dimen/sp14" />
-
+        android:textSize="@dimen/sp11" />
 </RelativeLayout>

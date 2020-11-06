@@ -100,7 +100,6 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
         setMainTitle("支付详情 ")
         if (finalMoney.isNotEmpty()) {
             card_money_tv.text = BigDecimal(finalMoney).toPlainString()
-            bottom_tv.text = getString(R.string.pay_bottom_format, BigDecimal(finalMoney).toPlainString())
         }
 
         wechat_rb.setOnCheckedChangeListener { _, isChecked ->
