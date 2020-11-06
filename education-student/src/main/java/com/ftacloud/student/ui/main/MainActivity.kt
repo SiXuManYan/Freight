@@ -23,6 +23,7 @@ import com.ftacloud.student.ui.task.TaskActivity
 import com.ftacloud.student.ui.tests.my.MyTestActivity
 import com.ftacloud.student.ui.user.UserActivity
 import com.sugar.library.ui.view.CircleImageView
+import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
@@ -186,6 +187,9 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         message_ll?.setOnClickListener {
             startActivity(MessageActivity::class.java)
         }
+
+        CommonUtils.getFriendlyTime(welcome_tv)
+
     }
 
 
