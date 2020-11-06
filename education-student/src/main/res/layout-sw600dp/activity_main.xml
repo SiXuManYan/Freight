@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_list_gray_background"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -71,13 +72,374 @@
 
 
     <ViewSwitcher
+        android:id="@+id/content_switcher"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp15"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp15"
+            android:layout_marginBottom="@dimen/dp10"
+            android:background="@drawable/shape_12_yellow"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dp26"
+            android:paddingEnd="@dimen/dp26">
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp200"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp40"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@drawable/shape_8_white"
+                android:padding="@dimen/dp15">
+
+
+                <com.sugar.library.ui.view.CircleImageView
+                    android:id="@+id/avatar_civ"
+                    android:layout_width="@dimen/dp45"
+                    android:layout_height="@dimen/dp45"
+                    android:layout_marginEnd="@dimen/dp15"
+                    android:src="@drawable/ic_avatar_defult" />
+
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/avatar_civ"
+                    android:text="宫本武藏"
+                    android:textColor="@color/color_first_level"
+                    android:textSize="@dimen/sp13"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name_tv"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_toEndOf="@+id/avatar_civ"
+                    android:background="@drawable/shape_bg_4_yellow"
+                    android:paddingStart="@dimen/dp4"
+                    android:paddingTop="@dimen/dp2"
+                    android:paddingEnd="@dimen/dp4"
+                    android:paddingBottom="@dimen/dp2"
+                    android:text="英语等级？级"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sp8"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="Hi'"
+                        android:textColor="@color/color_first_level"
+                        android:textSize="@dimen/sp40"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/name_big_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="宫本武藏"
+                        android:textColor="@color/color_first_level"
+                        android:textSize="@dimen/sp25"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/welcome_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="下午好"
+                        android:textColor="@color/color_first_level"
+                        android:textSize="@dimen/sp25"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="3"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/dp10"
+                    android:rowCount="3">
+
+
+                    <LinearLayout
+                        android:id="@+id/course_ll"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_marginEnd="@dimen/dp20"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_my_course" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/my_course"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/course_table_ll"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_marginEnd="@dimen/dp20"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_course" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/course_table"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/task_ll"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="0"
+                        android:layout_column="2"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_after_class" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/after_class_task_title"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/order_ll"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_my_order" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/menu_my_order"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/test_ll"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_my_evaluation" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/my_test_title"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/service_ll"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="1"
+                        android:layout_column="2"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_my_customer_service" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/menu_my_customer_service"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/message_ll"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_after_class" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/message_title"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/profile_ll"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="2"
+                        android:layout_column="1"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_my_course" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/my_profile"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp82"
+                        android:layout_row="2"
+                        android:layout_column="2"
+                        android:background="@drawable/shape_8_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp30"
+                            android:src="@drawable/ic_sliding_setting" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/setting"
+                            android:textColor="@color/color_first_level"
+                            android:textSize="@dimen/sp8" />
+
+                    </LinearLayout>
+
+
+                </GridLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </LinearLayout>
+
+
 
 
 

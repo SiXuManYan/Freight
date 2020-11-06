@@ -6,8 +6,10 @@ import android.view.View
 import android.widget.RelativeLayout
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.flyco.tablayout.listener.OnTabSelectListener
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.ui.course.my.MyCourseActivity
@@ -24,6 +26,9 @@ import com.sugar.library.ui.view.CircleImageView
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.pager
+import kotlinx.android.synthetic.main.activity_main.tabs_type
+import kotlinx.android.synthetic.main.activity_my_order.*
 
 class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
@@ -125,11 +130,64 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         }
     }
 
+
     override fun initPadLayout() {
         pager?.adapter = PagerAdapter(supportFragmentManager)
         pager?.offscreenPageLimit = TAB_TITLES.size
+        pager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) = Unit
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                tabs_type?.currentTab = position
+                content_switcher?.displayedChild = 0
+
+            }
+
+        })
         tabs_type?.setViewPager(pager, TAB_TITLES.toTypedArray())
+        tabs_type?.setOnTabSelectListener(object : OnTabSelectListener {
+            override fun onTabSelect(position: Int) {
+                pager?.currentItem = position
+            }
+
+            override fun onTabReselect(position: Int) {
+
+            }
+
+        })
+
+        avatar_iv?.setOnClickListener {
+            content_switcher?.displayedChild = 1
+        }
+
+        course_ll?.setOnClickListener {
+            startActivity(MyCourseActivity::class.java)
+        }
+        course_table_ll?.setOnClickListener {
+            startActivity(ClassScheduleActivity::class.java)
+        }
+        task_ll?.setOnClickListener {
+            startActivity(TaskActivity::class.java)
+        }
+        order_ll?.setOnClickListener {
+            startActivity(OrderActivity::class.java)
+        }
+
+        test_ll?.setOnClickListener {
+            startActivity(MyTestActivity::class.java)
+        }
+        service_ll?.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Constants.CONSUMER_HOT_LINE)))
+        }
+        message_ll?.setOnClickListener {
+            startActivity(MessageActivity::class.java)
+        }
     }
+
 
     internal class PagerAdapter(fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
 
