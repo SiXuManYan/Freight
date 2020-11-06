@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_list_gray_background"
+    android:orientation="vertical">
+
+    <include layout="@layout/inc_title_bar" />
+
+
+
+
+
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/title_container_rl"
+        android:background="@drawable/shape_8_white"
+        android:layout_margin="@dimen/dp15"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/dp275"
+            android:layout_height="@dimen/dp100"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/dp15"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp15"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/color_ff9242"
+            app:cardCornerRadius="@dimen/dp12"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/dp10">
+
+
+                <ImageView
+                    android:id="@+id/image_iv"
+                    android:layout_width="@dimen/dp45"
+                    android:layout_height="@dimen/dp45"
+                    android:layout_marginEnd="@dimen/dp10"
+                    tools:src="@mipmap/ic_temp" />
+
+
+                <TextView
+                    android:id="@+id/title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp9"
+                    android:layout_toEndOf="@+id/image_iv"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sp12"
+                    tools:text="3~6岁萌娃充能课程" />
+
+
+                <TextView
+                    android:id="@+id/content_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_tv"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:layout_toEndOf="@+id/image_iv"
+                    android:ellipsize="end"
+                    android:lineSpacingMultiplier="1.2"
+                    android:textColor="@color/color_80ffffff"
+                    android:textSize="@dimen/sp9"
+                    tools:text="2020年11月3日 09:35:48" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@+id/image_iv"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:background="@color/color_80ffffff" />
+
+
+                <!-- 订单底部 -->
+                <LinearLayout
+                    android:id="@+id/money_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp2"
+                        android:ellipsize="end"
+                        android:lineSpacingMultiplier="1.2"
+                        android:singleLine="true"
+                        android:text="@string/total"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sp8" />
+
+
+                    <TextView
+                        android:id="@+id/money_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:lineSpacingMultiplier="1.2"
+                        android:singleLine="true"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sp13"
+                        android:textStyle="bold"
+                        tools:text="￥1,998" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/pay_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp30"
+        android:layout_alignParentBottom="true"
+        android:alpha="0.99"
+        android:background="@color/student_yellow"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="@string/to_pay"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/sp11" />
+</RelativeLayout>
