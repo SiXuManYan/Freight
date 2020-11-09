@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.OnClick
-import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.question.QuestionChild
 import com.ftacloud.student.frames.entity.question.QuestionChildType
+import com.ftacloud.student.ui.main.MainActivity
 import com.ftacloud.student.ui.tests.question.holder.FillHolder
 import com.ftacloud.student.ui.tests.question.holder.RecordHolder
 import com.ftacloud.student.ui.tests.question.holder.SelectHolder
@@ -44,6 +44,10 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
 
     override fun getLayoutId() = R.layout.activity_test_question
 
+    override fun initPadLayout() {
+        CommonUtils.setStatusBarTransparentWithLightMode(this)
+    }
+
     override fun initViews() {
         setMainTitle(getString(R.string.test_question_title))
         initEvent()
@@ -54,8 +58,6 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
         }
         quizzesId = intent.extras!!.getString(Constants.PARAM_ID, "")
         quizzesOfStudentId = intent.extras!!.getString(Constants.PARAM_STUDENT_ID, "")
-
-
         presenter.getQuestion(this, quizzesId)
     }
 
