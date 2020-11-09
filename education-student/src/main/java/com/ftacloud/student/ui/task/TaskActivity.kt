@@ -2,6 +2,7 @@ package com.ftacloud.student.ui.task
 
 import android.os.Bundle
 import android.view.ViewGroup
+import com.blankj.utilcode.util.DeviceUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.common.StudentConstants.PARAM_TASK_OF_COURSE_ID
 import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
@@ -19,6 +20,14 @@ import com.sugar.library.util.Constants
 class TaskActivity : BaseRefreshListActivity<Task, TaskPresenter>(), TaskView {
 
     override fun getMainTitle() = R.string.after_class_task_title
+
+
+    override fun initViews() {
+        super.initViews()
+        if (DeviceUtils.isTablet()) {
+            easyRecyclerView.setLayoutManager(androidx.recyclerview.widget.GridLayoutManager(context, 2))
+        }
+    }
 
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<Task> {
         val adapter = object : RecyclerArrayAdapter<Task>(context) {

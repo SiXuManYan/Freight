@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp15"
+    android:paddingTop="@dimen/dp10"
+    android:paddingEnd="@dimen/dp15">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_cv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp87"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/font_white"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardElevation="@dimen/dp1"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/order_id_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/color_first_level"
+                    android:textSize="@dimen/sp9"
+                    tools:text="订单号：20200202" />
+
+
+                <TextView
+                    android:id="@+id/order_status_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/color_app_red"
+                    android:textSize="@dimen/sp9"
+                    tools:text="支付中" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="5dp"
+                android:background="@color/color_cccccc" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+
+                <ImageView
+                    android:id="@+id/image_iv"
+                    android:layout_width="@dimen/dp45"
+                    android:layout_height="@dimen/dp45"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    tools:background="@tools:sample/backgrounds/scenic[3]" />
+
+
+                <TextView
+                    android:id="@+id/order_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/image_iv"
+                    android:textColor="@color/color_first_level"
+                    android:textSize="@dimen/sp11"
+                    android:textStyle="bold"
+                    tools:text="大大的" />
+
+
+
+
+                <TextView
+                    android:id="@+id/pay_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/shape_8_yellow"
+                    android:paddingStart="@dimen/dp6"
+                    android:paddingTop="@dimen/dp2"
+                    android:paddingEnd="@dimen/dp6"
+                    android:paddingBottom="@dimen/dp2"
+                    android:text="@string/goto_pay"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sp8"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

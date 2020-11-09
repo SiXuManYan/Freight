@@ -30,9 +30,9 @@ class TaskHolder(parent: ViewGroup?) : BaseItemViewHolder<Task>(parent, R.layout
         }
 
         if (showTitle) {
-            task_title_tv.visibility = View.VISIBLE
+            task_title_tv?.visibility = View.VISIBLE
         } else {
-            task_title_tv.visibility = View.GONE
+            task_title_tv?.visibility = View.GONE
         }
         Glide.with(context).load(data.productIconImg).into(tag_iv)
 

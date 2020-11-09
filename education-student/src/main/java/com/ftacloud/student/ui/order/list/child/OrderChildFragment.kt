@@ -3,7 +3,9 @@ package com.ftacloud.student.ui.order.list.child
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import com.blankj.utilcode.util.ToastUtils
+import com.blankj.utilcode.util.ColorUtils
+import com.blankj.utilcode.util.DeviceUtils
+import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Order
 import com.ftacloud.student.ui.course.detail.experience.ExperienceCourseDetailActivity
@@ -36,6 +38,11 @@ class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>()
 
     override fun initViews(parent: View) {
         super.initViews(parent)
+        if (DeviceUtils.isTablet()) {
+            easyRecyclerView.setLayoutManager(androidx.recyclerview.widget.GridLayoutManager(context, 2))
+            parent_container.setBackgroundColor(ColorUtils.getColor(R.color.student_yellow))
+            swipeLayout.setBackgroundColor(ColorUtils.getColor(R.color.student_yellow))
+        }
         categoryValue = arguments?.getInt(Constants.PARAM_TYPE)
     }
 

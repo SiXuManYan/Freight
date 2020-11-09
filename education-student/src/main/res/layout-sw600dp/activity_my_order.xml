@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/student_yellow"
+    android:orientation="vertical">
+
+    <include layout="@layout/inc_title_bar" />
+
+    <com.sugar.library.ui.view.tabs.SlidingTabLayout
+        android:id="@+id/tabs_type"
+        android:layout_width="@dimen/dp191"
+        android:layout_height="@dimen/dp30"
+        app:tl_indicator_color="@color/color_6dcd28"
+        android:background="@color/student_yellow"
+        android:paddingLeft="@dimen/dp5"
+        app:tl_indicator_width_equal_title="true"
+        app:tl_textSelectColor="@color/font_white"
+        app:tl_textUnselectColor="@color/font_white"
+        android:paddingRight="@dimen/dp5"
+        app:tl_indicator_margin_left="@dimen/dp2"
+        app:tl_indicator_margin_right="@dimen/dp2"
+        app:tl_indicator_style="BLOCK"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+</LinearLayout>
