@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_list_gray_background"
@@ -134,11 +135,8 @@
 
     </ViewSwitcher>
 
-    <include
-        layout="@layout/inc_title_bar"
-        android:visibility="gone" />
 
-    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:id="@+id/title_container_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

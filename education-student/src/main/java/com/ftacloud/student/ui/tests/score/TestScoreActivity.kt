@@ -2,6 +2,7 @@ package com.ftacloud.student.ui.tests.score
 
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
+import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 
 /**
@@ -14,6 +15,11 @@ class TestScoreActivity : BaseMVPActivity<TestScorePresenter>(), TestScoreView {
     private var quizzesOfStudentId = ""
 
     override fun getLayoutId() = R.layout.test_score
+
+    override fun initPadLayout() {
+        CommonUtils.setStatusBarTransparentWithLightMode(this)
+    }
+
 
     override fun initViews() {
 
