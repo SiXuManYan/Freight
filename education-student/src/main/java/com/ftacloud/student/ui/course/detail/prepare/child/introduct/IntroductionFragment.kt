@@ -1,10 +1,11 @@
 package com.ftacloud.student.ui.course.detail.prepare.child.introduct
 
-import android.os.Bundle
 import android.view.View
+import com.blankj.utilcode.util.DeviceUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.fragment.BaseFragment
-import com.sugar.library.util.Constants
+import com.ftacloud.student.frames.event.NoClassDataEvent
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_introduction.*
 
 /**
@@ -14,26 +15,21 @@ import kotlinx.android.synthetic.main.activity_introduction.*
  */
 class IntroductionFragment : BaseFragment<IntroductionPresenter>(), IntroductionView {
 
-    companion object {
-
-        fun newInstance(content: String): IntroductionFragment {
-            val fragment = IntroductionFragment()
-            val args = Bundle()
-            args.putString(Constants.PARAM_TEXT, content)
-            fragment.arguments = args
-            return fragment
-        }
-
-    }
-
     override fun loadOnVisible() = Unit
 
     override fun getLayoutId() = R.layout.activity_introduction
 
     override fun initViews(parent: View) {
 
-        val content = arguments?.getString(Constants.PARAM_TEXT)
-        content_tv.text = content
+        if (DeviceUtils.isTablet()) {
+            content_tv.textSize = 8f
+        }
+
+
+        presenter.subsribeEventEntity(Consumer<NoClassDataEvent> {
+            content_tv.text = it.data.productIntroduce
+        })
+
     }
 
 

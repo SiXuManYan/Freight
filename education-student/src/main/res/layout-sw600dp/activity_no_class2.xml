@@ -24,7 +24,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp147"
+                android:layout_height="@dimen/dp202"
                 android:layout_marginTop="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:background="@color/font_white"
@@ -52,7 +52,7 @@
                 app:tl_tab_space_equal="true"
                 app:tl_textSelectColor="@color/color_282828"
                 app:tl_textUnselectColor="@color/color_666666"
-                app:tl_textsize="@dimen/sp14"
+                app:tl_textsize="@dimen/sp12"
                 app:tl_underline_color="@color/split_line_color"
                 app:tl_underline_height="1px" />
 
@@ -125,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/sp14"
+                android:textSize="@dimen/sp8"
                 tools:text="开课时间" />
 
 
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/enter_class"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/sp14" />
+                android:textSize="@dimen/sp8" />
 
 
         </ViewSwitcher>

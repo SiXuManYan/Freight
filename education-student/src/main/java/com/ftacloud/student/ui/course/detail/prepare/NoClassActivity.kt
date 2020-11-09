@@ -5,10 +5,12 @@ import com.blankj.utilcode.util.StringUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.FormalCourseDetail
+import com.ftacloud.student.frames.event.NoClassDataEvent
 import com.ftacloud.student.ui.course.detail.prepare.child.directory.DirectoryFragment
 import com.ftacloud.student.ui.course.detail.prepare.child.introduct.IntroductionFragment
 import com.ftacloud.student.ui.course.detail.prepare.child.teacher.TeacherFragment
 import com.ftacloud.student.ui.order.list.OrderActivity
+import com.sugar.library.event.RxBus
 import kotlinx.android.synthetic.main.activity_no_class2.*
 
 /**
@@ -35,15 +37,14 @@ class NoClassActivity : BaseMVPActivity<NoClassPresenter>(), NoClassView {
     override fun hideLoading() = dismissLoadingDialog()
 
     override fun initViews() {
-
-    }
-
-    override fun bindDetail(data: FormalCourseDetail) {
         val pagerAdapter = PagerAdapter(supportFragmentManager)
-        pagerAdapter.data = data
         pager.adapter = pagerAdapter
         pager.offscreenPageLimit = TAB_TITLES.size
         tabs_type.setViewPager(pager, TAB_TITLES.toTypedArray())
+    }
+
+    override fun bindDetail(data: FormalCourseDetail) {
+        RxBus.post(NoClassDataEvent(data))
     }
 
     override fun onTabSelect(position: Int) {
@@ -65,12 +66,16 @@ class NoClassActivity : BaseMVPActivity<NoClassPresenter>(), NoClassView {
         var data: FormalCourseDetail? = null
 
         override fun getItem(position: Int): Fragment {
-            if (position == 0) {
-                return DirectoryFragment.newInstance(data!!)
-            } else if (position == 1) {
-                return IntroductionFragment.newInstance(data!!.productIntroduce)
-            } else {
-                return TeacherFragment.newInstance(data!!)
+            return when (position) {
+                0 -> {
+                    DirectoryFragment()
+                }
+                1 -> {
+                    IntroductionFragment()
+                }
+                else -> {
+                    TeacherFragment()
+                }
             }
         }
 

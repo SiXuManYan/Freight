@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingStart="@dimen/dp15"
-    android:paddingEnd="@dimen/dp15"
     android:paddingTop="@dimen/dp10"
-    android:orientation="vertical">
+    android:paddingEnd="@dimen/dp15">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/course_introduction_card"
@@ -17,8 +17,7 @@
         app:cardBackgroundColor="@color/font_white"
         app:cardCornerRadius="@dimen/dp12"
         app:cardPreventCornerOverlap="false"
-        app:cardUseCompatPadding="false"
-     >
+        app:cardUseCompatPadding="false">
 
 
         <LinearLayout

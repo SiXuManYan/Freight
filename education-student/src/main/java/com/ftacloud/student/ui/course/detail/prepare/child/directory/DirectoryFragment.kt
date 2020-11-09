@@ -1,16 +1,15 @@
 package com.ftacloud.student.ui.course.detail.prepare.child.directory
 
-import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.fragment.BaseFragment
 import com.ftacloud.student.frames.entity.FormalCourseDetail
+import com.ftacloud.student.frames.event.NoClassDataEvent
 import com.ftacloud.student.ui.course.detail.prepare.child.introduct.IntroductionFragment
-import com.ftacloud.student.ui.order.list.child.OrderChildHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
-import com.sugar.library.util.Constants
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.directory.*
 
 /**
@@ -21,32 +20,32 @@ import kotlinx.android.synthetic.main.directory.*
 class DirectoryFragment : BaseFragment<DirectoryPresenter>(), DirectoryView {
 
 
-    companion object {
+    private lateinit var recyclerAdapter: RecyclerArrayAdapter<FormalCourseDetail.ScheduleOut>
 
-        fun newInstance(content:  FormalCourseDetail): IntroductionFragment {
-            val fragment = IntroductionFragment()
-            val args = Bundle()
-            args.putSerializable(Constants.PARAM_CONTENT, content)
-            fragment.arguments = args
-            return fragment
-        }
 
-    }
 
     override fun getLayoutId() = R.layout.directory
 
     override fun loadOnVisible() = Unit
 
     override fun initViews(parent: View) {
-        val module = arguments?.getSerializable(Constants.PARAM_CONTENT) as FormalCourseDetail
-        val adapter = getRecyclerAdapter()
-        adapter.addAll(module.scheduleOuts)
+        this@DirectoryFragment. recyclerAdapter = getRecyclerAdapter()
+        val adapter = recyclerAdapter
+
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.adapter = adapter
+
+        initEvent()
+    }
+
+    private fun initEvent() {
+        presenter.subsribeEventEntity(Consumer<NoClassDataEvent> {
+            recyclerAdapter.addAll(it.data.scheduleOuts)
+        })
     }
 
 
-     fun getRecyclerAdapter(): RecyclerArrayAdapter<FormalCourseDetail.ScheduleOut> {
+    fun getRecyclerAdapter(): RecyclerArrayAdapter<FormalCourseDetail.ScheduleOut> {
 
         val adapter = object : RecyclerArrayAdapter<FormalCourseDetail.ScheduleOut>(context) {
 

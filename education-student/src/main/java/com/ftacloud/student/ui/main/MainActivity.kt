@@ -93,8 +93,8 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
         header.findViewById<RelativeLayout>(R.id.menu_my_order).setOnClickListener {
             startActivity(OrderActivity::class.java)
-
         }
+
         header.findViewById<RelativeLayout>(R.id.menu_my_customer_service).setOnClickListener {
             startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Constants.CONSUMER_HOT_LINE)))
         }
@@ -102,7 +102,6 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         header.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
             startActivity(SettingActivity::class.java)
         }
-
 
     }
 

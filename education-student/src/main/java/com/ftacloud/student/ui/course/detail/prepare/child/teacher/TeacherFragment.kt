@@ -1,12 +1,12 @@
 package com.ftacloud.student.ui.course.detail.prepare.child.teacher
 
-import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.components.fragment.BaseFragment
 import com.ftacloud.student.frames.entity.FormalCourseDetail
-import com.sugar.library.util.Constants
+import com.ftacloud.student.frames.event.NoClassDataEvent
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.fragment_teacher.*
 
 /**
@@ -17,27 +17,17 @@ import kotlinx.android.synthetic.main.fragment_teacher.*
 class TeacherFragment : BaseFragment<TeacherPresenter>(), TeacherView {
 
 
-    companion object {
 
-        fun newInstance(content: FormalCourseDetail): TeacherFragment {
-            val fragment = TeacherFragment()
-            val args = Bundle()
-            args.putSerializable(Constants.PARAM_TEACHER, content)
-            fragment.arguments = args
-            return fragment
-        }
-
-    }
 
     override fun getLayoutId()  = R.layout.fragment_teacher
 
     override fun loadOnVisible() = Unit
 
     override fun initViews(parent: View) {
-        val content = arguments?.getSerializable(Constants.PARAM_TEACHER ) as FormalCourseDetail
 
-        setData(content)
-
+        presenter.subsribeEventEntity(Consumer<NoClassDataEvent> {
+            setData(it.data)
+        })
     }
 
     private fun setData(content: FormalCourseDetail) {
