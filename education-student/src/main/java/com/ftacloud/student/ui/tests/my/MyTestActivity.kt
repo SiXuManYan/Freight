@@ -22,7 +22,7 @@ class MyTestActivity : BaseMVPActivity<MyTestPresenter>(), MyTestView {
     override fun getLayoutId() = R.layout.activity_my_test
 
     override fun initViews() {
-
+        setMainTitle(getString(R.string.my_test))
     }
 
 

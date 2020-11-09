@@ -432,6 +432,16 @@
     <dimen name="sp48">48sp</dimen>
     <dimen name="sp49">49sp</dimen>
     <dimen name="sp50">50sp</dimen>
+    <dimen name="sp51">51sp</dimen>
+    <dimen name="sp52">52sp</dimen>
+    <dimen name="sp53">53sp</dimen>
+    <dimen name="sp54">54sp</dimen>
+    <dimen name="sp55">55sp</dimen>
+    <dimen name="sp56">56sp</dimen>
+    <dimen name="sp57">57sp</dimen>
+    <dimen name="sp58">58sp</dimen>
+    <dimen name="sp59">59sp</dimen>
+    <dimen name="sp60">60sp</dimen>
 
 
     <dimen name="font_size_6">6sp</dimen>

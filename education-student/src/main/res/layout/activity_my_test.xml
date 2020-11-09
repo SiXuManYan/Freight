@@ -42,11 +42,42 @@
                 android:textStyle="bold" />
 
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="@dimen/dp93"
-                android:layout_height="@dimen/dp169"
-                android:layout_centerInParent="true"
-                android:src="@mipmap/ic_temp6" />
+                android:layout_height="@dimen/dp109"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="@dimen/dp93"
+                    android:layout_height="@dimen/dp109"
+                    android:src="@drawable/ic_student_level" />
+
+
+                <TextView
+                    android:id="@+id/level_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:includeFontPadding="false"
+                    android:text="0"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sp48"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp50"
+                    android:layout_toEndOf="@+id/level_tv"
+                    android:includeFontPadding="false"
+                    android:text="级"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sp12"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
 
 
         </RelativeLayout>
@@ -102,10 +133,10 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:src="@drawable/ic_right_test"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/ic_right_test" />
 
 
         </RelativeLayout>
@@ -148,9 +179,9 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_below="@+id/title_02_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/title_02_tv"
                 android:layout_marginTop="@dimen/dp10"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
@@ -161,11 +192,10 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:src="@drawable/ic_right_test"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_height="wrap_content"/>
-
+                android:src="@drawable/ic_right_test" />
 
 
         </RelativeLayout>
