@@ -1,7 +1,5 @@
 package com.ftacloud.student.ui.task.reserve
 
-import com.ftacloud.student.ui.task.TaskActivity
-import com.ftacloud.student.ui.task.TaskView
 import dagger.Module
 import dagger.Provides
 

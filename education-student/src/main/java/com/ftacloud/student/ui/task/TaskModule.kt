@@ -1,7 +1,5 @@
 package com.ftacloud.student.ui.task
 
-import com.ftacloud.student.ui.task.detail.TaskDetailActivity
-import com.ftacloud.student.ui.task.detail.TaskDetailView
 import dagger.Module
 import dagger.Provides
 
@@ -14,8 +12,8 @@ import dagger.Provides
 class TaskModule {
 
     @Provides
-    fun viewProvider(activity: TaskActivity): TaskView {
-        return activity
+    fun viewProvider(fragment: TaskFragment): TaskView {
+        return fragment
     }
 
 

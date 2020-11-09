@@ -1,11 +1,13 @@
 package com.ftacloud.student.ui.task
 
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import com.blankj.utilcode.util.DeviceUtils
 import com.ftacloud.student.R
 import com.ftacloud.student.common.StudentConstants.PARAM_TASK_OF_COURSE_ID
 import com.ftacloud.student.frames.components.list.BaseRefreshListActivity
+import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Task
 import com.ftacloud.student.ui.task.detail.TaskDetailActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
@@ -17,13 +19,11 @@ import com.sugar.library.util.Constants
  * </br>
  * 课后任务列表
  */
-class TaskActivity : BaseRefreshListActivity<Task, TaskPresenter>(), TaskView {
-
-    override fun getMainTitle() = R.string.after_class_task_title
+class TaskFragment : BaseRefreshListFragment<Task, TaskPresenter>(), TaskView {
 
 
-    override fun initViews() {
-        super.initViews()
+    override fun initViews(parent: View) {
+        super.initViews(parent)
         if (DeviceUtils.isTablet()) {
             easyRecyclerView.setLayoutManager(androidx.recyclerview.widget.GridLayoutManager(context, 2))
         }
@@ -44,7 +44,6 @@ class TaskActivity : BaseRefreshListActivity<Task, TaskPresenter>(), TaskView {
         adapter.setOnItemClickListener {
 
             val taskOfCourseId = adapter.allData[it].taskOfCourseId
-
 
             startActivity(TaskDetailActivity::class.java, Bundle().apply {
                 putString(PARAM_TASK_OF_COURSE_ID, taskOfCourseId)

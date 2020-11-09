@@ -19,7 +19,8 @@ import com.ftacloud.student.ui.message.MessageActivity
 import com.ftacloud.student.ui.order.list.OrderActivity
 import com.ftacloud.student.ui.settings.SettingActivity
 import com.ftacloud.student.ui.settings.child.WebFragment
-import com.ftacloud.student.ui.task.TaskActivity
+import com.ftacloud.student.ui.task.TaskContainerActivity
+import com.ftacloud.student.ui.task.TaskFragment
 import com.ftacloud.student.ui.tests.my.MyTestActivity
 import com.ftacloud.student.ui.user.UserActivity
 import com.sugar.library.ui.view.CircleImageView
@@ -29,7 +30,6 @@ import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.pager
 import kotlinx.android.synthetic.main.activity_main.tabs_type
-import kotlinx.android.synthetic.main.activity_my_order.*
 
 class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
@@ -84,7 +84,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         }
 
         header.findViewById<RelativeLayout>(R.id.menu_task).setOnClickListener {
-            startActivity(TaskActivity::class.java)
+            startActivity(TaskContainerActivity::class.java)
         }
 
         header.findViewById<RelativeLayout>(R.id.menu_my_evaluation).setOnClickListener {
@@ -171,7 +171,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
             startActivity(ClassScheduleActivity::class.java)
         }
         task_ll?.setOnClickListener {
-            startActivity(TaskActivity::class.java)
+            startActivity(TaskContainerActivity::class.java)
         }
         order_ll?.setOnClickListener {
             startActivity(OrderActivity::class.java)
@@ -199,6 +199,10 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                 0 -> {
                     return HomeFragment()
                 }
+                3->{
+                    return TaskFragment()
+                }
+
                 else -> {
                     return WebFragment.newInstance("")
                 }

@@ -9,6 +9,8 @@ import com.ftacloud.student.ui.home.HomeFragment
 import com.ftacloud.student.ui.home.HomeModule
 import com.ftacloud.student.ui.order.list.child.OrderChildFragment
 import com.ftacloud.student.ui.order.list.child.OrderChildModule
+import com.ftacloud.student.ui.task.TaskFragment
+import com.ftacloud.student.ui.task.TaskModule
 import com.sugar.library.frames.dagger.ActivityScore
 import com.sugar.library.frames.dagger.FragmentScope
 import dagger.Module
@@ -40,6 +42,9 @@ abstract class FragmentBindModule {
     abstract fun d(): DirectoryFragment
 
 
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [TaskModule::class])
+    abstract fun o(): TaskFragment
 
 
 }
