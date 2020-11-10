@@ -22,6 +22,8 @@ import com.sugar.library.event.ImageUploadEvent
 import com.sugar.library.event.RecordUploadEvent
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
+import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
 import io.reactivex.FlowableTransformer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -99,6 +101,17 @@ class CloudAccountPresenter(val view: CloudAccountView) {
      * @param isEncryptFile 是否为加密文件
      */
     fun getOssSecurityTokenForSignUrl(context: Context, objectKey: String, ossCallBack: CloudAccountApplication.OssSignCallBack) {
+
+        /*
+        val oldOssToken = CommonUtils.getShareStudent().getString(Constants.SP_TOKEN, "")
+        val oldOssTokenTime = CommonUtils.getShareStudent().getLong(Constants.SP_TOKEN_OSS_TIME, 0)
+
+        // token 过期时间 一小时
+        if (System.currentTimeMillis() - oldOssTokenTime <= 1000 * 60 * 60) {
+            // 一小时以内，可以使用旧token
+
+        }
+*/
 
         addSubscribe(
             apiService.getOssSecurityToken().compose(flowableUICompose())
@@ -232,7 +245,7 @@ class CloudAccountPresenter(val view: CloudAccountView) {
                     override fun onSuccess(data: SecurityTokenModel?) {
                         data?.let {
                             val runnable = Runnable {
-                                uploadRecord(context, it, localFilePatch,position)
+                                uploadRecord(context, it, localFilePatch, position)
                             }
                             Thread(runnable).start()
                         }
@@ -281,7 +294,7 @@ class CloudAccountPresenter(val view: CloudAccountView) {
             override fun onSuccess(request: PutObjectRequest?, result: PutObjectResult?) {
                 var finalUrl = ""
                 finalUrl = imageObjectKey
-                RxBus.post(RecordUploadEvent(finalUrl,position))
+                RxBus.post(RecordUploadEvent(finalUrl, position))
             }
 
             override fun onFailure(request: PutObjectRequest?, clientException: ClientException?, serviceException: ServiceException?) {

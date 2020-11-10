@@ -31,9 +31,13 @@ object OssUtil {
      */
     fun getRealOssUrl(context: Context?, url: String, ossCallBack: CloudAccountApplication.OssSignCallBack) {
 
+        if (!isOssSignUrl(url)) {
+            ossCallBack.ossUrlSignEnd(url)
+            return
+        }
+
         val activity = context as Activity
         val application = activity.application as CloudAccountApplication
-
 
         var newUrl = ""
         val isStart = url.startsWith("/", true)
@@ -43,7 +47,6 @@ object OssUtil {
             url
         }
         application.getOssSecurityTokenForSignUrl(getOssSignUrlObjectKey(newUrl), ossCallBack)
-
     }
 
 

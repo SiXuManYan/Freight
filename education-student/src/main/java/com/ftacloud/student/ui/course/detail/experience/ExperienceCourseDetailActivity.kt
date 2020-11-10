@@ -29,7 +29,10 @@ import kotlinx.android.synthetic.main.activity_course_detail.*
 class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPresenter>(), ExperienceCourseDetailView {
 
     companion object {
+        /** 体验课 */
         val RESERVE = 0
+
+        /** 订单 */
         val PAY = 1
     }
 
@@ -79,31 +82,35 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
 
         student_count_tv.text = getString(R.string.student_count_format, it.studentCount)
 
-        OssUtil.getRealOssUrl(this, it.teacherHeadImg, object : CloudAccountApplication.OssSignCallBack {
-            override fun ossUrlSignEnd(url: String) {
-                Glide.with(this@ExperienceCourseDetailActivity).load(url).into(teacher_iv)
-            }
+        if (it.teacherHeadImg.isNotBlank() || it.teacherName.isNotBlank() || it.teacherIntroduce.isNotBlank()) {
+            OssUtil.getRealOssUrl(this, it.teacherHeadImg, object : CloudAccountApplication.OssSignCallBack {
+                override fun ossUrlSignEnd(url: String) {
+                    Glide.with(this@ExperienceCourseDetailActivity).load(url).into(teacher_iv)
+                }
+            })
+            teacher_name_tv.text = it.teacherName
+            teacher_introduction.text = it.teacherIntroduce
+            teacher_ll.visibility = View.VISIBLE
+        } else {
+            teacher_ll.visibility = View.GONE
+        }
 
-        })
-
-
-        teacher_name_tv.text = it.teacherName
-        teacher_introduction.text = it.teacherIntroduce
-
-        course__container_ll.removeAllViews()
+        course_container_ll.removeAllViews()
         it.courseDetailImgs.forEach {
 
             val iv = ImageView(this)
             iv.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
                 bottomMargin = SizeUtils.dp2px(5f)
             }
+            course_container_ll.addView(iv)
 
-            Glide.with(this@ExperienceCourseDetailActivity).load(it).into(iv)
-            course__container_ll.addView(iv)
+            OssUtil.getRealOssUrl(this@ExperienceCourseDetailActivity, it, object : CloudAccountApplication.OssSignCallBack {
+                override fun ossUrlSignEnd(url: String) {
+                    Glide.with(this@ExperienceCourseDetailActivity).load(url).into(iv)
+                }
+            })
         }
-
         price_tv.text = getString(R.string.money_symbol_format, it.payingMoney)
-
     }
 
     override fun bookingExperienceSuccess() {

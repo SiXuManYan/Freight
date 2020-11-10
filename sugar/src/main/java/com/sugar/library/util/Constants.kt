@@ -18,6 +18,8 @@ object Constants {
     const val SP_DEV_URL = "dev_url"
     const val SP_LOGIN = "login"
     const val SP_TOKEN = "token"
+    const val SP_TOKEN_OSS = "token_oss"
+    const val SP_TOKEN_OSS_TIME = "sp_token_oss_time"
     const val SP_DATA = "data"
     const val SP_LOCAL_CODE = "local_code"
     const val SP_LOCAL_NAME = "local_name"
