@@ -18,6 +18,7 @@ import com.ftacloud.student.ui.course.detail.prepare.NoClassActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.item_home_course_common.*
 import java.util.concurrent.TimeUnit
 
@@ -49,44 +50,30 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
     override fun initViews(parent: View) {
         super.initViews(parent)
         categoryValue = arguments?.getInt(Constants.PARAM_TYPE)
+        initEvent()
+    }
+
+    private fun initEvent() {
+        presenter.subsribeEvent(Consumer {
+            when (it.code) {
+                Constants.EVENT_REFRESH_MY_COURSE -> {
+                    onRefresh()
+                }
+                else -> {
+                }
+            }
+        })
     }
 
 
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<MyCourse> {
         val adapter = object : RecyclerArrayAdapter<MyCourse>(context) {
 
-            @SuppressLint("CheckResult")
+
             override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<MyCourse> {
 
                 val holder = MyCourseChildHolder(parent)
-
-
-                LPRxUtils.clicks(holder.enter_ll)
-                    .throttleFirst(500, TimeUnit.MILLISECONDS)
-                    .subscribe { aVoid: Int? ->
-
-
-                        getAdapter()?.let {
-
-                            val myCourse = it.allData[holder.adapterPosition]
-                            val enter = holder.itemView.findViewById<LinearLayout>(R.id.enter_ll)
-
-
-                            val code: String = myCourse.liveRoomStudentCode
-                            val name: String = "测试学生安卓"
-                            if (code.isBlank()) {
-                                ToastUtils.showShort("未找到教室")
-                                return@subscribe
-                            }
-                            if (name.isBlank()) {
-                                ToastUtils.showShort("学生姓名不能为空 ")
-                                return@subscribe
-                            }
-                            InteractiveClassUI.enterRoom(this@MyCourseChildFragment.context!!, code, name) { msg ->
-                                ToastUtils.showShort(msg)
-                            }
-                        }
-                    }
+                enterLiveRoom(holder)
                 return holder
             }
 
@@ -104,6 +91,32 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
         return adapter
     }
 
+    @SuppressLint("CheckResult")
+    private fun enterLiveRoom(holder: MyCourseChildHolder) {
+        LPRxUtils.clicks(holder.enter_ll)
+            .throttleFirst(500, TimeUnit.MILLISECONDS)
+            .subscribe { _: Int? ->
+                getAdapter()?.let {
+
+                    val myCourse = it.allData[holder.adapterPosition]
+
+                    val code: String = myCourse.liveRoomStudentCode
+                    val name: String = "测试学生安卓"
+                    if (code.isBlank()) {
+                        ToastUtils.showShort("未找到教室")
+                        return@subscribe
+                    }
+                    if (name.isBlank()) {
+                        ToastUtils.showShort("学生姓名不能为空 ")
+                        return@subscribe
+                    }
+                    InteractiveClassUI.enterRoom(this@MyCourseChildFragment.context!!, code, name) { msg ->
+                        ToastUtils.showShort(msg)
+                    }
+                }
+            }
+    }
+
 
     override fun onRefresh() {
         super.onRefresh()
@@ -113,34 +126,6 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
     override fun onLoadMore() {
         super.onLoadMore()
         presenter.loadCourseList(this, pageSize, lastItemId, categoryValue)
-    }
-
-    /**
-     * 进入直播间
-     */
-    @SuppressLint("CheckResult")
-    private fun enterLiveRoom(myCourse: MyCourse, enter: LinearLayout) {
-
-
-        LPRxUtils.clicks(enter)
-            .throttleFirst(500, TimeUnit.MILLISECONDS)
-            .subscribe { aVoid: Int? ->
-                val code: String = myCourse.liveRoomStudentCode
-                val name: String = "测试学生安卓"
-                if (code.isBlank()) {
-                    ToastUtils.showShort("未找到教室")
-                    return@subscribe
-                }
-                if (name.isBlank()) {
-                    ToastUtils.showShort("学生姓名不能为空 ")
-                    return@subscribe
-                }
-                InteractiveClassUI.enterRoom(Utils.getApp(), code, name) { msg ->
-                    ToastUtils.showShort(msg)
-
-                }
-            }
-
     }
 
 

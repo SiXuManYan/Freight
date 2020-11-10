@@ -7,8 +7,12 @@ import com.bumptech.glide.Glide
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.MyCourse
 import com.ftacloud.student.frames.entity.home.CourseState
+import com.sugar.library.event.Event
+import com.sugar.library.event.RxBus
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.ui.view.countdown.CountDownTextView
+import com.sugar.library.util.Constants
+import com.sugar.library.util.TimeUtil
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_course_common.*
 
@@ -17,10 +21,11 @@ import kotlinx.android.synthetic.main.item_home_course_common.*
  * </br>
  *  我的课程  --> 课程详情
  */
-class MyCourseChildHolder (parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(parent, R.layout.item_home_course_common), LayoutContainer {
+class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(parent, R.layout.item_home_course_common), LayoutContainer {
 
     override val containerView: View? get() = itemView
 
+    private var checkTime = false
 
     override fun setData(data: MyCourse?) {
         if (data == null) {
@@ -31,30 +36,44 @@ class MyCourseChildHolder (parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(pa
         title_tv.text = data.productName
         content_tv.text = data.teacherName
 
-        when  {
+        when {
             data.state.contains(CourseState.UNTEACH.name) -> {
                 // 未上课，显示倒计时
-                course_vs.displayedChild = 1
-                initCountDown(data)
-
-                // 15 分钟内显示进入教室，14分钟时刷新接口，一天以内倒计时，一天以外显示开课时间
-
+                val endTime = TimeUtil.getSafeTime(data.countDownStudySeconds)
+                if (endTime - System.currentTimeMillis() > 1000 * 60 * 60 * 24) {
+                    // 大于一天显示开课时间
+                    course_vs.displayedChild = 1
+                    enter_ll.visibility = View.GONE
+                    countdown_tv.text = data.studyDatetime
+                } else {
+                    // 一天以内显示倒计时
+                    initCountDown(endTime)
+                    course_vs.displayedChild = 0
+                    enter_ll.visibility = View.VISIBLE
+                }
             }
-            data.state.contains(CourseState.TAUGHT.name)  -> {
+            data.state.contains(CourseState.TAUGHT.name) -> {
+                // 已结束
                 course_vs.displayedChild = 0
                 status_tv.text = context.getString(R.string.class_end)
+                enter_ll.visibility = View.GONE
             }
             data.state.contains(CourseState.TEACHING.name) -> {
+                // 上课中
                 course_vs.displayedChild = 0
                 status_tv.text = context.getString(R.string.class_teaching)
+                enter_ll.visibility = View.VISIBLE
             }
         }
     }
 
 
-    private fun initCountDown(data: MyCourse) {
-        val endTime = data.countDownStudySeconds
+    private fun initCountDown(endTime: Long) {
+        // 一天以外显示开课时间 ，一天以内倒计时，12分钟时刷新接口，15 分钟内显示进入教室(正在上课)，
         if (endTime <= 0) {
+            // 老师没有点，做容错处理，学生可以进入教室
+            countdown_tv.visibility = View.VISIBLE
+            status_tv.text = "正在上课"
             return
         }
 
@@ -71,12 +90,31 @@ class MyCourseChildHolder (parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(pa
                 start()
                 addCountDownCallback(object : CountDownTextView.CountDownCallback {
 
-                    override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) = Unit
+                    override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
+
+                        when {
+
+                            millisUntilFinished <= 1000 * 60 * 12 -> {
+                                // 刷新列表，获取上课码
+                                if (!checkTime) {
+                                    checkTime = true
+                                    RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
+                                }
+                            }
+
+                            millisUntilFinished <= 1000 * 60 * 10 -> {
+                                status_tv.text = "正在上课"
+                                countdown_tv.visibility = View.GONE
+                            }
+
+                        }
+
+                    }
 
                     override fun onFinish(countDownTextView: CountDownTextView?) {
-                        status_tv.text = "上课中"
+                        status_tv.text = context.getString(R.string.class_teaching)
                         course_vs.displayedChild = 0
-                        // RxBus.post(Event(Constants.EVENT_REFRESH_ORDER_LIST_FROM_END_COUNT_DOWN))
+                        RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
                     }
                 })
             }
@@ -84,9 +122,6 @@ class MyCourseChildHolder (parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(pa
 
 
     }
-
-
-
 
 
 }

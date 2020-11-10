@@ -331,4 +331,14 @@ public class TimeUtil {
     }
 
 
+    public static long getSafeTime(String longString){
+        try {
+            return Long.parseLong(longString);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return 0L;
+        }
+    }
+
+
 }

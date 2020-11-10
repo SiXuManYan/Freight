@@ -6,9 +6,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingStart="@dimen/dp15"
-    android:paddingTop="@dimen/dp0"
+    android:paddingTop="@dimen/dp10"
     android:paddingEnd="@dimen/dp15"
-    android:paddingBottom="@dimen/dp10">
+ >
 
 
     <androidx.cardview.widget.CardView
@@ -117,6 +117,7 @@
                         android:textColor="@color/font_white"
                         android:textSize="@dimen/sp12" />
 
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -158,6 +159,9 @@
 
 
                     </LinearLayout>
+
+
+
 
 
                 </ViewSwitcher>

@@ -24,19 +24,6 @@ class MyCourse {
     }*/
 
 
-    /*
-
-
-
-
-
-
-
-    "stateText": "未上课"
-
-
-
-     */
 
 
     var productId = ""
@@ -49,7 +36,7 @@ class MyCourse {
     var productIconImg = ""
     var teacherHeadImg = ""
     var teacherName = ""
-    var countDownStudySeconds = 0L
+    var countDownStudySeconds = "0"
     var courseIntroduce = ""
 
 

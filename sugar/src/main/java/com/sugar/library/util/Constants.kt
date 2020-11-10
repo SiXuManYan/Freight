@@ -3,7 +3,6 @@ package com.sugar.library.util
 object Constants {
 
 
-
     const val TYPE_OWNER = "OWNER"
     const val OS = "Android"
 
@@ -198,6 +197,7 @@ object Constants {
     const val EVENT_CHECK_APPLICATION_DEFAULT_DATA = 0x105// 检查application 初始化数据
     const val EVENT_REFRESH_ORDER_LIST_FROM_DELETE_DRAFT = 0x106// 预订单页删除草稿，刷新订单列表
     const val EVENT_UPDATE_MESSAGE_NUMBER = 0x107// 消息数量
+    const val EVENT_REFRESH_MY_COURSE = 0x108// 刷新我的列表
 
     // 列表数据 key
     const val KEY_DATA = "data"
@@ -433,8 +433,6 @@ object Constants {
     const val READ1 = "READ1"
 
     const val REQUEST_CODE_CAMERA = 102
-
-
 
 
 }
