@@ -26,7 +26,6 @@ class MyCourseChildHolder (parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(pa
         if (data == null) {
             return
         }
-
         Glide.with(context).load(data.productIconImg).into(image_iv)
         Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
         title_tv.text = data.productName
@@ -37,6 +36,9 @@ class MyCourseChildHolder (parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(pa
                 // 未上课，显示倒计时
                 course_vs.displayedChild = 1
                 initCountDown(data)
+
+                // 15 分钟内显示进入教室，14分钟时刷新接口，一天以内倒计时，一天以外显示开课时间
+
             }
             data.state.contains(CourseState.TAUGHT.name)  -> {
                 course_vs.displayedChild = 0

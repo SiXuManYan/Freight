@@ -24,6 +24,21 @@ class MyCourse {
     }*/
 
 
+    /*
+
+
+
+
+
+
+
+    "stateText": "未上课"
+
+
+
+     */
+
+
     var productId = ""
     var courseId = ""
     var orderId = ""
@@ -34,12 +49,29 @@ class MyCourse {
     var productIconImg = ""
     var teacherHeadImg = ""
     var teacherName = ""
-    var countDownStudySeconds: Long = 0
+    var countDownStudySeconds = 0L
     var courseIntroduce = ""
 
 
     var studyDatetime = ""
-    var lengthOfCourse = ""
+    var teacherEnName = ""
+
+    /**
+     * UNTEACH
+     */
+    var stateValue = ""
+
+    /**
+     * eg: 未上课
+     */
+    var stateText = ""
+
+    var lengthOfCourse = 0L
+
+
+    var liveRoomNo = ""
+    var liveRoomStudentCode = "jdmp8b"
+
 
 
 }
