@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ftacloud.student">
+    package="com.fatcloud.account">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -25,7 +25,7 @@
 
 
     <application
-        android:name=".ui.app.CloudAccountApplication"
+        android:name="com.fatcloud.account.ui.app.CloudAccountApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_temp4"
         android:label="@string/app_name"
@@ -50,7 +50,7 @@
         <service android:name="com.zlw.main.recorderlib.recorder.RecordService" />
 
         <activity
-            android:name=".ui.splash.SplashActivity"
+            android:name="com.fatcloud.account.ui.splash.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/LaunchTheme">
@@ -76,67 +76,67 @@
         </activity>
 
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name="com.fatcloud.account.ui.main.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask" />
 
 
         <activity
-            android:name=".ui.account.WelcomeActivity"
+            android:name="com.fatcloud.account.ui.account.WelcomeActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".ui.account.login.LoginActivity"
+            android:name="com.fatcloud.account.ui.account.login.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".ui.account.register.RegisterActivity"
+            android:name="com.fatcloud.account.ui.account.register.RegisterActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.account.forget.ForgetActivity"
+            android:name="com.fatcloud.account.ui.account.forget.ForgetActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.webs.WebCommonActivity"
+            android:name="com.fatcloud.account.ui.webs.WebCommonActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.account.bind.BindPhoneActivity"
+            android:name="com.fatcloud.account.ui.account.bind.BindPhoneActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ui.settings.SettingActivity" />
-        <activity android:name=".ui.tests.TestConditionActivity" />
-        <activity android:name=".ui.course.detail.experience.ExperienceCourseDetailActivity" />
-        <activity android:name=".ui.message.MessageActivity" />
-        <activity android:name=".ui.course.schedule.ClassScheduleActivity" />
-        <activity android:name=".ui.task.detail.TaskDetailActivity" />
-        <activity android:name=".ui.tests.my.MyTestActivity" />
-        <activity android:name=".ui.course.detail.prepare.NoClassActivity" />
-        <activity android:name=".ui.user.UserActivity" />
-        <activity android:name=".ui.order.list.OrderActivity" />
-        <activity android:name=".ui.order.detail.OrderDetailActivity" />
-        <activity android:name=".ui.tests.question.TestQuestionActivity" />
-        <activity android:name=".ui.course.my.MyCourseActivity" />
-        <activity android:name=".ui.tests.score.TestScoreActivity" />
-        <activity android:name=".ui.course.detail.experience.result.ReservationResultActivity" />
-        <activity android:name=".ui.task.reserve.ReserveListActivity" />
-        <activity android:name="com.ftacloud.student.ui.order.pay.prepare.PayPrepareActivity" />
-        <activity android:name=".ui.order.pay.result.CloudPayResultActivity" />
+        <activity android:name="com.fatcloud.account.ui.settings.SettingActivity" />
+        <activity android:name="com.fatcloud.account.ui.tests.TestConditionActivity" />
+        <activity android:name="com.fatcloud.account.ui.course.detail.experience.ExperienceCourseDetailActivity" />
+        <activity android:name="com.fatcloud.account.ui.message.MessageActivity" />
+        <activity android:name="com.fatcloud.account.ui.course.schedule.ClassScheduleActivity" />
+        <activity android:name="com.fatcloud.account.ui.task.detail.TaskDetailActivity" />
+        <activity android:name="com.fatcloud.account.ui.tests.my.MyTestActivity" />
+        <activity android:name="com.fatcloud.account.ui.course.detail.prepare.NoClassActivity" />
+        <activity android:name="com.fatcloud.account.ui.user.UserActivity" />
+        <activity android:name="com.fatcloud.account.ui.order.list.OrderActivity" />
+        <activity android:name="com.fatcloud.account.ui.order.detail.OrderDetailActivity" />
+        <activity android:name="com.fatcloud.account.ui.tests.question.TestQuestionActivity" />
+        <activity android:name="com.fatcloud.account.ui.course.my.MyCourseActivity" />
+        <activity android:name="com.fatcloud.account.ui.tests.score.TestScoreActivity" />
+        <activity android:name="com.fatcloud.account.ui.course.detail.experience.result.ReservationResultActivity" />
+        <activity android:name="com.fatcloud.account.ui.task.reserve.ReserveListActivity" />
+        <activity android:name="com.fatcloud.account.ui.order.pay.prepare.PayPrepareActivity" />
+        <activity android:name="com.fatcloud.account.ui.order.pay.result.CloudPayResultActivity" />
         <activity
-            android:name=".wxapi.WXPayEntryActivity"
+            android:name="com.fatcloud.account.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:taskAffinity="com.ftacloud.student" />
 
         <activity
-            android:name=".wxapi.WXEntryActivity"
+            android:name="com.fatcloud.account.wxapi.WXEntryActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:taskAffinity="com.ftacloud.student" />
-        <activity android:name=".ui.order.pay.PayActivity" />
+        <activity android:name="com.fatcloud.account.ui.order.pay.PayActivity" />
 
 
     </application>

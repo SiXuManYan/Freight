@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_course"
-        android:name="com.ftacloud.student.ui.home.HomeFragment"
+        android:name="com.fatcloud.account.ui.home.HomeFragment"
         android:label="@string/menu_my_course"
         tools:layout="@layout/fragment_home" />
 

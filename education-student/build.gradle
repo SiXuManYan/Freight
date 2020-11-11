@@ -70,9 +70,11 @@ android {
     signingConfigs {
         debug { storeFile file("../keystore/debug.keystore") }
         release {
-            storeFile file('../keystore/educationStudent.jks')
+            storeFile file('../keystore/cloud.jks')
+//            storeFile file('../keystore/educationStudent.jks')
             storePassword 'cloud.33'
-            keyAlias 'educationStudent'
+//            keyAlias 'educationStudent'
+            keyAlias 'key0'
             keyPassword 'cloud.33'
         }
 
