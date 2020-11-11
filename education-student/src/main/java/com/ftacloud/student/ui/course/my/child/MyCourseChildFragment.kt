@@ -10,6 +10,7 @@ import com.baijiayun.livecore.utils.LPRxUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.blankj.utilcode.util.Utils
 import com.ftacloud.student.R
+import com.ftacloud.student.common.StudentUtil
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.MyCourse
 import com.ftacloud.student.frames.entity.home.CourseState
@@ -65,15 +66,16 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
         })
     }
 
-
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<MyCourse> {
         val adapter = object : RecyclerArrayAdapter<MyCourse>(context) {
 
-
             override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<MyCourse> {
-
                 val holder = MyCourseChildHolder(parent)
-                enterLiveRoom(holder)
+                getAdapter()?.let {
+                    val myCourse = it.allData[holder.adapterPosition]
+                    val code: String = myCourse.liveRoomStudentCode
+                    StudentUtil.enterLiveRoom(this@MyCourseChildFragment.context!!,holder.enter_ll,code,"测试学生安卓")
+                }
                 return holder
             }
 
@@ -89,32 +91,6 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
             }
         }
         return adapter
-    }
-
-    @SuppressLint("CheckResult")
-    private fun enterLiveRoom(holder: MyCourseChildHolder) {
-        LPRxUtils.clicks(holder.enter_ll)
-            .throttleFirst(500, TimeUnit.MILLISECONDS)
-            .subscribe { _: Int? ->
-                getAdapter()?.let {
-
-                    val myCourse = it.allData[holder.adapterPosition]
-
-                    val code: String = myCourse.liveRoomStudentCode
-                    val name: String = "测试学生安卓"
-                    if (code.isBlank()) {
-                        ToastUtils.showShort("未找到教室")
-                        return@subscribe
-                    }
-                    if (name.isBlank()) {
-                        ToastUtils.showShort("学生姓名不能为空 ")
-                        return@subscribe
-                    }
-                    InteractiveClassUI.enterRoom(this@MyCourseChildFragment.context!!, code, name) { msg ->
-                        ToastUtils.showShort(msg)
-                    }
-                }
-            }
     }
 
 

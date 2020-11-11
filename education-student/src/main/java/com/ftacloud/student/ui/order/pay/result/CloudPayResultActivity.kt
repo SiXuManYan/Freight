@@ -28,7 +28,6 @@ class CloudPayResultActivity : BaseActivity() {
 
 
     override fun onBackPressed() {
-
             AlertDialog.Builder(this)
                 .setMessage(R.string.hint)
                 .setCancelable(false)

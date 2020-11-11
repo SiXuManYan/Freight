@@ -12,6 +12,7 @@ import com.ftacloud.student.frames.entity.home.Course
 import com.ftacloud.student.frames.entity.home.CourseState
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.ui.view.countdown.CountDownTextView
+import com.sugar.library.util.TimeUtil
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_class_experience.*
 
@@ -58,7 +59,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
 
                 CourseState.UNTEACH.name -> {
 
-                    if (data.countDownToStudyTimeSeconds > 0) {
+                    if (TimeUtil.getSafeTime(data.countDownToStudyTimeSeconds) > 0) {
                         count_down_ll.visibility = View.VISIBLE
                         initCountDown(data)
 
@@ -85,7 +86,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
     }
 
     private fun initCountDown(data: Course) {
-        val endTime = data.countDownToStudyTimeSeconds
+        val endTime = TimeUtil.getSafeTime(data.countDownToStudyTimeSeconds)
         if (endTime <= 0) {
             return
         }

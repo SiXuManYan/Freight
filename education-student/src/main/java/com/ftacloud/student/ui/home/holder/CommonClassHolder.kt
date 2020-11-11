@@ -10,9 +10,13 @@ import com.bumptech.glide.request.RequestOptions
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.home.Course
 import com.ftacloud.student.frames.entity.home.CourseState
+import com.sugar.library.event.Event
+import com.sugar.library.event.RxBus
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.frames.glides.RoundTransFormation
 import com.sugar.library.ui.view.countdown.CountDownTextView
+import com.sugar.library.util.Constants
+import com.sugar.library.util.TimeUtil
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_course_common.*
 
@@ -25,6 +29,7 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
 
     override val containerView: View? get() = itemView
 
+    private var checkTime = false
 
     override fun setData(data: Course?) {
         if (data == null) {
@@ -32,33 +37,48 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
         }
         Glide.with(context).load(data.courseIconImg)
             .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8)))).into(image_iv)
-        title_tv.text = data.productName
-
-        content_tv.text = data.teacherName
         Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
+        title_tv.text = data.productName
+        content_tv.text = data.teacherName
 
         when {
             data.state.contains(CourseState.UNTEACH.name) -> {
                 // 未上课，显示倒计时
-                course_vs.displayedChild = 1
-                initCountDown(data)
+
+                val endTime = TimeUtil.getSafeTime(data.countDownToStudyTimeSeconds)
+                if (endTime - System.currentTimeMillis() > 1000 * 60 * 60 * 24) {
+                    // 大于一天显示开课时间
+                    course_vs.displayedChild = 1
+                    enter_ll.visibility = View.GONE
+                    countdown_tv.text = data.studyDatetime
+                } else {
+                    // 一天以内显示倒计时
+                    initCountDown(endTime)
+                    course_vs.displayedChild = 0
+                    enter_ll.visibility = View.VISIBLE
+                }
             }
             data.state.contains(CourseState.TAUGHT.name) -> {
                 course_vs.displayedChild = 0
                 status_tv.text = context.getString(R.string.class_end)
+                enter_ll.visibility = View.GONE
             }
             data.state.contains(CourseState.TEACHING.name) -> {
                 course_vs.displayedChild = 0
                 status_tv.text = context.getString(R.string.class_teaching)
+                enter_ll.visibility = View.VISIBLE
             }
         }
 
 
     }
 
-    private fun initCountDown(data: Course) {
-        val endTime = data.countDownToStudyTimeSeconds
+    private fun initCountDown(endTime: Long) {
+
         if (endTime <= 0) {
+            // 老师没有点，做容错处理，学生可以进入教室
+            countdown_tv.visibility = View.VISIBLE
+            status_tv.text = context.getString(R.string.having_class_now)
             return
         }
 
@@ -75,12 +95,30 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
                 start()
                 addCountDownCallback(object : CountDownTextView.CountDownCallback {
 
-                    override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) = Unit
+
+                    override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
+
+                        when {
+
+                            millisUntilFinished <= 1000 * 60 * 12 -> {
+                                // 刷新列表，获取上课码
+                                if (!checkTime) {
+                                    checkTime = true
+                                    RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
+                                }
+                            }
+
+                            millisUntilFinished <= 1000 * 60 * 10 -> {
+                                status_tv.text = context.getString(R.string.having_class_now)
+                                countdown_tv.visibility = View.GONE
+                            }
+                        }
+                    }
 
                     override fun onFinish(countDownTextView: CountDownTextView?) {
                         status_tv.text = "上课中"
                         course_vs.displayedChild = 0
-                        // RxBus.post(Event(Constants.EVENT_REFRESH_ORDER_LIST_FROM_END_COUNT_DOWN))
+                        RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
                     }
                 })
             }

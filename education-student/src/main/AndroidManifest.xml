@@ -113,7 +113,6 @@
         <activity android:name=".ui.message.MessageActivity" />
         <activity android:name=".ui.course.schedule.ClassScheduleActivity" />
         <activity android:name=".ui.task.detail.TaskDetailActivity" />
-        <activity android:name=".ui.task.TaskFragment" />
         <activity android:name=".ui.tests.my.MyTestActivity" />
         <activity android:name=".ui.course.detail.prepare.NoClassActivity" />
         <activity android:name=".ui.user.UserActivity" />
@@ -126,6 +125,19 @@
         <activity android:name=".ui.task.reserve.ReserveListActivity" />
         <activity android:name="com.ftacloud.student.ui.order.pay.prepare.PayPrepareActivity" />
         <activity android:name=".ui.order.pay.result.CloudPayResultActivity" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.ftacloud.student" />
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.ftacloud.student" />
+        <activity android:name=".ui.order.pay.PayActivity" />
+
 
     </application>
 

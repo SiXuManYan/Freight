@@ -1,7 +1,10 @@
 package com.ftacloud.student.ui.order.pay
 
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.ftacloud.student.frames.entity.defray.WechatPayInfo
 import com.ftacloud.student.frames.network.response.BasePresenter
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 
 import javax.inject.Inject
 
@@ -18,15 +21,15 @@ class PayPresenter @Inject constructor(private var view: PayView) : BasePresente
     fun wechatUnifiedOrder(lifecycleOwner: LifecycleOwner, orderId: String) {
 
 
-//        requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
-//            apiService.wechatUnifiedOrder(orderId), object : BaseHttpSubscriber<WechatPayInfo>(view) {
-//                override fun onSuccess(data: WechatPayInfo?) {
-//                    data?.let {
-//                        view.doWechatPay(it)
-//                    }
-//
-//                }
-//            })
+        requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
+            apiService.wechatUnifiedOrder(orderId), object : BaseHttpSubscriber<WechatPayInfo>(view) {
+                override fun onSuccess(data: WechatPayInfo?) {
+                    data?.let {
+                        view.doWechatPay(it)
+                    }
+
+                }
+            })
 
     }
 
@@ -65,6 +68,9 @@ class PayPresenter @Inject constructor(private var view: PayView) : BasePresente
 //                    view.checkOrderRealPaymentStatusFailure()
 //                }
 //            })
+
+        view.orderPaySuccess()
+
     }
 
 

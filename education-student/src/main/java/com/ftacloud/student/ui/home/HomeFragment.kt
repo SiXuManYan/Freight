@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ftacloud.student.R
+import com.ftacloud.student.common.StudentUtil
 import com.ftacloud.student.frames.components.list.BaseRefreshListFragment
 import com.ftacloud.student.frames.entity.Task
 import com.ftacloud.student.frames.entity.home.*
@@ -21,6 +22,8 @@ import com.ftacloud.student.ui.tests.score.TestScoreActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
+import io.reactivex.functions.Consumer
+import kotlinx.android.synthetic.main.item_home_course_common.*
 
 /**
  * 首页
@@ -33,6 +36,20 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
             easyRecyclerView.setLayoutManager(androidx.recyclerview.widget.GridLayoutManager(context, 2))
         }
         loadOnVisible()
+        initEvent()
+
+    }
+
+    private fun initEvent() {
+        presenter.subsribeEvent(Consumer {
+            when (it.code) {
+                Constants.EVENT_REFRESH_MY_COURSE -> {
+                    onRefresh()
+                }
+                else -> {
+                }
+            }
+        })
     }
 
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<Any> {
@@ -48,7 +65,15 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                         ExperienceClassHolder(parent)
                     }
                     HomeConstant.COMMON_CLASS -> {
-                        CommonClassHolder(parent)
+                        val commonClassHolder = CommonClassHolder(parent)
+                        getAdapter()?.let {
+                            val myCourse = it.allData[commonClassHolder.adapterPosition] as Course
+                            val code: String = myCourse.liveRoomNo
+                            StudentUtil.enterLiveRoom(this@HomeFragment.context!!,commonClassHolder.enter_ll,code,"测试学生安卓")
+                        }
+
+
+                        commonClassHolder
                     }
                     HomeConstant.CLASS_SCHEDULE -> {
                         ScheduleHolder(parent)

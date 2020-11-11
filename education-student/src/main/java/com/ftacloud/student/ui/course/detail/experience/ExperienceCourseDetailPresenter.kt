@@ -45,7 +45,7 @@ class ExperienceCourseDetailPresenter @Inject constructor(private var view: Expe
 
 
     /**
-     * 获取体验课详情
+     * 获取订单课详情
      */
     fun getOrderCourseDetail(lifecycle: LifecycleOwner, orderId: String,productId: String) {
 

@@ -215,6 +215,7 @@
     <string name="courese_detail">课程详情</string>
     <string name="enter_class">进入教室</string>
     <string name="my_test">我的测评</string>
+    <string name="having_class_now">正在上课</string>
 
 
 </resources>

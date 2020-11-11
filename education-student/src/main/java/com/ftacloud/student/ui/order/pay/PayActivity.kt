@@ -8,14 +8,24 @@ import android.view.View
 import butterknife.OnClick
 import com.alipay.sdk.app.PayTask
 import com.blankj.utilcode.util.ToastUtils
+import com.ftacloud.student.BuildConfig
 import com.ftacloud.student.R
 import com.ftacloud.student.common.StudentUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.defray.AlipayResultStatus
 import com.ftacloud.student.frames.entity.defray.PayResult
 import com.ftacloud.student.frames.entity.defray.WechatPayInfo
+import com.ftacloud.student.frames.entity.home.HomeOrderExtra
+import com.ftacloud.student.ui.order.pay.result.CloudPayResultActivity
+import com.sugar.library.event.Event
+import com.sugar.library.event.RxBus
+import com.sugar.library.event.WechatPayResultEvent
 import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
+import com.tencent.mm.opensdk.modelpay.PayReq
 import com.tencent.mm.opensdk.openapi.IWXAPI
+import com.tencent.mm.opensdk.openapi.WXAPIFactory
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_pay.*
 import java.math.BigDecimal
 
@@ -30,8 +40,11 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
     private var orderId = ""
     private var orderNumber = ""
     private var finalMoney = ""
-    private var mMold = ""
+
     private var api: IWXAPI? = null
+
+
+    var orderExtra: HomeOrderExtra? = null
 
     /**
      * 支付宝sdk正常运行
@@ -72,32 +85,35 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
     }
 
     private fun initEvent() {
-//        presenter.subsribeEventEntity<WechatPayResultEvent>(Consumer {
-//            val resultCode = it.resultCode
-//            if (resultCode == -2) {
-//                ToastUtils.showShort("您已取消支付")
-//            } else {
-//                presenter.checkOrderRealPaymentStatus(this, orderId, orderNumber)
-//            }
-//        })
+        presenter.subsribeEventEntity<WechatPayResultEvent>(Consumer {
+            val resultCode = it.resultCode
+            if (resultCode == -2) {
+                ToastUtils.showShort("您已取消支付")
+            } else {
+                presenter.checkOrderRealPaymentStatus(this, orderId, orderNumber)
+            }
+        })
     }
 
 
     private fun initExtra() {
-//        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ORDER_ID)
-//            || !intent.extras!!.containsKey(Constants.PARAM_ORDER_ID) || !intent.extras!!.containsKey(Constants.PARAM_MONEY)
-//        ) {
-//            finish()
-//            return
-//        }
-//        orderId = intent.extras!!.getString(Constants.PARAM_ORDER_ID, "")
-//        orderNumber = intent.extras!!.getString(Constants.PARAM_ORDER_NUMBER, "")
-//        finalMoney = intent.extras!!.getString(Constants.PARAM_MONEY, "")
-//        mMold = intent.extras!!.getString(Constants.PARAM_MOLD, "")
+
+        if (intent.extras == null) {
+            finish()
+            return
+        }
+        if (intent.extras!!.containsKey(Constants.PARAM_ORDER)) {
+            val homeOrderExtra = intent.getSerializableExtra(Constants.PARAM_ORDER) as HomeOrderExtra
+            this.orderExtra = homeOrderExtra
+            orderId = homeOrderExtra.orderId
+            orderNumber = ""
+            finalMoney = homeOrderExtra.payingMoney
+        }
+
     }
 
     private fun initView() {
-        setMainTitle("支付详情 ")
+        setMainTitle(getString(R.string.pay_detail))
         if (finalMoney.isNotEmpty()) {
             card_money_tv.text = BigDecimal(finalMoney).toPlainString()
         }
@@ -121,8 +137,6 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
     @OnClick(
         R.id.wechat_rl,
         R.id.alipay_rl,
-        R.id.card_cv,
-
         R.id.pay_tv
     )
     fun onClick(view: View) {
@@ -130,26 +144,24 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
             return
         }
         when (view.id) {
-//            R.id.pay_tv -> handlePayment()
-//            R.id.wechat_rl -> if (!wechat_rb.isChecked) wechat_rb.isChecked = true
-//            R.id.alipay_rl -> if (!alipay_rb.isChecked) alipay_rb.isChecked = true
-//            R.id.card_cv -> {
-//
-//            }
+            R.id.pay_tv -> handlePayment()
+            R.id.wechat_rl -> if (!wechat_rb.isChecked) wechat_rb.isChecked = true
+            R.id.alipay_rl -> if (!alipay_rb.isChecked) alipay_rb.isChecked = true
+
             else -> {
             }
         }
     }
 
     private fun handlePayment() {
-//        if (wechat_rb.isChecked) {
-//            if (!AndroidUtil.isWeixinAvilible(this)) {
-//                return
-//            }
-//            presenter.wechatUnifiedOrder(this, orderId)
-//        } else {
-//            presenter.alipayUnifiedOrder(this, orderId)
-//        }
+        if (wechat_rb.isChecked) {
+            if (!StudentUtil.isWeixinAvilible(this)) {
+                return
+            }
+            presenter.wechatUnifiedOrder(this, orderId)
+        } else {
+            presenter.alipayUnifiedOrder(this, orderId)
+        }
     }
 
 
@@ -160,19 +172,19 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
     override fun doWechatPay(it: WechatPayInfo) {
 
 
-//        api = WXAPIFactory.createWXAPI(this@PayActivity, BuildConfig.WECHAT_APPID, false).apply {
-//            registerApp(BuildConfig.WECHAT_APPID)
-//        }
-//        val req = PayReq().apply {
-//            appId = BuildConfig.WECHAT_APPID
-//            partnerId = it.partnerid
-//            prepayId = it.prepayid
-//            nonceStr = it.noncestr
-//            packageValue = it.`package`
-//            sign = it.sign
-//            timeStamp = it.timestamp
-//        }
-//        api?.sendReq(req)
+        api = WXAPIFactory.createWXAPI(this@PayActivity, BuildConfig.WECHAT_APPID, false).apply {
+            registerApp(BuildConfig.WECHAT_APPID)
+        }
+        val req = PayReq().apply {
+            appId = BuildConfig.WECHAT_APPID
+            partnerId = it.partnerid
+            prepayId = it.prepayid
+            nonceStr = it.noncestr
+            packageValue = it.`package`
+            sign = it.sign
+            timeStamp = it.timestamp
+        }
+        api?.sendReq(req)
 
     }
 
@@ -219,28 +231,22 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
     }
 
     override fun orderPaySuccess() {
-//        startActivity(CloudPayResultActivity::class.java, Bundle().apply {
-//            putString(Constants.PARAM_ORDER_ID, orderId)
-//            putString(Constants.PARAM_MOLD, mMold)
-//        })
-//        RxBus.post(OrderPaySuccessEvent())
-//        finish()
-
-
-
+        startActivity(CloudPayResultActivity::class.java)
+        RxBus.post(Event(Constants.EVENT_PAY_SUCCESS))
+        finish()
     }
 
 
     override fun finish() {
 //        RxBus.post(Event(Constants.EVENT_CLOSE_PAY))
 //        setResult(Activity.RESULT_OK)
-//        super.finish()
+        super.finish()
     }
 
     override fun checkOrderRealPaymentStatusFailure() {
 //        RxBus.post(Event(Constants.EVENT_CLOSE_PAY_UNKNOWN))
 //        startActivityClearTop(PayUnknownActivity::class.java, null)
-//        finish()
+        finish()
 
     }
 

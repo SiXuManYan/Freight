@@ -123,7 +123,6 @@
         android:alpha="0.99"
         android:layout_alignParentBottom="true"
         android:background="@color/student_yellow"
-        android:enabled="false"
         android:gravity="center"
         android:text="@string/to_pay"
         android:textColor="@color/font_white"

@@ -198,6 +198,7 @@ object Constants {
     const val EVENT_REFRESH_ORDER_LIST_FROM_DELETE_DRAFT = 0x106// 预订单页删除草稿，刷新订单列表
     const val EVENT_UPDATE_MESSAGE_NUMBER = 0x107// 消息数量
     const val EVENT_REFRESH_MY_COURSE = 0x108// 刷新我的列表
+    const val EVENT_PAY_SUCCESS = 0x109 // 支付成功
 
     // 列表数据 key
     const val KEY_DATA = "data"

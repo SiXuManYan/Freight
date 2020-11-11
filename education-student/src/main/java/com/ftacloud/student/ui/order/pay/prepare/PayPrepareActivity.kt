@@ -1,14 +1,20 @@
 package com.ftacloud.student.ui.order.pay.prepare
 
-import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import butterknife.OnClick
 import com.blankj.utilcode.util.StringUtils
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.MultiTransformation
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.request.RequestOptions
 import com.ftacloud.student.R
+import com.ftacloud.student.common.OssUtil
 import com.ftacloud.student.frames.components.BaseMVPActivity
 import com.ftacloud.student.frames.entity.home.HomeOrderExtra
+import com.ftacloud.student.ui.app.CloudAccountApplication
 import com.ftacloud.student.ui.order.pay.PayActivity
+import com.sugar.library.frames.glides.RoundTransFormation
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
@@ -21,6 +27,7 @@ import kotlinx.android.synthetic.main.activity_pay_prepare.*
  */
 class PayPrepareActivity : BaseMVPActivity<PayPreparePresenter>(), PayPrepareView {
 
+    var orderExtra: HomeOrderExtra? = null
 
     override fun getLayoutId(): Int = R.layout.activity_pay_prepare
 
@@ -54,15 +61,23 @@ class PayPrepareActivity : BaseMVPActivity<PayPreparePresenter>(), PayPrepareVie
             finish()
             return
         }
-        if (!intent.extras!!.containsKey(Constants.PARAM_ORDER)) {
+        if (intent.extras!!.containsKey(Constants.PARAM_ORDER)) {
             val homeOrderExtra = intent.getSerializableExtra(Constants.PARAM_ORDER) as HomeOrderExtra
+            this.orderExtra = homeOrderExtra
             setData(homeOrderExtra)
         }
 
     }
 
     private fun setData(data: HomeOrderExtra) {
-        Glide.with(this).load(data.productIconImg).into(image_iv)
+        OssUtil.getRealOssUrl(this, data.productIconImg, object : CloudAccountApplication.OssSignCallBack {
+            override fun ossUrlSignEnd(url: String) {
+                Glide.with(this@PayPrepareActivity).load(url)
+                    .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8)))).into(image_iv)
+            }
+
+        })
+
         title_tv.text = data.productName
         content_tv.text = data.productIntroduce
         money_tv.text = StringUtils.getString(R.string.money_symbol_format_with_blank, data.productMoney)
@@ -78,7 +93,10 @@ class PayPrepareActivity : BaseMVPActivity<PayPreparePresenter>(), PayPrepareVie
         }
         when (view.id) {
             R.id.pay_tv -> {
-                startActivity(PayActivity::class.java)
+                startActivity(PayActivity::class.java, Bundle().apply {
+                    putSerializable(Constants.PARAM_ORDER, orderExtra)
+                })
+                finish()
             }
             else -> {
             }

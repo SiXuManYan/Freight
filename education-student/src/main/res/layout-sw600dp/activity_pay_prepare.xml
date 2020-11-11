@@ -132,7 +132,6 @@
         android:layout_alignParentBottom="true"
         android:alpha="0.99"
         android:background="@color/student_yellow"
-        android:enabled="false"
         android:gravity="center"
         android:text="@string/to_pay"
         android:textColor="@color/font_white"

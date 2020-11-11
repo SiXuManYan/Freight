@@ -40,7 +40,7 @@ open class Course {
     /**
      * 倒计时3
      */
-    var countDownToStudyTimeSeconds = 0L
+    var countDownToStudyTimeSeconds = "0"
 
 
 //  ##################################

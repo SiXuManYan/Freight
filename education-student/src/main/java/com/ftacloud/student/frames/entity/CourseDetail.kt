@@ -1,11 +1,13 @@
 package com.ftacloud.student.frames.entity
 
+import java.io.Serializable
+
 /**
  * Created by Wangsw on 2020/10/16 0016 11:02.
  * </br>
  *  课程详情
  */
-class CourseDetail {
+class CourseDetail : Serializable {
 
     var scheduleId: String = ""
 
@@ -36,7 +38,6 @@ class CourseDetail {
     var productId: String = ""
     var productName: String = ""
     var productMoney: String = ""
-
 
 /*
     {

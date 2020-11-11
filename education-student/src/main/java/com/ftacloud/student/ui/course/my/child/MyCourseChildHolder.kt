@@ -4,12 +4,16 @@ import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.MultiTransformation
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.request.RequestOptions
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.MyCourse
 import com.ftacloud.student.frames.entity.home.CourseState
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.BaseItemViewHolder
+import com.sugar.library.frames.glides.RoundTransFormation
 import com.sugar.library.ui.view.countdown.CountDownTextView
 import com.sugar.library.util.Constants
 import com.sugar.library.util.TimeUtil
@@ -31,7 +35,7 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
         if (data == null) {
             return
         }
-        Glide.with(context).load(data.productIconImg).into(image_iv)
+        Glide.with(context).load(data.productIconImg) .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8)))).into(image_iv)
         Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
         title_tv.text = data.productName
         content_tv.text = data.teacherName
@@ -72,7 +76,7 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
         if (endTime <= 0) {
             // 老师没有点，做容错处理，学生可以进入教室
             countdown_tv.visibility = View.VISIBLE
-            status_tv.text = "正在上课"
+            status_tv.text =  context.getString(R.string.having_class_now)
             return
         }
 
@@ -102,14 +106,14 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
                             }
 
                             millisUntilFinished <= 1000 * 60 * 10 -> {
-                                status_tv.text = "正在上课"
+                                status_tv.text = context.getString(R.string.having_class_now)
                                 countdown_tv.visibility = View.GONE
                             }
                         }
                     }
 
                     override fun onFinish(countDownTextView: CountDownTextView?) {
-                        status_tv.text = "正在上课"
+                        status_tv.text =  context.getString(R.string.having_class_now)
                         course_vs.displayedChild = 0
                         RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
                     }

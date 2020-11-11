@@ -1,6 +1,7 @@
 package com.ftacloud.student.frames.network
 
 import com.ftacloud.student.frames.entity.*
+import com.ftacloud.student.frames.entity.defray.WechatPayInfo
 import com.ftacloud.student.frames.entity.question.Question
 import com.ftacloud.student.frames.entity.question.QuestionChild
 import com.ftacloud.student.frames.entity.request.*
@@ -13,6 +14,7 @@ import io.reactivex.Flowable
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 
 /**
@@ -112,7 +114,7 @@ interface ApiService {
     fun getHomeInfo(): Flowable<Response<JsonObject>>
 
     /**
-     * 体验课详情
+     * 首页体验课详情
      */
     @POST("/api/student/schedule/getExperienceInfo")
     fun getCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
@@ -226,6 +228,17 @@ interface ApiService {
      */
     @POST("/api/student/schedule/getInfo")
     fun getFormalCourseDetail(@Body json: FormalCourseDetailRequest): Flowable<Response<FormalCourseDetail>>
+
+
+
+    /**
+     * 微信统一下单
+     * @param orderId 订单id
+     */
+    @GET("/api/wxpay/unifiedOrder")
+    fun wechatUnifiedOrder(
+        @Query("orderId") orderId: String?
+    ): Flowable<Response<WechatPayInfo>>
 
 
 }

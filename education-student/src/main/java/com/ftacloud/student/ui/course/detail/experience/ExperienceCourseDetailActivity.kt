@@ -64,6 +64,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
 
     override fun bindData(it: CourseDetail) {
 
+
         student_container_ll.removeAllViews()
 
         it.studentHeadImgs.forEach {
