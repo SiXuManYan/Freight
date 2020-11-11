@@ -4,11 +4,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.blankj.utilcode.util.StringUtils
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.MultiTransformation
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.request.RequestOptions
 import com.ftacloud.student.R
 import com.ftacloud.student.common.OssUtil
 import com.ftacloud.student.frames.entity.home.HomeOrder
 import com.ftacloud.student.ui.app.CloudAccountApplication
 import com.sugar.library.frames.BaseItemViewHolder
+import com.sugar.library.frames.glides.RoundTransFormation
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_order.*
 
@@ -29,9 +33,11 @@ class HomeOrderHolder(parent: ViewGroup?) : BaseItemViewHolder<HomeOrder>(parent
             return
         }
 
-        OssUtil.getRealOssUrl(context,data.productIconImg,object :CloudAccountApplication.OssSignCallBack{
+        OssUtil.getRealOssUrl(context, data.productIconImg, object : CloudAccountApplication.OssSignCallBack {
             override fun ossUrlSignEnd(url: String) {
-                Glide.with(context).load(url).into(image_iv)
+                Glide.with(context).load(url)
+                    .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8))))
+                    .into(image_iv)
             }
         })
 

@@ -67,7 +67,6 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
         }
     }
 
-
     private fun initCountDown(endTime: Long) {
         // 一天以外显示开课时间 ，一天以内倒计时，12分钟时刷新接口，15 分钟内显示进入教室(正在上课)，
         if (endTime <= 0) {
@@ -106,13 +105,11 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
                                 status_tv.text = "正在上课"
                                 countdown_tv.visibility = View.GONE
                             }
-
                         }
-
                     }
 
                     override fun onFinish(countDownTextView: CountDownTextView?) {
-                        status_tv.text = context.getString(R.string.class_teaching)
+                        status_tv.text = "正在上课"
                         course_vs.displayedChild = 0
                         RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
                     }

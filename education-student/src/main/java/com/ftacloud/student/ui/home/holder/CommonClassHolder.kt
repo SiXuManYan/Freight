@@ -4,10 +4,14 @@ import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.MultiTransformation
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.request.RequestOptions
 import com.ftacloud.student.R
 import com.ftacloud.student.frames.entity.home.Course
 import com.ftacloud.student.frames.entity.home.CourseState
 import com.sugar.library.frames.BaseItemViewHolder
+import com.sugar.library.frames.glides.RoundTransFormation
 import com.sugar.library.ui.view.countdown.CountDownTextView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_course_common.*
@@ -26,19 +30,20 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
         if (data == null) {
             return
         }
-        Glide.with(context).load(data.courseIconImg).into(image_iv)
+        Glide.with(context).load(data.courseIconImg)
+            .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8)))).into(image_iv)
         title_tv.text = data.productName
 
         content_tv.text = data.teacherName
         Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
 
-        when  {
+        when {
             data.state.contains(CourseState.UNTEACH.name) -> {
                 // 未上课，显示倒计时
                 course_vs.displayedChild = 1
                 initCountDown(data)
             }
-            data.state.contains(CourseState.TAUGHT.name)  -> {
+            data.state.contains(CourseState.TAUGHT.name) -> {
                 course_vs.displayedChild = 0
                 status_tv.text = context.getString(R.string.class_end)
             }
