@@ -19,8 +19,6 @@ import javax.inject.Inject
 class TaskPresenter @Inject constructor(private var view: TaskView) : BasePresenter(view) {
 
 
-
-
     override fun loadList(lifecycle: LifecycleOwner, page: Int, pageSize: Int, lastItemId: String?) {
         val apply = ListRequest().apply {
             lastId = lastItemId

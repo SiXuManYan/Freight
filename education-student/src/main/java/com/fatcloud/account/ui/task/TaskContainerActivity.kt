@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.fatcloud.account.R
 import com.fatcloud.account.frames.components.BaseActivity
+import com.fatcloud.account.frames.components.BaseMVPActivity
 import kotlinx.android.synthetic.main.activity_task_container.*
 
 /**
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_task_container.*
  * 课后任务列表
  * 首页和单独公用
  */
-class TaskContainerActivity :BaseActivity(){
+class TaskContainerActivity :BaseMVPActivity<TaskContainerPresenter>(),TaskContainerView{
 
     override fun getLayoutId() = R.layout.activity_task_container
 
@@ -25,18 +26,13 @@ class TaskContainerActivity :BaseActivity(){
     }
 
 
-
-
-
-
-
     /**
      * Tab数据适配器
      */
     private inner class FragmentAdapter internal constructor(val fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         fun onTabSelect(position: Int) {
-            val fragment = instantiateItem(fl_content, position) as Fragment
+            val fragment = instantiateItem(fl_content, position) as TaskFragment
             setPrimaryItem(fl_content, 0, fragment)
             finishUpdate(fl_content)
         }

@@ -34,6 +34,8 @@ import com.fatcloud.account.ui.order.pay.prepare.PayPrepareActivity
 import com.fatcloud.account.ui.order.pay.prepare.PayPrepareModule
 import com.fatcloud.account.ui.settings.SettingActivity
 import com.fatcloud.account.ui.settings.SettingModule
+import com.fatcloud.account.ui.task.TaskContainerActivity
+import com.fatcloud.account.ui.task.TaskContainerModule
 import com.fatcloud.account.ui.task.detail.TaskDetailActivity
 import com.fatcloud.account.ui.task.detail.TaskDetailModule
 import com.fatcloud.account.ui.task.reserve.ReserveListActivity
@@ -151,6 +153,10 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [PayModule::class])
     abstract fun x(): PayActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [FragmentBindModule::class,TaskContainerModule::class])
+    abstract fun y(): TaskContainerActivity
 
 
 }

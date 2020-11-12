@@ -29,11 +29,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title_tv"
         android:layout_marginTop="@dimen/dp5"
+        android:visibility="gone"
         android:layout_toEndOf="@+id/image_iv"
         android:text="@string/app_name"
-        android:visibility="gone"
         android:textColor="@color/color_80ffffff"
         android:textSize="@dimen/font_size_12" />
+
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/check_view"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp15"
+        android:checked="true" />
 
 
     <View

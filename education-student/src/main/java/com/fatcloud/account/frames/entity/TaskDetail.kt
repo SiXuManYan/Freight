@@ -37,6 +37,7 @@ class TaskDetail {
         var readingBookId: Long = 0
         var iconImg: String = ""
         var name: String = ""
+        var nativeSelect  = false
     }
 
 

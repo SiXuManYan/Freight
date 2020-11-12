@@ -129,14 +129,15 @@
             android:name="com.fatcloud.account.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:taskAffinity="com.ftacloud.student" />
+            android:taskAffinity="com.fatcloud.student" />
 
         <activity
             android:name="com.fatcloud.account.wxapi.WXEntryActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:taskAffinity="com.ftacloud.student" />
+            android:taskAffinity="com.fatcloud.student" />
         <activity android:name="com.fatcloud.account.ui.order.pay.PayActivity" />
+        <activity android:name=".ui.task.TaskContainerActivity" />
 
 
     </application>

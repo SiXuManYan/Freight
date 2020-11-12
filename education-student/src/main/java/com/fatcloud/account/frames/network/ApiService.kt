@@ -167,7 +167,8 @@ interface ApiService {
     /**
      * 课后任务
      */
-    @POST("/api/student/task/list")
+//    @POST("/api/student/task/list")
+    @POST("/api/student/order/listBuddy")
     fun getTaskList(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
     /**
