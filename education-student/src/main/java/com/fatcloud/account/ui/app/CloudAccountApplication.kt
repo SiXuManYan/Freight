@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.multidex.MultiDex
+import com.didichuxing.doraemonkit.DoraemonKit
 import com.fatcloud.account.frames.dagger.comment.DaggerAppComponent
 import com.fatcloud.account.frames.network.ApiService
 import com.fatcloud.account.storage.CloudDataBase
@@ -45,6 +46,8 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
     override fun onCreate() {
         super.onCreate()
         registerActivityLifecycleCallbacks(this)
+        DoraemonKit.install(this,"785a6de631aec3158d22b2954ebae1d7")
+
     }
 
 

@@ -1,4 +1,4 @@
-package com.fatcloud.account.ui.task
+package com.fatcloud.account.ui.task.lists.frgm
 
 import dagger.Module
 import dagger.Provides

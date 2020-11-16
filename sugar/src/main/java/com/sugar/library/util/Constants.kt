@@ -2,7 +2,6 @@ package com.sugar.library.util
 
 object Constants {
 
-
     const val TYPE_OWNER = "OWNER"
     const val OS = "Android"
 
@@ -47,6 +46,7 @@ object Constants {
     const val PARAM_HASH_CODE = "param_hash_code"
     const val PARAM_TEXT = "param_text"
     const val PARAM_TEACHER = "param_teacher"
+    const val PARAM_SCHEDULE_ID = "param_schedule_id"
 
     /** 选取附件 */
     const val REQUEST_MEDIA = 1003
@@ -199,6 +199,8 @@ object Constants {
     const val EVENT_UPDATE_MESSAGE_NUMBER = 0x107// 消息数量
     const val EVENT_REFRESH_MY_COURSE = 0x108// 刷新我的列表
     const val EVENT_PAY_SUCCESS = 0x109 // 支付成功
+    const val EVENT_BOOK_SUCCESS = 0x110
+
 
     // 列表数据 key
     const val KEY_DATA = "data"

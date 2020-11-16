@@ -3,11 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp10"
     android:background="@color/color_ff9242"
     android:minHeight="@dimen/dp60"
-    android:padding="@dimen/dp10"
-    android:layout_marginBottom="@dimen/dp10"
-  >
+    android:padding="@dimen/dp10">
 
     <FrameLayout
         android:id="@+id/level_fl"

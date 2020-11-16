@@ -1,12 +1,12 @@
-package com.fatcloud.account.ui.task
+package com.fatcloud.account.ui.task.lists
 
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.fatcloud.account.R
-import com.fatcloud.account.frames.components.BaseActivity
 import com.fatcloud.account.frames.components.BaseMVPActivity
+import com.fatcloud.account.ui.task.lists.frgm.TaskFragment
 import kotlinx.android.synthetic.main.activity_task_container.*
 
 /**
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_task_container.*
  * 课后任务列表
  * 首页和单独公用
  */
-class TaskContainerActivity :BaseMVPActivity<TaskContainerPresenter>(),TaskContainerView{
+class TaskContainerActivity :BaseMVPActivity<TaskContainerPresenter>(), TaskContainerView {
 
     override fun getLayoutId() = R.layout.activity_task_container
 

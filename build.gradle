@@ -16,6 +16,9 @@ buildscript {
 
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
 
+        // 滴滴性能检测工具
+//        classpath 'com.didichuxing.doraemonkit:dokitx-plugin:3.3.4'
+
     }
 }
 

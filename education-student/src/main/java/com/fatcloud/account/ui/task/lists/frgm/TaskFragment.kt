@@ -1,15 +1,15 @@
-package com.fatcloud.account.ui.task
+package com.fatcloud.account.ui.task.lists.frgm
 
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import com.blankj.utilcode.util.DeviceUtils
-import com.fatcloud.account.common.StudentConstants.PARAM_TASK_OF_COURSE_ID
 import com.fatcloud.account.frames.components.list.BaseRefreshListFragment
 import com.fatcloud.account.frames.entity.Task
 import com.fatcloud.account.ui.task.detail.TaskDetailActivity
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
+import com.sugar.library.util.Constants
 
 /**
  * Created by Wangsw on 2020/9/27 0027 14:24.
@@ -33,6 +33,8 @@ class TaskFragment : BaseRefreshListFragment<Task, TaskPresenter>(), TaskView {
 
                 val holder = TaskHolder(parent)
 
+
+
                 return holder
             }
 
@@ -40,10 +42,11 @@ class TaskFragment : BaseRefreshListFragment<Task, TaskPresenter>(), TaskView {
 
         adapter.setOnItemClickListener {
 
-            val taskOfCourseId = adapter.allData[it].taskOfCourseId
+            val task = adapter.allData[it]
+            val productId = task.productId
 
             startActivity(TaskDetailActivity::class.java, Bundle().apply {
-                putString(PARAM_TASK_OF_COURSE_ID, taskOfCourseId)
+                putString(Constants.PARAM_PRODUCT_ID, productId)
             })
         }
         return adapter

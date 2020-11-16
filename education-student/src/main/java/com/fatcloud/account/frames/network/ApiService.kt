@@ -174,7 +174,8 @@ interface ApiService {
     /**
      * 获取课后任务信息
      */
-    @POST("/api/student/task/get")
+//    @POST("/api/student/task/get")
+    @POST("/api/student/schedule/getBuddyInfo")
     fun getTaskDetail(@Body json: TaskDetailRequest): Flowable<Response<TaskDetail>>
 
     /**
@@ -211,6 +212,7 @@ interface ApiService {
 
     /**
      * 我的课程(已开课)
+     *
      */
     @POST("/api/student/schedule/listTaught")
     fun listTaught(@Body json: ListRequest): Flowable<Response<JsonArray>>
@@ -236,9 +238,25 @@ interface ApiService {
      * @param orderId 订单id
      */
     @GET("/api/wxpay/unifiedOrder")
-    fun wechatUnifiedOrder(
-        @Query("orderId") orderId: String?
-    ): Flowable<Response<WechatPayInfo>>
+    fun wechatUnifiedOrder(@Query("orderId") orderId: String?): Flowable<Response<WechatPayInfo>>
+
+
+
+    /**
+     * 我的课程(已开课)
+     *
+     */
+    @POST("/api/student/buddy/list")
+    fun buddyList(@Body json: ListRequest): Flowable<Response<JsonArray>>
+
+    /**
+     * 我的课程(已开课)
+     *
+     */
+    @POST("/api/student/buddy/booking")
+    fun buddyBooking(@Body json: BuddyBookingRequest): Flowable<Response<JsonObject>>
+
+
 
 
 }

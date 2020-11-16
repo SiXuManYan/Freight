@@ -1,4 +1,4 @@
-package com.fatcloud.account.ui.task
+package com.fatcloud.account.ui.task.lists.frgm
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
@@ -29,7 +29,6 @@ class TaskPresenter @Inject constructor(private var view: TaskView) : BasePresen
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
 
             apiService.getTaskList(apply),
-
 
             object : BaseJsonArrayHttpSubscriber<Task>(view) {
 

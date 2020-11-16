@@ -216,6 +216,13 @@
     <string name="enter_class">进入教室</string>
     <string name="my_test">我的测评</string>
     <string name="having_class_now">正在上课</string>
+    <string name="reserve">预约</string>
+    <string name="chapter_format">%1$d章节</string>
+    <string name="book_progress_hint">预约陪读已推送给buddy\n请耐心等待buddy回复</string>
+    <string name="already_book">已预约</string>
+    <string name="book_detail">预约详情</string>
+    <string name="book_success">预约成功</string>
+    <string name="book_default_title">教你怎么读英语</string>
 
 
 </resources>

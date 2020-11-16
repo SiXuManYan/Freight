@@ -137,7 +137,9 @@
             android:launchMode="singleTask"
             android:taskAffinity="com.fatcloud.student" />
         <activity android:name="com.fatcloud.account.ui.order.pay.PayActivity" />
-        <activity android:name=".ui.task.TaskContainerActivity" />
+        <activity android:name=".ui.task.lists.TaskContainerActivity" />
+        <activity android:name=".ui.task.progress.BookProgressActivity" />
+        <activity android:name=".ui.task.result.BookResultActivity" />
 
 
     </application>

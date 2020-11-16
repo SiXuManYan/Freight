@@ -19,8 +19,8 @@ import com.fatcloud.account.ui.message.MessageActivity
 import com.fatcloud.account.ui.order.list.OrderActivity
 import com.fatcloud.account.ui.settings.SettingActivity
 import com.fatcloud.account.ui.settings.child.WebFragment
-import com.fatcloud.account.ui.task.TaskContainerActivity
-import com.fatcloud.account.ui.task.TaskFragment
+import com.fatcloud.account.ui.task.lists.TaskContainerActivity
+import com.fatcloud.account.ui.task.lists.frgm.TaskFragment
 import com.fatcloud.account.ui.tests.my.MyTestActivity
 import com.fatcloud.account.ui.user.UserActivity
 import com.sugar.library.ui.view.CircleImageView

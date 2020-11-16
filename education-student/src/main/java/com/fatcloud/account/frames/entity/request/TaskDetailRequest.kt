@@ -8,6 +8,6 @@ package com.fatcloud.account.frames.entity.request
 class TaskDetailRequest {
 
 
-    var taskOfCourseId:String? = ""
+    var productId:String? = ""
 
 }

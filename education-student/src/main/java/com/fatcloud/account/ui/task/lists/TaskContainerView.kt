@@ -1,4 +1,4 @@
-package com.fatcloud.account.ui.task
+package com.fatcloud.account.ui.task.lists
 
 import com.sugar.library.frames.network.response.BaseView
 

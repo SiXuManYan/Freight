@@ -1,5 +1,7 @@
-package com.fatcloud.account.ui.task
+package com.fatcloud.account.ui.task.lists
 
+import com.fatcloud.account.ui.task.lists.TaskContainerActivity
+import com.fatcloud.account.ui.task.lists.TaskContainerView
 import dagger.Module
 import dagger.Provides
 

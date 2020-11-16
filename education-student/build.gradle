@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.jakewharton.butterknife'
+//apply plugin: 'com.didi.dokit'// didi 性能检测工具
 
 static def releaseTime() {
     return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
@@ -140,7 +141,7 @@ dependencies {
     implementation 'com.hyman:flowlayout-lib:1.1.2'
 
     // 通用popup window
-    implementation 'com.github.razerdp:BasePopup:2.2.8'
+    implementation 'com.github.razerdp:BasePopup:2.2.9'
 
     // # 下载 #
     implementation 'com.liulishuo.filedownloader:library:1.7.7'

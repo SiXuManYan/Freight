@@ -19,7 +19,7 @@ class TaskDetailPresenter @Inject constructor(private var view: TaskDetailView) 
 
     fun loadDetail(lifecycle: LifecycleOwner, courseId: String?) {
         val apply = TaskDetailRequest().apply {
-            taskOfCourseId = courseId
+            productId = courseId
         }
 
 
@@ -34,7 +34,6 @@ class TaskDetailPresenter @Inject constructor(private var view: TaskDetailView) 
                         return
                     }
                     view.bindDetail(data)
-
                 }
 
             }

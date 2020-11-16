@@ -2,56 +2,83 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp65"
-    android:layout_marginBottom="@dimen/dp5"
-    tools:background="@color/color_5cbebc">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp10"
+    android:background="@color/color_ff9242"
+    android:minHeight="@dimen/dp60"
+    android:padding="@dimen/dp10">
 
-    <ImageView
-        android:id="@+id/image_iv"
-        android:layout_width="@dimen/dp65"
-        android:layout_height="@dimen/dp65"
+    <FrameLayout
+        android:id="@+id/level_fl"
+        android:layout_width="@dimen/dp40"
+        android:layout_height="@dimen/dp40"
         android:layout_marginEnd="@dimen/dp10"
-        android:src="@mipmap/ic_temp" />
+        android:background="@drawable/shape_8_white">
 
+        <TextView
+            android:id="@+id/index_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="1"
+            android:textColor="@color/color_ff7a18"
+            android:textSize="@dimen/font_size_18"
+            android:textStyle="bold" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/image_iv"
-        android:textColor="@color/font_white"
-        android:textSize="@dimen/font_size_14"
-        android:textStyle="bold"
-        tools:text="READING 01" />
+    </FrameLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title_tv"
-        android:layout_marginTop="@dimen/dp5"
-        android:visibility="gone"
-        android:layout_toEndOf="@+id/image_iv"
-        android:text="@string/app_name"
-        android:textColor="@color/color_80ffffff"
-        android:textSize="@dimen/font_size_12" />
-
-
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/check_view"
-        android:layout_width="@dimen/dp20"
-        android:layout_height="@dimen/dp20"
-        android:layout_alignParentEnd="true"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="@dimen/dp15"
-        android:checked="true" />
-
-
-    <View
+    <RelativeLayout
+        android:id="@+id/item_rl"
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/image_iv"
-        android:background="@color/color_80ffffff" />
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/level_fl"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/course_directory_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sp14"
+            tools:text="陪读课程：小学一年级上（语文）课外陪读：第10课" />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/course_directory_title"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp14"
+                tools:text="45章节" />
+
+            <TextView
+                android:id="@+id/reserve_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="2"
+                android:text="@string/reserve"
+                android:paddingStart="@dimen/dp8"
+                android:paddingEnd="@dimen/dp8"
+                android:layout_alignParentEnd="true"
+                android:paddingTop="@dimen/dp2"
+                android:paddingBottom="@dimen/dp2"
+                android:background="@drawable/shape_8_white"
+                android:textColor="@color/color_8f92ca"
+                android:textSize="@dimen/sp12" />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

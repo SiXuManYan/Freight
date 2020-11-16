@@ -33,7 +33,7 @@
                 android:layout_height="@dimen/dp65"
                 android:layout_marginEnd="@dimen/dp10"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_temp2" />
+                android:src="@drawable/ic_avatar_defult" />
 
             <TextView
                 android:id="@+id/title_tv"
@@ -100,15 +100,35 @@
                 android:id="@+id/countdown_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/content_ll"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/dp2"
+                android:visibility="gone"
                 android:layout_toEndOf="@+id/tag_iv"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
-                android:layout_marginTop="@dimen/dp2"
                 android:maxLines="2"
                 android:textColor="@color/color_80ffffff"
                 android:textSize="@dimen/sp14"
                 tools:text="可陪读时间 13:00:00" />
+
+
+            <TextView
+                android:id="@+id/reserve_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="2"
+                android:text="@string/reserve"
+                android:paddingStart="@dimen/dp8"
+                android:paddingEnd="@dimen/dp8"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:paddingTop="@dimen/dp2"
+                android:paddingBottom="@dimen/dp2"
+                android:background="@drawable/shape_8_white"
+                android:textColor="@color/color_8f92ca"
+                android:textSize="@dimen/sp12" />
 
 
         </RelativeLayout>

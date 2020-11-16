@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/inc_title_bar" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_cv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp100"
+        android:layout_below="@+id/title_container_rl"
+        android:layout_marginStart="@dimen/dp15"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp15"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/color_8f92ca"
+        app:cardCornerRadius="@dimen/dp12"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp10">
+
+
+            <ImageView
+                android:id="@+id/tag_iv"
+                android:layout_width="@dimen/dp65"
+                android:layout_height="@dimen/dp65"
+                android:layout_marginEnd="@dimen/dp10"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_temp2" />
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp5"
+                android:layout_toRightOf="@+id/tag_iv"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/font_white"
+                android:textSize="@dimen/sp16"
+                tools:text="3~6岁萌娃充能课" />
+
+            <TextView
+                android:id="@+id/content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_tv"
+                android:layout_toRightOf="@+id/tag_iv"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="2"
+                android:textColor="@color/color_80ffffff"
+                android:textSize="@dimen/sp13"
+                tools:text="2020-09-09期课后任务" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/book_default_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card_cv"
+        android:layout_marginStart="@dimen/dp15"
+        android:layout_marginTop="@dimen/dp10"
+        android:gravity="center"
+        android:text="@string/book_default_title"
+        android:textColor="@color/color_zero_level"
+        android:textSize="@dimen/sp15" />
+
+    <ImageView
+        android:id="@+id/ic_book_in_progress_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/book_default_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginBottom="@dimen/dp20"
+        android:src="@drawable/ic_book_in_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ic_book_in_progress_iv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp15"
+        android:gravity="center"
+        android:text="@string/book_success"
+        android:textColor="@color/color_zero_level"
+        android:textSize="@dimen/sp18" />
+
+
+    <com.sugar.library.ui.view.countdown.CountDownTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp45"
+        android:layout_alignParentBottom="true"
+        android:background="@color/student_yellow"
+        android:gravity="center"
+        android:text="开课时间"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/sp14" />
+
+
+</RelativeLayout>

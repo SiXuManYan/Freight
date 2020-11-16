@@ -1,4 +1,4 @@
-package com.fatcloud.account.ui.task
+package com.fatcloud.account.ui.task.lists.frgm
 
 import com.fatcloud.account.frames.entity.Task
 import com.sugar.library.frames.network.response.list.BaseNoJsonListView2

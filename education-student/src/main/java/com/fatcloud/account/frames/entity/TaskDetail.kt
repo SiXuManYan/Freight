@@ -11,34 +11,56 @@ class TaskDetail {
     /**
      * 下载地址
      */
-    val exerciseUrl: String = ""
+    val productId: String = ""
 
-    /**
-     * 名字
-     */
-    val native_name: String = ""
 
-    /**
-     * 剩余预约次数
-     */
-    val native_num = 0
 
-    /**
-     *  状态
-     */
-    var native_state = 0
 
     /**
      * 读书任务
      */
-    var readingBookOuts = ArrayList<ReadingBookOut>()
+    var scheduleOuts = ArrayList<ReadingBookOut>()
 
     class ReadingBookOut {
-        var readingBookId: Long = 0
+
         var iconImg: String = ""
-        var name: String = ""
+
+        var scheduleId =  ""
+
+        /**
+         * UNACTIVE-未激活
+         */
+        var scheduleState =  ""
+
+        /**
+         * UNACTIVE
+         */
+        var scheduleStateValue =  ""
+
+        /**
+         * 未激活
+         */
+        var scheduleStateText =  ""
+        var courseName: String = ""
+        var lengthOfCourse = 0
+
+
+
         var nativeSelect  = false
+
+
+
+
     }
 
+
+
+/*    "data": {
+        "productId": "1326806563331117056",
+        "scheduleOuts": [
+        {
+        }
+        ]
+    }*/
 
 }

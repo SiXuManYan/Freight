@@ -1,19 +1,28 @@
 package com.fatcloud.account.ui.course.my.child
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import com.baijiayun.groupclassui.InteractiveClassUI
+import com.baijiayun.livecore.utils.LPRxUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.list.BaseRefreshListFragment
 import com.fatcloud.account.frames.entity.MyCourse
+import com.fatcloud.account.frames.entity.home.Course
 import com.fatcloud.account.frames.entity.home.CourseState
+import com.fatcloud.account.storage.entity.User
 import com.fatcloud.account.ui.course.detail.live.LiveActivity
 import com.fatcloud.account.ui.course.detail.prepare.NoClassActivity
+import com.fatcloud.account.ui.home.holder.CommonClassHolder
 import com.jude.easyrecyclerview.adapter.BaseViewHolder
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.item_home_course_common.*
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by Wangsw on 2020/9/27 0027 10:03.
@@ -63,11 +72,10 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
 
             override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<MyCourse> {
                 val holder = MyCourseChildHolder(parent)
-                getAdapter()?.let {
-                    val myCourse = it.allData[holder.adapterPosition]
-                    val code: String = myCourse.liveRoomStudentCode
-                    StudentUtil.enterLiveRoom(this@MyCourseChildFragment.context!!,holder.enter_ll,code,"测试学生安卓")
-                }
+
+
+                    enterLiveRoom(this@MyCourseChildFragment.context!!,holder.enter_ll,holder)
+
                 return holder
             }
 
@@ -94,6 +102,32 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
     override fun onLoadMore() {
         super.onLoadMore()
         presenter.loadCourseList(this, pageSize, lastItemId, categoryValue)
+    }
+
+
+
+
+    @SuppressLint("CheckResult")
+    fun enterLiveRoom(context: Context, view: View, commonClassHolder: MyCourseChildHolder) {
+
+        LPRxUtils.clicks(view)
+            .throttleFirst(500, TimeUnit.MILLISECONDS)
+            .subscribe {
+
+                getAdapter()?.let {
+                    val myCourse = it.allData[commonClassHolder.adapterPosition]
+                    val code: String = myCourse.liveRoomStudentCode
+                    if (code.isBlank()) {
+                        ToastUtils.showShort("未找到教室")
+                        return@subscribe
+                    }
+                    InteractiveClassUI.enterRoom(context, code, User.get().name) { msg ->
+                        ToastUtils.showShort(msg)
+                    }
+
+                }
+
+            }
     }
 
 

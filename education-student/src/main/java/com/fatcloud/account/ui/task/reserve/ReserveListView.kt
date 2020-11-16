@@ -1,5 +1,6 @@
 package com.fatcloud.account.ui.task.reserve
 
+import com.fatcloud.account.frames.entity.Buddy
 import com.fatcloud.account.frames.entity.ReserveList
 import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
 
@@ -8,5 +9,6 @@ import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
  * </br>
  *
  */
-interface ReserveListView : BaseNoJsonListView2<ReserveList> {
+interface ReserveListView : BaseNoJsonListView2<Buddy> {
+    fun bookSuccess()
 }

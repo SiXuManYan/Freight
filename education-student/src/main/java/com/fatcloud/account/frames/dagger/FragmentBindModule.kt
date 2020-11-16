@@ -13,8 +13,8 @@ import com.fatcloud.account.ui.home.HomeFragment
 import com.fatcloud.account.ui.home.HomeModule
 import com.fatcloud.account.ui.order.list.child.OrderChildFragment
 import com.fatcloud.account.ui.order.list.child.OrderChildModule
-import com.fatcloud.account.ui.task.TaskFragment
-import com.fatcloud.account.ui.task.TaskModule
+import com.fatcloud.account.ui.task.lists.frgm.TaskFragment
+import com.fatcloud.account.ui.task.lists.frgm.TaskModule
 import com.sugar.library.frames.dagger.FragmentScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
