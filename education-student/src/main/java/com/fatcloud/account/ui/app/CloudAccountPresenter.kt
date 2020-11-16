@@ -189,7 +189,6 @@ class CloudAccountPresenter(val view: CloudAccountView) {
             StringUtils.getString(com.sugar.library.R.string.upload_image_encryption_path_format, System.currentTimeMillis().toString())
         }
 
-
         val credentialProvider: OSSCredentialProvider =
             OSSStsTokenCredentialProvider(stsModel.AccessKeyId, stsModel.AccessKeySecret, stsModel.SecurityToken)
 

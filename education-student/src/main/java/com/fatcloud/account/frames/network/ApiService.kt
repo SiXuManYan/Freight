@@ -1,6 +1,7 @@
 package com.fatcloud.account.frames.network
 
 import com.fatcloud.account.frames.entity.*
+import com.fatcloud.account.frames.entity.defray.AliPayInfo
 import com.fatcloud.account.frames.entity.defray.WechatPayInfo
 import com.fatcloud.account.frames.entity.question.Question
 import com.fatcloud.account.frames.entity.request.*
@@ -257,6 +258,15 @@ interface ApiService {
     fun buddyBooking(@Body json: BuddyBookingRequest): Flowable<Response<JsonObject>>
 
 
+
+    /**
+     * 支付宝统一下单
+     * @param orderId 订单id
+     */
+    @GET("/api/alipay/unifiedOrder")
+    fun alipayUnifiedOrder(
+        @Query("orderId") orderId: String?
+    ): Flowable<Response<String>>
 
 
 }

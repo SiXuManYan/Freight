@@ -2,6 +2,7 @@ package com.fatcloud.account.ui.order.pay
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.fatcloud.account.frames.entity.defray.AliPayInfo
 import com.fatcloud.account.frames.entity.defray.WechatPayInfo
 import com.fatcloud.account.frames.network.response.BasePresenter
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
@@ -40,18 +41,20 @@ class PayPresenter @Inject constructor(private var view: PayView) : BasePresente
      * 支付宝统一下单
      */
     fun alipayUnifiedOrder(lifecycleOwner: LifecycleOwner, orderId: String) {
-//        requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
-//            apiService.alipayUnifiedOrder(orderId), object : BaseHttpSubscriber<AliPayInfo>(view) {
-//                override fun onSuccess(data: AliPayInfo?) {
-//                    data?.let {
+        requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
+            apiService.alipayUnifiedOrder(orderId), object : BaseHttpSubscriber<String>(view) {
+                override fun onSuccess(data: String?) {
+                    data?.let {
 //                        val payInfo = data.payInfo
-//                        if (!payInfo.isNullOrBlank()) {
-//                            view.doAliPay(payInfo)
-//                        }
-//
-//                    }
-//                }
-//            })
+                        val payInfo = orderInfo
+
+                        if (!payInfo.isNullOrBlank()) {
+                            view.doAliPay(payInfo)
+                        }
+
+                    }
+                }
+            })
     }
 
     /**
