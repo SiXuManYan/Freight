@@ -29,11 +29,19 @@ class MessagePresenter @Inject constructor(private var view: MessageView) : Base
 
             apiService.getMessageList(apply), object : BaseJsonArrayHttpSubscriber<Message>(view) {
 
-                override fun onError(e: Throwable) {
-                    ToastUtils.showShort("列表请求失败")
-                }
-
                 override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<Message>, lastItemId: String?) {
+
+                    list.add(Message())
+                    list.add(Message())
+                    list.add(Message())
+                    list.add(Message())
+                    list.add(Message())
+                    list.add(Message())
+                    list.add(Message())
+                    list.add(Message())
+                    list.add(Message())
+                    list.add(Message())
+
                     view.bindList(list, lastItemId)
                 }
 

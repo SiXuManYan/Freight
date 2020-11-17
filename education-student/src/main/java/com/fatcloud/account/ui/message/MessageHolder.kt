@@ -25,7 +25,6 @@ class MessageHolder(parent: ViewGroup?) : BaseItemViewHolder<Message>(parent, R.
         }
         title_tv.text = data.title
         content_tv.text = data.content
-
     }
 
 }

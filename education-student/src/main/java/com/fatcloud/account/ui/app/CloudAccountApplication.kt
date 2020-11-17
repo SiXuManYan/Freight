@@ -9,6 +9,7 @@ import androidx.multidex.MultiDex
 import com.didichuxing.doraemonkit.DoraemonKit
 import com.fatcloud.account.frames.dagger.comment.DaggerAppComponent
 import com.fatcloud.account.frames.network.ApiService
+import com.fatcloud.account.frames.pushs.NotificationUtil
 import com.fatcloud.account.storage.CloudDataBase
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -47,7 +48,7 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
         super.onCreate()
         registerActivityLifecycleCallbacks(this)
         DoraemonKit.install(this,"785a6de631aec3158d22b2954ebae1d7")
-
+        NotificationUtil.initCloudChannel(this)
     }
 
 

@@ -1,6 +1,7 @@
 package com.fatcloud.account.ui.message
 
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.fatcloud.account.R
 import com.fatcloud.account.frames.components.list.BaseRefreshListActivity
 import com.fatcloud.account.frames.entity.Message
@@ -28,17 +29,14 @@ class MessageActivity : BaseRefreshListActivity<Message, MessagePresenter>(), Me
         val adapter = object : RecyclerArrayAdapter<Message>(context) {
 
             override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<Message> {
-
                 val holder = MessageHolder(parent)
 
                 return holder
             }
-
-        }
-
-        adapter.setOnItemClickListener {
-
         }
         return adapter
     }
+
+    override fun getItemDecoration(): RecyclerView.ItemDecoration? = null
+
 }

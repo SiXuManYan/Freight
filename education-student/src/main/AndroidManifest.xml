@@ -47,6 +47,15 @@
         </provider>
 
 
+
+        <!-- 阿里云推送 -->
+        <meta-data
+            android:name="com.alibaba.app.appkey"
+            android:value="31941868" />
+        <meta-data
+            android:name="com.alibaba.app.appsecret"
+            android:value="a4a6d0d5eb8f070679887e4a1128f402" />
+
         <service android:name="com.zlw.main.recorderlib.recorder.RecordService" />
 
         <activity
