@@ -54,6 +54,11 @@ class User {
             (Utils.getApp() as CloudAccountApplication).database.userDao().clear()
             instance = null
         }
+
+        fun getDeviceId():String{
+            return CommonUtils.getShareStudent().getString(Constants.SP_PUSH_DEVICE_ID, "")
+        }
+
     }
 
     @PrimaryKey
@@ -115,6 +120,8 @@ class User {
      */
     @ColumnInfo(name = "birthday")
     var birthday = ""
+
+
 
 
 }

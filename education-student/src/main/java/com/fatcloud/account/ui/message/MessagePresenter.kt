@@ -7,6 +7,8 @@ import com.fatcloud.account.frames.entity.Message
 import com.fatcloud.account.frames.entity.request.ListRequest
 import com.fatcloud.account.frames.network.response.BasePresenter
 import com.google.gson.JsonArray
+import com.google.gson.JsonObject
+import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.sugar.library.frames.network.subscriber.BaseJsonArrayHttpSubscriber
 import java.util.ArrayList
 import javax.inject.Inject
@@ -26,11 +28,9 @@ class MessagePresenter @Inject constructor(private var view: MessageView) : Base
         }
 
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
-
             apiService.getMessageList(apply), object : BaseJsonArrayHttpSubscriber<Message>(view) {
 
                 override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<Message>, lastItemId: String?) {
-
                     list.add(Message())
                     list.add(Message())
                     list.add(Message())
@@ -41,7 +41,6 @@ class MessagePresenter @Inject constructor(private var view: MessageView) : Base
                     list.add(Message())
                     list.add(Message())
                     list.add(Message())
-
                     view.bindList(list, lastItemId)
                 }
 
@@ -49,6 +48,20 @@ class MessagePresenter @Inject constructor(private var view: MessageView) : Base
         )
 
     }
+
+
+     fun setRead(lifecycle: LifecycleOwner) {
+
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
+            apiService.setRead(), object : BaseHttpSubscriber<JsonObject>(view) {
+                override fun onSuccess(data: JsonObject?) = Unit
+            }
+        )
+
+    }
+
+
+
 
 
 }

@@ -164,4 +164,15 @@ object StudentUtil {
             }
     }
 
+
+    fun getSafeIntFormString(string: String): Int {
+
+        return try {
+            string.toInt()
+        } catch (e: Exception) {
+            0
+        }
+
+    }
+
 }

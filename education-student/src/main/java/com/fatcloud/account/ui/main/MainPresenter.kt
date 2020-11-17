@@ -36,4 +36,19 @@ class MainPresenter @Inject constructor(private var view: MainView) : BasePresen
 
 
 
+    fun getUnReadMessageCount(lifecycle: LifecycleOwner) {
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
+            apiService.getUnReadMessageCount(), object : BaseHttpSubscriber<String>(view) {
+                override fun onSuccess(data: String?){
+                    data?.let {
+                        view.unReadMessageCount(it)
+                    }
+
+                }
+            }
+        )
+    }
+
+
+
 }

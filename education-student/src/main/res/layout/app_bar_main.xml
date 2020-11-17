@@ -10,15 +10,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/font_white"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin">
+        android:background="@color/font_white">
 
         <ImageView
             android:id="@+id/my_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp16"
             android:scaleType="centerInside"
             android:src="@drawable/ic_home_left" />
 
@@ -29,21 +28,40 @@
             android:scaleType="centerInside"
             android:src="@drawable/ic_home_logo" />
 
+        <TextView
+            android:id="@+id/message_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginEnd="@dimen/dp10"
+            android:background="@drawable/shape_bg_8_red"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp2"
+            android:paddingTop="@dimen/dp1"
+            android:paddingEnd="@dimen/dp2"
+            android:paddingBottom="@dimen/dp1"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/font_size_7"
+            android:visibility="gone"
+            tools:text="+1" />
+
         <ImageView
             android:id="@+id/message_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp16"
             android:scaleType="centerInside"
             android:src="@drawable/ic_home_right" />
 
     </RelativeLayout>
 
     <View
-        android:background="@color/split_line_color"
         android:layout_width="match_parent"
-        android:layout_height="1px" />
+        android:layout_height="1px"
+        android:background="@color/split_line_color" />
 
     <fragment
         android:id="@+id/nav_host_fragment"

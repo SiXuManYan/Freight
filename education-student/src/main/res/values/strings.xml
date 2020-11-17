@@ -223,6 +223,7 @@
     <string name="book_detail">预约详情</string>
     <string name="book_success">预约成功</string>
     <string name="book_default_title">教你怎么读英语</string>
+    <string name="add_format">+%1$s</string>
 
 
 </resources>

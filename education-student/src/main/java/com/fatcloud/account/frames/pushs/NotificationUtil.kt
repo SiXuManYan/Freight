@@ -14,6 +14,7 @@ import androidx.core.app.NotificationCompat
 import com.alibaba.sdk.android.push.CloudPushService
 import com.alibaba.sdk.android.push.CommonCallback
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory
+import com.blankj.utilcode.util.LogUtils
 import com.fatcloud.account.BuildConfig
 import com.fatcloud.account.R
 import com.fatcloud.account.storage.entity.User
@@ -62,9 +63,9 @@ object NotificationUtil {
 
     fun initCloudChannel(applicationContext: Context) {
 
-        if (BuildConfig.FLAVOR == "dev") {
-            return
-        }
+//        if (BuildConfig.FLAVOR == "dev") {
+//            return
+//        }
 
         try {
 
@@ -73,18 +74,18 @@ object NotificationUtil {
             pushService.register(applicationContext, object : CommonCallback {
                 override fun onSuccess(p0: String?) {
                     val deviceId = pushService.deviceId
-//                    LogUtils.d("阿里云推送初始化", "init cloudchannel success ，deviceId ==>" + deviceId)
+                    LogUtils.d("拦截器", "init cloudchannel success ，deviceId ==>" + deviceId)
                     CommonUtils.getShareStudent().put(Constants.SP_PUSH_DEVICE_ID, deviceId)
                 }
 
                 override fun onFailed(errorCode: String?, errorMessage: String?) {
-//                    LogUtils.d("阿里云推送初始化", "init cloudchannel failed -- errorcode:$errorCode -- errorMessage:$errorMessage");
+                    LogUtils.d("拦截器", "init cloudchannel failed -- errorcode:$errorCode -- errorMessage:$errorMessage");
                 }
             })
 
         } catch (e: Exception) {
 
-//            LogUtils.d("阿里云推送初始化", "crash == " + e.printStackTrace());
+            LogUtils.d("拦截器", "crash == " + e.printStackTrace());
 
         }
 

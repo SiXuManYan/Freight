@@ -82,14 +82,6 @@ abstract class BaseActivity : AppCompatActivity() {
                 ScreenUtils.setLandscape(this)
             }
 
-//            if (findViewById<TextView>(R.id.tv_title) != null) {
-//                findViewById<TextView>(R.id.tv_title).textSize = 14f
-//            }
-//            if (findViewById<TextView>(R.id.tv_action) != null) {
-//                findViewById<TextView>(R.id.tv_action).textSize = 7f
-//            }
-
-
             initPadLayout()
         } else {
             if (!ScreenUtils.isPortrait()) {

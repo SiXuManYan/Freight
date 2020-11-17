@@ -11,6 +11,7 @@ import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.fatcloud.account.R
+import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.ui.course.my.MyCourseActivity
 import com.fatcloud.account.ui.course.schedule.ClassScheduleActivity
@@ -30,6 +31,7 @@ import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.pager
 import kotlinx.android.synthetic.main.activity_main.tabs_type
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
@@ -199,7 +201,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                 0 -> {
                     return HomeFragment()
                 }
-                3->{
+                3 -> {
                     return TaskFragment()
                 }
 
@@ -210,6 +212,18 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         }
 
         override fun getCount() = TAB_TITLES.size
+    }
+
+    override fun unReadMessageCount(it: String) {
+
+        if (StudentUtil.getSafeIntFormString(it) > 0) {
+            message_count_tv?.text = getString(R.string.add_format, it)
+            message_count_tv?.visibility = View.VISIBLE
+        } else {
+            message_count_tv?.visibility = View.GONE
+        }
+
+
     }
 
 

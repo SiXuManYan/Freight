@@ -233,14 +233,12 @@ interface ApiService {
     fun getFormalCourseDetail(@Body json: FormalCourseDetailRequest): Flowable<Response<FormalCourseDetail>>
 
 
-
     /**
      * 微信统一下单
      * @param orderId 订单id
      */
     @GET("/api/wxpay/unifiedOrder")
     fun wechatUnifiedOrder(@Query("orderId") orderId: String?): Flowable<Response<WechatPayInfo>>
-
 
 
     /**
@@ -258,15 +256,27 @@ interface ApiService {
     fun buddyBooking(@Body json: BuddyBookingRequest): Flowable<Response<JsonObject>>
 
 
-
     /**
      * 支付宝统一下单
      * @param orderId 订单id
      */
     @GET("/api/alipay/unifiedOrder")
-    fun alipayUnifiedOrder(
-        @Query("orderId") orderId: String?
-    ): Flowable<Response<String>>
+    fun alipayUnifiedOrder(@Query("orderId") orderId: String?): Flowable<Response<String>>
+
+
+    /**
+     * 设置消息已读
+     *
+     */
+    @POST("/api/student/message/settingRead")
+    fun setRead(): Flowable<Response<JsonObject>>
+
+    /**
+     * 获取消息未读数
+     *
+     */
+    @POST("/api/student/message/countUnRead")
+    fun getUnReadMessageCount(): Flowable<Response<String>>
 
 
 }
