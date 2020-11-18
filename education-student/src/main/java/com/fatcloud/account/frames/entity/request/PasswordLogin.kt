@@ -15,6 +15,6 @@ class PasswordLogin {
     val clientType: String = StudentConstants.CLIENT_TYPE_PHONE
     val osType: String = StudentConstants.OS_TYPE
     val osVersion: String = StudentConstants.OS_VERSION
-    val pushDeviceId: String = com.fatcloud.account.storage.entity.User.getDeviceId()
+//    val pushDeviceId: String = com.fatcloud.account.storage.entity.User.getDeviceId()
 
 }

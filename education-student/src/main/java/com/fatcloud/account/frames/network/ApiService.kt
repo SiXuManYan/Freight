@@ -278,5 +278,12 @@ interface ApiService {
     @POST("/api/student/message/countUnRead")
     fun getUnReadMessageCount(): Flowable<Response<String>>
 
+    /**
+     * 获取消息未读数
+     *
+     */
+    @POST("/api/common/setPushDeviceId")
+    fun setPushDeviceId(@Body json: DeviceId): Flowable<Response<JsonObject>>
+
 
 }

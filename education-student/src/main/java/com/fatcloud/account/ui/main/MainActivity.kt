@@ -63,6 +63,9 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                 Constants.EVENT_LOGOUT -> {
                     finish()
                 }
+                Constants.EVENT_UPDATE_PUSH_DEVICE_ID -> {
+                    presenter.updatePushDeviceId(this, it.content!!)
+                }
                 else -> {
                 }
             }

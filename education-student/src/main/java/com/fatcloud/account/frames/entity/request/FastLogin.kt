@@ -16,5 +16,5 @@ class FastLogin {
     val clientType: String = StudentConstants.CLIENT_TYPE_PHONE
     val osType: String = StudentConstants.OS_TYPE
     val osVersion: String = StudentConstants.OS_VERSION
-    val pushDeviceId: String = User.getDeviceId()
+//    val pushDeviceId: String = User.getDeviceId()
 }

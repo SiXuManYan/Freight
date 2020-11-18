@@ -200,6 +200,7 @@ object Constants {
     const val EVENT_REFRESH_MY_COURSE = 0x108// 刷新我的列表
     const val EVENT_PAY_SUCCESS = 0x109 // 支付成功
     const val EVENT_BOOK_SUCCESS = 0x110
+    const val EVENT_UPDATE_PUSH_DEVICE_ID = 0x111
 
 
     // 列表数据 key

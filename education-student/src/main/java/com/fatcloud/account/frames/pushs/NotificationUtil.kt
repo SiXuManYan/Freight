@@ -23,6 +23,8 @@ import com.fatcloud.account.ui.account.login.LoginActivity
 import com.fatcloud.account.ui.message.MessageActivity
 
 import com.google.gson.Gson
+import com.sugar.library.event.Event
+import com.sugar.library.event.RxBus
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 
@@ -76,6 +78,7 @@ object NotificationUtil {
                     val deviceId = pushService.deviceId
                     LogUtils.d("拦截器", "init cloudchannel success ，deviceId ==>" + deviceId)
                     CommonUtils.getShareStudent().put(Constants.SP_PUSH_DEVICE_ID, deviceId)
+                    RxBus.post(Event(Constants.EVENT_UPDATE_PUSH_DEVICE_ID,deviceId))
                 }
 
                 override fun onFailed(errorCode: String?, errorMessage: String?) {
