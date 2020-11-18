@@ -224,6 +224,9 @@
     <string name="book_success">预约成功</string>
     <string name="book_default_title">教你怎么读英语</string>
     <string name="add_format">+%1$s</string>
+    <string name="token_expired">登录过期，请重新登录</string>
+    <string name="go_login">去登录</string>
+    <string name="i_know">我知道了</string>
 
 
 </resources>

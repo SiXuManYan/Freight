@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.baijiayun.groupclassui.InteractiveClassUI
 import com.baijiayun.livecore.utils.LPRxUtils
+import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.list.BaseRefreshListFragment
@@ -52,6 +53,9 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
     override fun initViews(parent: View) {
         super.initViews(parent)
         categoryValue = arguments?.getInt(Constants.PARAM_TYPE)
+        if (DeviceUtils.isTablet()) {
+            easyRecyclerView.setLayoutManager(androidx.recyclerview.widget.GridLayoutManager(context, 2))
+        }
         initEvent()
     }
 

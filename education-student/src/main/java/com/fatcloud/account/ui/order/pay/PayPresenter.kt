@@ -45,8 +45,8 @@ class PayPresenter @Inject constructor(private var view: PayView) : BasePresente
             apiService.alipayUnifiedOrder(orderId), object : BaseHttpSubscriber<String>(view) {
                 override fun onSuccess(data: String?) {
                     data?.let {
-//                        val payInfo = data.payInfo
-                        val payInfo = orderInfo
+                        val payInfo = data
+//                        val payInfo = orderInfo
 
                         if (!payInfo.isNullOrBlank()) {
                             view.doAliPay(payInfo)

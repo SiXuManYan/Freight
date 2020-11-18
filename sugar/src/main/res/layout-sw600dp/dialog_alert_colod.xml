@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/dp260"
+    android:layout_width="@dimen/dp130"
     android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/shape_bg_white_round">
 
@@ -9,9 +10,9 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp8"
+        android:layout_marginBottom="@dimen/dp4"
         android:textColor="@color/color_first_level"
-        android:textSize="@dimen/sp16"
+        android:textSize="@dimen/sp10"
         tools:text="asdasdas"
         tools:visibility="visible"
         android:visibility="gone" />
@@ -23,7 +24,7 @@
         tools:text="asdasdas"
         android:layout_below="@id/tv_title"
         android:textColor="@color/colorFontGray"
-        android:textSize="@dimen/sp14" />
+        android:textSize="@dimen/sp8" />
 
 
     <LinearLayout
@@ -32,30 +33,30 @@
         android:layout_below="@id/tv_message"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/dp15"
+        android:layout_marginTop="@dimen/dp8"
         android:gravity="end">
 
         <TextView
             android:id="@+id/tv_negative"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/dp10"
-            android:paddingTop="@dimen/dp5"
-            android:paddingRight="@dimen/dp10"
-            android:paddingBottom="@dimen/dp5"
+            android:paddingLeft="@dimen/dp5"
+            android:paddingTop="@dimen/dp2"
+            android:paddingRight="@dimen/dp5"
+            android:paddingBottom="@dimen/dp2"
             tools:text="asdasdas"
-            android:textSize="@dimen/sp14" />
+            android:textSize="@dimen/sp8" />
 
         <TextView
             android:id="@+id/tv_positive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="asdasdas"
-            android:paddingLeft="@dimen/dp10"
-            android:paddingTop="@dimen/dp5"
-            android:paddingRight="@dimen/dp10"
-            android:paddingBottom="@dimen/dp5"
-            android:textSize="@dimen/sp14" />
+            android:paddingLeft="@dimen/dp5"
+            android:paddingTop="@dimen/dp2"
+            android:paddingRight="@dimen/dp5"
+            android:paddingBottom="@dimen/dp2"
+            android:textSize="@dimen/sp8" />
 
     </LinearLayout>
 

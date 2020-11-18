@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/font_white"
+    android:orientation="vertical">
+
+
+
+
+
+    <RadioGroup
+        android:id="@+id/tab_rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/un_teach_rb"
+            android:layout_width="@dimen/dp72"
+            android:layout_height="@dimen/dp27"
+            android:button="@null"
+            android:checked="true"
+            android:text="@string/course_un_teach"
+            android:gravity="center"
+            android:background="@drawable/selector_pad_my_course_left"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sp10" />
+
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/already_teach_rb"
+            android:layout_width="@dimen/dp72"
+            android:layout_height="@dimen/dp27"
+            android:checked="false"
+            android:gravity="center"
+            android:button="@null"
+            android:background="@drawable/selector_pad_my_course_right"
+            android:text="@string/course_already_teach"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sp10" />
+
+    </RadioGroup>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+
+</LinearLayout>

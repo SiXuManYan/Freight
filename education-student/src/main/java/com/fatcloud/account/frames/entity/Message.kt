@@ -13,26 +13,26 @@ class Message {
     /**
      * 消息头
      */
-    var title = "糖糖"
+    var title = ""
 
     /**
      * 消息内容
      */
-    var content = "最可爱"
+    var content = ""
 
 
     /**
      * 消息状态
      * READ("已读"), UNREAD("未读");
      */
-    var state =  "READ-已读"
+    var state =  ""
 
 
     /**
      * 消息类型
      * SYSTEM("系统消息"), NOTICE("通知消息");
      */
-    var type =  "SYSTEM-系统消息"
+    var type =  ""
 
 
 

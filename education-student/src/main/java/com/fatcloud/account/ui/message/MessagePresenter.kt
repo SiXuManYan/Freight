@@ -3,6 +3,7 @@ package com.fatcloud.account.ui.message
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import com.blankj.utilcode.util.ToastUtils
+import com.fatcloud.account.BuildConfig
 import com.fatcloud.account.frames.entity.Message
 import com.fatcloud.account.frames.entity.request.ListRequest
 import com.fatcloud.account.frames.network.response.BasePresenter
@@ -31,16 +32,27 @@ class MessagePresenter @Inject constructor(private var view: MessageView) : Base
             apiService.getMessageList(apply), object : BaseJsonArrayHttpSubscriber<Message>(view) {
 
                 override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<Message>, lastItemId: String?) {
-                    list.add(Message())
-                    list.add(Message())
-                    list.add(Message())
-                    list.add(Message())
-                    list.add(Message())
-                    list.add(Message())
-                    list.add(Message())
-                    list.add(Message())
-                    list.add(Message())
-                    list.add(Message())
+
+                    if (BuildConfig.DEBUG) {
+                        val apply1 = Message().apply {
+                            id = "1"
+                            title = "Sugar"
+                            content = "cutest girl"
+                            state = "READ-已读"
+                            state = "READ-已读"
+                            type = "SYSTEM-系统消息"
+                        }
+                        list.add(apply1)
+                        list.add(apply1)
+                        list.add(apply1)
+                        list.add(apply1)
+                        list.add(apply1)
+                        list.add(apply1)
+                        list.add(apply1)
+                        list.add(apply1)
+                        list.add(apply1)
+                        list.add(apply1)
+                    }
                     view.bindList(list, lastItemId)
                 }
 
@@ -50,7 +62,7 @@ class MessagePresenter @Inject constructor(private var view: MessageView) : Base
     }
 
 
-     fun setRead(lifecycle: LifecycleOwner) {
+    fun setRead(lifecycle: LifecycleOwner) {
 
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
             apiService.setRead(), object : BaseHttpSubscriber<JsonObject>(view) {
@@ -59,9 +71,6 @@ class MessagePresenter @Inject constructor(private var view: MessageView) : Base
         )
 
     }
-
-
-
 
 
 }

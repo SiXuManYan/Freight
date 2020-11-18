@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.blankj.utilcode.util.ToastUtils
+import com.fatcloud.account.R
 import com.fatcloud.account.storage.entity.User
+import com.fatcloud.account.ui.account.login.LoginActivity
 import com.sugar.library.frames.network.response.BaseView
 import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.ui.view.dialog.AlertDialog
@@ -107,16 +109,13 @@ abstract class BaseFragment<P : LibraryBasePresenter> : DaggerFragment(), BaseVi
 
     override fun showError(code: Int, message: String) {
         if (code >= 0) {
-            if (code == 401) {
+            if (code == 401 || code == 502) {
                 AlertDialog.Builder(context)
-                    .setTitle("提示")
-                    .setMessage("您的账号已在其他设备登录，请重新登录")
+                    .setTitle(R.string.hint)
+                    .setMessage(getString(R.string.token_expired))
                     .setCancelable(false)
-                    .setPositiveButton("去登录", AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
-//                        startActivity(Intent(activity, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                        dialog.dismiss()
-                    })
-                    .setNegativeButton("我知道了", AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
+                    .setPositiveButton(R.string.go_login, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
+                        startActivity(Intent(activity, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                         dialog.dismiss()
                     })
                     .create()
@@ -124,7 +123,6 @@ abstract class BaseFragment<P : LibraryBasePresenter> : DaggerFragment(), BaseVi
             } else {
                 ToastUtils.showShort(if (message.isNullOrEmpty()) "出现错误($code)" else message)
             }
-
 
         } else {
             ToastUtils.showShort(message)

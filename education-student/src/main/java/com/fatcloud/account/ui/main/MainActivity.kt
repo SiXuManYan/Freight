@@ -14,6 +14,7 @@ import com.fatcloud.account.R
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.ui.course.my.MyCourseActivity
+import com.fatcloud.account.ui.course.my.pad.MyCoursePadFragment
 import com.fatcloud.account.ui.course.schedule.ClassScheduleActivity
 import com.fatcloud.account.ui.home.HomeFragment
 import com.fatcloud.account.ui.message.MessageActivity
@@ -200,6 +201,9 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
             when (position) {
                 0 -> {
                     return HomeFragment()
+                }
+                1 -> {
+                    return MyCoursePadFragment()
                 }
                 3 -> {
                     return TaskFragment()

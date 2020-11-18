@@ -9,6 +9,8 @@ import com.fatcloud.account.ui.course.detail.prepare.child.teacher.TeacherFragme
 import com.fatcloud.account.ui.course.detail.prepare.child.teacher.TeacherModule
 import com.fatcloud.account.ui.course.my.child.MyCourseChildFragment
 import com.fatcloud.account.ui.course.my.child.MyCourseChildModule
+import com.fatcloud.account.ui.course.my.pad.MyCoursePadFragment
+import com.fatcloud.account.ui.course.my.pad.MyCoursePadModule
 import com.fatcloud.account.ui.home.HomeFragment
 import com.fatcloud.account.ui.home.HomeModule
 import com.fatcloud.account.ui.order.list.child.OrderChildFragment
@@ -56,6 +58,10 @@ abstract class FragmentBindModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [TeacherModule::class])
     abstract fun q(): TeacherFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [MyCoursePadModule::class])
+    abstract fun r(): MyCoursePadFragment
 
 
 }
