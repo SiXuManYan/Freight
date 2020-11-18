@@ -2,9 +2,11 @@ package com.fatcloud.account.ui.course.schedule
 
 import android.view.View
 import android.view.ViewGroup
+import com.blankj.utilcode.util.TimeUtils
 import com.fatcloud.account.R
 import com.fatcloud.account.frames.entity.ClassSchedule
 import com.sugar.library.frames.BaseItemViewHolder
+import com.sugar.library.util.TimeUtil
 import kotlinx.android.extensions.LayoutContainer
 
 /**
@@ -18,7 +20,7 @@ class ClassScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<ClassSchedule
 
 
     override fun setData(data: ClassSchedule?) {
-        if (data== null) {
+        if (data == null) {
             return
         }
 
@@ -26,12 +28,7 @@ class ClassScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<ClassSchedule
 
 
 
-
     }
-
-
-
-
 
 
 }

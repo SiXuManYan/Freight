@@ -10,6 +10,7 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.sugar.library.frames.network.subscriber.BaseJsonArrayHttpSubscriber
 import java.util.ArrayList
+import java.util.HashMap
 import javax.inject.Inject
 
 /**
@@ -24,14 +25,12 @@ class ClassSchedulePresenter @Inject constructor(private var view: ClassSchedule
             lastId = lastItemId
             size = pageSize
         }
-
-        var jsonObject: JsonObject? = null
-
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.unTeachCourse(apply), object : BaseJsonArrayHttpSubscriber<MyCourse>(view) {
 
             override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<MyCourse>, lastItemId: String?) {
-
-                view.bindList(  restoreList(list), lastItemId)
+                if (list.isNotEmpty()) {
+                    view.bindList(restoreList(list), lastItemId)
+                }
 
             }
         })
@@ -42,20 +41,28 @@ class ClassSchedulePresenter @Inject constructor(private var view: ClassSchedule
 
     private fun restoreList(list: ArrayList<MyCourse>): ArrayList<ClassSchedule> {
 
-
-
         val parentList = ArrayList<ClassSchedule>()
-        parentList.add(ClassSchedule().apply {
 
-        })
-
-
+        // 取出时间
+        val timeSet = LinkedHashSet<String>()
         list.forEach {
-
-
-
+            timeSet.add(it.studyDatetime)
         }
 
+        val time = ArrayList<String>(timeSet)
+
+        // 整理数据
+        time.forEach {
+
+            val classSchedule = ClassSchedule()
+            list.forEach { myCourse ->
+                if (myCourse.studyDatetime == it) {
+                    classSchedule.nativeDate = it
+                    classSchedule.nativeDataList.add(myCourse)
+                }
+            }
+            parentList.add(classSchedule)
+        }
         return parentList
     }
 

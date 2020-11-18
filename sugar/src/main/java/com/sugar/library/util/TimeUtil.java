@@ -2,9 +2,12 @@ package com.sugar.library.util;
 
 import android.text.TextUtils;
 
+import com.blankj.utilcode.constant.TimeConstants;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by Wangsw on 2017/7/1.
@@ -338,6 +341,23 @@ public class TimeUtil {
             e.printStackTrace();
             return 0L;
         }
+    }
+
+
+    /**
+     * 判断是否是同一天
+     * @param millis1
+     * @param millis2
+     * @param timeZone
+     * @return
+     */
+    public static boolean isSameDay(long millis1, long millis2, TimeZone timeZone) {
+        long interval = millis1 - millis2;
+        return interval < TimeConstants.DAY && interval > - TimeConstants.DAY && millis2Days(millis1, timeZone) == millis2Days(millis2, timeZone);
+    }
+
+    private static long millis2Days(long millis, TimeZone timeZone) {
+        return (((long) timeZone.getOffset(millis)) + millis) /  TimeConstants.DAY;
     }
 
 

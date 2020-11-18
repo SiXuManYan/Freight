@@ -9,6 +9,6 @@ class ClassSchedule {
 
     var nativeDate = ""
 
-    var nativeData = ArrayList<MyCourse>()
+    var nativeDataList = ArrayList<MyCourse>()
 
 }
