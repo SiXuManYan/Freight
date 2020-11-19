@@ -76,32 +76,37 @@ object NotificationUtil {
             pushService.register(applicationContext, object : CommonCallback {
                 override fun onSuccess(p0: String?) {
                     val deviceId = pushService.deviceId
-                    LogUtils.d("拦截器", "init cloudchannel success ，deviceId ==>" + deviceId)
+                    Log.d("推送拦截器", "init cloudchannel success ，deviceId ==>" + deviceId)
                     CommonUtils.getShareStudent().put(Constants.SP_PUSH_DEVICE_ID, deviceId)
                     RxBus.post(Event(Constants.EVENT_UPDATE_PUSH_DEVICE_ID,deviceId))
                 }
 
                 override fun onFailed(errorCode: String?, errorMessage: String?) {
-                    LogUtils.d("拦截器", "init cloudchannel failed -- errorcode:$errorCode -- errorMessage:$errorMessage");
+                    Log.d("推送拦截器", "init cloudchannel failed -- errorcode:$errorCode -- errorMessage:$errorMessage");
                 }
             })
 
         } catch (e: Exception) {
 
-            LogUtils.d("拦截器", "crash == " + e.printStackTrace());
+            LogUtils.d("推送拦截器", "crash == " + e.printStackTrace());
 
         }
 
 
     }
 
-
+    /**
+     * @param title 标题
+     * @param summary 内容概要
+     *
+     *
+     */
     fun handlePush(context: Context, title: String, summary: String, extraMap: MutableMap<String, String>) {
 
 
-        if (!extraMap.containsKey(pushType)) {
-            return
-        }
+//        if (!extraMap.containsKey(pushType)) {
+//            return
+//        }
 
 
         val notifyTitle: String? = title
@@ -135,7 +140,7 @@ object NotificationUtil {
             }
 
         } catch (e: Exception) {
-            Log.e("阿里云推送", "json 解析失败 exception :$e")
+            Log.e("推送拦截器", "json 解析失败 exception :$e")
         }
     }
 

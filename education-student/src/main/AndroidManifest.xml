@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- 录音时修改手机音量，声音权限 -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <!--播音-->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -47,7 +47,6 @@
         </provider>
 
 
-
         <!-- 阿里云推送 -->
         <meta-data
             android:name="com.alibaba.app.appkey"
@@ -72,13 +71,11 @@
             <!-- 网页内打开 -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="splash_h5"
-                    android:scheme="freight_user" />
+                    android:scheme="fta_cloud_student" />
             </intent-filter>
 
 
@@ -116,24 +113,61 @@
             android:name="com.fatcloud.account.ui.account.bind.BindPhoneActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.fatcloud.account.ui.settings.SettingActivity" />
-        <activity android:name="com.fatcloud.account.ui.tests.TestConditionActivity" />
-        <activity android:name="com.fatcloud.account.ui.course.detail.experience.ExperienceCourseDetailActivity" />
-        <activity android:name="com.fatcloud.account.ui.message.MessageActivity" />
-        <activity android:name="com.fatcloud.account.ui.course.schedule.ClassScheduleActivity" />
-        <activity android:name="com.fatcloud.account.ui.task.detail.TaskDetailActivity" />
-        <activity android:name="com.fatcloud.account.ui.tests.my.MyTestActivity" />
-        <activity android:name="com.fatcloud.account.ui.course.detail.prepare.NoClassActivity" />
-        <activity android:name="com.fatcloud.account.ui.user.UserActivity" />
-        <activity android:name="com.fatcloud.account.ui.order.list.OrderActivity" />
-        <activity android:name="com.fatcloud.account.ui.order.detail.OrderDetailActivity" />
-        <activity android:name="com.fatcloud.account.ui.tests.question.TestQuestionActivity" />
-        <activity android:name="com.fatcloud.account.ui.course.my.MyCourseActivity" />
-        <activity android:name="com.fatcloud.account.ui.tests.score.TestScoreActivity" />
-        <activity android:name="com.fatcloud.account.ui.course.detail.experience.result.ReservationResultActivity" />
-        <activity android:name="com.fatcloud.account.ui.task.reserve.ReserveListActivity" />
-        <activity android:name="com.fatcloud.account.ui.order.pay.prepare.PayPrepareActivity" />
-        <activity android:name="com.fatcloud.account.ui.order.pay.result.CloudPayResultActivity" />
+
+        <activity
+            android:name="com.fatcloud.account.ui.settings.SettingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.tests.TestConditionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.course.detail.experience.ExperienceCourseDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.message.MessageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.course.schedule.ClassScheduleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.task.detail.TaskDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.tests.my.MyTestActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.course.detail.prepare.NoClassActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.user.UserActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.order.list.OrderActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.order.detail.OrderDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.tests.question.TestQuestionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.course.my.MyCourseActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.tests.score.TestScoreActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.course.detail.experience.result.ReservationResultActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.task.reserve.ReserveListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.order.pay.prepare.PayPrepareActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.fatcloud.account.ui.order.pay.result.CloudPayResultActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.fatcloud.account.wxapi.WXPayEntryActivity"
             android:exported="true"
@@ -145,11 +179,37 @@
             android:exported="true"
             android:launchMode="singleTask"
             android:taskAffinity="com.fatcloud.student" />
-        <activity android:name="com.fatcloud.account.ui.order.pay.PayActivity" />
-        <activity android:name=".ui.task.lists.TaskContainerActivity" />
-        <activity android:name=".ui.task.progress.BookProgressActivity" />
-        <activity android:name=".ui.task.result.BookResultActivity" />
+        <activity
+            android:name="com.fatcloud.account.ui.order.pay.PayActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name=".ui.task.lists.TaskContainerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name=".ui.task.progress.BookProgressActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name=".ui.task.result.BookResultActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
 
+
+
+        <receiver
+            android:name=".frames.pushs.PushReceiver"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
+            </intent-filter>
+
+
+        </receiver>
 
     </application>
 

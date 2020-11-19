@@ -11,6 +11,7 @@ import com.fatcloud.account.ui.course.detail.prepare.child.introduct.Introductio
 import com.fatcloud.account.ui.course.detail.prepare.child.teacher.TeacherFragment
 import com.fatcloud.account.ui.order.list.OrderActivity
 import com.sugar.library.event.RxBus
+import com.sugar.library.util.Constants
 import kotlinx.android.synthetic.main.activity_no_class2.*
 
 /**
@@ -41,6 +42,18 @@ class NoClassActivity : BaseMVPActivity<NoClassPresenter>(), NoClassView {
         pager.adapter = pagerAdapter
         pager.offscreenPageLimit = TAB_TITLES.size
         tabs_type.setViewPager(pager, TAB_TITLES.toTypedArray())
+        initExtra()
+
+
+    }
+
+    private fun initExtra() {
+        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_PRODUCT_ID)) {
+            finish()
+            return
+        }
+        val productId = intent.extras!!.getString(Constants.PARAM_PRODUCT_ID)!!
+        presenter.loadDetail(this, productId)
     }
 
     override fun bindDetail(data: FormalCourseDetail) {

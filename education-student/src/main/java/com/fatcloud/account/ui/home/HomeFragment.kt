@@ -73,7 +73,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                         val commonClassHolder = CommonClassHolder(parent)
 
 
-                            enterLiveRoom(this@HomeFragment.context!!,commonClassHolder.enter_ll,commonClassHolder)
+                        enterLiveRoom(this@HomeFragment.context!!, commonClassHolder.enter_ll, commonClassHolder)
 
 
 
@@ -170,7 +170,9 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
             when {
                 model.state.contains(CourseState.UNTEACH.name) -> {
                     // 未上课
-                    startActivity(NoClassActivity::class.java)
+                    startActivity(NoClassActivity::class.java, Bundle().apply {
+                        putString(Constants.PARAM_PRODUCT_ID, model.productId)
+                    })
                 }
                 model.state.contains(CourseState.TEACHING.name) -> {
                     // 已经上课
@@ -221,7 +223,6 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
             putSerializable(Constants.PARAM_ORDER, apply)
         })
     }
-
 
 
     @SuppressLint("CheckResult")

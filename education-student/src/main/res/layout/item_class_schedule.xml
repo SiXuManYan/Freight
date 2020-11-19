@@ -55,7 +55,7 @@
                 android:layout_below="@+id/split_v"
                 android:orientation="vertical">
 
-              <!--  <include layout="@layout/item_class_schedule_container_child" />-->
+                <include layout="@layout/item_class_schedule_container_child" />
 
             </LinearLayout>
 

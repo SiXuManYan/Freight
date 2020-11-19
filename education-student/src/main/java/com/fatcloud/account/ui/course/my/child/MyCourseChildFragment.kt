@@ -78,7 +78,7 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
                 val holder = MyCourseChildHolder(parent)
 
 
-                    enterLiveRoom(this@MyCourseChildFragment.context!!,holder.enter_ll,holder)
+                enterLiveRoom(this@MyCourseChildFragment.context!!, holder.enter_ll, holder)
 
                 return holder
             }
@@ -88,7 +88,9 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
             val myCourse = adapter.allData[it]
             if (myCourse.state.contains(CourseState.UNTEACH.name)) {
                 // 未开课,
-                startActivity(NoClassActivity::class.java)
+                startActivity(NoClassActivity::class.java, Bundle().apply {
+                    putString(Constants.PARAM_PRODUCT_ID, myCourse.productId)
+                })
             } else {
                 // 已开课，直接进入直播间
                 startActivity(LiveActivity::class.java)
@@ -107,8 +109,6 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
         super.onLoadMore()
         presenter.loadCourseList(this, pageSize, lastItemId, categoryValue)
     }
-
-
 
 
     @SuppressLint("CheckResult")

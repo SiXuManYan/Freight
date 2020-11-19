@@ -39,9 +39,6 @@ open class BasePresenter constructor(private var view: BaseView?) : LibraryBaseP
         shareStudent.put(Constants.SP_LAST_LOGIN_USER, account)
         shareStudent.put(Constants.SP_LOGIN, true)
 
-        // 更新用户
-
-
         // 更新应用数据
         DataServiceFaker.startService(appContext, Constants.ACTION_SYNC_OTHER)
 

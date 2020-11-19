@@ -30,7 +30,6 @@ class DirectoryFragment : BaseFragment<DirectoryPresenter>(), DirectoryView {
     override fun initViews(parent: View) {
         this@DirectoryFragment. recyclerAdapter = getRecyclerAdapter()
         val adapter = recyclerAdapter
-
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.adapter = adapter
 

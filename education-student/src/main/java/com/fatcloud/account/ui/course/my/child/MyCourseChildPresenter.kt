@@ -42,20 +42,7 @@ class MyCourseChildPresenter @Inject constructor(private var view: MyCourseChild
                 override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<MyCourse>, lastItemId: String?) {
                     if (BuildConfig.DEBUG) {
 
-                        /*    {
-                            productId = 1,
-                            courseName = 小学一年级上册第1章,
-                            state = UNTEACH-未上课,
-                            teacherHeadImg = dev/teacher/ios/20201015220857542.png,
-                            productName = 1v1体验课,
-                            courseId = 1,
-                            countDownStudySeconds = -4853,
-                            teacherName = 刁老师,
-                            orderId = 1321375044911370240,
-                            scheduleId = 10,
-                            productIconImg = 1.png,
-                            courseIntroduce = 小学一年级上册第1章
-                        }*/
+
                         val apply1 = MyCourse().apply {
                             productId = "1"
                             courseName = "小学一年级上册第1章"

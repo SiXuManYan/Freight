@@ -69,8 +69,7 @@ class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>()
             }
 
             if (order.state.contains(Order.OrderState.PAID.name)) {
-                // 已支付
-                startActivity(NoClassActivity::class.java)
+
             }
 
         }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp65"
-    android:layout_marginTop="@dimen/dp5"
+    android:layout_height="@dimen/dp69"
+    android:paddingTop="@dimen/dp2"
+    android:id="@+id/container_rl"
+    android:paddingBottom="@dimen/dp2"
     tools:background="@color/color_ff7a18">
 
     <ImageView
@@ -17,6 +17,7 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/course_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toStartOf="@+id/teacher_name_tv"
@@ -26,6 +27,7 @@
         tools:text="3-6岁阅读课，让孩子爱上英语" />
 
     <TextView
+        android:id="@+id/duration_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -41,7 +43,7 @@
         android:layout_height="@dimen/dp65"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:lineSpacingMultiplier="1.2"
         android:text="@string/app_name"
         android:textColor="@color/font_white"

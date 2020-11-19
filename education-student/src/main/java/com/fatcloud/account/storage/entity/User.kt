@@ -32,11 +32,11 @@ class User {
 
         fun isLogon(): Boolean {
             val isLogin = CommonUtils.getShareStudent().getBoolean(Constants.SP_LOGIN)
-            if (isLogin && get().id == 0L) {
+            if (!isLogin ) {
                 clearAll()
                 return false
             }
-            return isLogin
+            return true
         }
 
         fun getToken(): String {
