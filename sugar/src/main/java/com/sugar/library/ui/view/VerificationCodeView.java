@@ -475,4 +475,11 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
             }
         }
     }
+
+
+    private void ss() {
+        for (int i = 0; i < 7; i++) {
+
+        }
+    }
 }

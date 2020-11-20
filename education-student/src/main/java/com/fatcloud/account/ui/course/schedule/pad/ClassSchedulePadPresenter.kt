@@ -1,34 +1,56 @@
-package com.fatcloud.account.ui.course.schedule
+package com.fatcloud.account.ui.course.schedule.pad
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.blankj.utilcode.constant.TimeConstants
+import com.blankj.utilcode.util.TimeUtils
 import com.fatcloud.account.BuildConfig
 import com.fatcloud.account.frames.entity.ClassSchedule
 import com.fatcloud.account.frames.entity.MyCourse
 import com.fatcloud.account.frames.entity.request.ListRequest
 import com.fatcloud.account.frames.network.response.BasePresenter
+import com.google.android.material.radiobutton.MaterialRadioButton
 import com.google.gson.JsonArray
-import com.google.gson.JsonObject
 import com.sugar.library.frames.network.subscriber.BaseJsonArrayHttpSubscriber
-import java.util.ArrayList
-import java.util.HashMap
+import com.sugar.library.util.TimeUtil
+import java.util.*
 import javax.inject.Inject
+import kotlin.collections.ArrayList
 
 /**
- * Created by Wangsw on 2020/9/25 0025 17:20.
+ * Created by Wangsw on 2020/11/19 0019 14:21.
  * </br>
  *
  */
-class ClassSchedulePresenter @Inject constructor(private var view: ClassScheduleView) : BasePresenter(view) {
+class ClassSchedulePadPresenter @Inject constructor(private var view: ClassSchedulePadView) : BasePresenter(view) {
 
-    override fun loadList(lifecycle: LifecycleOwner, page: Int, pageSize: Int, lastItemId: String?) {
+
+    /**
+     * 获取下一周时间
+     * yyyy-MM-dd HH:mm:ss
+     */
+    fun getNextWeekDates(): List<String> {
+        val weekList = ArrayList<String>()
+
+        val current = System.currentTimeMillis()
+        for (i in 0..6) {
+            val timestamp = current + (TimeConstants.DAY * i)
+
+            // yyyy-MM-dd HH:mm:ss
+            val weekDate = TimeUtils.millis2String(timestamp)
+            weekList.add(weekDate)
+        }
+        return weekList
+    }
+
+
+    fun loadData(lifecycle: LifecycleOwner) {
         val apply = ListRequest().apply {
-            lastId = lastItemId
-            size = pageSize
+            size = 100
         }
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.unTeachCourse(apply), object : BaseJsonArrayHttpSubscriber<MyCourse>(view) {
 
-            override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<MyCourse>, lastItemId: String?) {
+            override fun onSuccess(jsonArray: JsonArray?, list: java.util.ArrayList<MyCourse>, lastItemId: String?) {
 
                 if (BuildConfig.DEBUG) {
 
@@ -46,15 +68,14 @@ class ClassSchedulePresenter @Inject constructor(private var view: ClassSchedule
                         scheduleId = "10"
                         productIconImg = "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3979510287,3948598266&fm=26&gp=0.jpg"
                         courseIntroduce = "tangtang"
+                        studyDatetime = TimeUtils.getNowString()
                     }
-                    list.add(apply1)
-                    list.add(apply1)
                     list.add(apply1)
 
                 }
 
                 if (list.isNotEmpty()) {
-                    view.bindList(restoreList(list), lastItemId)
+                    view.bindList(list, lastItemId)
                 }
 
             }
@@ -64,29 +85,20 @@ class ClassSchedulePresenter @Inject constructor(private var view: ClassSchedule
     }
 
 
-    private fun restoreList(list: ArrayList<MyCourse>): ArrayList<ClassSchedule> {
+    fun restoreList(list: java.util.ArrayList<MyCourse>, radioButton: MaterialRadioButton): java.util.ArrayList<ClassSchedule> {
 
-        val parentList = ArrayList<ClassSchedule>()
+        val parentList = java.util.ArrayList<ClassSchedule>()
+        val date = radioButton.tag as String
 
-        // 取出时间
-        val timeSet = LinkedHashSet<String>()
-        list.forEach {
-            timeSet.add(it.studyDatetime)
-        }
-
-        val time = ArrayList<String>(timeSet)
-
-        // 整理数据
-        time.forEach {
-
-            val classSchedule = ClassSchedule()
-            list.forEach { myCourse ->
-                if (myCourse.studyDatetime == it) {
-                    classSchedule.nativeDate = it
-                    classSchedule.nativeDataList.add(myCourse)
+        list.forEach { myCourse ->
+//            if (myCourse.studyDatetime == date) {
+            if (TimeUtil.isSameDay(TimeUtils.string2Millis(myCourse.studyDatetime), TimeUtils.string2Millis(date), TimeZone.getDefault())) {
+                val classSchedule = ClassSchedule().apply {
+                    nativeDate = ""
+                    nativeDataList.add(myCourse)
                 }
+                parentList.add(classSchedule)
             }
-            parentList.add(classSchedule)
         }
         return parentList
     }

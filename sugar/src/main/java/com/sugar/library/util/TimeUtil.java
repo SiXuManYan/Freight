@@ -167,7 +167,7 @@ public class TimeUtil {
 
     }
   /**
-     * yyyy-MM-dd HH:mm:ss  -->  MM-dd HH:mm
+     * yyyy-MM-dd HH:mm:ss  --> yyyy-MM-dd
      *
      * @return
      */
@@ -202,6 +202,11 @@ public class TimeUtil {
         return format.format(date);
 
     }
+
+
+
+
+
 
     /**
      * 获取时间间隔

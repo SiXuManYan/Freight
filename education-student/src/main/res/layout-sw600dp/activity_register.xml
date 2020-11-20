@@ -36,281 +36,288 @@
     </RelativeLayout>
 
 
-    <ImageView
-        android:layout_width="@dimen/dp60"
-        android:layout_height="@dimen/dp47"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dp15"
-        android:layout_marginBottom="@dimen/dp7"
-        android:src="@drawable/ic_welcome_logo" />
-
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="@dimen/dp200"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/shape_8_white"
             android:orientation="vertical"
-            android:padding="@dimen/dp16">
+            android:paddingBottom="@dimen/dp50">
+
+            <ImageView
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp47"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp7"
+                android:layout_marginBottom="@dimen/dp7"
+                android:src="@drawable/ic_welcome_logo" />
+
+            <LinearLayout
+                android:layout_width="@dimen/dp200"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/shape_8_white"
+                android:orientation="vertical"
+                android:padding="@dimen/dp16">
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_register"
-                    android:textColor="@color/student_yellow"
-                    android:textSize="@dimen/sp8" />
-
-
-                <TextView
-                    android:id="@+id/back_login_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="@string/login"
-                    android:textColor="@color/color_second_level"
-                    android:textSize="@dimen/sp8" />
-
-
-            </RelativeLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginTop="@dimen/dp5"
-                android:layout_marginBottom="@dimen/dp10"
-                android:background="@color/split_line_color" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp25"
-                android:background="@drawable/shape_8_gray_login">
-
-                <ImageView
-                    android:id="@+id/tag1_iv"
-                    android:layout_width="@dimen/dp10"
-                    android:layout_height="@dimen/dp10"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/dp5"
-                    android:layout_marginEnd="@dimen/dp5"
-                    android:src="@drawable/ic_login_phone" />
-
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/phone_aet"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toEndOf="@id/tag1_iv"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="@string/login_phone_input"
-                    android:imeOptions="actionNext"
-                    android:inputType="number"
-                    android:lines="1"
-                    android:maxLength="11"
-                    android:textColor="@color/color_first_level"
-                    android:textColorHint="@color/color_cccccc"
-                    android:textSize="@dimen/sp8" />
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_register"
+                        android:textColor="@color/student_yellow"
+                        android:textSize="@dimen/sp8" />
 
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/back_login_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/login"
+                        android:textColor="@color/color_second_level"
+                        android:textSize="@dimen/sp8" />
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp10"
-                android:orientation="horizontal">
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:background="@color/split_line_color" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp25"
-                    android:layout_marginEnd="@dimen/dp5"
-                    android:layout_toStartOf="@+id/get_verify_tv"
                     android:background="@drawable/shape_8_gray_login">
 
                     <ImageView
-                        android:id="@+id/tag2_iv"
+                        android:id="@+id/tag1_iv"
+                        android:layout_width="@dimen/dp10"
+                        android:layout_height="@dimen/dp10"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp5"
+                        android:layout_marginEnd="@dimen/dp5"
+                        android:src="@drawable/ic_login_phone" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/phone_aet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toEndOf="@id/tag1_iv"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="@string/login_phone_input"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:maxLength="11"
+                        android:textColor="@color/color_first_level"
+                        android:textColorHint="@color/color_cccccc"
+                        android:textSize="@dimen/sp8" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp25"
+                        android:layout_marginEnd="@dimen/dp5"
+                        android:layout_toStartOf="@+id/get_verify_tv"
+                        android:background="@drawable/shape_8_gray_login">
+
+                        <ImageView
+                            android:id="@+id/tag2_iv"
+                            android:layout_width="@dimen/dp10"
+                            android:layout_height="@dimen/dp10"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/dp5"
+                            android:layout_marginEnd="@dimen/dp5"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_login_verify_code" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/verify_code_aet"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@id/tag2_iv"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="@string/login_verify_input"
+
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:lines="1"
+                            android:maxLength="6"
+                            android:textColor="@color/color_first_level"
+                            android:textColorHint="@color/color_cccccc"
+                            android:textSize="@dimen/sp8" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/get_verify_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/stock_12_yellow"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/get_verify_code"
+                        android:textColor="@color/student_yellow"
+                        android:textSize="@dimen/sp8" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp25"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/shape_8_gray_login">
+
+                    <ImageView
+                        android:id="@+id/tag3_iv"
                         android:layout_width="@dimen/dp10"
                         android:layout_height="@dimen/dp10"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/dp5"
                         android:layout_marginEnd="@dimen/dp5"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_login_verify_code" />
+                        android:src="@drawable/ic_login_password" />
+
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/verify_code_aet"
+                        android:id="@+id/password_aet"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_toEndOf="@id/tag2_iv"
+                        android:layout_toLeftOf="@+id/password_rule_iv"
+                        android:layout_toRightOf="@id/tag3_iv"
                         android:background="@null"
                         android:gravity="center_vertical"
-                        android:hint="@string/login_verify_input"
-
+                        android:hint="@string/login_password_input"
                         android:imeOptions="actionNext"
-                        android:inputType="number"
+                        android:inputType="textPassword"
                         android:lines="1"
-                        android:maxLength="6"
+                        android:maxLength="18"
                         android:textColor="@color/color_first_level"
                         android:textColorHint="@color/color_cccccc"
                         android:textSize="@dimen/sp8" />
 
+                    <ImageView
+                        android:id="@+id/password_rule_iv"
+                        android:layout_width="@dimen/dp25"
+                        android:layout_height="@dimen/dp25"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/dp8"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_login_eye_close" />
+
+
                 </RelativeLayout>
 
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp25"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/shape_8_gray_login">
+
+                    <ImageView
+                        android:id="@+id/tag4_iv"
+                        android:layout_width="@dimen/dp10"
+                        android:layout_height="@dimen/dp10"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp5"
+                        android:layout_marginEnd="@dimen/dp5"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_login_password" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/password_again_aet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toStartOf="@+id/password_again_rule_iv"
+                        android:layout_toEndOf="@id/tag4_iv"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="@string/password_input_again"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:lines="1"
+                        android:maxLength="18"
+                        android:textColor="@color/color_first_level"
+                        android:textColorHint="@color/color_cccccc"
+                        android:textSize="@dimen/sp8" />
+
+                    <ImageView
+                        android:id="@+id/password_again_rule_iv"
+                        android:layout_width="@dimen/dp25"
+                        android:layout_height="@dimen/dp25"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/dp8"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_login_eye_close" />
+
+
+                </RelativeLayout>
+
+
                 <TextView
-                    android:id="@+id/get_verify_tv"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/register_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/shape_12_yellow"
+                    android:gravity="center"
+                    android:text="@string/login_register"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sp8" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/register_protocol"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/stock_12_yellow"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/get_verify_code"
-                    android:textColor="@color/student_yellow"
-                    android:textSize="@dimen/sp8" />
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp25"
-                android:layout_marginTop="@dimen/dp10"
-                android:background="@drawable/shape_8_gray_login">
-
-                <ImageView
-                    android:id="@+id/tag3_iv"
-                    android:layout_width="@dimen/dp10"
-                    android:layout_height="@dimen/dp10"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/dp5"
-                    android:layout_marginEnd="@dimen/dp5"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_login_password" />
-
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/password_aet"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toLeftOf="@+id/password_rule_iv"
-                    android:layout_toRightOf="@id/tag3_iv"
-                    android:background="@null"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/font_white"
+                    android:checked="false"
                     android:gravity="center_vertical"
-                    android:hint="@string/login_password_input"
-                    android:imeOptions="actionNext"
-                    android:inputType="textPassword"
-                    android:lines="1"
-                    android:maxLength="18"
-                    android:textColor="@color/color_first_level"
-                    android:textColorHint="@color/color_cccccc"
-                    android:textSize="@dimen/sp8" />
-
-                <ImageView
-                    android:id="@+id/password_rule_iv"
-                    android:layout_width="@dimen/dp25"
-                    android:layout_height="@dimen/dp25"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/dp8"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_login_eye_close" />
+                    android:paddingLeft="@dimen/dp2"
+                    android:text="@string/login_protocol"
+                    android:textColor="@color/color_third_level"
+                    android:textSize="@dimen/sp7"
+                    android:theme="@style/MyCheckBox" />
 
 
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp25"
-                android:layout_marginTop="@dimen/dp10"
-                android:background="@drawable/shape_8_gray_login">
-
-                <ImageView
-                    android:id="@+id/tag4_iv"
-                    android:layout_width="@dimen/dp10"
-                    android:layout_height="@dimen/dp10"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/dp5"
-                    android:layout_marginEnd="@dimen/dp5"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_login_password" />
-
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/password_again_aet"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toStartOf="@+id/password_again_rule_iv"
-                    android:layout_toEndOf="@id/tag4_iv"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="@string/password_input_again"
-                    android:imeOptions="actionDone"
-                    android:inputType="textPassword"
-                    android:lines="1"
-                    android:maxLength="18"
-                    android:textColor="@color/color_first_level"
-                    android:textColorHint="@color/color_cccccc"
-                    android:textSize="@dimen/sp8" />
-
-                <ImageView
-                    android:id="@+id/password_again_rule_iv"
-                    android:layout_width="@dimen/dp25"
-                    android:layout_height="@dimen/dp25"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:padding="@dimen/dp8"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_login_eye_close" />
-
-
-            </RelativeLayout>
-
-
-            <TextView
-                android:id="@+id/register_tv"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp20"
-                android:layout_marginTop="@dimen/dp10"
-                android:background="@drawable/shape_12_yellow"
-                android:gravity="center"
-                android:text="@string/login_register"
-                android:textColor="@color/font_white"
-                android:textSize="@dimen/sp8" />
-
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/register_protocol"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/font_white"
-                android:checked="false"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/dp2"
-                android:text="@string/login_protocol"
-                android:textColor="@color/color_third_level"
-                android:textSize="@dimen/sp7"
-                android:theme="@style/MyCheckBox" />
-
-
+            </LinearLayout>
         </LinearLayout>
+
 
     </androidx.core.widget.NestedScrollView>
 

@@ -16,6 +16,7 @@ import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.ui.course.my.MyCourseActivity
 import com.fatcloud.account.ui.course.my.pad.MyCoursePadFragment
 import com.fatcloud.account.ui.course.schedule.ClassScheduleActivity
+import com.fatcloud.account.ui.course.schedule.pad.ClassSchedulePadFragment
 import com.fatcloud.account.ui.home.HomeFragment
 import com.fatcloud.account.ui.message.MessageActivity
 import com.fatcloud.account.ui.order.list.OrderActivity
@@ -208,10 +209,12 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                 1 -> {
                     return MyCoursePadFragment()
                 }
+                2 -> {
+                    return ClassSchedulePadFragment()
+                }
                 3 -> {
                     return TaskFragment()
                 }
-
                 else -> {
                     return WebFragment.newInstance("")
                 }
