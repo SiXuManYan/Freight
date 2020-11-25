@@ -60,7 +60,7 @@ class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>()
         }
         adapter.setOnItemClickListener {
             val order = adapter.allData[it]
-            if (order.state.contains(Order.OrderState.UNPAID.name)) {
+            if (order.state.contains(Order.OrderState.WAIT_PAY.name)) {
                 // 未支付
                 startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
                     putString(Constants.PARAM_ID, order.courseIntd)
@@ -71,7 +71,6 @@ class OrderChildFragment : BaseRefreshListFragment<Order, OrderChildPresenter>()
             if (order.state.contains(Order.OrderState.PAID.name)) {
 
             }
-
         }
         return adapter
     }

@@ -1,5 +1,6 @@
 package com.fatcloud.account.ui.task.detail
 
+import android.os.Bundle
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ToastUtils
@@ -7,6 +8,8 @@ import com.fatcloud.account.R
 import com.fatcloud.account.common.download.DemoUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.frames.entity.TaskDetail
+import com.fatcloud.account.ui.task.book.BookActivity
+import com.fatcloud.account.ui.task.book.lists.BookListActivity
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.liulishuo.filedownloader.BaseDownloadTask
 import com.liulishuo.filedownloader.FileDownloadListener
@@ -87,14 +90,23 @@ class TaskDetailActivity : BaseMVPActivity<TaskDetailPresenter>(), TaskDetailVie
                 return holder
             }
         }
+        adapter.setOnItemClickListener {
+            val readingBookOut = adapter.allData[it]
+            startActivity(BookListActivity::class.java, Bundle().apply {
+                putString(Constants.PARAM_COURSE_ID, readingBookOut.courseId)
+            })
+        }
+
         return adapter
     }
 
     private fun downLoadFile() {
         if (downLoadUrl.isNotBlank()) {
-            FileDownloader.getImpl().create(downLoadUrl)
+            FileDownloader.getImpl()
+                .create(downLoadUrl)
                 .setPath(DemoUtil.getParentFile(this).path + File.separator + "file" + CommonUtils.getFileSuffix(downLoadUrl))
                 .setListener(object : FileDownloadListener() {
+
                     override fun warn(task: BaseDownloadTask?) = Unit
 
                     override fun completed(task: BaseDownloadTask?) = ToastUtils.showShort("下载完成")

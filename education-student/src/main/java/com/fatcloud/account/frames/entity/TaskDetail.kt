@@ -43,10 +43,16 @@ class TaskDetail {
         var scheduleStateText =  ""
         var courseName: String = ""
         var lengthOfCourse = 0
+        var courseId = ""
+
+        var buddyBookIds =  ArrayList<String>()
 
 
 
-        var nativeSelect  = false
+
+
+
+
 
 
 

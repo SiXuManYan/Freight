@@ -15,7 +15,7 @@ open class Course {
 
     /**
      * @see CourseProductType.EXPERIENCE  体验课
-     * @see CourseProductType.READING     教学课(订单课)
+     * @see CourseProductType.BUDDY     教学课(订单课)
      * @see CourseProductType.TEACHING    陪读课(订单课)
      */
     var productType = ""
@@ -49,7 +49,7 @@ open class Course {
     /**
      * 课程图片
      */
-    var courseIconImg: String = ""
+    var productIconImg: String = ""
 
     /**
      * 教师id

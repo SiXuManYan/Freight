@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import com.blankj.utilcode.util.StringUtils
 import com.bumptech.glide.Glide
 import com.fatcloud.account.R
+import com.fatcloud.account.common.OssUtil
 import com.fatcloud.account.frames.entity.Order
+import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.sugar.library.frames.BaseItemViewHolder
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_order.*
@@ -26,7 +28,14 @@ class OrderChildHolder(parent: ViewGroup?) : BaseItemViewHolder<Order>(parent, R
         }
 
         order_id_tv.text = StringUtils.getString(R.string.order_id_format, data.id)
-        Glide.with(context).load(data.productIconImg).into(image_iv)
+
+        OssUtil.getRealOssUrl(context, data.productIconImg, object : CloudAccountApplication.OssSignCallBack {
+            override fun ossUrlSignEnd(url: String) {
+                Glide.with(context).load(url).into(image_iv)
+            }
+        })
+
+
         order_name_tv.text = data.productName
 
         order_status_tv.text = data.state.substring(data.state.indexOf("-") + 1)
@@ -36,7 +45,6 @@ class OrderChildHolder(parent: ViewGroup?) : BaseItemViewHolder<Order>(parent, R
         } else {
             pay_tv.visibility = View.GONE
         }
-
 
     }
 

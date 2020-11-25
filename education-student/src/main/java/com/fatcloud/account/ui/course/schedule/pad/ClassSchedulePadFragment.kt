@@ -104,7 +104,6 @@ class ClassSchedulePadFragment : BaseFragment<ClassSchedulePadPresenter>(), Clas
             mAdapter.addAll(presenter.restoreList(allData, radioButton))
         }
 
-
     }
 
 }

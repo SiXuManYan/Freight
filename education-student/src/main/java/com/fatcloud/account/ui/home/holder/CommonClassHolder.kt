@@ -8,8 +8,10 @@ import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import com.fatcloud.account.R
+import com.fatcloud.account.common.OssUtil
 import com.fatcloud.account.frames.entity.home.Course
 import com.fatcloud.account.frames.entity.home.CourseState
+import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.BaseItemViewHolder
@@ -35,8 +37,14 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
         if (data == null) {
             return
         }
-        Glide.with(context).load(data.courseIconImg)
-            .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8)))).into(image_iv)
+        OssUtil.getRealOssUrl(context,data.productIconImg,object :CloudAccountApplication.OssSignCallBack{
+            override fun ossUrlSignEnd(url: String) {
+                Glide.with(context).load(url)
+                    .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8)))).into(image_iv)
+            }
+        })
+
+
         Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
         title_tv.text = data.productName
         content_tv.text = data.teacherName

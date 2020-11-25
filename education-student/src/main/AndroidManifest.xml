@@ -191,7 +191,8 @@
         <activity
             android:name=".ui.task.result.BookResultActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-
+        <activity android:name=".ui.task.book.BookActivity" />
+        <activity android:name=".ui.task.book.lists.BookListActivity" />
 
 
         <receiver

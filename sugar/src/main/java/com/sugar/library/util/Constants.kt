@@ -162,6 +162,7 @@ object Constants {
     const val PARAM_MAILING_ADDRESS = "param_mailing_address" // 邮寄地址
     const val PARAM_MAILING_DETAIL_ADDRESS = "param_mailing_detail_address" // 邮寄详细地址
     const val PARAM_CONTENT = "param_content"
+    const val PARAM_COURSE_ID = "param_course_id"
 
 
     /** RxBus Event */

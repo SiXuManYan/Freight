@@ -41,8 +41,4 @@ class TaskDetailPresenter @Inject constructor(private var view: TaskDetailView) 
     }
 
 
-
-
-
-
 }

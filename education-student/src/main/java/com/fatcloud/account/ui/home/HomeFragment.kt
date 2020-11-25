@@ -71,12 +71,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     }
                     HomeConstant.COMMON_CLASS -> {
                         val commonClassHolder = CommonClassHolder(parent)
-
-
                         enterLiveRoom(this@HomeFragment.context!!, commonClassHolder.enter_ll, commonClassHolder)
-
-
-
                         commonClassHolder
                     }
                     HomeConstant.CLASS_SCHEDULE -> {
@@ -116,13 +111,13 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                         HomeConstant.CLASS_SCHEDULE    // 课程表
                     }
                     is HomeOrder -> {
-                        HomeConstant.HOME_ORDER         // 订单
+                        HomeConstant.HOME_ORDER        // 订单
                     }
                     is Task -> {
-                        HomeViewType.Schedule.ordinal     // 任务
+                        HomeViewType.Schedule.ordinal  // 任务
                     }
                     else -> {
-                        HomeViewType.Schedule.ordinal    // 任务
+                        HomeViewType.Schedule.ordinal  // 任务
                     }
                 }
 

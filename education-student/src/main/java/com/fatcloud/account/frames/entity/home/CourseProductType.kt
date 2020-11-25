@@ -14,6 +14,6 @@ enum class CourseProductType {
     TEACHING,
 
     /** 陪读课 */
-    READING
+    BUDDY
 
 }

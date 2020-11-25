@@ -159,6 +159,7 @@ interface ApiService {
     @POST("/api/student/order/listWaitPay")
     fun getOrderListUnpaid(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
+
     /**
      * 已支付订单
      */
@@ -284,6 +285,13 @@ interface ApiService {
      */
     @POST("/api/common/setPushDeviceId")
     fun setPushDeviceId(@Body json: DeviceId): Flowable<Response<JsonObject>>
+
+
+    /**
+     * 书籍列表
+     */
+    @POST("/api/student/task/listBuddyBook")
+    fun bookList(@Body json: BookListRequest): Flowable<Response<JsonArray>>
 
 
 }
