@@ -6,19 +6,22 @@ import android.content.Context
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.multidex.MultiDex
+import com.blankj.utilcode.util.LogUtils
 import com.didichuxing.doraemonkit.DoraemonKit
 import com.fatcloud.account.frames.dagger.comment.DaggerAppComponent
 import com.fatcloud.account.frames.network.ApiService
 import com.fatcloud.account.frames.pushs.NotificationUtil
 import com.fatcloud.account.storage.CloudDataBase
-
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.sugar.library.ui.view.refresh.CommonSmartAnimRefreshHeaderView
 import com.sugar.library.ui.view.refresh.CommonSmartRefreshFooter
+import com.tencent.smtt.export.external.TbsCoreSettings
+import com.tencent.smtt.sdk.QbSdk
 import dagger.android.AndroidInjector
 import dagger.android.HasActivityInjector
 import dagger.android.support.DaggerApplication
 import javax.inject.Inject
+
 
 /**
  * Created by Wangsw on 2020/5/22 0022 15:41.
@@ -49,6 +52,7 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
         registerActivityLifecycleCallbacks(this)
         DoraemonKit.install(this,"785a6de631aec3158d22b2954ebae1d7")
         NotificationUtil.initCloudChannel(this)
+        initX5WebView()
     }
 
 
@@ -113,6 +117,31 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
 
     fun uploadRecord(localFilePatch: String, position: Int) {
         presenter.getRecordToken(this, localFilePatch, position)
+    }
+
+
+    /**
+     * 初始化X5内核
+     */
+    private fun initX5WebView() {
+
+        // 首次初始化冷启动优化。在调用TBS初始化、创建WebView之前进行如下配置
+        val map = HashMap<String, Any>()
+        map[TbsCoreSettings.TBS_SETTINGS_USE_SPEEDY_CLASSLOADER] = true
+        map[TbsCoreSettings.TBS_SETTINGS_USE_DEXLOADER_SERVICE] = true
+        QbSdk.initTbsSettings(map)
+
+        QbSdk.setDownloadWithoutWifi(true);
+        QbSdk.initX5Environment(this, object : QbSdk.PreInitCallback {
+
+            override fun onViewInitFinished(p0: Boolean) {
+                LogUtils.e("X5_WebView", "加载内核是否成功:$p0")
+            }
+
+            override fun onCoreInitFinished() {
+
+            }
+        })
     }
 
 }

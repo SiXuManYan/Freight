@@ -34,6 +34,8 @@ import com.fatcloud.account.ui.order.pay.prepare.PayPrepareActivity
 import com.fatcloud.account.ui.order.pay.prepare.PayPrepareModule
 import com.fatcloud.account.ui.settings.SettingActivity
 import com.fatcloud.account.ui.settings.SettingModule
+import com.fatcloud.account.ui.task.book.BookDetailActivity
+import com.fatcloud.account.ui.task.book.BookDetailModule
 import com.fatcloud.account.ui.task.book.lists.BookListActivity
 import com.fatcloud.account.ui.task.book.lists.BookListModule
 import com.fatcloud.account.ui.task.lists.TaskContainerActivity
@@ -163,6 +165,12 @@ abstract class ActivityBindModule {
     @ActivityScore
     @ContributesAndroidInjector(modules = [BookListModule::class])
     abstract fun z(): BookListActivity
+
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [BookDetailModule::class])
+    abstract fun a1(): BookDetailActivity
+
+
 
 
 }

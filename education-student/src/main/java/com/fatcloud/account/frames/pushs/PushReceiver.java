@@ -7,7 +7,6 @@ import com.alibaba.sdk.android.push.MessageReceiver;
 import com.alibaba.sdk.android.push.notification.CPushMessage;
 
 import java.util.Map;
-
 /**
  * Created by Wangsw on 2020/7/29 0029 16:57.
  * </br>

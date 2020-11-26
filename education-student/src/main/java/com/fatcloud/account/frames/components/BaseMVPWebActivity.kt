@@ -1,10 +1,8 @@
 package com.fatcloud.account.frames.components
 
 import android.annotation.SuppressLint
-import android.net.http.SslError
 import android.text.TextUtils
 import android.view.View
-import android.webkit.*
 import com.blankj.utilcode.util.RegexUtils
 import com.fatcloud.account.R
 import com.sugar.library.ui.view.error.AccidentView
@@ -16,6 +14,13 @@ import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.ui.view.web.JsWebView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
+import com.tencent.smtt.export.external.interfaces.SslError
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler
+import com.tencent.smtt.export.external.interfaces.WebResourceError
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest
+import com.tencent.smtt.sdk.WebChromeClient
+import com.tencent.smtt.sdk.WebView
+import com.tencent.smtt.sdk.WebViewClient
 import kotlinx.android.synthetic.main.activity_web_common.*
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method

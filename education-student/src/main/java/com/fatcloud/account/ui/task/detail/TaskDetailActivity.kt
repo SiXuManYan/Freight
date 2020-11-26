@@ -8,7 +8,6 @@ import com.fatcloud.account.R
 import com.fatcloud.account.common.download.DemoUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.frames.entity.TaskDetail
-import com.fatcloud.account.ui.task.book.BookActivity
 import com.fatcloud.account.ui.task.book.lists.BookListActivity
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.liulishuo.filedownloader.BaseDownloadTask

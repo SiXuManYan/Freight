@@ -53,7 +53,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/title_rl">
 
-        <com.sugar.library.ui.view.web.JsWebView
+        <com.sugar.library.ui.view.web.JsWebViewX5
             android:id="@+id/x5_web"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

@@ -37,11 +37,10 @@ class MainPresenter @Inject constructor(private var view: MainView) : BasePresen
     }
 
 
-
     fun getUnReadMessageCount(lifecycle: LifecycleOwner) {
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
             apiService.getUnReadMessageCount(), object : BaseHttpSubscriber<String>(view) {
-                override fun onSuccess(data: String?){
+                override fun onSuccess(data: String?) {
                     data?.let {
                         view.unReadMessageCount(it)
                     }
@@ -52,19 +51,17 @@ class MainPresenter @Inject constructor(private var view: MainView) : BasePresen
     }
 
 
-    fun updatePushDeviceId(lifecycle: LifecycleOwner,deviceId: String){
-
+    fun updatePushDeviceId(lifecycle: LifecycleOwner, deviceId: String) {
         val apply = DeviceId().apply {
             pushDeviceId = deviceId
         }
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
             apiService.setPushDeviceId(apply), object : BaseHttpSubscriber<JsonObject>(view) {
-                override fun onSuccess(data: JsonObject?){
+                override fun onSuccess(data: JsonObject?) {
                 }
             }
         )
     }
-
 
 
 }

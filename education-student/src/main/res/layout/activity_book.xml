@@ -4,8 +4,5 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.sugar.library.ui.pageturn.view.BookPageView
-        android:id="@+id/aaa"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
 </LinearLayout>

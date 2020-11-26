@@ -293,5 +293,12 @@ interface ApiService {
     @POST("/api/student/task/listBuddyBook")
     fun bookList(@Body json: BookListRequest): Flowable<Response<JsonArray>>
 
+    /**
+     * 书籍详情
+     * /
+     */
+    @POST("/api/student/task/getBuddyBook")
+    fun bookDetail(@Body json: BookDetailRequest): Flowable<Response<BookDetail>>
+
 
 }

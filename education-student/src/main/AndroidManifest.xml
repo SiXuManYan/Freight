@@ -24,6 +24,11 @@
     <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 
+    <!-- 腾讯 tbs -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name="com.fatcloud.account.ui.app.CloudAccountApplication"
         android:allowBackup="true"
@@ -57,6 +62,13 @@
 
         <service android:name="com.zlw.main.recorderlib.recorder.RecordService" />
 
+        <!-- x5 web view 首次冷启动优化  -->
+        <service
+            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+            android:label="dexopt"
+            android:process=":dexopt"/>
+
+
         <activity
             android:name="com.fatcloud.account.ui.splash.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -71,8 +83,10 @@
             <!-- 网页内打开 -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="splash_h5"
                     android:scheme="fta_cloud_student" />
@@ -191,8 +205,9 @@
         <activity
             android:name=".ui.task.result.BookResultActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity android:name=".ui.task.book.BookActivity" />
+        <activity android:name=".ui.task.book.BookDetailActivity" />
         <activity android:name=".ui.task.book.lists.BookListActivity" />
+        <activity android:name=".file.FileDisplayActivity" />
 
 
         <receiver

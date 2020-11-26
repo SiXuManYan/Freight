@@ -15,7 +15,7 @@ import javax.inject.Inject
  * </br>
  *
  */
-class BookListPresenter  @Inject constructor(private var view:  BookListView) : BasePresenter(view) {
+class BookListPresenter @Inject constructor(private var view: BookListView) : BasePresenter(view) {
 
 
     fun loadDetail(lifecycle: LifecycleOwner, courseId: String?) {

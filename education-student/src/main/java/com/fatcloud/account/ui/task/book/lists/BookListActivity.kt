@@ -1,10 +1,11 @@
 package com.fatcloud.account.ui.task.book.lists
 
+import android.os.Bundle
 import android.view.ViewGroup
 import com.fatcloud.account.R
 import com.fatcloud.account.frames.components.list.BaseRefreshListActivity
 import com.fatcloud.account.frames.entity.Book
-import com.fatcloud.account.ui.task.book.BookActivity
+import com.fatcloud.account.ui.task.book.BookDetailActivity
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter
 import com.sugar.library.util.Constants
 
@@ -42,7 +43,11 @@ class BookListActivity : BaseRefreshListActivity<Book, BookListPresenter>(), Boo
         }
 
         adapter.setOnItemClickListener {
-            startActivity(BookActivity::class.java)
+            val book = adapter.allData[it]
+
+            startActivity(BookDetailActivity::class.java, Bundle().apply {
+                putString(Constants.PARAM_ID, book.buddyBookId)
+            })
         }
         return adapter
     }
