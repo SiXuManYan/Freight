@@ -4,5 +4,6 @@
     <application>
         <activity android:name=".ui.matisse.AllPreviewActivity" />
         <activity android:name=".ui.matisse.MatisseActivity" />
+        <activity android:name=".ui.widget.pagefilp.SampleActivity" />
     </application>
 </manifest>

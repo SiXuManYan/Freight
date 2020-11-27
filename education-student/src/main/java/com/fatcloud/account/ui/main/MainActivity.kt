@@ -2,6 +2,7 @@ package com.fatcloud.account.ui.main
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.view.View
 import android.widget.RelativeLayout
 import androidx.drawerlayout.widget.DrawerLayout
@@ -27,6 +28,7 @@ import com.fatcloud.account.ui.task.lists.frgm.TaskFragment
 import com.fatcloud.account.ui.tests.my.MyTestActivity
 import com.fatcloud.account.ui.user.UserActivity
 import com.sugar.library.ui.widget.CircleImageView
+import com.sugar.library.ui.widget.pagefilp.SampleActivity
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer
@@ -80,7 +82,21 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
             return
         }
         header.findViewById<CircleImageView>(R.id.avatar_iv).setOnClickListener {
-            startActivity(UserActivity::class.java)
+//            startActivity(UserActivity::class.java)
+
+
+            val list  = ArrayList<String>()
+            list.add("https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2870405105,1377151161&fm=26&gp=0.jpg")
+            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
+            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
+            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
+
+            startActivity( SampleActivity::class.java, Bundle().apply {
+                putStringArrayList(Constants.PARAM_IMAGE_URL,list)
+            })
+
+
+
         }
         header.findViewById<RelativeLayout>(R.id.menu_my_course).setOnClickListener {
             startActivity(MyCourseActivity::class.java)

@@ -1,11 +1,13 @@
 package com.fatcloud.account.ui.task.book
 
 import android.Manifest
+import android.os.Bundle
 import com.blankj.utilcode.util.ToastUtils
 import com.fatcloud.account.R
 import com.fatcloud.account.common.file.FileDisplayActivity
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.frames.entity.BookDetail
+import com.sugar.library.ui.widget.pagefilp.SampleActivity
 import com.sugar.library.util.Constants
 import com.sugar.library.util.PermissionUtils
 
@@ -37,7 +39,13 @@ class BookDetailActivity : BaseMVPActivity<BookDetailPresenter>(), BookDetailVie
 
 
     override fun bindImageDetail(data: BookDetail) {
+        if (data.contents.isEmpty()) {
+            return
+        }
 
+       startActivity( SampleActivity::class.java, Bundle().apply {
+           putStringArrayList(Constants.PARAM_IMAGE_URL,data.contents)
+       })
     }
 
     override fun bindMediaDetail(data: BookDetail) {
