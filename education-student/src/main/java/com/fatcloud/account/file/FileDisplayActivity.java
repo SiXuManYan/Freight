@@ -9,7 +9,9 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.blankj.utilcode.util.BarUtils;
 import com.sugar.library.R;
+import com.sugar.library.util.CommonUtils;
 
 
 import java.io.File;
@@ -25,19 +27,20 @@ import retrofit2.Response;
 
 public class FileDisplayActivity extends AppCompatActivity {
 
-
     private String TAG = "FileDisplayActivity";
     SuperFileView2 mSuperFileView;
 
     String filePath;
 
 
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_display);
+
+        CommonUtils.INSTANCE.setStatusBarTransparentWithLightMode(this);
+        BarUtils.setNavBarVisibility(this, false);
+
         init();
     }
 
@@ -62,7 +65,7 @@ public class FileDisplayActivity extends AppCompatActivity {
 
         if (getFilePath().contains("http")) {//网络地址要先下载
 
-            downLoadFromNet(getFilePath(),mSuperFileView2);
+            downLoadFromNet(getFilePath(), mSuperFileView2);
 
         } else {
             mSuperFileView2.displayFile(new File(getFilePath()));
@@ -108,7 +111,6 @@ public class FileDisplayActivity extends AppCompatActivity {
                 return;
             }
         }
-
 
 
         LoadFileModel.loadPdfFile(url, new Callback<ResponseBody>() {
@@ -192,6 +194,7 @@ public class FileDisplayActivity extends AppCompatActivity {
         return new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/007/");
 
     }
+
     /***
      * 绝对路径获取缓存文件
      *
@@ -229,16 +232,16 @@ public class FileDisplayActivity extends AppCompatActivity {
             TLog.d(TAG, "paramString---->null");
             return str;
         }
-        TLog.d(TAG,"paramString:"+paramString);
+        TLog.d(TAG, "paramString:" + paramString);
         int i = paramString.lastIndexOf('.');
         if (i <= -1) {
-            TLog.d(TAG,"i <= -1");
+            TLog.d(TAG, "i <= -1");
             return str;
         }
 
 
         str = paramString.substring(i + 1);
-        TLog.d(TAG,"paramString.substring(i + 1)------>"+str);
+        TLog.d(TAG, "paramString.substring(i + 1)------>" + str);
         return str;
     }
 

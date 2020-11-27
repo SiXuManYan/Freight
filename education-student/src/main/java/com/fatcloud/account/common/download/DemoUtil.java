@@ -26,7 +26,6 @@ import java.io.File;
 public class DemoUtil {
 
 
-
     public static void calcProgressToView(ProgressBar progressBar, long offset, long total) {
         final float percent = (float) offset / total;
         progressBar.setProgress((int) (percent * progressBar.getMax()));

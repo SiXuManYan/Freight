@@ -49,6 +49,7 @@ class BookDetailActivity : BaseMVPActivity<BookDetailPresenter>(), BookDetailVie
             context, PermissionUtils.OnPermissionCallBack {
                 if (it) {
                     FileDisplayActivity.show(this, data.contents[0])
+                    finish()
                 } else {
                     ToastUtils.showShort("请授权相应权限")
                 }
