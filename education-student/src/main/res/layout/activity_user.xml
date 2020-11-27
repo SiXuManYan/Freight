@@ -54,7 +54,7 @@
                     android:textColor="@color/color_first_level"
                     android:textSize="@dimen/font_size_14" />
 
-                <com.sugar.library.ui.view.CircleImageView
+                <com.sugar.library.ui.widget.CircleImageView
                     android:id="@+id/avatar_civ"
                     android:layout_width="@dimen/dp30"
                     android:layout_height="@dimen/dp30"

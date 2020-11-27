@@ -207,7 +207,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:name=".ui.task.book.BookDetailActivity" />
         <activity android:name=".ui.task.book.lists.BookListActivity" />
-        <activity android:name=".file.FileDisplayActivity" />
+        <activity android:name=".common.file.FileDisplayActivity" />
 
 
         <receiver

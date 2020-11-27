@@ -119,7 +119,7 @@
             android:layout_height="match_parent">
 
 
-            <com.sugar.library.ui.view.countdown.CountDownTextView
+            <com.sugar.library.ui.widget.countdown.CountDownTextView
                 android:id="@+id/count_down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

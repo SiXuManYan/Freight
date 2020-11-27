@@ -20,7 +20,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.fatcloud.account.R
 import com.sugar.library.ui.matisse.Glide4Engine
 import com.sugar.library.ui.matisse.Matisse
-import com.sugar.library.ui.view.dialog.AlertDialog
+import com.sugar.library.ui.widget.dialog.AlertDialog
 import com.sugar.library.util.Constants
 import com.sugar.library.util.PermissionUtils
 import com.tencent.mm.opensdk.openapi.IWXAPI

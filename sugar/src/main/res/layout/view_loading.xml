@@ -2,7 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <com.sugar.library.ui.view.refresh.CommonProgressBar
+    <com.sugar.library.ui.widget.refresh.CommonProgressBar
         android:id="@+id/pb_loading"
         android:layout_width="30dp"
         android:layout_height="30dp"

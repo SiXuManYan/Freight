@@ -21,7 +21,7 @@ import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.sugar.library.event.ImageUploadEvent
 import com.sugar.library.ui.matisse.Matisse
-import com.sugar.library.ui.view.CircleImageView
+import com.sugar.library.ui.widget.CircleImageView
 import com.sugar.library.util.Common
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants

@@ -16,7 +16,7 @@ import com.fatcloud.account.frames.entity.home.HomeOrderExtra
 import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.fatcloud.account.ui.course.detail.experience.result.ReservationResultActivity
 import com.fatcloud.account.ui.order.pay.prepare.PayPrepareActivity
-import com.sugar.library.ui.view.CircleImageView
+import com.sugar.library.ui.widget.CircleImageView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import kotlinx.android.synthetic.main.activity_course_detail.*

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.fatcloud.account.file.SuperFileView2
+    <com.fatcloud.account.common.file.SuperFileView2
         android:id="@+id/mSuperFileView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

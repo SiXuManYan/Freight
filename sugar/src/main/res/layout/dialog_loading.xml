@@ -5,7 +5,7 @@
     android:background="@drawable/shape_bg_loading_dialog">
 
 
-    <com.sugar.library.ui.view.refresh.CommonProgressBar
+    <com.sugar.library.ui.widget.refresh.CommonProgressBar
         android:id="@+id/progress_cpb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

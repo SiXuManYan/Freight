@@ -4,24 +4,15 @@ import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
-import android.content.Intent
-import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.annotation.IdRes
-import androidx.fragment.app.Fragment
 
 import com.blankj.utilcode.util.*
 import com.sugar.library.R
-import com.sugar.library.ui.view.dialog.AlertDialog
+import com.sugar.library.ui.widget.dialog.AlertDialog
 
 import com.tbruyelle.rxpermissions2.RxPermissions
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import java.io.File
 import java.math.BigDecimal
 import java.util.*
 import kotlin.collections.ArrayList

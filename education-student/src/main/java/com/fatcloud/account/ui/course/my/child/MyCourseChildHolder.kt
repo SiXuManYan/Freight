@@ -14,7 +14,7 @@ import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.BaseItemViewHolder
 import com.sugar.library.frames.glides.RoundTransFormation
-import com.sugar.library.ui.view.countdown.CountDownTextView
+import com.sugar.library.ui.widget.countdown.CountDownTextView
 import com.sugar.library.util.Constants
 import com.sugar.library.util.TimeUtil
 import kotlinx.android.extensions.LayoutContainer

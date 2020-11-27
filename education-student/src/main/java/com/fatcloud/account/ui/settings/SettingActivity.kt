@@ -13,7 +13,7 @@ import com.fatcloud.account.frames.network.Html5Url
 import com.fatcloud.account.ui.account.WelcomeActivity
 import com.fatcloud.account.ui.order.list.OrderActivity
 import com.fatcloud.account.ui.settings.child.WebFragment
-import com.sugar.library.ui.view.dialog.AlertDialog
+import com.sugar.library.ui.widget.dialog.AlertDialog
 import com.sugar.library.util.CommonUtils
 import kotlinx.android.synthetic.main.activity_my_order.*
 

@@ -15,8 +15,8 @@ import com.fatcloud.account.storage.entity.User
 import com.fatcloud.account.ui.account.login.LoginActivity
 import com.sugar.library.frames.network.response.BaseView
 import com.sugar.library.frames.network.response.LibraryBasePresenter
-import com.sugar.library.ui.view.dialog.AlertDialog
-import com.sugar.library.ui.view.dialog.LoadingDialog
+import com.sugar.library.ui.widget.dialog.AlertDialog
+import com.sugar.library.ui.widget.dialog.LoadingDialog
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import dagger.android.support.DaggerFragment

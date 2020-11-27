@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.blankj.utilcode.util.ToastUtils
 import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.frames.network.response.BaseView
-import com.sugar.library.ui.view.dialog.AlertDialog
+import com.sugar.library.ui.widget.dialog.AlertDialog
 import com.sugar.library.util.Constants
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector

@@ -26,7 +26,7 @@ import com.fatcloud.account.ui.task.lists.TaskContainerActivity
 import com.fatcloud.account.ui.task.lists.frgm.TaskFragment
 import com.fatcloud.account.ui.tests.my.MyTestActivity
 import com.fatcloud.account.ui.user.UserActivity
-import com.sugar.library.ui.view.CircleImageView
+import com.sugar.library.ui.widget.CircleImageView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import io.reactivex.functions.Consumer

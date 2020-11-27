@@ -3,7 +3,7 @@ package com.fatcloud.account.ui.task.book
 import android.Manifest
 import com.blankj.utilcode.util.ToastUtils
 import com.fatcloud.account.R
-import com.fatcloud.account.file.FileDisplayActivity
+import com.fatcloud.account.common.file.FileDisplayActivity
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.frames.entity.BookDetail
 import com.sugar.library.util.Constants

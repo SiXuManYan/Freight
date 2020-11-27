@@ -103,7 +103,7 @@
         android:textSize="@dimen/sp18" />
 
 
-    <com.sugar.library.ui.view.countdown.CountDownTextView
+    <com.sugar.library.ui.widget.countdown.CountDownTextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp45"
         android:layout_alignParentBottom="true"

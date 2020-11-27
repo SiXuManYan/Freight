@@ -13,8 +13,8 @@ import com.fatcloud.account.frames.network.ApiService
 import com.fatcloud.account.frames.pushs.NotificationUtil
 import com.fatcloud.account.storage.CloudDataBase
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
-import com.sugar.library.ui.view.refresh.CommonSmartAnimRefreshHeaderView
-import com.sugar.library.ui.view.refresh.CommonSmartRefreshFooter
+import com.sugar.library.ui.widget.refresh.CommonSmartAnimRefreshHeaderView
+import com.sugar.library.ui.widget.refresh.CommonSmartRefreshFooter
 import com.tencent.smtt.export.external.TbsCoreSettings
 import com.tencent.smtt.sdk.QbSdk
 import dagger.android.AndroidInjector

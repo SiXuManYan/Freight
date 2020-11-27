@@ -153,6 +153,7 @@ dependencies {
 
     api 'com.tencent.tbs.tbssdk:sdk:43939'
 
+    api 'com.github.eschao:android-PageFlip:1.0.2'
 
 
 

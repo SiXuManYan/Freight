@@ -11,7 +11,7 @@ import com.fatcloud.account.R
 import com.fatcloud.account.frames.entity.home.Course
 import com.fatcloud.account.frames.entity.home.CourseState
 import com.sugar.library.frames.BaseItemViewHolder
-import com.sugar.library.ui.view.countdown.CountDownTextView
+import com.sugar.library.ui.widget.countdown.CountDownTextView
 import com.sugar.library.util.TimeUtil
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_class_experience.*

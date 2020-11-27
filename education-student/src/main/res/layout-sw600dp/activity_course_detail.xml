@@ -57,19 +57,19 @@
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
-                    <com.sugar.library.ui.view.CircleImageView
+                    <com.sugar.library.ui.widget.CircleImageView
                         android:layout_width="@dimen/dp25"
                         android:layout_height="@dimen/dp25"
                         android:layout_marginEnd="@dimen/dp5"
                         android:src="@mipmap/ic_launcher_round" />
 
-                    <com.sugar.library.ui.view.CircleImageView
+                    <com.sugar.library.ui.widget.CircleImageView
                         android:layout_width="@dimen/dp25"
                         android:layout_height="@dimen/dp25"
                         android:layout_marginEnd="@dimen/dp5"
                         android:src="@mipmap/ic_launcher_round" />
 
-                    <com.sugar.library.ui.view.CircleImageView
+                    <com.sugar.library.ui.widget.CircleImageView
                         android:layout_width="@dimen/dp25"
                         android:layout_height="@dimen/dp25"
                         android:layout_marginEnd="@dimen/dp5"

@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content">
 
 
-                <com.sugar.library.ui.view.CircleImageView
+                <com.sugar.library.ui.widget.CircleImageView
                     android:id="@+id/avatar_civ"
                     android:layout_width="@dimen/dp55"
                     android:layout_height="@dimen/dp55"

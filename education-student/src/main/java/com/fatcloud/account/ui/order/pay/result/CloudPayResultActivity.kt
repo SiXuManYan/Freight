@@ -7,7 +7,7 @@ import com.fatcloud.account.ui.main.MainActivity
 import com.fatcloud.account.R
 import com.fatcloud.account.frames.components.BaseActivity
 import com.fatcloud.account.ui.order.list.OrderActivity
-import com.sugar.library.ui.view.dialog.AlertDialog
+import com.sugar.library.ui.widget.dialog.AlertDialog
 import com.sugar.library.util.CommonUtils
 
 /**

@@ -15,10 +15,10 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
-import com.sugar.library.ui.view.refresh.NoMoreItemView
-import com.sugar.library.ui.view.refresh.footer.EmptyImageFooter
-import com.sugar.library.ui.view.refresh.footer.EmptyLoadingFooter
-import com.sugar.library.ui.view.refresh.footer.EmptyRetryFooter
+import com.sugar.library.ui.widget.refresh.NoMoreItemView
+import com.sugar.library.ui.widget.refresh.footer.EmptyImageFooter
+import com.sugar.library.ui.widget.refresh.footer.EmptyLoadingFooter
+import com.sugar.library.ui.widget.refresh.footer.EmptyRetryFooter
 
 /**
  * 列表Fragment基类

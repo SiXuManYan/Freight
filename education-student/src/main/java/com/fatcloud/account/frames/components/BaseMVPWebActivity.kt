@@ -5,13 +5,13 @@ import android.text.TextUtils
 import android.view.View
 import com.blankj.utilcode.util.RegexUtils
 import com.fatcloud.account.R
-import com.sugar.library.ui.view.error.AccidentView
+import com.sugar.library.ui.widget.error.AccidentView
 import com.google.gson.JsonParser
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener
 import com.scwang.smart.refresh.layout.listener.ScrollBoundaryDecider
 import com.sugar.library.frames.network.response.LibraryBasePresenter
-import com.sugar.library.ui.view.web.JsWebView
+import com.sugar.library.ui.widget.web.JsWebView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import com.tencent.smtt.export.external.interfaces.SslError

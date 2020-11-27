@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.sugar.library.ui.view.web.JsWebView
+    <com.sugar.library.ui.widget.web.JsWebView
         android:id="@+id/js_wb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

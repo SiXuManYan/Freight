@@ -18,10 +18,10 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.frames.network.response.list.BaseNoJsonListView2
-import com.sugar.library.ui.view.refresh.NoMoreItemView
-import com.sugar.library.ui.view.refresh.footer.EmptyImageFooter
-import com.sugar.library.ui.view.refresh.footer.EmptyLoadingFooter
-import com.sugar.library.ui.view.refresh.footer.EmptyRetryFooter
+import com.sugar.library.ui.widget.refresh.NoMoreItemView
+import com.sugar.library.ui.widget.refresh.footer.EmptyImageFooter
+import com.sugar.library.ui.widget.refresh.footer.EmptyLoadingFooter
+import com.sugar.library.ui.widget.refresh.footer.EmptyRetryFooter
 import com.sugar.library.util.CommonUtils
 import kotlinx.android.synthetic.main.activity_refresh_list2.*
 import java.util.*

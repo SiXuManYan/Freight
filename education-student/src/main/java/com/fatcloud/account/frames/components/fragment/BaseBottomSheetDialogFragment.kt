@@ -14,7 +14,7 @@ import com.fatcloud.account.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.frames.network.response.BaseView
-import com.sugar.library.ui.view.dialog.LoadingDialog
+import com.sugar.library.ui.widget.dialog.LoadingDialog
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import dagger.android.DispatchingAndroidInjector

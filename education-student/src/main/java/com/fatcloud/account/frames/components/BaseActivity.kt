@@ -21,7 +21,7 @@ import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ScreenUtils
 import com.fatcloud.account.ui.webs.WebCommonActivity
 import com.sugar.library.R
-import com.sugar.library.ui.view.dialog.LoadingDialog
+import com.sugar.library.ui.widget.dialog.LoadingDialog
 import com.sugar.library.util.Constants
 
 
