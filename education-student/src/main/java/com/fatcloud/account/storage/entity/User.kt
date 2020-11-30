@@ -32,7 +32,7 @@ class User {
 
         fun isLogon(): Boolean {
             val isLogin = CommonUtils.getShareStudent().getBoolean(Constants.SP_LOGIN)
-            if (!isLogin ) {
+            if (!isLogin) {
                 clearAll()
                 return false
             }
@@ -55,7 +55,7 @@ class User {
             instance = null
         }
 
-        fun getDeviceId():String{
+        fun getDeviceId(): String {
             return CommonUtils.getShareStudent().getString(Constants.SP_PUSH_DEVICE_ID, "")
         }
 
@@ -103,6 +103,18 @@ class User {
     var stage = ""
 
     /**
+     * S7
+     */
+    @ColumnInfo(name = "stage_value")
+    var stageValue = ""
+
+    /**
+     * 小学六年级水平
+     */
+    @ColumnInfo(name = "stage_text")
+    var stageText = ""
+
+    /**
      * M-男
      * F-女
      */
@@ -112,7 +124,7 @@ class User {
     /**
      * 头像
      */
-    @ColumnInfo(name = "headImg")
+    @ColumnInfo(name = "head_image")
     var headImg = ""
 
     /**
@@ -121,7 +133,23 @@ class User {
     @ColumnInfo(name = "birthday")
     var birthday = ""
 
+    /**
+     * STUDENT-学生
+     */
+    @ColumnInfo(name = "type")
+    var type = ""
 
+    /**
+     * STUDENT
+     */
+    @ColumnInfo(name = "type_value")
+    var typeValue = ""
+
+    /**
+     * 学生
+     */
+    @ColumnInfo(name = "type_text")
+    var typeText = ""
 
 
 }

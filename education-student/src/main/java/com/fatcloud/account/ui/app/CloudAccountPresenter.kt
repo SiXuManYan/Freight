@@ -14,6 +14,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ThreadUtils
 import com.blankj.utilcode.util.Utils
+import com.fatcloud.account.frames.entity.AppCommon
 import com.fatcloud.account.frames.entity.SecurityTokenModel
 import com.fatcloud.account.frames.network.ApiService
 import com.sugar.library.BuildConfig
@@ -308,6 +309,26 @@ class CloudAccountPresenter(val view: CloudAccountView) {
         // 等异步上传过程完成
         task.waitUntilFinished();
 
+    }
+
+
+    /**
+     * 获取 token
+     * @param objectName 文件路径
+     * @param isEncryptFile 是否为加密文件
+     */
+    fun requestCommon(context: Context) {
+
+        addSubscribe(
+            apiService.reserveCourse().compose(flowableUICompose())
+                .subscribeWith(object : BaseHttpSubscriber<AppCommon>(view) {
+                    override fun onSuccess(data: AppCommon?) {
+                        if (data!=null) {
+                            view.saveCommonConfig(data)
+                        }
+                    }
+                })
+        )
     }
 
 

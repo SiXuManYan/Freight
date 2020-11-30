@@ -42,6 +42,7 @@
 
 
             <TextView
+                android:id="@+id/basic_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/user_name_tv"
@@ -52,7 +53,7 @@
                 android:paddingTop="2dp"
                 android:paddingRight="4dp"
                 android:paddingBottom="2dp"
-                android:text="英语等级 4级"
+                android:text="@string/english_level_format"
                 android:textColor="@color/color_third_level"
                 android:textSize="@dimen/font_size_14" />
 

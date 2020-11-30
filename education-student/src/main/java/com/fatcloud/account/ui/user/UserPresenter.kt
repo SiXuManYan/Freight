@@ -15,10 +15,14 @@ import com.fatcloud.account.frames.entity.request.SetUserInfo
 import com.fatcloud.account.frames.network.response.BasePresenter
 import com.fatcloud.account.storage.entity.User
 import com.google.gson.JsonElement
+import com.sugar.library.event.Event
+import com.sugar.library.event.RxBus
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.sugar.library.util.Common
+import com.sugar.library.util.Constants
 import com.sugar.library.util.PermissionUtils
 import java.io.File
+import java.util.ArrayList
 import javax.inject.Inject
 
 /**
@@ -79,31 +83,36 @@ class UserPresenter @Inject constructor(private var view: UserView) : BasePresen
         mBirthday: String,
         mEnglishBasis: String
     ) {
-        if (mAvatarUrl.isBlank() && mNameChinese.isBlank() && mNameEnglish.isBlank() && mBirthday.isBlank() && mEnglishBasis.isBlank()) {
-            view.setUserInfoSuccess()
-            return
-        }
+//        if (mAvatarUrl.isBlank() && mNameChinese.isBlank() && mNameEnglish.isBlank() && mBirthday.isBlank() && mEnglishBasis.isBlank()) {
+//            return
+//        }
 
         val apply = SetUserInfo().apply {
-
             headImg = mAvatarUrl
-            name = "啊啊啊"
-            enName = "james"
-            birthday = "2020-10-11"
-            stage = "S7"
+            name = mNameChinese
+            enName = mNameEnglish
+            birthday = mBirthday
+            stage = mEnglishBasis
+            phone = User.get().username
         }
-
 
         requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
 
             apiService.setUserInfo(apply), object : BaseHttpSubscriber<JsonElement>(view) {
                 override fun onSuccess(data: JsonElement?) {
                     ToastUtils.showShort("设置成功")
+                    val user = User.get().apply {
+                        this.headImg = mAvatarUrl
+                        this.name = mNameChinese
+                        this.enName = mNameEnglish
+                        this.birthday = mBirthday
+                        this.birthday = mBirthday
+                        this.stageValue = mEnglishBasis
+                    }
+                    database.userDao().updateUser(user)
                     view.setUserInfoSuccess()
+                    RxBus.post(Event(Constants.EVENT_UPDATE_USER_INFO))
                 }
-
-
-
             }
         )
 
@@ -111,6 +120,19 @@ class UserPresenter @Inject constructor(private var view: UserView) : BasePresen
 
     fun updateUser(user: User) {
         database.userDao().updateUser(user)
+    }
+
+    fun getStages(): ArrayList<String> {
+        val stages = ArrayList<String>()
+        stages.add("S0-无基础")
+        stages.add("S1-有点基础")
+        stages.add("S2-小学一年级水平")
+        stages.add("S3-小学二年级水平")
+        stages.add("S4-小学三年级水平")
+        stages.add("S5-小学四年级水平")
+        stages.add("S6-小学五年级水平")
+        stages.add("S7-小学六年级水平")
+        return stages
     }
 
 

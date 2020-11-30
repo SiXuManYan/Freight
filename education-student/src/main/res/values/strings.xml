@@ -235,6 +235,9 @@
     <string name="friday">周五</string>
     <string name="saturday">周六</string>
     <string name="book_list">书籍列表</string>
+    <string name="select_birthday">请选择生日</string>
+    <string name="select_basis">请选择基础</string>
+    <string name="english_level_format">英语等级 %1$s级</string>
 
 
 </resources>

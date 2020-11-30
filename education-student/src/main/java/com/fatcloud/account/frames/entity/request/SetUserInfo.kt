@@ -21,8 +21,8 @@ class SetUserInfo {
     var name: String = ""
     var enName: String = ""
     var birthday: String = ""
-    var sex: String = "M"
     var stage: String = ""
-    var phone: String = "17640339671"
+    var sex: String = "M"
+    var phone: String = ""
 
 }

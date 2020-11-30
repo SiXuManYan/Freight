@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import butterknife.OnClick
 import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
@@ -16,7 +17,7 @@ import com.fatcloud.account.R
 import com.fatcloud.account.common.OssUtil
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
-import com.fatcloud.account.storage.CloudDataBase
+import com.fatcloud.account.frames.entity.AppCommon
 import com.fatcloud.account.storage.entity.User
 import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -30,7 +31,6 @@ import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_user.*
 import java.io.File
 import java.util.*
-import javax.inject.Inject
 
 /**
  * Created by Wangsw on 2020/10/8 0008 16:27.
@@ -48,6 +48,8 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
     private var mEnglishBasis = ""
 
 
+    var stages = ArrayList<String>()
+
     override fun getLayoutId() = R.layout.activity_user
 
     override fun showLoading() = showLoadingDialog()
@@ -56,10 +58,9 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
 
     override fun initViews() {
         setMainTitle(R.string.user_detail_title)
-        initAvatar()
+        initCache()
         initEvent()
     }
-
 
 
     private fun initEvent() {
@@ -69,27 +70,48 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
                 return@Consumer
             }
             mAvatarUrl = it.finalUrl
-
-
-
             val user = User.get().apply {
-                headImg =  it.finalUrl
+                headImg = it.finalUrl
             }
             presenter.updateUser(user)
         })
 
     }
 
-    private fun initAvatar() {
-        val headUrl = User.get().headImg
-        if (headUrl.isBlank()) {
-            return
+    private fun initCache() {
+        val app = application as CloudAccountApplication
+//
+        if (app.data != null) {
+            stages = app.data!!.stages
+        } else {
+            stages = presenter.getStages()
         }
-        OssUtil.getRealOssUrl(this, headUrl, object : CloudAccountApplication.OssSignCallBack {
-            override fun ossUrlSignEnd(url: String) {
-                Glide.with(context!!).load(url).error(R.drawable.ic_sliding_avatar).into(avatar_civ)
-            }
-        })
+
+
+        // 头像
+        val user = User.get()
+        mAvatarUrl = user.headImg
+        if (mAvatarUrl.isNotBlank()) {
+            OssUtil.getRealOssUrl(this, mAvatarUrl, object : CloudAccountApplication.OssSignCallBack {
+                override fun ossUrlSignEnd(url: String) {
+                    Glide.with(context!!).load(url).error(R.drawable.ic_sliding_avatar).into(avatar_civ)
+                }
+            })
+        }
+
+        // 名字
+        mNameChinese = user.name
+        chinese_name_et.setText(mNameChinese)
+
+        mNameEnglish = user.enName
+        english_name_et.setText(mNameEnglish)
+
+        mBirthdayString = user.birthday
+        birthday_tv.text = mBirthdayString
+
+        mEnglishBasis = user.stageValue
+        english_basis_tv.text = user.stageText
+
 
     }
 
@@ -108,7 +130,8 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
     @OnClick(
         R.id.avatar_rl,
         R.id.birthday_rl,
-        R.id.commit_tv
+        R.id.commit_tv,
+        R.id.english_basis_rl
     )
     fun onClick(view: View) {
         if (CommonUtils.isDoubleClick(view)) {
@@ -122,7 +145,12 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
                 selectBirthday()
             }
             R.id.commit_tv -> {
+                mNameChinese = chinese_name_et.text.toString()
+                mNameEnglish = english_name_et.text.toString()
                 presenter.setUserInfo(this, mAvatarUrl, mNameChinese, mNameEnglish, mBirthdayString, mEnglishBasis)
+            }
+            R.id.english_basis_rl -> {
+                showSingleChoiceDialog(stages.toTypedArray())
             }
             else -> {
 
@@ -218,6 +246,22 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
 
         }, mYear, mMonth, mDay)
         datePickerDialog.show()
+    }
+
+    var yourChoice = 0
+    private fun showSingleChoiceDialog(items: Array<String>) {
+        yourChoice = 0
+        val singleChoiceDialog: AlertDialog.Builder = AlertDialog.Builder(this)
+        singleChoiceDialog.setTitle(getString(R.string.select_basis))
+        singleChoiceDialog.setSingleChoiceItems(items, 0) { _, which ->
+            yourChoice = which
+        }
+        singleChoiceDialog.setPositiveButton(R.string.confirm) { _, _ ->
+            val choice = items[yourChoice]
+            mEnglishBasis = choice.substring(0, 2)
+            english_basis_tv.text = choice
+        }
+        singleChoiceDialog.show()
     }
 
 

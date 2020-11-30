@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
@@ -75,6 +76,10 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                 Constants.EVENT_UPDATE_PUSH_DEVICE_ID -> {
                     presenter.updatePushDeviceId(this, it.content!!)
                 }
+
+                Constants.EVENT_UPDATE_USER_INFO -> {
+                    initHeaderView()
+                }
                 else -> {
                 }
             }
@@ -101,22 +106,22 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         if (header == null) {
             return
         }
-        header.findViewById<CircleImageView>(R.id.avatar_iv).setOnClickListener {
-            startActivity(UserActivity::class.java)
 
-
-//            val list  = ArrayList<String>()
-//            list.add("https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2870405105,1377151161&fm=26&gp=0.jpg")
-//            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
-//            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
-//            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
-//
-//            startActivity( SampleActivity::class.java, Bundle().apply {
-//                putStringArrayList(Constants.PARAM_IMAGE_URL,list)
-//            })
-
-
+        val user = User.get()
+        val avatar = header.findViewById<CircleImageView>(R.id.avatar_iv)
+        if (user.headImg.isNotBlank()) {
+            OssUtil.getRealOssUrl(this, user.headImg, object : CloudAccountApplication.OssSignCallBack {
+                override fun ossUrlSignEnd(url: String) {
+                    Glide.with(this@MainActivity).load(url).into(avatar)
+                }
+            })
         }
+        avatar.setOnClickListener {
+            startActivity(UserActivity::class.java)
+        }
+
+        header.findViewById<TextView>(R.id.user_name_tv).text = user.name
+        header.findViewById<TextView>(R.id.basic_tv).text = getString(R.string.english_level_format, user.stageValue)
         header.findViewById<RelativeLayout>(R.id.menu_my_course).setOnClickListener {
             startActivity(MyCourseActivity::class.java)
         }

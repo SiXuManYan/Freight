@@ -9,6 +9,7 @@ import androidx.multidex.MultiDex
 import com.blankj.utilcode.util.LogUtils
 import com.didichuxing.doraemonkit.DoraemonKit
 import com.fatcloud.account.frames.dagger.comment.DaggerAppComponent
+import com.fatcloud.account.frames.entity.AppCommon
 import com.fatcloud.account.frames.network.ApiService
 import com.fatcloud.account.frames.pushs.NotificationUtil
 import com.fatcloud.account.storage.CloudDataBase
@@ -49,6 +50,7 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
 
     override fun onCreate() {
         super.onCreate()
+        presenter.requestCommon(this)
         registerActivityLifecycleCallbacks(this)
         DoraemonKit.install(this,"785a6de631aec3158d22b2954ebae1d7")
         NotificationUtil.initCloudChannel(this)
@@ -79,6 +81,14 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
     override fun onActivityStarted(activity: Activity?) = Unit
 
     override fun showError(code: Int, message: String) = Unit
+
+    public  var data: AppCommon? = null
+
+    override fun saveCommonConfig(data: AppCommon) {
+        this.data = data
+    }
+
+
 
     /*  公用网络请求   */
 

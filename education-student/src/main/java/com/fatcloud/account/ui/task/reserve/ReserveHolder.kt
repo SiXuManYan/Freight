@@ -75,8 +75,6 @@ class ReserveHolder(parent: ViewGroup?) : BaseItemViewHolder<Buddy>(parent, R.la
             }
         }
         singleChoiceDialog.show()
-
-
     }
 
 
