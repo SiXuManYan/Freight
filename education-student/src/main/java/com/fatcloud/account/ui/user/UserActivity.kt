@@ -16,6 +16,7 @@ import com.fatcloud.account.R
 import com.fatcloud.account.common.OssUtil
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
+import com.fatcloud.account.storage.CloudDataBase
 import com.fatcloud.account.storage.entity.User
 import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -29,6 +30,7 @@ import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_user.*
 import java.io.File
 import java.util.*
+import javax.inject.Inject
 
 /**
  * Created by Wangsw on 2020/10/8 0008 16:27.
@@ -44,6 +46,7 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
     private var mNameEnglish = ""
     private var mBirthdayString = ""
     private var mEnglishBasis = ""
+
 
     override fun getLayoutId() = R.layout.activity_user
 
@@ -66,6 +69,13 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
                 return@Consumer
             }
             mAvatarUrl = it.finalUrl
+
+
+
+            val user = User.get().apply {
+                headImg =  it.finalUrl
+            }
+            presenter.updateUser(user)
         })
 
     }

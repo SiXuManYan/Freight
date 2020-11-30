@@ -9,6 +9,7 @@ import com.fatcloud.account.R
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.get_verify_tv
@@ -44,8 +45,7 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
     }
 
     override fun initViews() {
-
-
+        phone_aet.setText( CommonUtils.getShareStudent().getString(Constants.SP_LAST_LOGIN_USER, ""))
     }
 
 

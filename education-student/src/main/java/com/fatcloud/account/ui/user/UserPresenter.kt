@@ -13,6 +13,7 @@ import com.fatcloud.account.BuildConfig
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.entity.request.SetUserInfo
 import com.fatcloud.account.frames.network.response.BasePresenter
+import com.fatcloud.account.storage.entity.User
 import com.google.gson.JsonElement
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 import com.sugar.library.util.Common
@@ -68,6 +69,7 @@ class UserPresenter @Inject constructor(private var view: UserView) : BasePresen
 
     /**
      * 获取验证码
+     *
      */
     fun setUserInfo(
         lifecycle: LifecycleOwner,
@@ -97,16 +99,18 @@ class UserPresenter @Inject constructor(private var view: UserView) : BasePresen
             apiService.setUserInfo(apply), object : BaseHttpSubscriber<JsonElement>(view) {
                 override fun onSuccess(data: JsonElement?) {
                     ToastUtils.showShort("设置成功")
-//                    view.setUserInfoSuccess()
+                    view.setUserInfoSuccess()
                 }
 
-                override fun onError(e: Throwable) {
-                    ToastUtils.showShort("设置失败")
-                }
+
 
             }
         )
 
+    }
+
+    fun updateUser(user: User) {
+        database.userDao().updateUser(user)
     }
 
 

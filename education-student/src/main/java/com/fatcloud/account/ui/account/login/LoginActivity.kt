@@ -60,6 +60,7 @@ class LoginActivity : BaseMVPActivity<LoginPresenter>(), LoginView {
     private fun initLoginMode() {
 
 
+        phone_aet.setText( CommonUtils.getShareStudent().getString(Constants.SP_LAST_LOGIN_USER, ""))
 
         // 用户协议
         register_protocol.movementMethod = LinkMovementMethod.getInstance()

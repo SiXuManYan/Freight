@@ -118,7 +118,8 @@ class CloudAccountPresenter(val view: CloudAccountView) {
                         data?.let {
                             val runnable = Runnable {
                                 // 节点
-                                val endpoint = BuildConfig.OSS_END_POINT
+//                                val endpoint = BuildConfig.OSS_END_POINT
+                                val endpoint = it.Endpoint
 
                                 val credentialProvider: OSSCredentialProvider =
                                     OSSStsTokenCredentialProvider(it.AccessKeyId, it.AccessKeySecret, it.SecurityToken)
@@ -130,7 +131,8 @@ class CloudAccountPresenter(val view: CloudAccountView) {
                                     maxErrorRetry = 2               // 失败后最大重试次数，默认2次
                                 }
 
-                                val oss: OSS = OSSClient(context, "https://$endpoint", credentialProvider, conf)
+//                                val oss: OSS = OSSClient(context, "https://$endpoint", credentialProvider, conf)
+                                val oss: OSS = OSSClient(context, endpoint, credentialProvider, conf)
 
                                 val url: String = oss.presignConstrainedObjectURL(it.AccessBucketName, objectKey, 30 * 60)
                                 ThreadUtils.runOnUiThread {
@@ -177,7 +179,8 @@ class CloudAccountPresenter(val view: CloudAccountView) {
     fun uploadResources(context: Context, stsModel: SecurityTokenModel, localFilePatch: String, @IdRes fromViewId: Int, clx: Class<*>) {
 
         // 节点
-        val endpoint = BuildConfig.OSS_END_POINT
+//        val endpoint = BuildConfig.OSS_END_POINT
+        val endpoint = stsModel.Endpoint
 
         // bucketName
         val imageBucketName = stsModel.AccessBucketName
@@ -203,7 +206,8 @@ class CloudAccountPresenter(val view: CloudAccountView) {
 
         //初始化OSS服务的客户端oss
         //事实上，初始化OSS的实例对象，应该具有与整个应用程序相同的生命周期，在应用程序生命周期结束时销毁
-        val oss: OSS = OSSClient(context, "https://$endpoint", credentialProvider, conf)
+//        val oss: OSS = OSSClient(context, "https://$endpoint", credentialProvider, conf)
+        val oss: OSS = OSSClient(context, endpoint, credentialProvider, conf)
 
         // 构造上传请求,第二个数参是ObjectName，第三个参数是本地文件路径
         val put = PutObjectRequest(imageBucketName, imageObjectKey, localFilePatch)
@@ -261,7 +265,8 @@ class CloudAccountPresenter(val view: CloudAccountView) {
     fun uploadRecord(context: Context, stsModel: SecurityTokenModel, localFilePatch: String, position: Int) {
 
         // 节点
-        val endpoint = BuildConfig.OSS_END_POINT
+//        val endpoint = BuildConfig.OSS_END_POINT
+        val endpoint =stsModel.Endpoint
 
         // bucketName
         val imageBucketName = stsModel.AccessBucketName
@@ -280,7 +285,8 @@ class CloudAccountPresenter(val view: CloudAccountView) {
         val conf = ClientConfiguration()
 
 
-        val oss: OSS = OSSClient(context, "https://$endpoint", credentialProvider, conf)
+//        val oss: OSS = OSSClient(context, "https://$endpoint", credentialProvider, conf)
+        val oss: OSS = OSSClient(context, endpoint, credentialProvider, conf)
 
         val put = PutObjectRequest(imageBucketName, imageObjectKey, localFilePatch)
         put.progressCallback = OSSProgressCallback<PutObjectRequest> { request, currentSize, totalSize ->

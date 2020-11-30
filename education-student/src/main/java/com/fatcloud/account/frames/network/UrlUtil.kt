@@ -42,6 +42,7 @@ object UrlUtil {
     val URL_LIST =
 
         listOf(
+//            Pair("开发服", Pair("http://192.168.1.111:52001", "https://www.baidu.com")),
             Pair("开发服", Pair("http://192.168.1.191:52001", "https://www.baidu.com")),
             Pair("正式服", Pair("https://api-cloudaccount.ftacloud.com", "https://www.baidu.com"))
         )

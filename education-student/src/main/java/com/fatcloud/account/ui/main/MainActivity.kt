@@ -10,10 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.bumptech.glide.Glide
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.fatcloud.account.R
+import com.fatcloud.account.common.OssUtil
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
+import com.fatcloud.account.storage.entity.User
+import com.fatcloud.account.ui.account.register.RegisterActivity
+import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.fatcloud.account.ui.course.my.MyCourseActivity
 import com.fatcloud.account.ui.course.my.pad.MyCoursePadFragment
 import com.fatcloud.account.ui.course.schedule.ClassScheduleActivity
@@ -27,6 +32,7 @@ import com.fatcloud.account.ui.task.lists.TaskContainerActivity
 import com.fatcloud.account.ui.task.lists.frgm.TaskFragment
 import com.fatcloud.account.ui.tests.my.MyTestActivity
 import com.fatcloud.account.ui.user.UserActivity
+import com.sugar.library.event.ImageUploadEvent
 import com.sugar.library.ui.widget.CircleImageView
 import com.sugar.library.ui.widget.pagefilp.SampleActivity
 import com.sugar.library.util.CommonUtils
@@ -73,6 +79,20 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                 }
             }
         })
+
+        presenter.subsribeEventEntity<ImageUploadEvent>(Consumer {
+            if (it.formWhichClass == UserActivity::class.java && avatar_iv != null) {
+                OssUtil.getRealOssUrl(this, it.finalUrl, object : CloudAccountApplication.OssSignCallBack {
+                    override fun ossUrlSignEnd(url: String) {
+                        Glide.with(this@MainActivity).load(url).into(avatar_iv)
+                    }
+                })
+            }
+
+
+        })
+
+
     }
 
     private fun initHeaderView() {
@@ -82,19 +102,18 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
             return
         }
         header.findViewById<CircleImageView>(R.id.avatar_iv).setOnClickListener {
-//            startActivity(UserActivity::class.java)
+            startActivity(UserActivity::class.java)
 
 
-            val list  = ArrayList<String>()
-            list.add("https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2870405105,1377151161&fm=26&gp=0.jpg")
-            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
-            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
-            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
-
-            startActivity( SampleActivity::class.java, Bundle().apply {
-                putStringArrayList(Constants.PARAM_IMAGE_URL,list)
-            })
-
+//            val list  = ArrayList<String>()
+//            list.add("https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2870405105,1377151161&fm=26&gp=0.jpg")
+//            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
+//            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
+//            list.add("https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1971737642,3820406609&fm=26&gp=0.jpg")
+//
+//            startActivity( SampleActivity::class.java, Bundle().apply {
+//                putStringArrayList(Constants.PARAM_IMAGE_URL,list)
+//            })
 
 
         }
