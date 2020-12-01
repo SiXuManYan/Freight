@@ -111,8 +111,6 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
 
         mEnglishBasis = user.stageValue
         english_basis_tv.text = user.stageText
-
-
     }
 
     override fun onShootingPermissionResult(uri: Uri?) {

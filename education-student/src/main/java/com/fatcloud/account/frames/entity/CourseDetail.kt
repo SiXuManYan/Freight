@@ -9,6 +9,14 @@ import java.io.Serializable
  */
 class CourseDetail : Serializable {
 
+    companion object {
+
+        var UNACTIVE = "UNACTIVE"
+        var BOOKING = "BOOKING"
+
+    }
+
+
     var scheduleId: String = ""
 
     var courseId: String = ""
@@ -28,6 +36,22 @@ class CourseDetail : Serializable {
     var studentHeadImgs = ArrayList<String>()
 
     var countdownEndTimeSeconds: String = ""
+
+    /**
+     * UNACTIVE-未激活
+     * BOOKING-预约中
+     */
+    var state: String = ""
+
+    /**
+     * UNACTIVE
+     */
+    var stateValue: String = ""
+
+    /**
+     * 未激活
+     */
+    var stateText: String = ""
 
 
     var payingMoney: String = ""
@@ -50,6 +74,13 @@ class CourseDetail : Serializable {
         "payingMoney": 10000,
         "productMoney": 12000
     }
+*/
+
+/*
+
+"state": "UNACTIVE-未激活",
+"stateValue": "UNACTIVE",
+"stateText": "未激活"
 */
 
 

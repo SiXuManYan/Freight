@@ -203,6 +203,7 @@ object Constants {
     const val EVENT_BOOK_SUCCESS = 0x110
     const val EVENT_UPDATE_PUSH_DEVICE_ID = 0x111
     const val EVENT_UPDATE_USER_INFO = 0x112
+    const val EVENT_BOOKING_EXPERIENCE_SUCCESS = 0x113
 
 
     // 列表数据 key

@@ -48,7 +48,8 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
     private fun initEvent() {
         presenter.subsribeEvent(Consumer {
             when (it.code) {
-                Constants.EVENT_REFRESH_MY_COURSE -> {
+                Constants.EVENT_REFRESH_MY_COURSE,
+                Constants.EVENT_BOOKING_EXPERIENCE_SUCCESS -> {
                     onRefresh()
                 }
                 else -> {

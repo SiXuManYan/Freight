@@ -1,6 +1,7 @@
 package com.fatcloud.account.ui.course.detail.experience
 
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -16,9 +17,13 @@ import com.fatcloud.account.frames.entity.home.HomeOrderExtra
 import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.fatcloud.account.ui.course.detail.experience.result.ReservationResultActivity
 import com.fatcloud.account.ui.order.pay.prepare.PayPrepareActivity
+import com.sugar.library.event.Event
+import com.sugar.library.event.RxBus
 import com.sugar.library.ui.widget.CircleImageView
+import com.sugar.library.ui.widget.countdown.CountDownTextView
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
+import com.sugar.library.util.TimeUtil
 import kotlinx.android.synthetic.main.activity_course_detail.*
 
 /**
@@ -36,6 +41,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
         val PAY = 1
     }
 
+    private var scheduleId: String? = null
     var homeOrderExtra: HomeOrderExtra? = null
     var type = 0
 
@@ -64,7 +70,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
 
     override fun bindData(it: CourseDetail) {
 
-
+        this.scheduleId = it.scheduleId
         student_container_ll.removeAllViews()
 
         it.studentHeadImgs.forEach {
@@ -112,10 +118,23 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             })
         }
         price_tv.text = getString(R.string.money_symbol_format, it.payingMoney)
+
+
+
+
+        if (it.stateText.contains(CourseDetail.UNACTIVE)) {
+            if (it.countdownEndTimeSeconds.isNotBlank()) {
+                initCountDown(TimeUtil.getSafeTime(it.countdownEndTimeSeconds))
+            }
+        } else if (it.stateText.contains(CourseDetail.BOOKING)) {
+            reservation_tv.isEnabled = false
+            reservation_tv.text = "预约中，请耐心等待"
+        }
     }
 
     override fun bookingExperienceSuccess() {
-        ToastUtils.showShort("预约成功")
+        startActivity(ReservationResultActivity::class.java)
+        RxBus.post(Event(Constants.EVENT_BOOKING_EXPERIENCE_SUCCESS))
     }
 
 
@@ -134,12 +153,45 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
                 })
             }
             R.id.reservation_tv -> {
-                startActivity(ReservationResultActivity::class.java)
+                presenter.bookingExperience(this, scheduleId!!)
             }
             else -> {
 
             }
         }
+    }
+
+
+    private fun initCountDown(endTime: Long) {
+        // 一天以外显示开课时间 ，一天以内倒计时，12分钟时刷新接口，15 分钟内显示进入教室(正在上课)，
+        if (endTime <= 0) {
+            return
+        }
+
+        val millisInFuture: Long = endTime - System.currentTimeMillis()
+        if (millisInFuture <= 0) {
+
+        } else {
+            count_down?.apply {
+                visibility = View.VISIBLE
+                cancel()
+                setTimeInFuture(SystemClock.elapsedRealtime() + millisInFuture)
+                setAutoDisplayText(true)
+                setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S);
+                start()
+                addCountDownCallback(object : CountDownTextView.CountDownCallback {
+                    override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
+
+                    }
+
+                    override fun onFinish(countDownTextView: CountDownTextView?) {
+                        reservation_tv.isEnabled = false
+                    }
+                })
+            }
+        }
+
+
     }
 
 }

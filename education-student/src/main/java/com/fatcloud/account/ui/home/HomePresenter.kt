@@ -120,9 +120,7 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
             val task = gson.fromJson<ArrayList<Task>>(data.get(taskOfCourseOuts), genericType<ArrayList<Task>>())
             parentList.addAll(task)
         }
-
         return parentList
-
     }
 
 
