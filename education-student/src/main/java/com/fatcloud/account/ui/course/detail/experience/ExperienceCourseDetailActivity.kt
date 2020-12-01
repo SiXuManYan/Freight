@@ -183,7 +183,6 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
                     override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
 
                     }
-
                     override fun onFinish(countDownTextView: CountDownTextView?) {
                         reservation_tv.isEnabled = false
                     }

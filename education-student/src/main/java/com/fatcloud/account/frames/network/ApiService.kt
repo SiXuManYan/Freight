@@ -224,7 +224,7 @@ interface ApiService {
      * 我的课程(已开课)
      */
     @POST("/api/student/quizzes/getResult")
-    fun getQuestionResult(@Body json: QuestionResultRequest): Flowable<Response<JsonObject>>
+    fun getQuestionResult(@Body json: QuestionResultRequest): Flowable<Response<TestScore>>
 
 
     /**

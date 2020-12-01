@@ -6,4 +6,17 @@ package com.fatcloud.account.frames.entity
  * 测试评分详情列表
  */
 class TestScore {
+
+    companion object {
+        val   UNSUBMITTED = "UNSUBMITTED"
+
+    }
+
+
+//    "state": "UNSUBMITTED-未提交",
+//    "stateValue": "UNSUBMITTED",
+//    "stateText": "未提交"
+
+    var stateValue =  ""
+
 }

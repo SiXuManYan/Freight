@@ -2,6 +2,7 @@ package com.fatcloud.account.ui.tests.score
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.fatcloud.account.frames.entity.TestScore
 import com.fatcloud.account.frames.entity.request.QuestionResultRequest
 import com.fatcloud.account.frames.network.response.BasePresenter
 import com.google.gson.JsonObject
@@ -22,15 +23,13 @@ class TestScorePresenter @Inject constructor(private var view: TestScoreView) : 
             quizzesOfStudentId = id
 
         }
-        requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY, apiService.getQuestionResult(apply), object : BaseHttpSubscriber<JsonObject>(view) {
+        requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY, apiService.getQuestionResult(apply), object : BaseHttpSubscriber<TestScore>(view) {
 
-            override fun onSuccess(data: JsonObject?) {
+            override fun onSuccess(data: TestScore?) {
                 if (data == null) {
                     return
                 }
-
-
-
+                view.bindView(data)
 
             }
         })

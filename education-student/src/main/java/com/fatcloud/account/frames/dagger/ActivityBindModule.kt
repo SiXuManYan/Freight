@@ -50,6 +50,8 @@ import com.fatcloud.account.ui.tests.my.MyTestActivity
 import com.fatcloud.account.ui.tests.my.MyTestModule
 import com.fatcloud.account.ui.tests.question.TestQuestionActivity
 import com.fatcloud.account.ui.tests.question.TestQuestionModule
+import com.fatcloud.account.ui.tests.score.TestScoreActivity
+import com.fatcloud.account.ui.tests.score.TestScoreModule
 import com.fatcloud.account.ui.user.UserActivity
 import com.fatcloud.account.ui.user.UserModule
 import com.fatcloud.account.ui.webs.WebCommonActivity
@@ -170,7 +172,9 @@ abstract class ActivityBindModule {
     @ContributesAndroidInjector(modules = [BookDetailModule::class])
     abstract fun a1(): BookDetailActivity
 
-
+    @ActivityScore
+    @ContributesAndroidInjector(modules = [TestScoreModule::class])
+    abstract fun a2(): TestScoreActivity
 
 
 }

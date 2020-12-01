@@ -36,9 +36,7 @@ class MyTestActivity : BaseMVPActivity<MyTestPresenter>(), MyTestView {
         }
         when (view.id) {
             R.id.test_sore_cv -> {
-                startActivity(TestScoreActivity::class.java, Bundle().apply {
-                    putString(Constants.PARAM_STUDENT_ID, User.get().id.toString())
-                })
+                startActivity(TestScoreActivity::class.java)
             }
             R.id.test_cv -> {
                 startActivity(TestQuestionActivity::class.java)

@@ -8,6 +8,8 @@ import com.fatcloud.account.frames.network.response.BasePresenter
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.sugar.library.frames.extend.genericType
+import com.sugar.library.util.CommonUtils
+import com.sugar.library.util.Constants
 import io.reactivex.functions.Function
 import io.reactivex.subscribers.ResourceSubscriber
 import javax.inject.Inject
@@ -65,7 +67,14 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
 
         // 基础测试
         if (data.has(quizzesOfStudentOuts)) {
-            parentList.addAll(gson.fromJson<ArrayList<Test>>(data.get(quizzesOfStudentOuts), genericType<ArrayList<Test>>()))
+            val elements = gson.fromJson<ArrayList<Test>>(data.get(quizzesOfStudentOuts), genericType<ArrayList<Test>>())
+            parentList.addAll(elements)
+            if (elements.isNotEmpty()) {
+                val quizzesOfStudentId = elements[0].quizzesOfStudentId
+                CommonUtils.getShareStudent().put(Constants.SP_QUIZZES_OF_STUDENT_ID,quizzesOfStudentId)
+            }
+
+
         }
 
         // 体验课
