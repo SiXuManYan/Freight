@@ -24,6 +24,7 @@ import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.FutureTarget;
+import com.sugar.library.R;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -184,7 +185,6 @@ public final class LoadBitmapTask implements Runnable {
      */
     public void set(int w, int h, int maxCached) {
 
-
         mIsLandscape = w > h;
 
         if (maxCached != mQueueMaxSize) {
@@ -200,16 +200,18 @@ public final class LoadBitmapTask implements Runnable {
      */
     private Bitmap getRandomBitmap(int number) {
 
+
         FutureTarget<Bitmap> futureBitmap = Glide.with(mContext)
                 .asBitmap()
-                .load(mImageUrls.get(number)).submit();
+                .placeholder(R.drawable.ic_net_error)
+                .fallback(R.drawable.ic_net_error)
+                .error(R.drawable.ic_net_error)
+                .load(mImageUrls.get(number)).submit(500,500);
         try {
             return futureBitmap.get();
         } catch (Exception e) {
             return null;
         }
-
-
     }
 
     /**

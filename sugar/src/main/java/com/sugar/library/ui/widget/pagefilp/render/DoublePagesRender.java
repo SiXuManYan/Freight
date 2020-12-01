@@ -202,6 +202,7 @@ public class DoublePagesRender extends PageRender {
 
         // 1. draw background bitmap
         Bitmap background = LoadBitmapTask.get(mContext).getBitmap(number);
+
         Rect rect = new Rect(0, 0, width, height);
         if (width > height) {
             mCanvas.rotate(90);
