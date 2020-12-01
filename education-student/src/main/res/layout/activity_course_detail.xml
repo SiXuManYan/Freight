@@ -271,7 +271,7 @@
         android:paddingEnd="@dimen/dp5"
         android:paddingBottom="@dimen/dp1"
         android:textColor="@color/font_white"
-        android:textSize="@dimen/sp14"
+        android:textSize="@dimen/sp12"
         android:visibility="gone"
         tools:text="开课时间: 1天 :6时:5分"
         tools:visibility="visible" />

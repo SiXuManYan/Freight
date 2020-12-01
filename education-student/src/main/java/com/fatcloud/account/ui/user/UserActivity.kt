@@ -239,7 +239,13 @@ class UserActivity : BaseMVPActivity<UserPresenter>(), UserView {
         val mMonth = ca[Calendar.MONTH]
         val mDay = ca[Calendar.DAY_OF_MONTH]
         val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-            mBirthdayString = getString(R.string.birthday_format, year, (month + 1), dayOfMonth)
+            val formatDayOfMonth = if (dayOfMonth < 10) {
+                "0$dayOfMonth"
+            } else {
+                dayOfMonth.toString()
+            }
+
+            mBirthdayString = getString(R.string.birthday_format, year, (month + 1), formatDayOfMonth)
             birthday_tv.text = mBirthdayString
 
         }, mYear, mMonth, mDay)

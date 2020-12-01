@@ -253,6 +253,23 @@
     </RelativeLayout>
 
 
+    <com.sugar.library.ui.widget.countdown.CountDownTextView
+        android:id="@+id/count_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/switcher_vs"
+        android:background="@drawable/shape_8_green"
+        android:gravity="center"
+        android:paddingStart="@dimen/dp5"
+        android:paddingTop="@dimen/dp1"
+        android:paddingEnd="@dimen/dp5"
+        android:paddingBottom="@dimen/dp1"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/sp8"
+        android:visibility="gone"
+        tools:text="开课时间: 1天 :6时:5分"
+        tools:visibility="visible" />
+
     <ViewSwitcher
         android:id="@+id/switcher_vs"
         android:layout_width="match_parent"

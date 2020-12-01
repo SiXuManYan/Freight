@@ -18,5 +18,8 @@ enum class CourseState {
     TAUGHT,
 
     /** 上课中 */
-    TEACHING
+    TEACHING,
+
+    /** 预约中 */
+    BOOKING
 }

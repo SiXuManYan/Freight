@@ -157,10 +157,21 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
     private fun courseItemClick(model: Course) {
         if (model.productType.contains(CourseProductType.EXPERIENCE.name)) {
             // 体验课详情
-            startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
-                putString(Constants.PARAM_ID, model.id)
-                putInt(Constants.PARAM_TYPE, RESERVE)
-            })
+
+            // 预约成功未上课
+            if (model.state.contains(CourseState.UNTEACH.name)) {
+                // 未上课
+                startActivity(NoClassActivity::class.java, Bundle().apply {
+                    putString(Constants.PARAM_PRODUCT_ID, model.productId)
+                })
+            }else {
+                startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
+                    putString(Constants.PARAM_ID, model.id)
+                    putInt(Constants.PARAM_TYPE, RESERVE)
+                })
+            }
+
+
         } else {
             // 普通课(区分已上课和)
             when {

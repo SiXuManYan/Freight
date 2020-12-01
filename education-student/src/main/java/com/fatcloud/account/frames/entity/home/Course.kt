@@ -28,6 +28,7 @@ open class Course {
      *  @see CourseState.UNTEACH          未上课
      *  @see CourseState.TAUGHT           已结束
      *  @see CourseState.TEACHING         上课中
+     *  @see CourseState.TEACHING         上课中
      */
     var state = ""
 

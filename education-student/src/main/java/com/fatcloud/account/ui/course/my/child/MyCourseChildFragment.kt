@@ -76,16 +76,14 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
 
             override fun OnCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseViewHolder<MyCourse> {
                 val holder = MyCourseChildHolder(parent)
-
-
-                enterLiveRoom(this@MyCourseChildFragment.context!!, holder.enter_ll, holder)
-
+                enterLiveRoom(this@MyCourseChildFragment.requireContext(), holder.enter_ll, holder)
                 return holder
             }
 
         }
         adapter.setOnItemClickListener {
             val myCourse = adapter.allData[it]
+
             if (myCourse.state.contains(CourseState.UNTEACH.name)) {
                 // 未开课,
                 startActivity(NoClassActivity::class.java, Bundle().apply {
