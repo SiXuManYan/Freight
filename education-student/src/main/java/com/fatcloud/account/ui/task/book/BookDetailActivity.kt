@@ -1,11 +1,15 @@
 package com.fatcloud.account.ui.task.book
 
 import android.Manifest
+import android.content.Intent
+import android.os.Bundle
 import com.blankj.utilcode.util.ToastUtils
 import com.fatcloud.account.R
 import com.fatcloud.account.common.file.FileDisplayActivity
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.frames.entity.BookDetail
+import com.fatcloud.account.ui.gallery.GalleryActivity
+import com.sugar.library.ui.widget.pagefilp.SampleActivity
 import com.sugar.library.util.Constants
 import com.sugar.library.util.PermissionUtils
 
@@ -35,14 +39,19 @@ class BookDetailActivity : BaseMVPActivity<BookDetailPresenter>(), BookDetailVie
         presenter.loadDetail(this, bookId)
     }
 
+
     override fun bindImageDetail(data: BookDetail) {
         if (data.contents.isEmpty()) {
             return
         }
-//        val bundle = Bundle()
-//        bundle.putStringArrayList(Constants.PARAM_LIST,  data.contents)
-//        bundle.putInt(Constants.PARAM_INDEX, 0)
-//        startActivity(Intent(this, GalleryActivity::class.java).putExtras(bundle))
+
+
+
+        val bundle = Bundle()
+        bundle.putStringArrayList(Constants.PARAM_LIST, data.contents)
+        bundle.putInt(Constants.PARAM_INDEX, 0)
+       startActivity(Intent(this, GalleryActivity::class.java).putExtras(bundle))
+
     }
 
     override fun bindMediaDetail(data: BookDetail) {
@@ -63,8 +72,6 @@ class BookDetailActivity : BaseMVPActivity<BookDetailPresenter>(), BookDetailVie
             Manifest.permission.READ_EXTERNAL_STORAGE
         )
     }
-
-
 
 
 }

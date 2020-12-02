@@ -208,6 +208,7 @@
         <activity android:name=".ui.task.book.BookDetailActivity" />
         <activity android:name=".ui.task.book.lists.BookListActivity" />
         <activity android:name=".common.file.FileDisplayActivity" />
+        <activity android:name=".ui.gallery.GalleryActivity" />
 
 
         <receiver
