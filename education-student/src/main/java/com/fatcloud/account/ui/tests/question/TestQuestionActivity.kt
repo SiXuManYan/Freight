@@ -62,6 +62,7 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
     }
 
     private fun initEvent() {
+
         // 图片上传成功
         presenter.subsribeEventEntity<RecordUploadEvent>(Consumer {
             mAdapter.allData[it.position].nativeAnswerRecordServerPath = it.finalUrl

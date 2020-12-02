@@ -18,6 +18,14 @@
         android:layout_below="@+id/title_container_rl">
 
 
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/content_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp345"
@@ -45,12 +53,6 @@
 
 
         </androidx.cardview.widget.CardView>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/content_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
     </ViewSwitcher>
 

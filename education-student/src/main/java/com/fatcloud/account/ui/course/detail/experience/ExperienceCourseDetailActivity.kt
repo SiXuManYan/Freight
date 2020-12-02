@@ -122,11 +122,11 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
 
 
 
-        if (it.stateText.contains(CourseDetail.UNACTIVE)) {
+        if (it.state.contains(CourseDetail.UNACTIVE)) {
             if (it.countdownEndTimeSeconds.isNotBlank()) {
                 initCountDown(TimeUtil.getSafeTime(it.countdownEndTimeSeconds))
             }
-        } else if (it.stateText.contains(CourseDetail.BOOKING)) {
+        } else if (it.state.contains(CourseDetail.BOOKING)) {
             reservation_tv.isEnabled = false
             reservation_tv.text = "预约中，请耐心等待"
         }
@@ -183,6 +183,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
                     override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
 
                     }
+
                     override fun onFinish(countDownTextView: CountDownTextView?) {
                         reservation_tv.isEnabled = false
                     }
@@ -190,7 +191,11 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             }
         }
 
+        /**
+        昨晚梦到必须去一个小岛上上学， 坐飞机要8个小时，很难回出来，
+        见不到你，哭完了
 
+         */
     }
 
 }
