@@ -191,11 +191,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             }
         }
 
-        /**
-        昨晚梦到必须去一个小岛上上学， 坐飞机要8个小时，很难回出来，
-        见不到你，哭完了
 
-         */
     }
 
 }

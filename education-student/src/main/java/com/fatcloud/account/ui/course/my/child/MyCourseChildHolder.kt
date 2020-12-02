@@ -8,8 +8,10 @@ import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import com.fatcloud.account.R
+import com.fatcloud.account.common.OssUtil
 import com.fatcloud.account.frames.entity.MyCourse
 import com.fatcloud.account.frames.entity.home.CourseState
+import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.frames.BaseItemViewHolder
@@ -35,8 +37,22 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
         if (data == null) {
             return
         }
-        Glide.with(context).load(data.productIconImg) .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8)))).into(image_iv)
-        Glide.with(context).load(data.teacherHeadImg).into(teacher_civ)
+
+        OssUtil.getRealOssUrl(context, data.productIconImg, object : CloudAccountApplication.OssSignCallBack {
+            override fun ossUrlSignEnd(url: String) {
+                Glide.with(context).load(url)
+                    .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8))))
+                    .into(image_iv)
+            }
+        })
+
+        OssUtil.getRealOssUrl(context, data.teacherHeadImg, object : CloudAccountApplication.OssSignCallBack {
+            override fun ossUrlSignEnd(url: String) {
+                Glide.with(context).load(url).into(teacher_civ)
+            }
+        })
+
+
         title_tv.text = data.productName
         content_tv.text = data.teacherName
 
@@ -76,7 +92,7 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
         if (endTime <= 0) {
             // 老师没有点，做容错处理，学生可以进入教室
             countdown_tv.visibility = View.VISIBLE
-            status_tv.text =  context.getString(R.string.having_class_now)
+            status_tv.text = context.getString(R.string.having_class_now)
             return
         }
 
@@ -113,7 +129,7 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
                     }
 
                     override fun onFinish(countDownTextView: CountDownTextView?) {
-                        status_tv.text =  context.getString(R.string.having_class_now)
+                        status_tv.text = context.getString(R.string.having_class_now)
                         course_vs.displayedChild = 0
                         RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
                     }
