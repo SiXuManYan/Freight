@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A singleton thread task to load bitmap
@@ -47,7 +48,7 @@ public final class LoadBitmapTask implements Runnable {
 //    final static int MEDIUM_BG = 1;
 //    final static int LARGE_BG = 2;
     final static int BG_COUNT = 10;
-    private  static Context mContext;
+    private static Context mContext;
 
     int mQueueMaxSize;
 //    int mPreRandomNo;
@@ -55,8 +56,6 @@ public final class LoadBitmapTask implements Runnable {
     boolean mIsLandscape;
     boolean mStop;
 
-    Random mBGRandom;
-    Resources mResources;
     Thread mThread;
 
     LinkedList<Bitmap> mQueue;
@@ -78,18 +77,16 @@ public final class LoadBitmapTask implements Runnable {
     }
 
 
-    public void initImageUrls(ArrayList<String> imageUrls){
+    public void initImageUrls(ArrayList<String> imageUrls) {
         mImageUrls = imageUrls;
     }
 
     /**
      * Constructor
      *
-     * @param context   Android context
+     * @param context Android context
      */
     private LoadBitmapTask(Context context) {
-        mResources = context.getResources();
-        mBGRandom = new Random();
         mStop = false;
         mThread = null;
 //        mPreRandomNo = 0;
@@ -98,9 +95,6 @@ public final class LoadBitmapTask implements Runnable {
         mQueueMaxSize = 1;
         mQueue = new LinkedList<Bitmap>();
     }
-
-
-
 
 
     /**
@@ -116,8 +110,8 @@ public final class LoadBitmapTask implements Runnable {
         synchronized (this) {
             if (mQueue.size() > 0) {
                 b = mQueue.pop();
+                // 根据下标获取元素
             }
-
             notify();
         }
 
@@ -166,7 +160,7 @@ public final class LoadBitmapTask implements Runnable {
             Log.d(TAG, "Waiting thread to stop ...");
             try {
                 Thread.sleep(500);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
 
             }
         }
@@ -206,9 +200,11 @@ public final class LoadBitmapTask implements Runnable {
                 .placeholder(R.drawable.ic_net_error)
                 .fallback(R.drawable.ic_net_error)
                 .error(R.drawable.ic_net_error)
-                .load(mImageUrls.get(number)).submit(500,500);
+//                .load(mImageUrls.get(number))
+                .load(R.drawable.img_data_no_found)
+                .submit(500, 500);
         try {
-            return futureBitmap.get();
+            return futureBitmap.get(2, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
             return null;
         }
@@ -225,6 +221,7 @@ public final class LoadBitmapTask implements Runnable {
     }
 
     public void run() {
+
         while (true) {
             synchronized (this) {
                 // check if ask thread stopping
@@ -232,17 +229,15 @@ public final class LoadBitmapTask implements Runnable {
                     cleanQueue();
                     break;
                 }
-
                 // 仅当队列中没有缓存的 bitmap 时才加载 bitmap
                 int size = mQueue.size();
                 if (size < 1) {
-                    for (int i = 0; i < mQueueMaxSize; ++i) {
+                    for (int i = 0; i < mImageUrls.size(); ++i) {
                         Log.d(TAG, "Load Queue:" + i + " in background!");
-                        mQueue.push(getRandomBitmap(index));
+//                        mQueue.push(getRandomBitmap(i));
+                        mQueue.add(getRandomBitmap(i));
                     }
                 }
-
-
 
                 // wait to be awaken
                 try {

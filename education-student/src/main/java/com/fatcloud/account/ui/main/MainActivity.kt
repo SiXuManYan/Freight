@@ -148,6 +148,15 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
         header.findViewById<RelativeLayout>(R.id.menu_my_setting).setOnClickListener {
             startActivity(SettingActivity::class.java)
+
+//            val list  = ArrayList<String>()
+//            list.add("https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2870405105,1377151161&fm=26&gp=0.jpg")
+//            list.add("https://www.baidu.com/link?url=emD1iKx47T7D_8S_IawfUuZkjps_W4CtXDhil231RLyUx1-E3qlEmvmagRllMZhfZKKTDbp1wihZONbJG4hT9ZuT7LkZ7yjPL2mw_B-PNc34oDXn0WIcGxY0roJDLtefrydgw3dE-iXV9kMzMEaZ-GXyoPoXpd4sNyxdNanz7KWgbJjkoW4RH7Pkl43TfpJujWRdbdhXo3LLgmLfCMpWmKSkbJ4ahxURNvgHDXsSsvsXOpixr0MDObq1yB8i1zoE0VNIDJeXF3vx27DPw9JkkmUUNSGdL-MDPwhxq59c3j9CVhOx4wQQ0Wpmp_BkX0UIA4qZmij3Zss9P4Kt5mldv5GHjNiB95jS0WUmhQ485DeJurAI5Zh7jZOLwUkW4IntJpDbS_tBLiOjmvjIxK2iWCJRaoFqr-EjZ7Mh3k7RJbnUWOp8BZwt8Um9Iml-RlUF6-UeeYjOZaXncUvP-lTTI7P8BJxofiMUnvMmC631zYKvfaLWsqVMLwMEiB9OiRj9kVBMplDgm-xRqea-p5rgjilnFkSQtBDZkDnAiJkmB2hv5VZFBe6YaEvl0jBr5qZ6ajlbUuPuUei1eh8ogTbccVqn_shFAWE1NWtAUQYJUqf6vOPXGRfx7Pz56aiJr0Ldgp7UCsab8K3PPrhO_l2CFa&timg=https%3A%2F%2Fss0.bdstatic.com%2F94oJfD_bAAcT8t7mm9GUKT-xh_%2Ftimg%3Fimage%26quality%3D100%26size%3Db4000_4000%26sec%3D1606463751%26di%3D83f7b65eee5e2e6a0632cb873c986201%26src%3Dhttp%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201604%2F22%2F20160422125942_RiF32.jpeg&click_t=1606463770168&s_info=1641_838&wd=&eqid=8e99dffe0008fedc000000025fc0b106")
+//
+//            startActivity( SampleActivity::class.java, Bundle().apply {
+//                putStringArrayList(Constants.PARAM_IMAGE_URL,list)
+//            })
+
         }
 
     }

@@ -156,5 +156,12 @@ dependencies {
     api 'com.github.eschao:android-PageFlip:1.0.2'
 
 
+    // 图片大图
+    api 'com.github.chrisbanes:PhotoView:2.1.4'
+    api 'com.github.SherlockGougou:BigImageViewPager:androidx-5.0.3'
+
+    // 圆形进度条
+    api 'com.mikhaellopez:circularprogressbar:3.0.3'
+
 
 }
