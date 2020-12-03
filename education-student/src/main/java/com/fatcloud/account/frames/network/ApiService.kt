@@ -280,7 +280,7 @@ interface ApiService {
     fun getUnReadMessageCount(): Flowable<Response<String>>
 
     /**
-     * 获取消息未读数
+     * 上传推送id
      *
      */
     @POST("/api/common/setPushDeviceId")

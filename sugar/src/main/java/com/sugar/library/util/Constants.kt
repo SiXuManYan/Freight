@@ -29,6 +29,7 @@ object Constants {
     const val SP_NOVICE = "novice"
     const val SP_LAST_LOGIN_USER = "last_login_user"
     const val SP_QUIZZES_OF_STUDENT_ID = "quizzes_of_student_id"
+    const val SP_QUIZZES_ID = "quizzes_id"
 
     const val SP_AES_LOGIN_TIME = "sp_aes_login_time"// 上次登录时间
     const val SP_AES_LOGIN_SERVICE_TIME = "sp_aes_login_service_time"// 上次登录成功时的服务器时间

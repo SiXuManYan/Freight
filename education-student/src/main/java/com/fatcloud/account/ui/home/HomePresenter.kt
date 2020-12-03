@@ -71,7 +71,9 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
             parentList.addAll(elements)
             if (elements.isNotEmpty()) {
                 val quizzesOfStudentId = elements[0].quizzesOfStudentId
-                CommonUtils.getShareStudent().put(Constants.SP_QUIZZES_OF_STUDENT_ID,quizzesOfStudentId)
+                val quizzesId = elements[0].quizzesId
+                CommonUtils.getShareStudent().put(Constants.SP_QUIZZES_OF_STUDENT_ID, quizzesOfStudentId)
+                CommonUtils.getShareStudent().put(Constants.SP_QUIZZES_ID, quizzesId)
             }
 
 
@@ -91,7 +93,7 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
 
             // 源
             val scheduleOuts = gson.fromJson<ArrayList<Course>>(data.get(scheduleOuts), genericType<ArrayList<Course>>())
-
+            val nativeClassSchedule = NativeClassSchedule()
             scheduleOuts.forEach {
 
                 if (it.productType.contains(CourseProductType.EXPERIENCE.name)) {
@@ -102,11 +104,10 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
 
                 // 课程表(所有未上课的数据)
                 if (it.state.contains(CourseState.UNTEACH.name)) {
-                    classSchedule.add(NativeClassSchedule().apply {
-                        nativeData.add(it)
-                    })
+                    nativeClassSchedule.apply { nativeData.add(it) }
                 }
             }
+            classSchedule.add(nativeClassSchedule)
         }
 
         //  体验课

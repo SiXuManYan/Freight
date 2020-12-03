@@ -32,7 +32,6 @@ class DirectoryFragment : BaseFragment<DirectoryPresenter>(), DirectoryView {
         val adapter = recyclerAdapter
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.adapter = adapter
-
         initEvent()
     }
 

@@ -52,12 +52,15 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
         setMainTitle(getString(R.string.test_question_title))
         initEvent()
         initRecycleView()
-        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID) || !intent.extras!!.containsKey(Constants.PARAM_STUDENT_ID)) {
-            finish()
-            return
-        }
-        quizzesId = intent.extras!!.getString(Constants.PARAM_ID, "")
-        quizzesOfStudentId = intent.extras!!.getString(Constants.PARAM_STUDENT_ID, "")
+//        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_ID) || !intent.extras!!.containsKey(Constants.PARAM_STUDENT_ID)) {
+//            finish()
+//            return
+//        }
+//        quizzesId = intent.extras!!.getString(Constants.PARAM_ID, "")
+//        quizzesOfStudentId = intent.extras!!.getString(Constants.PARAM_STUDENT_ID, "")
+
+        quizzesId = CommonUtils.getShareStudent().getString(Constants.SP_QUIZZES_ID, "")
+        quizzesOfStudentId = CommonUtils.getShareStudent().getString(Constants.SP_QUIZZES_OF_STUDENT_ID, "")
         presenter.getQuestion(this, quizzesId)
     }
 
@@ -178,6 +181,7 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
                 if (index == mAdapter.allData.size - 1) {
                     // 提交练习题
                     presenter.submitQuestion(this, quizzesOfStudentId, mAdapter)
+
                 } else {
                     content_rv.scrollToPosition(++index)
                 }
@@ -192,6 +196,7 @@ class TestQuestionActivity : BaseMVPActivity<TestQuestionPresenter>(), TestQuest
     }
 
     override fun submitSuccess() {
+        switcher.displayedChild = 1
         bottom_ll.displayedChild = 1
     }
 

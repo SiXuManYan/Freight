@@ -44,22 +44,22 @@ class ScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<NativeClassSchedul
 
             val chineseWeek = TimeUtils.getChineseWeek(it.studyDatetime)
             when (chineseWeek) {
-                "星期一" -> {
+                "周一" -> {
                     mon.add(it)
                 }
-                "星期二" -> {
+                "周二" -> {
                     tues.add(it)
                 }
-                "星期三" -> {
+                "周三" -> {
                     wed.add(it)
                 }
-                "星期四" -> {
+                "周四" -> {
                     thur.add(it)
                 }
-                "星期五" -> {
+                "周五" -> {
                     fri.add(it)
                 }
-                "星期六" -> {
+                "周六" -> {
                     sta.add(it)
                 }
                 else -> {
@@ -68,34 +68,32 @@ class ScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<NativeClassSchedul
             }
         }
 
-
         if (sun.isNotEmpty()) {
-
-            zero_tv.text =  TimeUtil.getFormatTimeHM(sun[0].studyDatetime)
+            zero_tv.text = TimeUtil.getFormatTimeHM(sun[0].studyDatetime)
         }
 
         if (mon.isNotEmpty()) {
-            one_tv.text = mon[0].productName
+            one_tv.text = TimeUtil.getFormatTimeHM(mon[0].studyDatetime)
         }
 
         if (tues.isNotEmpty()) {
-            two_tv.text = tues[0].productName
+            two_tv.text = TimeUtil.getFormatTimeHM(tues[0].studyDatetime)
         }
 
         if (wed.isNotEmpty()) {
-            three_tv.text = wed[0].productName
+            three_tv.text = TimeUtil.getFormatTimeHM(wed[0].studyDatetime)
         }
 
         if (thur.isNotEmpty()) {
-            four_tv.text = thur[0].productName
+            four_tv.text = TimeUtil.getFormatTimeHM(thur[0].studyDatetime)
         }
 
         if (fri.isNotEmpty()) {
-            five_tv.text = fri[0].productName
+            five_tv.text = TimeUtil.getFormatTimeHM(fri[0].studyDatetime)
         }
 
         if (sta.isNotEmpty()) {
-            six_tv.text = sta[0].productName
+            six_tv.text = TimeUtil.getFormatTimeHM(sta[0].studyDatetime)
         }
 
 

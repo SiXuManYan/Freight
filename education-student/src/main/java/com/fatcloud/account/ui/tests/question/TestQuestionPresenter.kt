@@ -73,8 +73,6 @@ class TestQuestionPresenter @Inject constructor(private var view: TestQuestionVi
                     studentAnswers.add(it.nativeAnswerRecordServerPath)
                 }
             }
-
-
         }
 
 

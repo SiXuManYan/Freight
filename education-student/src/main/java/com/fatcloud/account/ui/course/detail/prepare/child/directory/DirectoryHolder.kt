@@ -13,12 +13,20 @@ import kotlinx.android.synthetic.main.item_no_class_course_directory.*
  * </br>
  *
  */
-class DirectoryHolder  (parent: ViewGroup?) : BaseItemViewHolder<FormalCourseDetail.ScheduleOut>(parent, R.layout.item_no_class_course_directory), LayoutContainer {
+class DirectoryHolder(parent: ViewGroup?) : BaseItemViewHolder<FormalCourseDetail.ScheduleOut>(parent, R.layout.item_no_class_course_directory),
+    LayoutContainer {
 
     override val containerView: View? get() = itemView
 
     override fun setData(data: FormalCourseDetail.ScheduleOut?) {
+        if (data == null) {
+            return
+        }
+
         index_tv.text = dataPosition.toString()
+        course_directory_title.text = data.courseName
+        duration.text = """${data.lengthOfCourse}分钟"""
+        time_tv.text = data.studyDatetime
     }
 
 }

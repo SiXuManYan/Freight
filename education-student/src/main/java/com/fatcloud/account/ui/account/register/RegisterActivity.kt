@@ -4,19 +4,13 @@ import android.view.View
 import butterknife.OnClick
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.fatcloud.account.ui.main.MainActivity
 import com.fatcloud.account.R
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
+import com.fatcloud.account.ui.main.MainActivity
 import com.sugar.library.util.CommonUtils
-import com.sugar.library.util.Constants
 import com.sugar.library.util.ProductUtils
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.activity_register.get_verify_tv
-import kotlinx.android.synthetic.main.activity_register.password_aet
-import kotlinx.android.synthetic.main.activity_register.password_rule_iv
-import kotlinx.android.synthetic.main.activity_register.phone_aet
-import kotlinx.android.synthetic.main.activity_register.verify_code_aet
 
 /**
  * Created by Wangsw on 2020/9/21 0021 9:34.
@@ -45,7 +39,7 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
     }
 
     override fun initViews() {
-        phone_aet.setText( CommonUtils.getShareStudent().getString(Constants.SP_LAST_LOGIN_USER, ""))
+
     }
 
 
@@ -93,6 +87,12 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(), RegisterView {
             }
 
             R.id.register_tv -> {
+
+                if (!register_protocol.isChecked) {
+                    ToastUtils.showShort(getString(R.string.please_agree_agreement))
+                    return
+                }
+
                 val phoneValue = phone_aet.text.toString().trim()
                 val verifyValue = verify_code_aet.text.toString().trim()
                 val passwordValue = password_aet.text.toString().trim()

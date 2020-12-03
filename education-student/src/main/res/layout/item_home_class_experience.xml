@@ -134,7 +134,7 @@
                         android:maxLines="2"
                         android:textColor="@color/color_80ffffff"
                         android:textSize="@dimen/sp13"
-                        tools:text="已预约成功" />
+                        android:text="@string/reserve_success" />
 
 
                     <LinearLayout

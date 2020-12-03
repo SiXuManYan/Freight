@@ -248,5 +248,6 @@
     <string name="ask_permission_to_read_storage">由于权限限制，无法访问系统存储，是否打开权限设置？</string>
     <string name="image_save_success">图片保存成功</string>
     <string name="image_position_format" formatted="false">%d&#160;/&#160;%d</string>
+    <string name="reserve_success">已预约成功</string>
 
 </resources>
