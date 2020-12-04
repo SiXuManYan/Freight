@@ -100,9 +100,7 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
             addCountDownCallback(object : CountDownTextView.CountDownCallback {
 
                 override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
-
                     when {
-
                         millisUntilFinished <= 1000 * 60 * 12 -> {
                             // 刷新列表，获取上课码
                             if (!checkTime) {

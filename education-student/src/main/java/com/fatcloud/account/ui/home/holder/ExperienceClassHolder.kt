@@ -4,6 +4,7 @@ import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.blankj.utilcode.constant.TimeConstants
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.SpanUtils
 import com.blankj.utilcode.util.StringUtils
@@ -70,41 +71,42 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
                     product_state_tv.text = "上课中"
                     count_down_ll.visibility = View.GONE
                 }
-
             }
-
         }
-
-
     }
 
     private fun initCountDown(endTime: Long) {
+        val futureTime = endTime * 1000
+        when {
+            endTime <= 0 -> {
+                countdown_tv.visibility = View.GONE
+            }
+            futureTime > TimeConstants.DAY -> {
+                count_down_ll.visibility = View.VISIBLE
+                countdown_tv.text = TimeUtil.getDateTimeFromMillisecond(futureTime)
+            }
+            else -> {
+                countdown_tv.apply {
+                    visibility = View.VISIBLE
+                    cancel()
+                    setTimeInFuture(SystemClock.elapsedRealtime() + futureTime)
+                    setAutoDisplayText(true)
+                    setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S)
+                    start()
+                    addCountDownCallback(object : CountDownTextView.CountDownCallback {
 
-        if (endTime <= 0) {
-            countdown_tv.visibility = View.GONE
-        } else {
-            count_down_ll.visibility = View.VISIBLE
-            countdown_tv.apply {
-                visibility = View.VISIBLE
-                cancel()
-                setTimeInFuture(SystemClock.elapsedRealtime() + endTime * 1000)
-                setAutoDisplayText(true)
-                setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S);
-                start()
-                addCountDownCallback(object : CountDownTextView.CountDownCallback {
+                        override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) = Unit
 
-                    override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) = Unit
-
-                    override fun onFinish(countDownTextView: CountDownTextView?) {
-                        product_state_tv.text = "上课中"
-                        count_down_ll.visibility = View.GONE
-                        // RxBus.post(Event(Constants.EVENT_REFRESH_ORDER_LIST_FROM_END_COUNT_DOWN))
-                    }
-                })
+                        override fun onFinish(countDownTextView: CountDownTextView?) {
+                            product_state_tv.text = "上课中"
+                            count_down_ll.visibility = View.GONE
+                        }
+                    })
+                }
             }
         }
 
-
     }
+
 
 }
