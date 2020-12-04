@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import butterknife.OnClick
 import com.blankj.utilcode.util.SizeUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
 import com.fatcloud.account.R
 import com.fatcloud.account.common.OssUtil
@@ -123,9 +122,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
 
 
         if (it.state.contains(CourseDetail.UNACTIVE)) {
-            if (it.countdownEndTimeSeconds.isNotBlank()) {
-                initCountDown(TimeUtil.getSafeTime(it.countdownEndTimeSeconds))
-            }
+            initCountDown(TimeUtil.getSafeCountDownTime(it.countdownEndTimeSeconds))
         } else if (it.state.contains(CourseDetail.BOOKING)) {
             reservation_tv.isEnabled = false
             reservation_tv.text = "预约中，请耐心等待"
@@ -168,27 +165,22 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             return
         }
 
-        val millisInFuture: Long = endTime - System.currentTimeMillis()
-        if (millisInFuture <= 0) {
+        count_down?.apply {
+            visibility = View.VISIBLE
+            cancel()
+            setTimeInFuture(SystemClock.elapsedRealtime() + endTime)
+            setAutoDisplayText(true)
+            setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S);
+            start()
+            addCountDownCallback(object : CountDownTextView.CountDownCallback {
+                override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
 
-        } else {
-            count_down?.apply {
-                visibility = View.VISIBLE
-                cancel()
-                setTimeInFuture(SystemClock.elapsedRealtime() + millisInFuture)
-                setAutoDisplayText(true)
-                setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S);
-                start()
-                addCountDownCallback(object : CountDownTextView.CountDownCallback {
-                    override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
+                }
 
-                    }
-
-                    override fun onFinish(countDownTextView: CountDownTextView?) {
-                        reservation_tv.isEnabled = false
-                    }
-                })
-            }
+                override fun onFinish(countDownTextView: CountDownTextView?) {
+                    reservation_tv.isEnabled = false
+                }
+            })
         }
 
 

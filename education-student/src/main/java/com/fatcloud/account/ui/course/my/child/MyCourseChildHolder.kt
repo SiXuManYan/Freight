@@ -59,7 +59,7 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
         when {
             data.state.contains(CourseState.UNTEACH.name) -> {
                 // 未上课，显示倒计时
-                val endTime = TimeUtil.getSafeTime(data.countDownStudySeconds)
+                val endTime = TimeUtil.getSafeCountDownTime(data.countDownStudySeconds) *1000
                 if (endTime - System.currentTimeMillis() > 1000 * 60 * 60 * 24) {
                     // 大于一天显示开课时间
                     course_vs.displayedChild = 1
@@ -96,45 +96,40 @@ class MyCourseChildHolder(parent: ViewGroup?) : BaseItemViewHolder<MyCourse>(par
             return
         }
 
-        val millisInFuture: Long = endTime - System.currentTimeMillis()
-        if (millisInFuture <= 0) {
-            countdown_tv.visibility = View.GONE
-        } else {
-            countdown_tv.apply {
-                visibility = View.VISIBLE
-                cancel()
-                setTimeInFuture(SystemClock.elapsedRealtime() + millisInFuture)
-                setAutoDisplayText(true)
-                setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S);
-                start()
-                addCountDownCallback(object : CountDownTextView.CountDownCallback {
+        countdown_tv.apply {
+            visibility = View.VISIBLE
+            cancel()
+            setTimeInFuture(SystemClock.elapsedRealtime() + endTime)
+            setAutoDisplayText(true)
+            setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S);
+            start()
+            addCountDownCallback(object : CountDownTextView.CountDownCallback {
 
-                    override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
+                override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) {
 
-                        when {
+                    when {
 
-                            millisUntilFinished <= 1000 * 60 * 12 -> {
-                                // 刷新列表，获取上课码
-                                if (!checkTime) {
-                                    checkTime = true
-                                    RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
-                                }
-                            }
-
-                            millisUntilFinished <= 1000 * 60 * 10 -> {
-                                status_tv.text = context.getString(R.string.having_class_now)
-                                countdown_tv.visibility = View.GONE
+                        millisUntilFinished <= 1000 * 60 * 12 -> {
+                            // 刷新列表，获取上课码
+                            if (!checkTime) {
+                                checkTime = true
+                                RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
                             }
                         }
-                    }
 
-                    override fun onFinish(countDownTextView: CountDownTextView?) {
-                        status_tv.text = context.getString(R.string.having_class_now)
-                        course_vs.displayedChild = 0
-                        RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
+                        millisUntilFinished <= 1000 * 60 * 10 -> {
+                            status_tv.text = context.getString(R.string.having_class_now)
+                            countdown_tv.visibility = View.GONE
+                        }
                     }
-                })
-            }
+                }
+
+                override fun onFinish(countDownTextView: CountDownTextView?) {
+                    status_tv.text = context.getString(R.string.having_class_now)
+                    course_vs.displayedChild = 0
+                    RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
+                }
+            })
         }
 
 

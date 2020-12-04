@@ -32,7 +32,6 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
     /** 订单 */
     val waitPayOrderOuts = "waitPayOrderOuts"
 
-
     /** 课后任务 */
     val taskOfCourseOuts = "taskOfCourseOuts"
 
@@ -107,17 +106,19 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
                     nativeClassSchedule.apply { nativeData.add(it) }
                 }
             }
-            classSchedule.add(nativeClassSchedule)
+            if (nativeClassSchedule.nativeData.isNotEmpty()) {
+                classSchedule.add(nativeClassSchedule)
+            }
         }
-
-        //  体验课
-        parentList.addAll(experienceClass)
 
         // 订单
         if (data.has(waitPayOrderOuts)) {
             val scheduleOuts = gson.fromJson<ArrayList<HomeOrder>>(data.get(waitPayOrderOuts), genericType<ArrayList<HomeOrder>>())
             parentList.addAll(scheduleOuts)
         }
+
+        //  体验课
+        parentList.addAll(experienceClass)
 
         // 普通课
         parentList.addAll(commonClass)
@@ -132,6 +133,12 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
         }
         return parentList
     }
+
+
+
+
+
+
 
 
 }

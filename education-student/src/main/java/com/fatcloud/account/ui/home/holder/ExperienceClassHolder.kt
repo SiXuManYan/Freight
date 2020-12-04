@@ -34,7 +34,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
         content_tv.text = data.productIntroduce
 
 
-        if (data.state.contains( CourseState.UNACTIVE.name)) {
+        if (data.stateValue.contains(CourseState.UNACTIVE.name)) {
             // 未预约体验课
             content_switcher.displayedChild = 0
             card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_ff7a18))
@@ -55,18 +55,11 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
             card_cv.setCardBackgroundColor(ColorUtils.getColor(R.color.color_5cbebc))
             content_switcher.displayedChild = 1
 
-            when (data.state) {
+            when (data.stateValue) {
 
                 CourseState.UNTEACH.name -> {
-
-                    if (TimeUtil.getSafeTime(data.countDownToStudyTimeSeconds) > 0) {
-                        count_down_ll.visibility = View.VISIBLE
-                        initCountDown(data)
-
-                    } else {
-                        count_down_ll.visibility = View.GONE
-                    }
-
+                    val safeCountDownTime = TimeUtil.getSafeCountDownTime(data.countDownToStudyTimeSeconds)
+                    initCountDown(safeCountDownTime)
                 }
                 CourseState.TAUGHT.name -> {
                     product_state_tv.text = "已结束"
@@ -85,20 +78,16 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
 
     }
 
-    private fun initCountDown(data: Course) {
-        val endTime = TimeUtil.getSafeTime(data.countDownToStudyTimeSeconds)
-        if (endTime <= 0) {
-            return
-        }
+    private fun initCountDown(endTime: Long) {
 
-        val millisInFuture: Long = endTime - System.currentTimeMillis()
-        if (millisInFuture <= 0) {
+        if (endTime <= 0) {
             countdown_tv.visibility = View.GONE
         } else {
+            count_down_ll.visibility = View.VISIBLE
             countdown_tv.apply {
                 visibility = View.VISIBLE
                 cancel()
-                setTimeInFuture(SystemClock.elapsedRealtime() + millisInFuture)
+                setTimeInFuture(SystemClock.elapsedRealtime() + endTime * 1000)
                 setAutoDisplayText(true)
                 setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S);
                 start()

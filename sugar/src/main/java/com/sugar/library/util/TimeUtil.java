@@ -339,9 +339,14 @@ public class TimeUtil {
     }
 
 
-    public static long getSafeTime(String longString){
+    /**
+     * 秒数 乘以 1000
+     * @param longString
+     * @return
+     */
+    public static long getSafeCountDownTime(String longString){
         try {
-            return Long.parseLong(longString);
+            return Long.parseLong(longString) ;
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return 0L;

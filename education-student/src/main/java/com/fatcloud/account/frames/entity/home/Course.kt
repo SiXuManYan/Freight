@@ -29,8 +29,15 @@ open class Course {
      *  @see CourseState.TAUGHT           已结束
      *  @see CourseState.TEACHING         上课中
      *  @see CourseState.TEACHING         上课中
+     *
+     *  UNTEACH-未上课
      */
     var state = ""
+
+    /**
+     * UNTEACH
+     */
+    var stateValue = ""
 
     /**
      * 年月日时分秒

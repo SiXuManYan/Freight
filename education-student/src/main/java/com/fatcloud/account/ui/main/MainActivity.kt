@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.drawerlayout.widget.DrawerLayout
@@ -166,11 +167,21 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
 
     override fun initPhoneLayout() {
         initHeaderView()
-        findViewById<View>(R.id.my_iv).setOnClickListener {
+
+        val photo = findViewById<ImageView>(R.id.my_iv)
+        val headImg = User.get().headImg
+        if (headImg.isNotBlank()) {
+            OssUtil.getRealOssUrl(this, headImg, object : CloudAccountApplication.OssSignCallBack {
+                override fun ossUrlSignEnd(url: String) {
+                    Glide.with(this@MainActivity).load(url).into(photo)
+                }
+            })
+
+        }
+
+        photo.setOnClickListener {
             val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-            if (drawer != null) {
-                drawer.open()
-            }
+            drawer?.open()
         }
         findViewById<View>(R.id.message_iv).setOnClickListener {
             startActivity(MessageActivity::class.java)

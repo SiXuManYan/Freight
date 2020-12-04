@@ -62,6 +62,7 @@
                 android:layout_alignParentBottom="true">
 
 
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp36">
@@ -132,9 +133,9 @@
                         android:ellipsize="end"
                         android:lineSpacingMultiplier="1.2"
                         android:maxLines="2"
+                        android:text="@string/reserve_success"
                         android:textColor="@color/color_80ffffff"
-                        android:textSize="@dimen/sp13"
-                        android:text="@string/reserve_success" />
+                        android:textSize="@dimen/sp13" />
 
 
                     <LinearLayout
@@ -159,7 +160,7 @@
                             android:singleLine="true"
                             android:textColor="@color/color_80ffffff"
                             android:textSize="@dimen/sp12"
-                            tools:text="开课时间" />
+                            android:text="@string/class_start_time" />
 
 
                         <com.sugar.library.ui.widget.countdown.CountDownTextView
@@ -183,6 +184,7 @@
 
 
                 </LinearLayout>
+
             </ViewSwitcher>
 
 

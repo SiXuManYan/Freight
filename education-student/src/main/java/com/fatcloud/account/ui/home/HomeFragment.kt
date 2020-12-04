@@ -72,7 +72,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     }
                     HomeConstant.COMMON_CLASS -> {
                         val commonClassHolder = CommonClassHolder(parent)
-                        enterLiveRoom(this@HomeFragment.context!!, commonClassHolder.enter_ll, commonClassHolder)
+                        enterLiveRoom(this@HomeFragment.requireContext(), commonClassHolder.enter_ll, commonClassHolder)
                         commonClassHolder
                     }
                     HomeConstant.CLASS_SCHEDULE -> {
