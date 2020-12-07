@@ -74,8 +74,6 @@ class HomePresenter @Inject constructor(private var view: HomeView) : BasePresen
                 CommonUtils.getShareStudent().put(Constants.SP_QUIZZES_OF_STUDENT_ID, quizzesOfStudentId)
                 CommonUtils.getShareStudent().put(Constants.SP_QUIZZES_ID, quizzesId)
             }
-
-
         }
 
         // 体验课

@@ -7,12 +7,6 @@ package com.fatcloud.account.frames.entity.home
  */
 class NativeClassSchedule {
 
-
     var nativeData = ArrayList<Course>()
-
-
-
-
-
 
 }

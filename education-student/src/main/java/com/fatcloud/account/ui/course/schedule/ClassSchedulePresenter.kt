@@ -30,15 +30,11 @@ class ClassSchedulePresenter @Inject constructor(private var view: ClassSchedule
 
             override fun onSuccess(jsonArray: JsonArray?, list: ArrayList<MyCourse>, lastItemId: String?) {
 
-
                 if (list.isNotEmpty()) {
                     view.bindList(restoreList(list), lastItemId)
                 }
-
             }
         })
-
-
     }
 
 

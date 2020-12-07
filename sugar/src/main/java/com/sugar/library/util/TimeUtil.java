@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.blankj.utilcode.constant.TimeConstants;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -166,7 +167,8 @@ public class TimeUtil {
         return format.format(date);
 
     }
-  /**
+
+    /**
      * yyyy-MM-dd HH:mm:ss  --> yyyy-MM-dd
      *
      * @return
@@ -202,10 +204,6 @@ public class TimeUtil {
         return format.format(date);
 
     }
-
-
-
-
 
 
     /**
@@ -251,8 +249,6 @@ public class TimeUtil {
             return getDateTimeFromMillisecond(millisecond);
         }
     }
-
-
 
 
     /**
@@ -341,12 +337,13 @@ public class TimeUtil {
 
     /**
      * 秒数 乘以 1000
+     *
      * @param longString
      * @return
      */
-    public static long getSafeCountDownTime(String longString){
+    public static long getSafeCountDownTime(String longString) {
         try {
-            return Long.parseLong(longString) ;
+            return Long.parseLong(longString);
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return 0L;
@@ -356,6 +353,7 @@ public class TimeUtil {
 
     /**
      * 判断是否是同一天
+     *
      * @param millis1
      * @param millis2
      * @param timeZone
@@ -363,11 +361,22 @@ public class TimeUtil {
      */
     public static boolean isSameDay(long millis1, long millis2, TimeZone timeZone) {
         long interval = millis1 - millis2;
-        return interval < TimeConstants.DAY && interval > - TimeConstants.DAY && millis2Days(millis1, timeZone) == millis2Days(millis2, timeZone);
+
+
+        return interval < TimeConstants.DAY && interval > -TimeConstants.DAY && millis2Days(millis1, timeZone) == millis2Days(millis2, timeZone);
     }
 
     private static long millis2Days(long millis, TimeZone timeZone) {
-        return (((long) timeZone.getOffset(millis)) + millis) /  TimeConstants.DAY;
+        return (((long) timeZone.getOffset(millis)) + millis) / TimeConstants.DAY;
+    }
+
+
+    public static ArrayList<Long> getNext7DayTime() {
+        ArrayList<Long> week = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            week.add(System.currentTimeMillis() + i * (TimeConstants.DAY));
+        }
+        return week;
     }
 
 
