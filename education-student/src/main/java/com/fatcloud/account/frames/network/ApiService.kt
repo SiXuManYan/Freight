@@ -303,7 +303,16 @@ interface ApiService {
     /**
      *  获取测验题结果列表
      */
-    @POST("/api/student/quizzes/get")
+    @POST("/api/student/quizzes/list")
     fun getQuestionResultList(@Body json: ListRequest): Flowable<Response<JsonArray>>
+
+
+
+
+    /**
+     *  app 用户协议和营私政策
+     */
+    @GET("/api/student/quizzes/list")
+    fun getProtocol(@Query("path") path: String): Flowable<Response<String>>
 
 }

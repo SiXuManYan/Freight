@@ -104,6 +104,7 @@
 
 
     <com.sugar.library.ui.widget.countdown.CountDownTextView
+        android:id="@+id/count_down"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp45"
         android:layout_alignParentBottom="true"

@@ -10,6 +10,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp100"
         android:foreground="?attr/selectableItemBackground"

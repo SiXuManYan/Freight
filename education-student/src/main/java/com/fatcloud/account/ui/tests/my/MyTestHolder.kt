@@ -2,6 +2,7 @@ package com.fatcloud.account.ui.tests.my
 
 import android.view.View
 import android.view.ViewGroup
+import com.blankj.utilcode.util.ColorUtils
 import com.fatcloud.account.R
 import com.fatcloud.account.frames.entity.question.my.MyQuestion
 import com.sugar.library.frames.BaseItemViewHolder
@@ -24,6 +25,13 @@ class MyTestHolder(parent: ViewGroup?) : BaseItemViewHolder<MyQuestion>(parent, 
         }
         title_tv.text = data.quizzes?.name
         content_tv.text = data.quizzes?.introduce
+
+
+        if (data.stateValue == "UNSUBMITTED") {
+            card_bg.setBackgroundColor(ColorUtils.getColor(R.color.color_ff855e))
+        } else {
+            card_bg.setBackgroundColor(ColorUtils.getColor(R.color.color_ff9242))
+        }
     }
 
 }

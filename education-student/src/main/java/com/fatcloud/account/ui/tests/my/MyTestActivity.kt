@@ -38,27 +38,6 @@ class MyTestActivity : BaseRefreshListActivity<MyQuestion, MyTestPresenter>(), M
         getAdapter()?.addHeader(header)
     }
 
-    @OnClick(
-        R.id.test_sore_cv,
-        R.id.test_cv
-    )
-    fun onClick(view: View) {
-        if (CommonUtils.isDoubleClick(view)) {
-            return
-        }
-        when (view.id) {
-            R.id.test_sore_cv -> {
-
-            }
-            R.id.test_cv -> {
-
-            }
-            else -> {
-            }
-        }
-    }
-
-
     override fun getMainTitle() = R.string.my_test
 
     override fun getRecyclerAdapter(): RecyclerArrayAdapter<MyQuestion> {
@@ -74,22 +53,18 @@ class MyTestActivity : BaseRefreshListActivity<MyQuestion, MyTestPresenter>(), M
         adapter.setOnItemClickListener {
             val myQuestion = adapter.allData[it]
             if (myQuestion.stateValue == "UNSUBMITTED") {
-                startActivity(TestScoreActivity::class.java, Bundle().apply {
-                    putString(Constants.PARAM_STUDENT_ID, myQuestion.student?.id)
-                })
-            } else {
                 startActivity(TestConditionActivity::class.java, Bundle().apply {
                     putString(Constants.PARAM_ID, myQuestion.quizzes?.id)
                     putString(Constants.PARAM_STUDENT_ID, myQuestion.student?.id)
                 })
-
+            } else {
+                startActivity(TestScoreActivity::class.java, Bundle().apply {
+                    putString(Constants.PARAM_STUDENT_ID, myQuestion.student?.id)
+                })
             }
 
         }
-
         return adapter
-
-
     }
 
     override fun getItemDecoration(): RecyclerView.ItemDecoration? = null
@@ -102,7 +77,5 @@ class MyTestActivity : BaseRefreshListActivity<MyQuestion, MyTestPresenter>(), M
         }
     }
 
-    /*
 
-     */
 }

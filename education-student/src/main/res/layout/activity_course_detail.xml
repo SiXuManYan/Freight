@@ -48,15 +48,6 @@
                 android:layout_marginBottom="@dimen/dp10"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
-                <!--
-                 糖糖，起来了吗，我刚才看了会儿外卖，
-                 不二心：有之前你觉得好吃的玉兰饼和粉丝骨汤，还有包子
-                 包尚：有蒸饺 烧麦 虾饺 还有汤
-
-
-                 刚才吃了个连花清瘟胶囊，又犯困了，
-                 糖糖，我早上赶上有座位的公交啦，还是前排呢
-                 -->
 
                 <LinearLayout
                     android:id="@+id/student_container_ll"
