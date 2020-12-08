@@ -39,8 +39,7 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
         quizzesId = intent.extras!!.getString(Constants.PARAM_ID, "")
         quizzesOfStudentId = intent.extras!!.getString(Constants.PARAM_STUDENT_ID, "")
 
-        setMainTitle("测试详情")
-
+        setMainTitle(getString(R.string.test_detail))
         initSelect()
     }
 

@@ -25,7 +25,12 @@ class TestScoreActivity : BaseMVPActivity<TestScorePresenter>(), TestScoreView {
 
 
     override fun initViews() {
-        quizzesOfStudentId = CommonUtils.getShareStudent().getString(Constants.SP_QUIZZES_OF_STUDENT_ID, "")
+        if (intent.extras == null || !intent.extras!!.containsKey(Constants.PARAM_STUDENT_ID)) {
+            finish()
+            return
+        }
+        quizzesOfStudentId =   intent.extras!!.getString(Constants.PARAM_STUDENT_ID)!!
+//        quizzesOfStudentId = CommonUtils.getShareStudent().getString(Constants.SP_QUIZZES_OF_STUDENT_ID, "")
         presenter.getQuestionResult(this, quizzesOfStudentId)
     }
 

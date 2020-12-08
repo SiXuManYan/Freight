@@ -249,6 +249,7 @@
     <string name="reserve_success">已预约成功</string>
     <string name="class_start_time">开课时间</string>
     <string name="wrap_format">\n%1$s</string>
+    <string name="test_detail">测试详情</string>
 
 
 </resources>

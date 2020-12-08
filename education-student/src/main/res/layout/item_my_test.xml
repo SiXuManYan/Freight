@@ -9,7 +9,6 @@
     android:paddingBottom="@dimen/dp10">
 
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp100"
@@ -23,7 +22,7 @@
         app:cardUseCompatPadding="false">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -36,25 +35,33 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textStyle="bold"
+                android:text="@string/basic_test"
                 android:textColor="@color/font_white"
                 android:textSize="@dimen/sp16"
-                android:text="基础测验 / 小朋友英语升级测试" />
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/content_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/title_tv"
                 android:layout_marginTop="@dimen/dp10"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.2"
                 android:maxLines="2"
+                android:text="@string/graded"
                 android:textColor="@color/color_80ffffff"
-                android:textSize="@dimen/sp13"
-                android:text="已评分 / 专业分级测验，帮助孩子更好的选择学习方式" />
+                android:textSize="@dimen/sp14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/ic_right_test" />
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
     </androidx.cardview.widget.CardView>
