@@ -61,7 +61,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/dp30"
                     android:includeFontPadding="false"
-                    android:text="0"
+                    android:text="--"
                     android:textColor="@color/font_white"
                     android:textSize="@dimen/sp30"
                     android:textStyle="bold" />

@@ -60,7 +60,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/dp20"
                     android:includeFontPadding="false"
-                    android:text="0"
+                    android:text="--"
                     android:textColor="@color/font_white"
                     android:textSize="@dimen/sp48"
                     android:textStyle="bold" />

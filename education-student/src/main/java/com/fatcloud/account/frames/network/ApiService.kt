@@ -1,4 +1,4 @@
-package com.fatcloud.account.frames.network
+package com.fatcloud.account.frames.neyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyhhhhhhhhhhhhhhhhhhhhkdwwwwwwwwwwwwyggggggwduuuuuuuuuuuuuuuuwuuuuudddddwwwwwwwwwwwwwwwtwork
 
 import com.fatcloud.account.frames.entity.*
 import com.fatcloud.account.frames.entity.defray.AliPayInfo
@@ -300,5 +300,11 @@ interface ApiService {
     @POST("/api/student/task/getBuddyBook")
     fun bookDetail(@Body json: BookDetailRequest): Flowable<Response<BookDetail>>
 
+
+    /**
+     * 获取测验题结果列表
+     */
+    @POST("/api/student/quizzes/get")
+    fun getQuestionResultList(@Body json: ListRequest): Flowable<Response<Question>>
 
 }

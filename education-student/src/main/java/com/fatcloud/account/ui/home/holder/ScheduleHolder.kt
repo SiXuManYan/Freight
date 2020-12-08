@@ -33,6 +33,9 @@ class ScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<NativeClassSchedul
     var week = TimeUtil.getNext7DayTime()
 
 
+    /**
+     * 上班一到这时候就困，周一更困。前后看了下大家也都在划水
+     */
     @SuppressLint("SetTextI18n")
     override fun setData(data: NativeClassSchedule?) {
 
