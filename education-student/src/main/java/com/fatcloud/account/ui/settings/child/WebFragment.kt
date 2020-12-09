@@ -10,6 +10,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import com.fatcloud.account.R
+import com.fatcloud.account.frames.components.fragment.BaseFragment
 import com.sugar.library.util.Constants
 import kotlinx.android.synthetic.main.fragment_web.*
 
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_web.*
  * </br>
  *
  */
-class WebFragment : Fragment() {
+class WebFragment : BaseFragment<WebPresenter>(), WebFragmentView {
 
 
     companion object {
@@ -36,21 +37,24 @@ class WebFragment : Fragment() {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
-        inflater.inflate(R.layout.fragment_web, container, false)!!
 
+    override fun getLayoutId() = R.layout.fragment_web
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initViews(view)
+    override fun loadOnVisible() {
+        TODO("Not yet implemented")
     }
 
+    override fun showLoading() = showLoadingDialog()
+
+    override fun hideLoading() = dismissLoadingDialog()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
     }
 
 
-    private fun initViews(view: View) {
+    override fun initViews(parent: View) {
+
         js_wb.webViewClient = object : WebViewClient() {
 
             override fun shouldOverrideUrlLoading(webView: WebView?, url: String?): Boolean {
@@ -76,6 +80,5 @@ class WebFragment : Fragment() {
             js_wb.loadUrl("https://www.baidu.com")
         }
     }
-
 
 }

@@ -15,5 +15,4 @@ interface SettingView : BaseView {
      */
     fun loginOutSuccess()
 
-
 }

@@ -309,10 +309,5 @@ interface ApiService {
 
 
 
-    /**
-     *  app 用户协议和营私政策
-     */
-    @GET("/api/student/quizzes/list")
-    fun getProtocol(@Query("path") path: String): Flowable<Response<String>>
 
 }

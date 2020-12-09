@@ -17,6 +17,8 @@ import com.fatcloud.account.ui.home.HomeFragment
 import com.fatcloud.account.ui.home.HomeModule
 import com.fatcloud.account.ui.order.list.child.OrderChildFragment
 import com.fatcloud.account.ui.order.list.child.OrderChildModule
+import com.fatcloud.account.ui.settings.child.WebFragment
+import com.fatcloud.account.ui.settings.child.WebModule
 import com.fatcloud.account.ui.task.lists.frgm.TaskFragment
 import com.fatcloud.account.ui.task.lists.frgm.TaskModule
 import com.sugar.library.frames.dagger.FragmentScope
@@ -68,6 +70,10 @@ abstract class FragmentBindModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [ClassSchedulePadModule::class])
     abstract fun s(): ClassSchedulePadFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [WebModule::class])
+    abstract fun t(): WebFragment
 
 
 }

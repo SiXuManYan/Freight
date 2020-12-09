@@ -2,6 +2,8 @@ package com.fatcloud.account.ui.settings
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.fatcloud.account.frames.entity.request.Protocol
+import com.fatcloud.account.frames.network.UrlUtil
 import com.fatcloud.account.frames.network.response.BasePresenter
 import com.fatcloud.account.storage.entity.User
 import com.google.gson.JsonElement
@@ -24,16 +26,14 @@ class SettingPresenter @Inject constructor(private var view: SettingView) : Base
 
         requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY, apiService.logout(), object : BaseHttpSubscriber<JsonElement>(view, false) {
 
+            override fun onSuccess(data: JsonElement?) {
+                removeUserInfo()
+            }
 
-                override fun onSuccess(data: JsonElement?) {
-                    removeUserInfo()
-                }
-
-
-                override fun onError(e: Throwable) {
-                    removeUserInfo()
-                }
-            })
+            override fun onError(e: Throwable) {
+                removeUserInfo()
+            }
+        })
 
     }
 
@@ -54,6 +54,23 @@ class SettingPresenter @Inject constructor(private var view: SettingView) : Base
         RxBus.post(Event(Constants.EVENT_NEED_REFRESH))
         RxBus.post(Event(Constants.EVENT_LOGOUT))
         view.loginOutSuccess()
+    }
+
+
+    fun webRequest(index: Int): String {
+
+        val type = when (index) {
+            0 -> {
+                Protocol.privacy
+            }
+            1 -> {
+                Protocol.copyright
+            }
+            else -> {
+                Protocol.contact_us
+            }
+        }
+        return UrlUtil.SERVER_HOST + "/api/common/protocol?path=" + type
     }
 
 
