@@ -87,10 +87,17 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         })
 
         presenter.subsribeEventEntity<ImageUploadEvent>(Consumer {
-            if (it.formWhichClass == UserActivity::class.java && avatar_iv != null) {
+            if (it.formWhichClass == UserActivity::class.java ) {
                 OssUtil.getRealOssUrl(this, it.finalUrl, object : CloudAccountApplication.OssSignCallBack {
                     override fun ossUrlSignEnd(url: String) {
-                        Glide.with(this@MainActivity).load(url).into(avatar_iv)
+
+                        avatar_iv?.let {
+                            Glide.with(this@MainActivity).load(url).into(it)
+                        }
+                        my_iv?.let {
+                            Glide.with(this@MainActivity).load(url).into(it)
+                        }
+
                     }
                 })
             }

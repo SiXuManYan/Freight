@@ -63,7 +63,6 @@ class ReserveListActivity : BaseRefreshListActivity<Buddy, ReserveListPresenter>
                 return@Consumer
             }
 
-
             presenter.book(this, it.result, scheduleId)
         })
     }
