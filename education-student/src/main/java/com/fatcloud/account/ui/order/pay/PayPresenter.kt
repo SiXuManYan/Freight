@@ -2,9 +2,10 @@ package com.fatcloud.account.ui.order.pay
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import com.fatcloud.account.frames.entity.defray.AliPayInfo
 import com.fatcloud.account.frames.entity.defray.WechatPayInfo
+import com.fatcloud.account.frames.entity.request.FakerPaidRequest
 import com.fatcloud.account.frames.network.response.BasePresenter
+import com.google.gson.JsonObject
 import com.sugar.library.frames.network.subscriber.BaseHttpSubscriber
 
 import javax.inject.Inject
@@ -75,6 +76,28 @@ class PayPresenter @Inject constructor(private var view: PayView) : BasePresente
         view.orderPaySuccess()
 
     }
+
+
+    /**
+     * 检查订单是否已经支付过
+     */
+    fun devFakerPaid(lifecycleOwner: LifecycleOwner, orderId: String) {
+
+
+        val apply = FakerPaidRequest().apply {
+            this.orderId = orderId
+        }
+
+        requestApi(lifecycleOwner, Lifecycle.Event.ON_DESTROY,
+            apiService.fakerPaid(apply), object : BaseHttpSubscriber<JsonObject>(view) {
+                override fun onSuccess(data: JsonObject?) {
+                    view.orderPaySuccess()
+                }
+            })
+
+    }
+
+
 
 
 }

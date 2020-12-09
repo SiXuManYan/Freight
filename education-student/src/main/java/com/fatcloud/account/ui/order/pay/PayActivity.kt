@@ -1,6 +1,7 @@
 package com.fatcloud.account.ui.order.pay
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Handler
 import android.os.Message
 import android.util.Log
@@ -66,8 +67,6 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
                 }
             }
         }
-
-
     }
 
 
@@ -92,7 +91,7 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
                 -2 -> {
                     ToastUtils.showShort("您已取消支付")
                 }
-                -1 ->{
+                -1 -> {
                     ToastUtils.showShort("支付错误")
                 }
                 else -> {
@@ -161,6 +160,12 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
     }
 
     private fun handlePayment() {
+
+        if (BuildConfig.DEBUG || BuildConfig.FLAVOR == "dev") {
+            presenter.devFakerPaid(this, orderId)
+            return
+        }
+
         if (wechat_rb.isChecked) {
             if (!StudentUtil.isWeixinAvilible(this)) {
                 return

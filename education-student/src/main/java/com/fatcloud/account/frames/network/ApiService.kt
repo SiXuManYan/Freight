@@ -307,7 +307,11 @@ interface ApiService {
     fun getQuestionResultList(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
 
-
+    /**
+     *  获取测验题结果列表
+     */
+    @POST("/api/student/order/paid")
+    fun fakerPaid(@Body json: FakerPaidRequest): Flowable<Response<JsonObject>>
 
 
 }
