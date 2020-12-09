@@ -161,6 +161,9 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
 
     private fun handlePayment() {
 
+
+
+
         if (BuildConfig.DEBUG || BuildConfig.FLAVOR == "dev") {
             presenter.devFakerPaid(this, orderId)
             return

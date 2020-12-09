@@ -1,12 +1,16 @@
 package com.fatcloud.account.ui.tests
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import butterknife.OnClick
 import com.fatcloud.account.R
 import com.fatcloud.account.frames.components.BaseMVPActivity
+import com.fatcloud.account.storage.entity.User
 import com.fatcloud.account.ui.tests.question.TestQuestionActivity
+import com.fatcloud.account.ui.user.UserActivity
+import com.sugar.library.ui.widget.dialog.AlertDialog
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import com.zhy.view.flowlayout.FlowLayout
@@ -98,14 +102,33 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
         }
         when (view.id) {
             R.id.action_tv -> {
-                val bundle = Bundle()
-                bundle.putString(Constants.PARAM_ID, quizzesId)
-                bundle.putString(Constants.PARAM_STUDENT_ID, quizzesOfStudentId)
-                startActivity(TestQuestionActivity::class.java, bundle)
+                handleNext()
             }
             else -> {
             }
         }
+    }
+
+    private fun handleNext() {
+
+        if (User.get().headImg.isBlank()) {
+
+            AlertDialog.Builder(this)
+                .setTitle(R.string.hint)
+                .setMessage(R.string.hint_empty_user)
+                .setPositiveButton(R.string.confirm, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
+                    startActivity(UserActivity::class.java)
+                    dialog.dismiss()
+                })
+                .create()
+                .show()
+            return
+        }
+
+        val bundle = Bundle()
+        bundle.putString(Constants.PARAM_ID, quizzesId)
+        bundle.putString(Constants.PARAM_STUDENT_ID, quizzesOfStudentId)
+        startActivity(TestQuestionActivity::class.java, bundle)
     }
 
 

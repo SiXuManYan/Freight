@@ -250,7 +250,7 @@ interface ApiService {
     fun buddyList(@Body json: ListRequest): Flowable<Response<JsonArray>>
 
     /**
-     * 我的课程(已开课)
+     * 预约陪读
      *
      */
     @POST("/api/student/buddy/booking")

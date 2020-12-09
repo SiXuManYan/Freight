@@ -1,5 +1,6 @@
 package com.fatcloud.account.ui.course.detail.experience
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
@@ -13,13 +14,16 @@ import com.fatcloud.account.common.OssUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.frames.entity.CourseDetail
 import com.fatcloud.account.frames.entity.home.HomeOrderExtra
+import com.fatcloud.account.storage.entity.User
 import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.fatcloud.account.ui.course.detail.experience.result.ReservationResultActivity
 import com.fatcloud.account.ui.order.pay.prepare.PayPrepareActivity
+import com.fatcloud.account.ui.user.UserActivity
 import com.sugar.library.event.Event
 import com.sugar.library.event.RxBus
 import com.sugar.library.ui.widget.CircleImageView
 import com.sugar.library.ui.widget.countdown.CountDownTextView
+import com.sugar.library.ui.widget.dialog.AlertDialog
 import com.sugar.library.util.CommonUtils
 import com.sugar.library.util.Constants
 import com.sugar.library.util.TimeUtil
@@ -145,17 +149,35 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
         }
         when (view.id) {
             R.id.buy_tv -> {
+                if (setUserInfo()) return
                 startActivity(PayPrepareActivity::class.java, Bundle().apply {
                     putSerializable(Constants.PARAM_ORDER, homeOrderExtra)
                 })
             }
             R.id.reservation_tv -> {
+                if (setUserInfo()) return
                 presenter.bookingExperience(this, scheduleId!!)
             }
             else -> {
 
             }
         }
+    }
+
+    private fun setUserInfo(): Boolean {
+        if (User.get().headImg.isBlank()) {
+            AlertDialog.Builder(this)
+                .setTitle(R.string.hint)
+                .setMessage(R.string.hint_empty_user)
+                .setPositiveButton(R.string.confirm, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
+                    startActivity(UserActivity::class.java)
+                    dialog.dismiss()
+                })
+                .create()
+                .show()
+            return true
+        }
+        return false
     }
 
 

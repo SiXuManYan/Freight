@@ -251,5 +251,7 @@
     <string name="wrap_format">\n%1$s</string>
     <string name="test_detail">测试详情</string>
 
+    <string name="hint_empty_user">请先设置用户信息</string>
+
 
 </resources>
