@@ -52,5 +52,13 @@
     <string name="ask_permission_to_read_storage">由于权限限制，无法访问系统存储，是否打开权限设置？</string>
     <string name="image_save_success">图片保存成功</string>
     <string name="image_position_format" formatted="false">%d&#160;/&#160;%d</string>
+    <string name="time_out">网络连接超时</string>
+    <string name="service_error">服务异常</string>
+    <string name="resonse_error">接口异常</string>
+    <string name="reload">重新加载</string>
+    <string name="phone_empty">暂无联系方式</string>
+    <string name="good_morning">上午好</string>
+    <string name="good_afternoon">下午好</string>
+    <string name="good_evening">晚上好</string>
 
 </resources>

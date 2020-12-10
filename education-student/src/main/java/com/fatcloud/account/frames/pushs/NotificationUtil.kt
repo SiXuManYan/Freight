@@ -43,14 +43,9 @@ object NotificationUtil {
     private var nativeNotifyId = 0
 
 
-    private const val CHANNEL_ID_ORDER = "channel_id_order"
-    private const val CHANNEL_NAME_ORDER = "订单相关通知"
 
     private const val CHANNEL_ID_NEWS = "channel_id_news"
     private const val CHANNEL_NAME_NEWS = "消息相关通知"
-
-    private const val CHANNEL_ID_SHARE = "channel_id_share"
-    private const val CHANNEL_NAME_SHARE = "分享相关通知"
 
     private const val CHANNEL_ID_OTHER = "channel_id_other"
     private const val CHANNEL_NAME_OTHER = "其他通知"

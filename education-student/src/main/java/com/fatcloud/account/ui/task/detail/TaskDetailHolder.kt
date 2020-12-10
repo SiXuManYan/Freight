@@ -41,15 +41,15 @@ class TaskDetailHolder(parent: ViewGroup?) : BaseItemViewHolder<TaskDetail.Readi
 
         reserve_tv.setOnClickListener {
             when {
-                data.scheduleStateText.contains("未激活") -> {
+                data.scheduleStateText.contains(context.getString(R.string.inactivated)) -> {
                     startActivity(ReserveListActivity::class.java, Bundle().apply {
                         putString(Constants.PARAM_SCHEDULE_ID, data.scheduleId)
                     })
                 }
-                data.scheduleStateText.contains("预约中") -> {
+                data.scheduleStateText.contains(context.getString(R.string.booking)) -> {
                     startActivity(BookProgressActivity::class.java)
                 }
-                data.scheduleStateText.contains("预约成功") -> {
+                data.scheduleStateText.contains(context.getString(R.string.appointment_successful)) -> {
                     startActivity(BookResultActivity::class.java)
                 }
             }

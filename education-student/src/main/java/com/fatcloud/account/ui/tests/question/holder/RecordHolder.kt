@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.blankj.utilcode.util.Utils
 import com.bumptech.glide.Glide
@@ -167,7 +168,7 @@ class RecordHolder(parent: ViewGroup?) : BaseItemViewHolder<QuestionChild>(paren
                     RecordManager.getInstance().start()
                     record_iv.visibility = View.GONE
                 } else {
-                    ToastUtils.showShort("请授权相应权限")
+                    ToastUtils.showShort(StringUtils.getString(R.string.permission_error))
                 }
 
             }, RECORD_AUDIO, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE)

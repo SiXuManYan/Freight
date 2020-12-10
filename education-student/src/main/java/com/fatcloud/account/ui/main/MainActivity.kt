@@ -77,7 +77,6 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                 Constants.EVENT_UPDATE_PUSH_DEVICE_ID -> {
                     presenter.updatePushDeviceId(this, it.content!!)
                 }
-
                 Constants.EVENT_UPDATE_USER_INFO -> {
                     initHeaderView()
                 }
@@ -87,7 +86,7 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         })
 
         presenter.subsribeEventEntity<ImageUploadEvent>(Consumer {
-            if (it.formWhichClass == UserActivity::class.java ) {
+            if (it.formWhichClass == UserActivity::class.java) {
                 OssUtil.getRealOssUrl(this, it.finalUrl, object : CloudAccountApplication.OssSignCallBack {
                     override fun ossUrlSignEnd(url: String) {
 
@@ -97,15 +96,10 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                         my_iv?.let {
                             Glide.with(this@MainActivity).load(url).into(it)
                         }
-
                     }
                 })
             }
-
-
         })
-
-
     }
 
     private fun initHeaderView() {

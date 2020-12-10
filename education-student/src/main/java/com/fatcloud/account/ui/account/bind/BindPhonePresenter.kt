@@ -14,4 +14,8 @@ class BindPhonePresenter @Inject constructor(private var view: BindPhoneView) : 
     fun bindLogin(phoneValue: String, verifyValue: String, passwordValue: String, passwordAgainValue: String) {
         view.loginSuccess()
     }
+
+
+
+
 }

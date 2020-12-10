@@ -43,7 +43,7 @@ class TaskDetailActivity : BaseMVPActivity<TaskDetailPresenter>(), TaskDetailVie
     }
 
     private fun initRecycleView() {
-        setMainTitle("课后任务详情")
+        setMainTitle(getString(R.string.task_detail))
         FileDownloader.setup(this)
 
         this.recyclerAdapter = getRecyclerAdapter()
@@ -101,14 +101,14 @@ class TaskDetailActivity : BaseMVPActivity<TaskDetailPresenter>(), TaskDetailVie
 
     private fun downLoadFile() {
         if (downLoadUrl.isNotBlank()) {
-            FileDownloader.getImpl()
+            val start = FileDownloader.getImpl()
                 .create(downLoadUrl)
                 .setPath(DemoUtil.getParentFile(this).path + File.separator + "file" + CommonUtils.getFileSuffix(downLoadUrl))
                 .setListener(object : FileDownloadListener() {
 
                     override fun warn(task: BaseDownloadTask?) = Unit
 
-                    override fun completed(task: BaseDownloadTask?) = ToastUtils.showShort("下载完成")
+                    override fun completed(task: BaseDownloadTask?) = ToastUtils.showShort(getString(R.string.download_complete))
 
                     override fun pending(task: BaseDownloadTask?, soFarBytes: Int, totalBytes: Int) = Unit
 

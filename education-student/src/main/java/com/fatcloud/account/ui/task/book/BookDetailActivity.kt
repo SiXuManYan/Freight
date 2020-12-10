@@ -65,7 +65,7 @@ class BookDetailActivity : BaseMVPActivity<BookDetailPresenter>(), BookDetailVie
                     FileDisplayActivity.show(this, data.contents[0])
                     finish()
                 } else {
-                    ToastUtils.showShort("请授权相应权限")
+                    ToastUtils.showShort(getString(R.string.permission_error))
                 }
 
             }, Manifest.permission.WRITE_EXTERNAL_STORAGE,

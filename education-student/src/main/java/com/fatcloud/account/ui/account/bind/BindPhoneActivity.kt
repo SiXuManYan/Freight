@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 /**
  * Created by Wangsw on 2020/9/21 0021 17:09.
  * </br>
- *
+ *  微信登陆绑定手机号
  */
 class BindPhoneActivity : BaseMVPActivity<BindPhonePresenter>(), BindPhoneView {
 
@@ -37,7 +37,7 @@ class BindPhoneActivity : BaseMVPActivity<BindPhonePresenter>(), BindPhoneView {
         when (view.id) {
 
             R.id.verify_code_tv -> {
-                ToastUtils.showShort("获取验证码")
+
             }
 
             R.id.bind_login_tv -> {

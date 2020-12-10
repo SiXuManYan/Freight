@@ -89,10 +89,10 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
 
             when (resultCode) {
                 -2 -> {
-                    ToastUtils.showShort("您已取消支付")
+                    ToastUtils.showShort(getString(R.string.already_cancel_pay))
                 }
                 -1 -> {
-                    ToastUtils.showShort("支付错误")
+                    ToastUtils.showShort(getString(R.string.pay_error))
                 }
                 else -> {
                     presenter.checkOrderRealPaymentStatus(this, orderId, orderNumber)
@@ -238,7 +238,7 @@ class PayActivity : BaseMVPActivity<PayPresenter>(), PayView {
         val resultInfo = payResult.result
         val resultStatus = payResult.resultStatus
         if (resultStatus == AlipayResultStatus.Status_6001) {
-            ToastUtils.showShort("您已取消支付")
+            ToastUtils.showShort(getString(R.string.already_cancel_pay))
         } else {
             presenter.checkOrderRealPaymentStatus(this, orderId, orderNumber)
         }

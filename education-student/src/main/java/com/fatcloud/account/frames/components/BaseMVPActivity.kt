@@ -3,6 +3,8 @@ package com.fatcloud.account.frames.components
 import android.content.DialogInterface
 import android.os.Bundle
 import com.blankj.utilcode.util.ToastUtils
+import com.fatcloud.account.R
+import com.fatcloud.account.ui.account.WelcomeActivity
 import com.sugar.library.frames.network.response.LibraryBasePresenter
 import com.sugar.library.frames.network.response.BaseView
 import com.sugar.library.ui.widget.dialog.AlertDialog
@@ -45,7 +47,6 @@ abstract class BaseMVPActivity<P : LibraryBasePresenter> : BaseActivity(), BaseV
     }
 
 
-
     override fun showError(code: Int, message: String) {
         if (code < 0) {
             ToastUtils.showShort(message)
@@ -53,24 +54,22 @@ abstract class BaseMVPActivity<P : LibraryBasePresenter> : BaseActivity(), BaseV
         }
         if (code == 401) {
             AlertDialog.Builder(this)
-                .setTitle("提示")
-                .setMessage("您的账号已在其他设备登录，请重新登录")
+                .setTitle(R.string.hint)
+                .setMessage(getString(R.string.remote_login))
                 .setCancelable(false)
-                .setPositiveButton("去登录", AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
-//                        startActivityClearTop(LoginActivity::class.java,null)
-
+                .setPositiveButton(R.string.go_login, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
+                    startActivityClearTop(WelcomeActivity::class.java, null)
                     dialog.dismiss()
                 })
-                .setNegativeButton("我知道了", AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
+                .setNegativeButton(R.string.i_know, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
                     dialog.dismiss()
                 })
                 .create()
                 .show()
             return
         }
-        ToastUtils.showShort(if (message.isEmpty()) "出现错误($code)" else message)
+        ToastUtils.showShort(if (message.isEmpty()) getString(R.string.error_message_format, code) else message)
     }
-
 
 
 }

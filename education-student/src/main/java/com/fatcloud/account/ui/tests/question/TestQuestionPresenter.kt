@@ -2,7 +2,9 @@ package com.fatcloud.account.ui.tests.question
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.fatcloud.account.R
 import com.fatcloud.account.frames.entity.question.Question
 import com.fatcloud.account.frames.entity.question.QuestionChild
 import com.fatcloud.account.frames.entity.question.QuestionChildType
@@ -45,15 +47,15 @@ class TestQuestionPresenter @Inject constructor(private var view: TestQuestionVi
 
         mAdapter.allData.forEach {
             if (it.itemType.contains(QuestionChildType.SELECT.name) && it.nativeAnswerSelect.isEmpty()) {
-                ToastUtils.showShort("请选择正确的答案")
+                ToastUtils.showShort(StringUtils.getString(R.string.select_right_answer))
                 return
             }
             if (it.itemType.contains(QuestionChildType.FILL_IN_THE_BLANKS.name) && it.nativeAnswerFill.isEmpty()) {
-                ToastUtils.showShort("请填写正确的答案")
+                ToastUtils.showShort(StringUtils.getString(R.string.input_answer))
                 return
             }
             if (it.itemType.contains(QuestionChildType.SOUND_RECORDING.name) && it.nativeAnswerRecordPath.isEmpty()) {
-                ToastUtils.showShort("请上传朗读录音")
+                ToastUtils.showShort(StringUtils.getString(R.string.upload_record))
                 return
             }
         }

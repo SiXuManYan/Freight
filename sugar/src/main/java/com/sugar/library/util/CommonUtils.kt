@@ -29,6 +29,7 @@ import com.blankj.utilcode.util.*
 import com.sugar.library.R
 import java.io.*
 import java.math.BigDecimal
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
@@ -556,7 +557,7 @@ object CommonUtils {
 
     fun call(context: Context, phone: String) {
         if (TextUtils.isEmpty(phone)) {
-            ToastUtils.showShort("暂无联系方式")
+            ToastUtils.showShort(context.getString(R.string.phone_empty))
             return
         }
         val phoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phone"))
@@ -772,13 +773,13 @@ object CommonUtils {
 
         when {
             hours < 12 -> {
-                tv?.text = "上午好"
+                tv?.text = StringUtils.getString(R.string.good_morning)
             }
             hours < 18 -> {
-                tv?.text = "下午好"
+                tv?.text = StringUtils.getString(R.string.good_afternoon)
             }
             else -> {
-                tv?.text = "晚上好"
+                tv?.text = StringUtils.getString(R.string.good_evening)
             }
         }
     }
@@ -879,8 +880,6 @@ object CommonUtils {
                 })
                 .create()
                 .show()
-
-
         }
         return false
     }
@@ -897,6 +896,11 @@ object CommonUtils {
 
     fun getFileSuffix(url: String): String {
         return url.substring(url.lastIndexOf("."), url.length - 1)
+    }
+
+    fun addComma(str: String): String {
+        val decimalFormat = DecimalFormat(",###")
+        return decimalFormat.format(str.toDouble())
     }
 
 }

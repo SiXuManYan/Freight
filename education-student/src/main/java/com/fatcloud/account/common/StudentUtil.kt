@@ -138,7 +138,7 @@ object StudentUtil {
         return if (iwxapi.isWXAppInstalled()) {
             true
         } else {
-            ToastUtils.showShort("检测到手机未安装微信")
+            ToastUtils.showShort(context?.getString(R.string.wechat_not_install))
             false
         }
     }
@@ -151,11 +151,11 @@ object StudentUtil {
             .throttleFirst(500, TimeUnit.MILLISECONDS)
             .subscribe {
                 if (joinCode.isBlank()) {
-                    ToastUtils.showShort("未找到教室")
+                    ToastUtils.showShort(context.getString(R.string.classroom_not_exit))
                     return@subscribe
                 }
                 if (studentName.isNullOrBlank()) {
-                    ToastUtils.showShort("学生姓名不能为空 ")
+                    ToastUtils.showShort(context.getString(R.string.name_can_not_empty))
                     return@subscribe
                 }
                 InteractiveClassUI.enterRoom(context, joinCode, studentName) { msg ->

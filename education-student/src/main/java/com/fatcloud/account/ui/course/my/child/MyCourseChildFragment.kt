@@ -9,6 +9,7 @@ import com.baijiayun.groupclassui.InteractiveClassUI
 import com.baijiayun.livecore.utils.LPRxUtils
 import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.fatcloud.account.R
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.components.list.BaseRefreshListFragment
 import com.fatcloud.account.frames.entity.MyCourse
@@ -120,7 +121,7 @@ class MyCourseChildFragment : BaseRefreshListFragment<MyCourse, MyCourseChildPre
                     val myCourse = it.allData[commonClassHolder.adapterPosition]
                     val code: String = myCourse.liveRoomStudentCode
                     if (code.isBlank()) {
-                        ToastUtils.showShort("未找到教室")
+                        ToastUtils.showShort(getString(R.string.classroom_not_exit))
                         return@subscribe
                     }
                     InteractiveClassUI.enterRoom(context, code, User.get().name) { msg ->

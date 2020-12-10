@@ -40,7 +40,7 @@ class TestScoreActivity : BaseMVPActivity<TestScorePresenter>(), TestScoreView {
 
             AlertDialog.Builder(this)
                 .setTitle(R.string.hint)
-                .setMessage("您未提交测试")
+                .setMessage(getString(R.string.test_not_submit))
                 .setCancelable(false)
                 .setPositiveButton(R.string.confirm, AlertDialog.STANDARD, DialogInterface.OnClickListener { dialog, which ->
                     dialog.dismiss()

@@ -63,12 +63,12 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
                     initCountDown(safeCountDownTime)
                 }
                 CourseState.TAUGHT.name -> {
-                    product_state_tv.text = "已结束"
+                    product_state_tv.text = StringUtils.getString(R.string.class_end)
                     count_down_ll.visibility = View.GONE
                 }
 
                 CourseState.TEACHING.name -> {
-                    product_state_tv.text = "上课中"
+                    product_state_tv.text = StringUtils.getString(R.string.classroom_not_exit)
                     count_down_ll.visibility = View.GONE
                 }
             }
@@ -98,7 +98,7 @@ class ExperienceClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(par
                         override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) = Unit
 
                         override fun onFinish(countDownTextView: CountDownTextView?) {
-                            product_state_tv.text = "上课中"
+                            product_state_tv.text = StringUtils.getString(R.string.in_class)
                             count_down_ll.visibility = View.GONE
                         }
                     })

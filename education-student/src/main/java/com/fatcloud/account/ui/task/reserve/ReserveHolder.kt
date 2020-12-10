@@ -41,7 +41,7 @@ class ReserveHolder(parent: ViewGroup?) : BaseItemViewHolder<Buddy>(parent, R.la
         })
 
         title_tv.text = data.buddyName
-        sex_tv.text = if (data.sexText == "男") {
+        sex_tv.text = if (data.sexText == context.getString(R.string.boy)) {
             "♂"
         } else {
             "♀"
@@ -64,13 +64,13 @@ class ReserveHolder(parent: ViewGroup?) : BaseItemViewHolder<Buddy>(parent, R.la
     private fun showSingleChoiceDialog(items: Array<String>, buddyTimeOuts: ArrayList<Buddy.BuddyTime>) {
         yourChoice = -1
         val singleChoiceDialog: AlertDialog.Builder = AlertDialog.Builder(context)
-        singleChoiceDialog.setTitle("请选择时间")
+        singleChoiceDialog.setTitle(context.getString(R.string.select_time))
         singleChoiceDialog.setSingleChoiceItems(items, 0) { _, which ->
             yourChoice = which
         }
-        singleChoiceDialog.setPositiveButton("确定") { _, _ ->
+        singleChoiceDialog.setPositiveButton(R.string.confirm) { _, _ ->
             if (yourChoice != -1) {
-                ToastUtils.showShort("你选择了" + items[yourChoice], Toast.LENGTH_SHORT)
+                ToastUtils.showShort(context.getString(R.string.your_choice) + items[yourChoice], Toast.LENGTH_SHORT)
                 RxBus.post(ReserveEvent(buddyTimeOuts[yourChoice]))
             }
         }

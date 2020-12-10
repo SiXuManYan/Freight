@@ -121,7 +121,7 @@ abstract class BaseFragment<P : LibraryBasePresenter> : DaggerFragment(), BaseVi
                     .create()
                     .show()
             } else {
-                ToastUtils.showShort(if (message.isNullOrEmpty()) "出现错误($code)" else message)
+                ToastUtils.showShort(if (message.isEmpty()) getString(R.string.error_message_format, code) else message)
             }
 
         } else {

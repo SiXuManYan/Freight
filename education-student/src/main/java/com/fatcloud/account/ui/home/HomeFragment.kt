@@ -53,6 +53,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     onRefresh()
                 }
                 else -> {
+
                 }
             }
         })
@@ -164,7 +165,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                 startActivity(NoClassActivity::class.java, Bundle().apply {
                     putString(Constants.PARAM_PRODUCT_ID, model.productId)
                 })
-            }else {
+            } else {
                 startActivity(ExperienceCourseDetailActivity::class.java, Bundle().apply {
                     putString(Constants.PARAM_ID, model.id)
                     putInt(Constants.PARAM_TYPE, RESERVE)
@@ -243,7 +244,7 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                     val myCourse = it.allData[commonClassHolder.adapterPosition] as Course
                     val code: String = myCourse.liveRoomNo
                     if (code.isBlank()) {
-                        ToastUtils.showShort("未找到教室")
+                        ToastUtils.showShort(R.string.classroom_not_exit)
                         return@subscribe
                     }
                     InteractiveClassUI.enterRoom(context, code, User.get().name) { msg ->

@@ -59,7 +59,7 @@ class AccidentView @JvmOverloads constructor(context: Context, attrs: AttributeS
         retryText?.setPadding(SizeUtils.dp2px(20f), SizeUtils.dp2px(5f), SizeUtils.dp2px(20f), SizeUtils.dp2px(5f))
         retryText?.setTextColor(createColorStateList(gray, gray, ContextCompat.getColor(context, R.color.colorPrimary)))
         retryText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-        retryText?.text = "重新加载"
+        retryText?.text = context.getString(R.string.reload)
         retryText?.setOnClickListener {
             onRetryClickListener?.onRetryClick()
         }

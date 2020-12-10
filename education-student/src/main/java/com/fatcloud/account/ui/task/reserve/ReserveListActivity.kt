@@ -87,3 +87,4 @@ class ReserveListActivity : BaseRefreshListActivity<Buddy, ReserveListPresenter>
     }
 
 }
+

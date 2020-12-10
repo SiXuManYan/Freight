@@ -81,7 +81,7 @@ class ForgetActivity : BaseMVPActivity<ForgetPresenter>(), ForgetView {
         when (view.id) {
 
             R.id.verify_code_tv -> {
-                ToastUtils.showShort("获取验证码")
+                presenter.getVerifyCode(this,phone_aet.text.toString().trim(),verify_code_tv)
             }
 
             R.id.submit_tv -> {
@@ -102,8 +102,12 @@ class ForgetActivity : BaseMVPActivity<ForgetPresenter>(), ForgetView {
 
 
     override fun retrieveSuccess() {
-        ToastUtils.showShort("密码找回成功")
+        ToastUtils.showShort(getString(R.string.password_retrieved_successfull))
         finish()
+    }
+
+    override fun captchaSendResult() {
+        ToastUtils.showShort(R.string.captcha_target_format)
     }
 
 

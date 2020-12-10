@@ -9,4 +9,5 @@ import com.sugar.library.frames.network.response.BaseTaskView
  */
 interface ForgetView : BaseTaskView {
     fun retrieveSuccess()
+    fun captchaSendResult()
 }

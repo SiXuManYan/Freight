@@ -8,8 +8,10 @@ import android.os.Environment
 import androidx.core.content.FileProvider
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.fatcloud.account.BuildConfig
+import com.fatcloud.account.R
 import com.fatcloud.account.common.StudentUtil
 import com.fatcloud.account.frames.entity.request.SetUserInfo
 import com.fatcloud.account.frames.network.response.BasePresenter
@@ -43,7 +45,7 @@ class UserPresenter @Inject constructor(private var view: UserView) : BasePresen
                 if (granted) {
                     val sdStatus = Environment.getExternalStorageState()
                     if (sdStatus != Environment.MEDIA_MOUNTED) { // 检测sd是否可用
-                        ToastUtils.showShort("SD卡不存在")
+                        ToastUtils.showShort(context.getString(R.string.sd_not_exit))
                     } else {
                         Common.FILE_NAME = String.format(Common.COMMON_PHOTO_NAME, System.currentTimeMillis())
                         val fileParent = File(file_path)
@@ -100,7 +102,7 @@ class UserPresenter @Inject constructor(private var view: UserView) : BasePresen
 
             apiService.setUserInfo(apply), object : BaseHttpSubscriber<JsonElement>(view) {
                 override fun onSuccess(data: JsonElement?) {
-                    ToastUtils.showShort("设置成功")
+                    ToastUtils.showShort(StringUtils.getString(R.string.set_success))
                     val user = User.get().apply {
                         this.headImg = mAvatarUrl
                         this.name = mNameChinese
@@ -124,16 +126,19 @@ class UserPresenter @Inject constructor(private var view: UserView) : BasePresen
 
     fun getStages(): ArrayList<String> {
         val stages = ArrayList<String>()
-        stages.add("S0-无基础")
-        stages.add("S1-有点基础")
-        stages.add("S2-小学一年级水平")
-        stages.add("S3-小学二年级水平")
-        stages.add("S4-小学三年级水平")
-        stages.add("S5-小学四年级水平")
-        stages.add("S6-小学五年级水平")
-        stages.add("S7-小学六年级水平")
+        stages.add(StringUtils.getString(R.string.basis_none))
+        stages.add(StringUtils.getString(R.string.basis_a_little))
+        stages.add(StringUtils.getString(R.string.basis_none))
+        stages.add(StringUtils.getString(R.string.basis_two))
+        stages.add(StringUtils.getString(R.string.basis_three))
+        stages.add(StringUtils.getString(R.string.basis_four))
+        stages.add(StringUtils.getString(R.string.basis_five))
+        stages.add(StringUtils.getString(R.string.basis_six))
         return stages
     }
 
 
+    /**
+     *
+     */
 }

@@ -252,6 +252,64 @@
     <string name="test_detail">测试详情</string>
 
     <string name="hint_empty_user">请先设置用户信息</string>
+    <string name="classroom_not_exit">未找到教室</string>
+    <string name="name_can_not_empty">学生姓名不能为空</string>
+    <string name="wechat_not_install">检测到手机未安装微信</string>
+    <string name="remote_login">您的账号已在其他设备登录，请重新登录</string>
+
+    <string name="error_message_format">出现错误 %1$d</string>
+    <string name="password_retrieved_successfull">密码找回成功</string>
+    <string name="booking_please_wait">预约中，请耐心等待</string>
+
+    <string name="minute_format">%1$s分钟</string>
+    <string name="in_class">上课中</string>
+    <string name="today">今天</string>
+    <string name="already_cancel_pay">您已取消支付</string>
+    <string name="pay_error">支付错误</string>
+    <string name="permission_error">请授权相应权限</string>
+    <string name="download_complete">下载完成</string>
+    <string name="task_detail">预约陪读详情</string>
+    <string name="inactivated">未激活</string>
+    <string name="booking">预约中</string>
+    <string name="boy">男</string>
+    <string name="select_time">请选择时间</string>
+    <string name="your_choice">你选择了</string>
+    <string name="age_3">3岁</string>
+    <string name="age_4">4岁</string>
+    <string name="age_5">5岁</string>
+    <string name="age_6">6岁</string>
+    <string name="age_7">7岁</string>
+    <string name="age_8">8岁</string>
+    <string name="age_9">9岁</string>
+    <string name="age_10">10岁</string>
+    <string name="age_11">11岁</string>
+    <string name="age_12">12岁</string>
+
+    <string name="basis_none">无基础</string>
+    <string name="basis_a_little">有点基础</string>
+    <string name="basis_one">小学一年级水平</string>
+    <string name="basis_two">小学二年级水平</string>
+    <string name="basis_three">小学三年级水平</string>
+    <string name="basis_four">小学四年级水平</string>
+    <string name="basis_five">小学五年级水平</string>
+    <string name="basis_six">小学六年级水平</string>
+
+    <string name="basis_none_2">S0-无基础</string>
+    <string name="basis_a_little_2">S1-有点基础</string>
+    <string name="basis_one_2">S2-小学一年级水平</string>
+    <string name="basis_two_2">S3-小学二年级水平</string>
+    <string name="basis_three_2">S4-小学三年级水平</string>
+    <string name="basis_four_2">S5-小学四年级水平</string>
+    <string name="basis_five_2">S6-小学五年级水平</string>
+    <string name="basis_six_2">S7-小学六年级水平</string>
+
+
+    <string name="select_right_answer">请选择正确的答案</string>
+    <string name="input_answer">请填写正确的答案</string>
+    <string name="upload_record">请上传朗读录音</string>
+    <string name="test_not_submit">您未提交测试</string>
+    <string name="sd_not_exit">SD卡不存在</string>
+    <string name="set_success">设置成功</string>
 
 
 </resources>

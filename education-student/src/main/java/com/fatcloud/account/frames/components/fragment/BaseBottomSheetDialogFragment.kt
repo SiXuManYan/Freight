@@ -99,7 +99,7 @@ abstract class BaseBottomSheetDialogFragment<P : LibraryBasePresenter> : BottomS
 
     override fun showError(code: Int, message: String) {
         if (code >= 0) {
-            ToastUtils.showShort(if(message.isNullOrEmpty())"出现错误($code)" else message)
+            ToastUtils.showShort(if (message.isEmpty()) getString(R.string.error_message_format, code) else message)
         } else {
             ToastUtils.showShort(message)
         }

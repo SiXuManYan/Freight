@@ -55,17 +55,11 @@ class ReserveListPresenter @Inject constructor(private var view: ReserveListView
             this.scheduleId = scheduleId
         }
 
-        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY,
-
-            apiService.buddyBooking(apply),
-
-            object : BaseHttpSubscriber<JsonObject>(view) {
-                override fun onSuccess(data: JsonObject?) {
-                  view.bookSuccess()
-                }
+        requestApi(lifecycle, Lifecycle.Event.ON_DESTROY, apiService.buddyBooking(apply), object : BaseHttpSubscriber<JsonObject>(view) {
+            override fun onSuccess(data: JsonObject?) {
+                view.bookSuccess()
             }
-        )
-
+        })
     }
 
 

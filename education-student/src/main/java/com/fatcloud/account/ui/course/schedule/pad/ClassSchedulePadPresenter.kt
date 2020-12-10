@@ -4,7 +4,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import com.blankj.utilcode.constant.TimeConstants
 import com.blankj.utilcode.util.TimeUtils
-import com.fatcloud.account.BuildConfig
 import com.fatcloud.account.frames.entity.ClassSchedule
 import com.fatcloud.account.frames.entity.MyCourse
 import com.fatcloud.account.frames.entity.request.ListRequest
@@ -52,27 +51,6 @@ class ClassSchedulePadPresenter @Inject constructor(private var view: ClassSched
 
             override fun onSuccess(jsonArray: JsonArray?, list: java.util.ArrayList<MyCourse>, lastItemId: String?) {
 
-                if (BuildConfig.DEBUG) {
-
-                    val apply1 = MyCourse().apply {
-                        productId = "1"
-                        courseName = "小学一年级上册第1章"
-                        state = "UNTEACH-未上课"
-                        teacherHeadImg =
-                            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605676239556&di=1424d583e834b032c2ad8011711f9dea&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201604%2F22%2F20160422125942_RiF32.jpeg"
-                        productName = "sugar"
-                        courseId = "1"
-                        countDownStudySeconds = "0"
-                        teacherName = "糖糖老师"
-                        orderId = "1321375044911370240"
-                        scheduleId = "10"
-                        productIconImg = "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3979510287,3948598266&fm=26&gp=0.jpg"
-                        courseIntroduce = "tangtang"
-                        studyDatetime = TimeUtils.getNowString()
-                    }
-                    list.add(apply1)
-
-                }
 
                 if (list.isNotEmpty()) {
                     view.bindList(list, lastItemId)

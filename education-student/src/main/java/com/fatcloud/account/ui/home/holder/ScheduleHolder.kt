@@ -53,7 +53,7 @@ class ScheduleHolder(parent: ViewGroup?) : BaseItemViewHolder<NativeClassSchedul
             val chineseWeek = TimeUtils.getChineseWeek(weekItem)
             when (index) {
                 0 -> {
-                    zero_tv.text = "今天"
+                    zero_tv.text = StringUtils.getString(R.string.today)
                     zero_tv.tag = index
                 }
                 1 -> {

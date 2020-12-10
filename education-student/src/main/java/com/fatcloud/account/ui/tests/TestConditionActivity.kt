@@ -49,27 +49,28 @@ class TestConditionActivity : BaseMVPActivity<TestConditionPresenter>(), TestCon
 
     private fun initSelect() {
         age.apply {
-            add("3岁")
-            add("4岁")
-            add("5岁")
-            add("6岁")
-            add("7岁")
-            add("8岁")
-            add("9岁")
-            add("10岁")
-            add("11岁")
-            add("12岁")
+            add(getString(R.string.age_3))
+            add(getString(R.string.age_4))
+            add(getString(R.string.age_5))
+            add(getString(R.string.age_6))
+            add(getString(R.string.age_7))
+            add(getString(R.string.age_8))
+            add(getString(R.string.age_9))
+            add(getString(R.string.age_10))
+            add(getString(R.string.age_11))
+            add(getString(R.string.age_12))
+
         }
 
         basis.apply {
-            add("无基础")
-            add("有点基础")
-            add("小学一年级水平")
-            add("小学二年级水平")
-            add("小学三年级水平")
-            add("小学四年级水平")
-            add("小学五年级水平")
-            add("小学六年级水平")
+            add(getString(R.string.basis_none))
+            add(getString(R.string.basis_a_little))
+            add(getString(R.string.basis_one))
+            add(getString(R.string.basis_two))
+            add(getString(R.string.basis_three))
+            add(getString(R.string.basis_four))
+            add(getString(R.string.basis_five))
+            add(getString(R.string.basis_six))
         }
 
 

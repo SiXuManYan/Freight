@@ -117,7 +117,7 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
                 }
 
                 override fun onFinish(countDownTextView: CountDownTextView?) {
-                    status_tv.text = "上课中"
+                    status_tv.text = context.getString(R.string.in_class)
                     course_vs.displayedChild = 0
                     RxBus.post(Event(Constants.EVENT_REFRESH_MY_COURSE))
                 }

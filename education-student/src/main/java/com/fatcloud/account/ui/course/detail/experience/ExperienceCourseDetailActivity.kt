@@ -129,7 +129,7 @@ class ExperienceCourseDetailActivity : BaseMVPActivity<ExperienceCourseDetailPre
             initCountDown(TimeUtil.getSafeCountDownTime(it.countdownEndTimeSeconds))
         } else if (it.state.contains(CourseDetail.BOOKING)) {
             reservation_tv.isEnabled = false
-            reservation_tv.text = "预约中，请耐心等待"
+            reservation_tv.text = getString(R.string.booking_please_wait)
         }
     }
 

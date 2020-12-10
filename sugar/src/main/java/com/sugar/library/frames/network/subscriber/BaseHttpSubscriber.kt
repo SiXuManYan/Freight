@@ -1,10 +1,12 @@
 package com.sugar.library.frames.network.subscriber
 
+import com.blankj.utilcode.util.StringUtils
+import com.google.gson.Gson
+import com.sugar.library.R
 import com.sugar.library.frames.network.LibraryApiException
+import com.sugar.library.frames.network.Response
 import com.sugar.library.frames.network.response.BaseTaskView
 import com.sugar.library.frames.network.response.BaseView
-import com.google.gson.Gson
-import com.sugar.library.frames.network.Response
 import io.reactivex.subscribers.ResourceSubscriber
 import retrofit2.HttpException
 import java.io.IOException
@@ -42,13 +44,13 @@ abstract class BaseHttpSubscriber<T>(private var view: BaseView, var showLoading
                 view.showError(e.code(), e.message())
             }
             is IOException -> {
-                view.showError(-1, "网络连接超时")
+                view.showError(-1, StringUtils.getString(R.string.time_out))
             }
             is LibraryApiException -> {
-                view.showError(e.code, e.msg ?: "接口异常")
+                view.showError(e.code, e.msg ?: StringUtils.getString(R.string.resonse_error))
             }
             else -> {
-                view.showError(-1, "服务异常")
+                view.showError(-1, StringUtils.getString(R.string.service_error))
             }
         }
     }
