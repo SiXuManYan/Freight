@@ -93,9 +93,11 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
                         avatar_iv?.let {
                             Glide.with(this@MainActivity).load(url).into(it)
                         }
+
                         my_iv?.let {
                             Glide.with(this@MainActivity).load(url).into(it)
                         }
+
                     }
                 })
             }
@@ -189,11 +191,14 @@ class MainActivity : BaseMVPActivity<MainPresenter>(), MainView {
         }
     }
 
-
+    /**
+     *
+     */
     override fun initPadLayout() {
         pager?.adapter = PagerAdapter(supportFragmentManager)
         pager?.offscreenPageLimit = TAB_TITLES.size
         pager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+
             override fun onPageScrollStateChanged(state: Int) = Unit
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {

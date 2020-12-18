@@ -102,7 +102,7 @@ class ForgetActivity : BaseMVPActivity<ForgetPresenter>(), ForgetView {
 
 
     override fun retrieveSuccess() {
-        ToastUtils.showShort(getString(R.string.password_retrieved_successfull))
+        ToastUtils.showShort(getString(R.string.password_retrieved_successful))
         finish()
     }
 

@@ -25,6 +25,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
+/**
+ * x5浏览器打开文件
+ */
 public class FileDisplayActivity extends AppCompatActivity {
 
     private String TAG = "FileDisplayActivity";

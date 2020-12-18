@@ -1,3 +1,4 @@
+include ':education-teacher'
 include ':sugar'
 include ':driver'
 include ':app'

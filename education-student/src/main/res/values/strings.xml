@@ -258,7 +258,7 @@
     <string name="remote_login">您的账号已在其他设备登录，请重新登录</string>
 
     <string name="error_message_format">出现错误 %1$d</string>
-    <string name="password_retrieved_successfull">密码找回成功</string>
+    <string name="password_retrieved_successful">密码找回成功</string>
     <string name="booking_please_wait">预约中，请耐心等待</string>
 
     <string name="minute_format">%1$s分钟</string>
@@ -302,7 +302,6 @@
     <string name="basis_four_2">S5-小学四年级水平</string>
     <string name="basis_five_2">S6-小学五年级水平</string>
     <string name="basis_six_2">S7-小学六年级水平</string>
-
 
     <string name="select_right_answer">请选择正确的答案</string>
     <string name="input_answer">请填写正确的答案</string>

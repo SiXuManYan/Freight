@@ -23,7 +23,7 @@ import androidx.annotation.NonNull;
 
 import java.io.File;
 
-public class DemoUtil {
+public class PathUtil {
 
 
     public static void calcProgressToView(ProgressBar progressBar, long offset, long total) {

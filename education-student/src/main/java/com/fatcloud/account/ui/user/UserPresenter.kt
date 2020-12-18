@@ -47,18 +47,22 @@ class UserPresenter @Inject constructor(private var view: UserView) : BasePresen
                     if (sdStatus != Environment.MEDIA_MOUNTED) { // 检测sd是否可用
                         ToastUtils.showShort(context.getString(R.string.sd_not_exit))
                     } else {
+
                         Common.FILE_NAME = String.format(Common.COMMON_PHOTO_NAME, System.currentTimeMillis())
                         val fileParent = File(file_path)
                         if (!fileParent.exists()) {
                             fileParent.mkdirs()
                         }
+
                         val file = File(file_path + Common.FILE_NAME)
                         val uri: Uri
+
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                             uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".fileprovider", file)// 7.0以后
                         } else {
                             uri = Uri.fromFile(file)
                         }
+
                         view.onShootingPermissionResult(uri)
                     }
 

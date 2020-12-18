@@ -25,7 +25,7 @@ object StudentConstants {
     /**
      * 系统 OS 版本号
      */
-    val OS_VERSION = "Android " + Build.VERSION.RELEASE
+    val OS_VERSION = "Android" + Build.VERSION.RELEASE
 
     /**
      * 设备类型(平板 / 手机)
@@ -38,11 +38,9 @@ object StudentConstants {
 
     /**
      * 任务关联的课程id
+     *
      */
     val PARAM_TASK_OF_COURSE_ID = "taskOfCourseId"
-
-
-
 
 
 }

@@ -18,15 +18,10 @@ import java.lang.reflect.Type
 class GsonConvertFactory private constructor(private var gson: Gson) : Converter.Factory() {
 
     companion object {
-        fun create() =
-            GsonConvertFactory(Gson())
+        fun create() = GsonConvertFactory(Gson())
     }
 
-    override fun responseBodyConverter(
-        type: Type?,
-        annotations: Array<out Annotation>?,
-        retrofit: Retrofit?
-    ): Converter<ResponseBody, *> {
+    override fun responseBodyConverter(type: Type?, annotations: Array<out Annotation>?, retrofit: Retrofit?): Converter<ResponseBody, *> {
         val adapter = gson.getAdapter(TypeToken.get(type))
         return GsonResponseBodyConverter(
             gson,
@@ -62,6 +57,8 @@ class GsonConvertFactory private constructor(private var gson: Gson) : Converter
             return RequestBody.create(MEDIA_TYPE, buffer.readByteString())
         }
     }
+
+
 
     private class GsonResponseBodyConverter<T>(private var gson: Gson, private var adapter: TypeAdapter<T>) : Converter<ResponseBody, T> {
 

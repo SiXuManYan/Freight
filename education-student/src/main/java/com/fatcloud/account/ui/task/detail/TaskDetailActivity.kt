@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ToastUtils
 import com.fatcloud.account.R
-import com.fatcloud.account.common.download.DemoUtil
+import com.fatcloud.account.common.download.PathUtil
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.frames.entity.TaskDetail
 import com.fatcloud.account.ui.task.book.lists.BookListActivity
@@ -103,7 +103,7 @@ class TaskDetailActivity : BaseMVPActivity<TaskDetailPresenter>(), TaskDetailVie
         if (downLoadUrl.isNotBlank()) {
             val start = FileDownloader.getImpl()
                 .create(downLoadUrl)
-                .setPath(DemoUtil.getParentFile(this).path + File.separator + "file" + CommonUtils.getFileSuffix(downLoadUrl))
+                .setPath(PathUtil.getParentFile(this).path + File.separator + "file" + CommonUtils.getFileSuffix(downLoadUrl))
                 .setListener(object : FileDownloadListener() {
 
                     override fun warn(task: BaseDownloadTask?) = Unit
