@@ -52,7 +52,7 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
         super.onCreate()
         presenter.requestCommon(this)
         registerActivityLifecycleCallbacks(this)
-        DoraemonKit.install(this,"785a6de631aec3158d22b2954ebae1d7")
+        DoraemonKit.install(this, "785a6de631aec3158d22b2954ebae1d7")
         NotificationUtil.initCloudChannel(this)
         initX5WebView()
     }
@@ -82,15 +82,11 @@ class CloudAccountApplication : DaggerApplication(), HasActivityInjector, Applic
 
     override fun showError(code: Int, message: String) = Unit
 
-    public  var data: AppCommon? = null
+    public var data: AppCommon? = null
 
     override fun saveCommonConfig(data: AppCommon) {
         this.data = data
     }
-
-
-
-    /*  公用网络请求   */
 
 
     var ossCallBack: OssSignCallBack? = null
