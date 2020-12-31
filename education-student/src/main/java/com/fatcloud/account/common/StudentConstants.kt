@@ -7,7 +7,7 @@ import com.blankj.utilcode.util.DeviceUtils
 /**
  * Created by Wangsw on 2020/9/25 0025 9:14.
  * </br>
- *
+ * 学生端常量
  */
 object StudentConstants {
 
