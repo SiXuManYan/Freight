@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by Wangsw on 2020/10/8 0008 9:50.
  * </br>
- *
+ * 学生端处理
  */
 object StudentUtil {
 
