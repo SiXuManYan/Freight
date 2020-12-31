@@ -10,7 +10,7 @@ import com.sugar.library.BuildConfig
 /**
  * Created by Wangsw on 2020/10/9 0009 10:58.
  * </br>
- *
+ *  OOSS 上传
  */
 object OssUtil {
 
