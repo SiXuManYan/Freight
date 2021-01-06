@@ -14,7 +14,7 @@ import javax.inject.Inject
 /**
  * MVP框架Activity基类
  */
-abstract class LibraryBaseMVPActivity<P : LibraryBasePresenter> : LibraryBaseActivity(), BaseView, HasSupportFragmentInjector {
+ abstract class LibraryBaseMVPActivity<P : LibraryBasePresenter> : LibraryBaseActivity(), BaseView, HasSupportFragmentInjector {
 
     @Inject
     lateinit var fragmentInjector: DispatchingAndroidInjector<androidx.fragment.app.Fragment>

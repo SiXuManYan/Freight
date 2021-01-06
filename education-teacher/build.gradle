@@ -1,28 +1,78 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'com.jakewharton.butterknife'
+}
+
+static def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.ftacloud.teacher"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
+        // 使用高斯模糊
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled true
+
+        multiDexEnabled true
+        flavorDimensions "versionCode" // 多维度打包
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Android Studio pluing 3.0.+ 以上 ，如果项目中用到注解，必须显示的声明注释处理器
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 数据库导出
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "arm64-v8a", "x86_64"
+        }
+
     }
 
+    signingConfigs {
+        debug { storeFile file("../keystore/debug.keystore") }
+        release {
+            storeFile file('../keystore/cloud.jks')
+//            storeFile file('../keystore/educationStudent.jks')
+            storePassword 'cloud.33'
+//            keyAlias 'educationStudent'
+            keyAlias 'key0'
+            keyPassword 'cloud.33'
+        }
+
+    }
+
+
     buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -30,9 +80,31 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    // 忽略lit提示
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'MissingTranslation'
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "Teacher_v${defaultConfig.versionCode}_(${defaultConfig.versionName})_${releaseTime()}.apk"
+        }
+    }
+
+
+}
+
+androidExtensions {
+    // 替代 findViewById
+    experimental = true
 }
 
 dependencies {
+    api fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(path: ':sugar')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
@@ -45,7 +117,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
-    implementation project(path: ':sugar')
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
