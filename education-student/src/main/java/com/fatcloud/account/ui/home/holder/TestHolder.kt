@@ -4,7 +4,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.fatcloud.account.R
+import com.fatcloud.account.common.OssUtil
 import com.fatcloud.account.frames.entity.home.Test
+import com.fatcloud.account.ui.app.CloudAccountApplication
 import com.sugar.library.frames.BaseItemViewHolder
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_home_basic_test.*
@@ -25,7 +27,12 @@ class TestHolder(parent: ViewGroup?) : BaseItemViewHolder<Test>(parent, R.layout
         }
 
         title_tv.text = data.name
-        Glide.with(context).load(data.iconImg).into(tag_iv)
+        OssUtil.getRealOssUrl(context,data.iconImg,object:CloudAccountApplication.OssSignCallBack{
+            override fun ossUrlSignEnd(url: String) {
+                Glide.with(context).load(url).into(tag_iv)
+            }
+
+        })
         content_tv.text = data.introduce
 
 
