@@ -37,7 +37,7 @@ class CommonClassHolder(parent: ViewGroup?) : BaseItemViewHolder<Course>(parent,
         if (data == null) {
             return
         }
-        OssUtil.getRealOssUrl(context,data.productIconImg,object :CloudAccountApplication.OssSignCallBack{
+        OssUtil.getRealOssUrl(context, data.productIconImg, object : CloudAccountApplication.OssSignCallBack {
             override fun ossUrlSignEnd(url: String) {
                 Glide.with(context).load(url)
                     .apply(RequestOptions().transform(MultiTransformation(CenterCrop(), RoundTransFormation(context, 8)))).into(image_iv)

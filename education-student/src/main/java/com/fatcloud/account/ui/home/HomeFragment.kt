@@ -247,7 +247,12 @@ class HomeFragment : BaseRefreshListFragment<Any, HomePresenter>(), HomeView {
                         ToastUtils.showShort(R.string.classroom_not_exit)
                         return@subscribe
                     }
-                    InteractiveClassUI.enterRoom(context, code, User.get().name) { msg ->
+                    var name = User.get().name
+                    if (name.isNullOrBlank()) {
+                        name = "学生1"
+                    }
+
+                    InteractiveClassUI.enterRoom(context, code, name) { msg ->
                         ToastUtils.showShort(msg)
                     }
 

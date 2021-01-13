@@ -135,12 +135,6 @@ interface ApiService {
 
 
     /**
-     * 普通课详情
-     */
-    @POST("/api/student/schedule/getInfo")
-    fun getCommonCourseDetail(@Body json: CourseDetailRequest): Flowable<Response<CourseDetail>>
-
-    /**
      * 我的消息列表
      */
     @POST("/api/student/message/list")

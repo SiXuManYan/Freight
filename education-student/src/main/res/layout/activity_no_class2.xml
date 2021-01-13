@@ -122,7 +122,9 @@
                 android:layout_gravity="center"
                 android:textColor="@color/font_white"
                 android:textSize="@dimen/sp14"
-                tools:text="开课时间" />
+                android:text="未开课" />
+
+            <!--  android:text=开课时间-->
 
 
             <TextView

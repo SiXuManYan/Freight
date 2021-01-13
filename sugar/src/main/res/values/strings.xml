@@ -36,7 +36,7 @@
     <string name="final_url_format">https://%1$s.%2$s/%3$s</string>
 
     <!-- 生日 -->
-    <string name="birthday_format">%1$d-%2$d-%3$s</string>
+    <string name="birthday_format">%1$d-%2$s-%3$s</string>
 
     <!-- 金额 -->
     <string name="money_symbol">&#165;</string>
