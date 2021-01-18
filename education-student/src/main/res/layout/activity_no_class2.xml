@@ -111,6 +111,7 @@
 
 
         <ViewSwitcher
+            android:id="@+id/bottom_sw"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -124,7 +125,7 @@
                 android:textSize="@dimen/sp14"
                 android:text="未开课" />
 
-            <!--  android:text=开课时间-->
+
 
 
             <TextView

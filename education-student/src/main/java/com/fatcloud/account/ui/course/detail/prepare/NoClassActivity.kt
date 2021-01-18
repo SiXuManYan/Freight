@@ -1,17 +1,23 @@
 package com.fatcloud.account.ui.course.detail.prepare
 
+import android.os.SystemClock
+import android.view.View
 import androidx.fragment.app.Fragment
+import com.blankj.utilcode.constant.TimeConstants
 import com.blankj.utilcode.util.StringUtils
 import com.fatcloud.account.R
 import com.fatcloud.account.frames.components.BaseMVPActivity
 import com.fatcloud.account.frames.entity.FormalCourseDetail
+import com.fatcloud.account.frames.entity.home.CourseState
 import com.fatcloud.account.frames.event.NoClassDataEvent
 import com.fatcloud.account.ui.course.detail.prepare.child.directory.DirectoryFragment
 import com.fatcloud.account.ui.course.detail.prepare.child.introduct.IntroductionFragment
 import com.fatcloud.account.ui.course.detail.prepare.child.teacher.TeacherFragment
 import com.fatcloud.account.ui.order.list.OrderActivity
 import com.sugar.library.event.RxBus
+import com.sugar.library.ui.widget.countdown.CountDownTextView
 import com.sugar.library.util.Constants
+import com.sugar.library.util.TimeUtil
 import kotlinx.android.synthetic.main.activity_no_class2.*
 
 /**
@@ -58,7 +64,61 @@ class NoClassActivity : BaseMVPActivity<NoClassPresenter>(), NoClassView {
 
     override fun bindDetail(data: FormalCourseDetail) {
         RxBus.post(NoClassDataEvent(data))
+        if (data.scheduleOuts.isNotEmpty()) {
+            val scheduleOut = data.scheduleOuts[0]
+
+            when (scheduleOut.scheduleState) {
+                CourseState.UNTEACH.name  -> {
+                    bottom_sw.displayedChild = 0
+                }
+                CourseState.TEACHING.name->{
+                    bottom_sw.displayedChild = 1
+                }
+
+                else -> {
+                }
+            }
+
+
+
+            val timeStrToSecond = TimeUtil.timeStrToSecond(scheduleOut.studyDatetime)
+            initCountDown(timeStrToSecond)
+        }
+
     }
+
+    private fun initCountDown(endTime: Long) {
+//        when {
+//            endTime <= 0 -> {
+//                countdown_tv.visibility = View.GONE
+//            }
+//            endTime > TimeConstants.DAY -> {
+//                count_down_ll.visibility = View.VISIBLE
+//                countdown_tv.text = TimeUtil.getDateTimeFromMillisecond(endTime)
+//            }
+//            else -> {
+//                countdown_tv.apply {
+//                    visibility = View.VISIBLE
+//                    cancel()
+//                    setTimeInFuture(SystemClock.elapsedRealtime() + endTime)
+//                    setAutoDisplayText(true)
+//                    setTimeFormat(CountDownTextView.TIME_SHOW_D_H_M_S)
+//                    start()
+//                    addCountDownCallback(object : CountDownTextView.CountDownCallback {
+//
+//                        override fun onTick(countDownTextView: CountDownTextView?, millisUntilFinished: Long) = Unit
+//
+//                        override fun onFinish(countDownTextView: CountDownTextView?) {
+//                            product_state_tv.text = StringUtils.getString(R.string.in_class)
+//                            count_down_ll.visibility = View.GONE
+//                        }
+//                    })
+//                }
+//            }
+//        }
+
+    }
+
 
     override fun onTabSelect(position: Int) {
         pager.currentItem = position

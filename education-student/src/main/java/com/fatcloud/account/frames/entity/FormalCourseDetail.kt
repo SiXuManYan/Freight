@@ -58,6 +58,7 @@ class FormalCourseDetail :Serializable {
         var scheduleId = ""
         var studyDatetime = ""
         var scheduleState = ""
+        var courseDetailImgs = ""
     }
 
 }
